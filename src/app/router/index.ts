@@ -1,0 +1,47 @@
+import { createRouter, createWebHistory } from 'vue-router'
+
+import DefaultLayout from '@/app/layouts/DefaultLayout.vue'
+import DashboardPage from '@/app/pages/DashboardPage.vue'
+import HomeLoadingPage from '@/scenarios/home-loading/HomeLoadingPage.vue'
+import HugeTablePage from '@/scenarios/huge-table/HugeTablePage.vue'
+import ComponentStormPage from '@/scenarios/component-storm/ComponentStormPage.vue'
+import ComposableChaosPage from '@/scenarios/composable-chaos/ComposableChaosPage.vue'
+import LongRunningSpaPage from '@/scenarios/long-running-spa/LongRunningSpaPage.vue'
+import ReactiveChainPage from '@/scenarios/reactive-chain/ReactiveChainPage.vue'
+
+const router = createRouter({
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/',
+      component: DefaultLayout,
+      children: [
+        { path: '', name: 'dashboard', component: DashboardPage },
+        { path: 'scenarios/home-loading', name: 'home-loading', component: HomeLoadingPage },
+        { path: 'scenarios/huge-table', name: 'huge-table', component: HugeTablePage },
+        {
+          path: 'scenarios/component-storm',
+          name: 'component-storm',
+          component: ComponentStormPage,
+        },
+        {
+          path: 'scenarios/composable-chaos',
+          name: 'composable-chaos',
+          component: ComposableChaosPage,
+        },
+        {
+          path: 'scenarios/long-running-spa',
+          name: 'long-running-spa',
+          component: LongRunningSpaPage,
+        },
+        {
+          path: 'scenarios/reactive-chain',
+          name: 'reactive-chain',
+          component: ReactiveChainPage,
+        },
+      ],
+    },
+  ],
+})
+
+export default router
