@@ -65,7 +65,7 @@ export function createReactiveChain(
     log('watchEffect triggered')
   })
 
-  // 整個實驗真正開始的地方，也就是第一張骨牌倒下等待 Vue 完成Reactive → Scheduler → Render，最後透過 performance.now() 得到一次完整更新成本
+  // 整個實驗真正開始的地方，也就是第一張骨牌倒下等待 Vue 完成 Reactive → Scheduler → Render，最後透過 performance.now() 得到一次完整更新成本
   async function triggerUpdate(): Promise<void> {
     const start = performance.now()
     source.value++

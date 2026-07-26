@@ -7,8 +7,8 @@ import { log } from '@/benchmarks/reactive/logger'
 // ------------------------------------------------
 // Lab Parameters — 改這裡即可重新量測，不用改其他程式碼
 // ------------------------------------------------
-const DEPTH = 5
-const UPDATE_INTERVAL = 500
+const DEPTH = 100
+const UPDATE_INTERVAL = 5
 const AUTO_UPDATE = false
 // ------------------------------------------------
 
@@ -69,24 +69,37 @@ onUnmounted(() => {
 
     <section class="metrics">
       <h2>Runtime Metrics</h2>
-      <dl>
-        <dt>Dependency Depth</dt>
-        <dd>{{ DEPTH }}</dd>
-        <dt>Render Count</dt>
-        <dd>{{ metrics.counters.renderCount }}</dd>
-        <dt>Computed Execute Count</dt>
-        <dd>{{ metrics.counters.computedExecuteCount }}</dd>
-        <dt>Watch Trigger Count</dt>
-        <dd>{{ metrics.counters.watchTriggerCount }}</dd>
-        <dt>WatchEffect Trigger Count</dt>
-        <dd>{{ metrics.counters.watchEffectTriggerCount }}</dd>
-        <dt>Total Update Count</dt>
-        <dd>{{ metrics.duration.totalUpdateCount }}</dd>
-        <dt>Average Update Duration</dt>
-        <dd>{{ metrics.duration.averageUpdateDuration.toFixed(3) }} ms</dd>
-        <dt>Total Execution Time</dt>
-        <dd>{{ metrics.duration.totalExecutionTime.toFixed(3) }} ms</dd>
-      </dl>
+
+      <div class="metric-group">
+        <h3>1. Initialization Phase (首航依賴建立)</h3>
+        <dl>
+          <dt>Dependency Depth</dt>
+          <dd>{{ DEPTH }}</dd>
+          <dt>Computed Execute Count</dt>
+          <dd>{{ metrics.counters.computedExecuteCount }}</dd>
+          <dt>WatchEffect Trigger Count</dt>
+          <dd>{{ metrics.counters.watchEffectTriggerCount }}</dd>
+        </dl>
+      </div>
+
+      <div class="metric-group">
+        <h3>2. Runtime Update Phase (狀態變更更新效能)</h3>
+        <div v-if="metrics.duration.totalUpdateCount === 0" class="hint-box">
+          💡 尚未觸發動態更新。點擊 <strong>Trigger Update</strong> 按鈕即可開始紀錄更新時間與計數。
+        </div>
+        <dl>
+          <dt>Total Update Count</dt>
+          <dd>{{ metrics.duration.totalUpdateCount }}</dd>
+          <dt>Average Update Duration</dt>
+          <dd>{{ metrics.duration.averageUpdateDuration.toFixed(3) }} ms</dd>
+          <dt>Total Execution Time</dt>
+          <dd>{{ metrics.duration.totalExecutionTime.toFixed(3) }} ms</dd>
+          <dt>Watch Trigger Count</dt>
+          <dd>{{ metrics.counters.watchTriggerCount }}</dd>
+          <dt>Render Count</dt>
+          <dd>{{ metrics.counters.renderCount }}</dd>
+        </dl>
+      </div>
     </section>
 
     <section>
@@ -97,6 +110,29 @@ onUnmounted(() => {
 </template>
 
 <style scoped>
+.metric-group {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f8fafc;
+  border-radius: 6px;
+  border: 1px solid #e2e8f0;
+}
+
+.metric-group h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.hint-box {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
+  background-color: #fef3c7;
+  color: #92400e;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
 dl {
   display: grid;
   grid-template-columns: max-content 1fr;
@@ -111,5 +147,6 @@ dt {
 dd {
   margin: 0;
   font-variant-numeric: tabular-nums;
+  font-weight: 600;
 }
 </style>
