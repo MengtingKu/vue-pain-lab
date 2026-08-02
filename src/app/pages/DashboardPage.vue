@@ -25,8 +25,9 @@ const scenarios: ScenarioSummary[] = [
   },
   {
     title: 'Component Storm',
-    description: '資料夾已建立，痛點描述還沒寫下來。',
-    status: 'empty',
+    description:
+      '後台系統常見一個 Parent 掛大量結構一致的 Child：Component 數量增加、Parent 更新時，Runtime Cost 會怎麼變？',
+    status: 'drafted',
     to: '/scenarios/component-storm',
   },
   {
