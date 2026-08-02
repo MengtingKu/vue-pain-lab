@@ -14,11 +14,11 @@ export interface ComponentStormDuration {
 }
 
 /**
- * Component Storm 的量測儀器。
+ * Component Storm 的效能指標儀表板量測儀器。
  * - counters 刻意不是 reactive：它們在 onUpdated 內被 increment，
  *   若同時是 reactive 又被 template 讀取，會造成同一輪 render 觸發自己的遞迴更新
  *   （原因同 src/benchmarks/reactive/metrics.ts 的 counters）。
- * - duration 是 reactive，因為畫面需要即時顯示 Mount Time / Update Duration / Updated Component Count。
+ * - duration（Mount 時間、平均更新毫秒）是 reactive，因為畫面需要即時顯示 Mount Time / Update Duration / Updated Component Count。
  */
 export function createComponentStormMetrics() {
   const counters: ComponentStormCounters = {

@@ -11,16 +11,16 @@ const { componentCount, updateScope, autoUpdate, updateInterval } = componentSto
 // metrics 建立：要觀察哪些證據
 const metrics = createComponentStormMetrics()
 
-// Mount 量測從 setup 開始算起，結束點在 onMounted（此時所有 Child 都已完成首次 mount）
+// 1. Mount 時間精確量測：量測從 Setup 階段開始記錄起始時間，並在 onMounted（所有 500 個 Child 都已完成 DOM 掛載）時計算出總 Mount Time
 const mountStart = performance.now()
 
-// COMPONENT_COUNT 個 Child 的初始狀態，結構完全一致
+// 建立 500 個 Child 的初始狀態，結構完全一致（僅 id/label 不同），儲存在 reactive 陣列中
 const children = reactive(createChildren(componentCount))
 
 // ParentOnly 更新的目標：只變動 Parent 自身狀態，不碰任何 Child Props
 const parentTick = ref(0)
 
-// 每次 triggerUpdate 都重新統計「這次實際造成幾個 Child re-render」
+// 2. 提供 Provide/Inject 回報管道：每次 triggerUpdate 都重新統計「這次實際造成幾個 Child re-render」
 let updatedIdsThisCycle = new Set<number>()
 
 function reportChildRender(id: number): void {
@@ -48,26 +48,29 @@ onUnmounted(() => {
   if (timer) clearInterval(timer)
 })
 
-// 依 UPDATE_SCOPE 更動不同範圍的狀態，其餘流程（量測開始 → 等待 flush → 量測結束）完全固定
+// 3. Update Scope 控制與更新時間計算：依 UPDATE_SCOPE 更動不同範圍的狀態，其餘流程（量測開始 → 等待 flush → 量測結束）完全固定
 async function triggerUpdate(): Promise<void> {
   updatedIdsThisCycle = new Set<number>()
   const start = performance.now()
 
   switch (updateScope) {
     case 'ParentOnly':
+      // 只改 Parent 自身的 parentTick，完全不碰 Child Props
       parentTick.value++
       break
     case 'SingleChild': {
+      // 只改第 0 個 Child 的 value
       const target = children[0]
       if (target) target.value++
       break
     }
     case 'AllChildren':
+      // 迴圈更新所有 500 個 Child 的 value
       for (const child of children) child.value++
       break
   }
 
-  await nextTick()
+  await nextTick() // 等待 Vue 將 Reactive 變動 Flush 到 DOM 視覺完成
   metrics.recordUpdateDuration(performance.now() - start)
   metrics.setUpdatedComponentCount(updatedIdsThisCycle.size)
 }
