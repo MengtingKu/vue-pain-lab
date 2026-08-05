@@ -157,9 +157,11 @@ Vue 3.6 runtime 是否降低 Component Storm（大量結構一致 Child）場景
 
 沿用 reactive-chain 驗證時建立的量測手法（見該 README「量測方法演進與重要發現」）：用 `MutationObserver` 監看畫面上 `Total Update Count` 的 DOM 文字變化來判斷單次 `triggerUpdate` 是否完成，避免 `setTimeout` 被背景分頁節流。每次 trial 前重新整理頁面（重置所有 metrics），連續觸發 100 次 `Trigger Update`，共 3 次 trial，取 median。
 
-## Observation（Baseline only — Vue 3.6 Validation 尚未執行）
+## Observation
 
 `componentCount` 覆蓋 `100`／`500`／`1000` 三個 Scale，各 Scale 下三種 `updateScope` 各跑 3 次 trial（每次 trial 前重新整理頁面重置 metrics，連續觸發 100 次 Trigger Update）。數字直接讀取畫面 Runtime Metrics。
+
+`componentCount=500` 已完成 Vue 3.5.40 Baseline 與 Vue 3.6.0-rc.2 Validation 的完整比較（見下方「Version Comparison」）；`componentCount=100`／`1000` 目前仍只有 Vue 3.5.40 Baseline 數據，尚未跑 Vue 3.6（見 Next Step）。
 
 ## componentCount=500
 
@@ -220,6 +222,79 @@ JS Execution Time（= Average Update Duration × 100 次觸發）：AllChildren 
 Memory（JS Heap `usedJSHeapSize`，`performance.memory`）：三種 Scope 的 Heap Δ 都落在 +0.42 MB ~ +39.23 MB 這種大範圍雜訊帶內，且 ParentOnly / SingleChild 彼此的 Heap Δ 量級（+6.6~+15.5 MB）跟 AllChildren（-2.9~+39.2 MB）沒有清楚的區隔，判斷主要受 V8 GC 排程時機影響，而非三種 Update Scope 本身的記憶體成本差異——與 reactive-chain 驗證時觀察到「這套自動化環境的量測雜訊可能大於真實訊號」的結論一致。目前的量測精度**不足以**拿 Heap Δ 區分 Update Scope 或版本差異。
 
 Console 觀察：三種 Scope 全程皆無 error / warning，無 `Maximum recursive updates exceeded`。
+
+## componentCount=500（Vue 3.6.0-rc.2 Validation）
+
+### Validation Environment
+
+- Vue Version：`3.6.0-rc.2`（`npm install vue@3.6.0-rc.2 --save-exact`）
+- Node.js：v24.13.0（不變）
+- Browser：Chrome 150.0.0.0（同 baseline，透過 claude-in-chrome 擴充套件自動化操作，分頁全程為背景/hidden 狀態，`document.hidden === true`）
+- Vite：v8.1.5（不變）
+- Scenario Parameters：`componentCount=500`，三種 `updateScope` 各測一輪，`autoUpdate=false`（全程未修改 Scenario Code，僅切換 `config.ts` 的 `updateScope`，與 Baseline 切換方式完全相同）
+- 量測手法：與 Baseline 完全相同——`MutationObserver` 監看 `Total Update Count` 的 DOM 文字變化判斷單次 `triggerUpdate` 完成，每次 trial 前重新整理頁面重置 metrics，連續觸發 100 次 `Trigger Update`，共 3 次 trial，取 median。
+
+### AllChildren
+
+| Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
+| ----- | ---------- | ------------------------ | --------------- | -------------- | --------- |
+| 1     | 320.200 ms | 162.534 ms                | 21.91 MB         | 29.61 MB        | +7.71 MB  |
+| 2     | 342.200 ms | 154.966 ms                | 21.28 MB         | 31.18 MB        | +9.90 MB  |
+| 3     | 314.600 ms | 158.669 ms                | 21.57 MB         | 33.29 MB        | +11.72 MB |
+
+Mount Time median：320.200 ms（range 314.600–342.200 ms）
+Average Update Duration median：158.669 ms（range 154.966–162.534 ms）
+
+結構性 counter（3 次 trial 完全一致，且與 Vue 3.5.40 Baseline 完全一致）：Total Update Count 100、Updated Component Count 500、Parent Render Count 200、Child Render Count（累計）50000。
+
+### ParentOnly
+
+| Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
+| ----- | ---------- | ------------------------ | --------------- | -------------- | --------- |
+| 1     | 360.100 ms | 6.301 ms                  | 21.58 MB         | 32.96 MB        | +11.38 MB |
+| 2     | 279.000 ms | 6.680 ms                  | 21.42 MB         | 32.01 MB        | +10.59 MB |
+| 3     | 298.600 ms | 6.488 ms                  | 28.71 MB         | 39.58 MB        | +10.88 MB |
+
+Mount Time median：298.600 ms（range 279.000–360.100 ms）
+Average Update Duration median：6.488 ms（range 6.301–6.680 ms）
+
+結構性 counter（3 次 trial 完全一致，且與 Vue 3.5.40 Baseline 完全一致）：Total Update Count 100、**Updated Component Count 0**、Parent Render Count 200、**Child Render Count 0**、Parent Tick 100。
+
+### SingleChild
+
+| Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
+| ----- | ---------- | ------------------------ | --------------- | -------------- | --------- |
+| 1     | 323.100 ms | 6.635 ms                  | 21.77 MB         | 34.81 MB        | +13.04 MB |
+| 2     | 291.600 ms | 5.330 ms                  | 21.49 MB         | 25.27 MB        | +3.78 MB  |
+| 3     | 281.700 ms | 6.873 ms                  | 21.89 MB         | 31.64 MB        | +9.74 MB  |
+
+Mount Time median：291.600 ms（range 281.700–323.100 ms）
+Average Update Duration median：6.635 ms（range 5.330–6.873 ms）
+
+結構性 counter（3 次 trial 完全一致，且與 Vue 3.5.40 Baseline 完全一致）：Total Update Count 100、**Updated Component Count 1**、Parent Render Count 200、**Child Render Count 100**。
+
+Console 觀察：三種 Scope 全程皆無 error / warning，無 `Maximum recursive updates exceeded`。
+
+### Version Comparison（componentCount=500，median，Vue 3.5.40 → Vue 3.6.0-rc.2）
+
+| Update Scope | Metric                   | Vue 3.5.40 | Vue 3.6.0-rc.2 | 差異        |
+| ------------- | ------------------------- | ---------- | -------------- | ----------- |
+| AllChildren   | Average Update Duration   | 187.405 ms | 158.669 ms      | -15.3%      |
+| AllChildren   | Mount Time                | 350.900 ms | 320.200 ms      | -8.7%       |
+| ParentOnly    | Average Update Duration   | 8.770 ms   | 6.488 ms        | -26.0%      |
+| ParentOnly    | Mount Time                | 306.800 ms | 298.600 ms      | -2.7%       |
+| SingleChild   | Average Update Duration   | 9.000 ms   | 6.635 ms        | -26.3%      |
+| SingleChild   | Mount Time                | 299.400 ms | 291.600 ms      | -2.6%       |
+
+結構性 counter（Total Update Count / Updated Component Count / Parent Render Count / Child Render Count / Parent Tick）在三種 Scope 下，Vue 3.5.40 與 Vue 3.6.0-rc.2 **完全一致**，符合 Hypothesis 的預期——版本升級不會讓任何 Child 被跳過渲染或改變渲染次數。
+
+Average Update Duration 在三種 Scope 下**方向一致地變快**，這點與 [`reactive-chain`](../reactive-chain/README.md) 的驗證結果（-1.6%、判定持平）不同。但幅度是否真的構成「顯著改善」需要對照雜訊帶：
+
+- 這一輪 Vue 3.6.0-rc.2 自己 3 次 trial 之間的變異相對小（AllChildren 154.966–162.534 ms，約 ±2.4%；ParentOnly 6.301–6.680 ms，約 ±3%；SingleChild 5.330–6.873 ms，約 ±13%）。
+- 但 Baseline（Vue 3.5.40）自己 3 次 trial 之間的變異明顯更大（ParentOnly 6.654–9.711 ms，約 ±19%；SingleChild 8.962–10.732 ms，約 ±9%；AllChildren 182.206–210.861 ms，約 ±7%）——尤其 ParentOnly 的 baseline 雜訊帶（單一 build 內部可以差到 32%）已經逼近甚至超過這次觀察到的版本間差異（26.0%）。
+- 换句話说：**AllChildren 的 -15.3% 與 Mount Time 的全面下降，因為兩版自己的重跑變異都相對較小，比較有機會是真實訊號；但 ParentOnly / SingleChild 這種個位數 ms 等級的 -26% 差異，考慮到 baseline 自己就有將近 -32% 的雜訊帶，還不能排除是雜訊而非版本改善**——這與 reactive-chain 驗證時「這套自動化環境的量測雜訊可能大於真實訊號」的結論一致，只是這次三個 Scope 的方向剛好都一致變快，比 reactive-chain 那次（有快有慢）更像訊號，但也可能只是這次系統負載/GC 排程剛好偏向對 3.6 有利。
+
+Heap Δ 三種 Scope 在 Vue 3.6.0-rc.2 下的範圍（+3.78 MB ~ +13.04 MB）與 Baseline（+0.42 MB ~ +39.23 MB）一樣落在大範圍雜訊帶內，沒有清楚的版本差異訊號，維持 Baseline 驗證時「`performance.memory` 在這套環境下不可靠」的結論。
 
 ## componentCount=100
 
@@ -337,15 +412,73 @@ Heap Δ 這三個 trial 全部是負值（heap 反而變小），推斷是 100 �
 
 Console 觀察：全部 18 次 trial（2 個新 Scale × 3 Scope × 3 trial）皆無 error / warning，無 `Maximum recursive updates exceeded`。
 
+## Validation Result
+
+### Vue 3.5 Baseline
+
+`componentCount=500`，三種 `updateScope` 各 3 次 trial × 100 次 update：Average Update Duration median——AllChildren 187.405 ms、ParentOnly 8.770 ms、SingleChild 9.000 ms。結構性 counter（Updated Component Count / Parent Render Count / Child Render Count）三種 Scope 各自的 3 次 trial 完全一致。
+
+### Vue 3.6 Validation
+
+`componentCount=500`（相同 Scenario Code、相同瀏覽器分頁、相同量測手法），三種 `updateScope` 各 3 次 trial × 100 次 update：Average Update Duration median——AllChildren 158.669 ms、ParentOnly 6.488 ms、SingleChild 6.635 ms。結構性 counter 與 Vue 3.5.40 Baseline **逐項完全一致**（見上方「Version Comparison」表）。
+
+### Improvement
+
+三種 Update Scope 的 Average Update Duration 與 Mount Time 在 Vue 3.6.0-rc.2 下**方向一致地變快**（-2.6% ~ -26.3%），這點與 reactive-chain 驗證（-1.6%、判定持平）不同，是本次驗證與先前驗證最大的差異。但幅度是否構成「顯著改善」需分開看：
+
+- **AllChildren（-15.3% Update Duration、-8.7% Mount Time）**：兩版自己的 3 次 trial 內部變異都相對小（3.6 約 ±2.4%、3.5.40 約 ±7%），版本間差異大於雙方各自的雜訊帶，判定為**有觀察到改善**，但仍建議以更多 trial 數驗證。
+- **ParentOnly／SingleChild（-26% 上下）**：這兩個 Scope 的絕對時間落在個位數 ms，Baseline 自己的雜訊帶就達 19%~32%（尤其 ParentOnly），版本間的 -26% 差異雖然數字上更大，但無法排除是雜訊而非真實改善——**方向上像是變快，但目前的量測精度不足以下「顯著改善」的結論**。
+
+結構性 counter（Updated Component Count / Parent Render Count / Child Render Count）在兩版完全相同，代表 Vue 3.6 沒有讓任何 Child 被跳過渲染，也沒有改變渲染次數本身——與 Hypothesis 預期一致。
+
+## Final Conclusion（componentCount=500）
+
+### 1. Vue Runtime 改善了什麼？
+
+Component Update 與 Mount 的**單位執行成本**可能降低了（三種 Update Scope 的 Average Update Duration、Mount Time 都朝同一方向變快），但**沒有改變**渲染次數 / 波及範圍這類離散指標——Updated Component Count、Parent Render Count、Child Render Count 在兩版完全相同。
+
+### 2. 改善到什麼程度？
+
+- AllChildren（Worst Case，大量 Child 真的被 patch）：**Minor–Moderate improvement**（-15.3%，訊號強度足以與雜訊區分）。
+- ParentOnly／SingleChild（少量或零 Child 被 patch，純粹是「走過 vnode 陣列」的成本）：**方向像 Minor improvement，但因絕對值小、雜訊帶大，實際上接近 No measurable improvement 的邊界**，不排除是雜訊。
+
+整體判定：**Minor improvement**，且需要更多 trial／正式版 Vue 3.6 才能把「像改善」的訊號和自動化環境雜訊分開。
+
+### 3. 還需要工程改善嗎？
+
+需要，而且比 Vue 版本差異重要得多。呼應本 Baseline 驗證時發現的「Component Scale Comparison」結果：componentCount 從 100 長到 1000，ParentOnly／SingleChild 的 Update Duration 各自被拉長 12.5 倍／8.6 倍——**即使 Child 的 Props 完全沒變**。Vue Runtime 版本頂多把「走過這個陣列」的單位成本降低幾個百分點，無法讓這個成本消失，因為它源自 Component Tree 的結構（一個 Parent 掛大量結構一致的 Child），這是 Component Architecture／State Design 的問題，不是 Reactivity Engine 的問題。
+
+---
+
+## Decision
+
+**Framework Cost 是否改善？**
+Yes——三種 Update Scope 的 Average Update Duration、Mount Time 在 Vue 3.6.0-rc.2 下都朝同一方向變快，其中 AllChildren（-15.3%）的訊號強度足以與雙方自身的雜訊帶區分；ParentOnly／SingleChild（各約 -26%）方向一致但因絕對值小、雜訊帶大，訊號沒那麼確定。整體判定為「有觀察到改善，但幅度中等偏小、部分指標接近雜訊邊界」。
+
+**是否值得升級 Vue 3.6？**
+No（目前階段）——`3.6.0-rc.2` 仍是 release candidate，非正式版；且本次觀察到的改善多數是個位數到十位數 ms 等級，幅度不足以構成「不升級會拖慢真實產品」的急迫理由。應等正式版釋出、且用更多 trial／真人前景操作重新驗證訊號是否穩定，再決定是否升級。
+
+**是否仍需改善 Component Architecture？**
+Yes（幾乎所有大型專案都是如此）——Baseline 驗證已經證明：Child 數量本身就是成本，跟改了幾個 Child 的 Props 是兩件事。就算只改 Parent 自己的狀態、完全不碰任何 Child Props，Child 數量從 100 長到 1000，這次「無關」的 re-render 也會慢十幾倍。這個成本來自 `v-for` 掃描陣列與 key/props 比對的必要開銷，屬於 Component Boundary／Tree 設計問題，Vue Runtime 版本升級無法讓它消失。
+
+### 結論
+
+Framework 可以降低 Runtime Cost——本輪驗證中，Vue 3.6.0-rc.2 在三種 Update Scope 下都讓「每次 update / mount 的單位執行成本」變快，代表 Vue 團隊優化 Runtime 內部實作（例如 patch / diff / mount 路徑）確實能讓同一份 Component Tree 跑起來更快，這是版本升級能單方面提供的收益，不需要動任何一行應用程式碼。
+
+Architecture 決定 Runtime 的上限——但這個收益是**乘數性的、不是結構性的**：不管 Framework 把單位成本壓得多低，Component Tree 的形狀（掛了多少個 Child、Update 牽連多少個 Child）決定了這個乘數要乘上多大的底數。Baseline 驗證已經證明，光是 componentCount 從 100 長到 1000，即使完全不碰 Child Props，Update Duration 也被拉長 8.6~12.5 倍——這個倍數是 Framework 版本救不了的，因為它不是「每次操作多花多少 ms」的問題，是「一次操作要做幾次操作」的問題。Framework 優化的是斜率，Architecture 決定的是自變數的量級；只升級 Vue 版本、不重新設計 Component Boundary（例如把不常變動的大量 Child 獨立拆分、避免無關 Parent 更新牽連整個陣列），Runtime Cost 的上限依然被 Architecture 卡住。
+
 ## Limitation
 
 - 分頁全程 `document.hidden === true`（claude-in-chrome 的固有限制），無法排除背景分頁 CPU 排程降級對 ms 等級數字的影響，已用 MutationObserver 手法緩解但無法完全消除。
-- `performance.memory.usedJSHeapSize` 受 V8 GC 時機影響極大（`componentCount=1000` 的 AllChildren 甚至因為 trial 耗時夠長而觀察到 heap 不升反降），不能作為版本或 Scope 比較的可靠證據；之後如需更可信的 Memory 證據，應改用 Chrome DevTools Memory 面板的 Heap Snapshot diff（需要真人操作，非目前自動化管道能可靠取得）。
-- 本輪已完成 Vue 3.5.40 Baseline（`componentCount=100/500/1000` × 三種 `updateScope`，共 9 組合、27 次 trial），但尚未執行 Vue 3.6 Validation，因此還不能回答 Question 中的版本比較問題。
-- Mount Time 未特別分析隨 componentCount 的縮放（雖然數字方向符合直覺：100→81.3ms、500→350.9ms、1000→623.5ms，粗略也接近線性），因為 Mount 只發生一次、單一 trial 的雜訊佔比更高，這裡先不下結論。
+- `performance.memory.usedJSHeapSize` 受 V8 GC 時機影響極大，不能作為版本或 Scope 比較的可靠證據；之後如需更可信的 Memory 證據，應改用 Chrome DevTools Memory 面板的 Heap Snapshot diff（需要真人操作，非目前自動化管道能可靠取得）。
+- `componentCount=500` 的 3 次 trial 樣本數偏少，尤其 ParentOnly／SingleChild 這種個位數 ms 等級的指標，雜訊帶（±19%~32%）已經逼近觀察到的版本間差異（-26%），現有數據**不足以**排除「這次觀察到的改善其實是雜訊」的可能性。
+- `componentCount=100`／`1000` 目前仍只有 Vue 3.5.40 Baseline，尚未執行 Vue 3.6 Validation，因此還不能確認「componentCount 越大，版本差異是否越明顯」這類延伸問題。
+- `3.6.0-rc.2` 是 release candidate，非正式版，可能還有 dev-only assertion 或尚未完成的最佳化，正式版數字可能不同。
 
 ## Next Step
 
-1. 安裝 `vue@3.6.0-rc.2`，用完全相同手法（MutationObserver、3 trial × 100 次 Trigger Update）對 `componentCount=500` 的三種 `updateScope` 分別重新量測，取得 Validation 數據後與本 Baseline 比較。
-2. 若要讓 Memory 證據更可信，改用真人操作 + Chrome DevTools Memory 面板 Heap Snapshot diff，而非目前的 `performance.memory` 自動化讀值。
-3. 若時間允許，可再補測 `componentCount=100/1000`（維持三種 `updateScope`），觀察 Component Scale 是否改變 Update Scope 之間的相對差距（例如 AllChildren 相對 ParentOnly 的倍數是否隨數量增加而擴大）。
+1. 等 Vue 3.6 出正式版（而非 rc.2）後，用相同方法對 `componentCount=500` 重新驗證一次，確認這次觀察到的方向一致的改善是否穩定重現。
+2. 把 trial 數拉高（例如 10+ 次）並報告標準差，或改用真人操作、分頁保持前景 focus 的方式重跑，排除自動化環境固有的背景節流雜訊，才能確認 ParentOnly／SingleChild 的 -26% 差異是訊號還是雜訊。
+3. 若要讓 Memory 證據更可信，改用真人操作 + Chrome DevTools Memory 面板 Heap Snapshot diff，而非目前的 `performance.memory` 自動化讀值。
+4. 若時間允許，可再補測 `componentCount=100/1000` 的 Vue 3.6 Validation（維持三種 `updateScope`），觀察 Component Scale 是否放大或縮小版本間的差異。
+5. 在目前證據下，不建議只因為「升級 Vue 版本」就去改這個 scenario 的 Component Boundary／Architecture——真正該優化的是「一個 Parent 是否真的需要掛上千個結構一致的 Child」，這是工程設計問題，Framework 版本只能緩解、不能解決。
