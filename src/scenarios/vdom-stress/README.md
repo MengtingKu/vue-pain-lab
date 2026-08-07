@@ -27,6 +27,12 @@ Rendering Cost 會增加。
 - Trigger Render 按鈕
 - 目前 Render Count（實際已掛載的 Card 數量）
 - Render Metrics：`renderStartTime` / `renderEndTime` / `renderDuration`（皆使用 `performance.now()` 量測，`renderDuration` 等到 Vue 實際完成 DOM 掛載後才計算）
+- `renderType`：`mount` / `update` 分類，純觀察用途，判斷依據是「觸發 Trigger Render 當下 `cards` 是否為空陣列」——空陣列代表這次是首次建立 N 個全新 vnode 並掛載（Mount），非空陣列代表這次是用既有 key（`card.id`）對舊列表做 diff/patch（Update）。判斷發生在 `renderStartTime` 記錄之前，不計入量測時間。
+
+Mount vs Update 判斷規則（供 Evidence Matrix 記錄用）：
+
+- **Mount**：頁面剛載入、或上一次已將 Render Count 清空後，第一次點擊 Trigger Render。
+- **Update**：`cards` 已有內容時再次點擊 Trigger Render（不論是否切換 Render Count），Vue 走的是既有 vnode 的 diff/patch 路徑，而非重新建立。
 
 ## Not Included
 

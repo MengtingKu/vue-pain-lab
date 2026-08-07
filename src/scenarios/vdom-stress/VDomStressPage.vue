@@ -19,7 +19,12 @@ const renderStartTime = ref<number | null>(null)
 const renderEndTime = ref<number | null>(null)
 const renderDuration = ref<number | null>(null)
 
+// Mount / Update 分類：純觀察用途，判斷依據是「觸發當下 cards 是否為空」
+// 在 renderStartTime 記錄之前判斷，不影響量測本身
+const renderType = ref<'mount' | 'update' | null>(null)
+
 async function triggerRender(): Promise<void> {
+  renderType.value = cards.value.length === 0 ? 'mount' : 'update'
   renderStartTime.value = performance.now()
   renderEndTime.value = null
   renderDuration.value = null
@@ -61,6 +66,8 @@ async function triggerRender(): Promise<void> {
       <dl>
         <dt>Current Render Count</dt>
         <dd>{{ cards.length }}</dd>
+        <dt>renderType</dt>
+        <dd>{{ renderType ?? '-' }}</dd>
         <dt>renderStartTime</dt>
         <dd>{{ renderStartTime !== null ? `${renderStartTime.toFixed(3)} ms` : '-' }}</dd>
         <dt>renderEndTime</dt>
