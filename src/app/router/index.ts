@@ -8,6 +8,7 @@ import ComponentStormPage from '@/scenarios/component-storm/ComponentStormPage.v
 import ComposableChaosPage from '@/scenarios/composable-chaos/ComposableChaosPage.vue'
 import LongRunningSpaPage from '@/scenarios/long-running-spa/LongRunningSpaPage.vue'
 import ReactiveChainPage from '@/scenarios/reactive-chain/ReactiveChainPage.vue'
+import VDomStressPage from '@/scenarios/vdom-stress/VDomStressPage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -38,6 +39,11 @@ const router = createRouter({
           path: 'scenarios/reactive-chain',
           name: 'reactive-chain',
           component: ReactiveChainPage,
+        },
+        {
+          path: 'scenarios/vdom-stress',
+          name: 'vdom-stress',
+          component: VDomStressPage,
         },
       ],
     },

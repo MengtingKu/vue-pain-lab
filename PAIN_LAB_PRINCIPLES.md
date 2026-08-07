@@ -43,3 +43,19 @@ Ask yourself:
 If the answer is no,
 
 simplify it.
+
+## AI Workflow
+
+AI agents should follow:
+
+1. Create Scenario
+   → .claude/skills/create-pain-scenario
+
+2. Validate Vue Version
+   → .claude/skills/validate-vue-update
+
+3. Review Evidence
+   → .claude/skills/review-scenario
+
+4. Generate Article
+   → .claude/skills/generate-article
