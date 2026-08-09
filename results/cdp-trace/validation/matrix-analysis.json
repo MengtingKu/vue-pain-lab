@@ -1,0 +1,2722 @@
+[
+  {
+    "metric": "Render Duration",
+    "operation": "mount",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2.55,
+        "p25": 2.05,
+        "p75": 3.1,
+        "min": 1.7,
+        "max": 3.7
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2.7,
+        "p25": 1.875,
+        "p75": 3.425,
+        "min": 1.5,
+        "max": 5.6
+      }
+    },
+    "deltaMs": 0.15000000000000036,
+    "deltaUs": null,
+    "deltaPct": 5.882352941176485,
+    "pairedFavor36Count": 4,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Render Duration",
+    "operation": "mount",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 7.7,
+        "p25": 6.75,
+        "p75": 7.875,
+        "min": 5,
+        "max": 9.4
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 8.649999999999999,
+        "p25": 7.5,
+        "p75": 9.85,
+        "min": 5,
+        "max": 12.2
+      }
+    },
+    "deltaMs": 0.9499999999999984,
+    "deltaUs": null,
+    "deltaPct": 12.337662337662318,
+    "pairedFavor36Count": 2,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Render Duration",
+    "operation": "mount",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 12.4,
+        "p25": 9.6,
+        "p75": 13.924999999999999,
+        "min": 8.5,
+        "max": 31.8
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 13.7,
+        "p25": 12.325,
+        "p75": 14.825,
+        "min": 8,
+        "max": 30.2
+      }
+    },
+    "deltaMs": 1.299999999999999,
+    "deltaUs": null,
+    "deltaPct": 10.483870967741925,
+    "pairedFavor36Count": 3,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Render Duration",
+    "operation": "mount",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 45.5,
+        "p25": 40.425,
+        "p75": 51.175,
+        "min": 35.4,
+        "max": 59.4
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 118.8,
+        "p25": 65.07499999999999,
+        "p75": 122.525,
+        "min": 35.2,
+        "max": 124.5
+      }
+    },
+    "deltaMs": 73.3,
+    "deltaUs": null,
+    "deltaPct": 161.09890109890108,
+    "pairedFavor36Count": 2,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Render Duration",
+    "operation": "update",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2.1500000000000004,
+        "p25": 1.475,
+        "p75": 2.525,
+        "min": 0.8,
+        "max": 3.4
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1.4,
+        "p25": 1.1,
+        "p75": 1.5750000000000002,
+        "min": 0.9,
+        "max": 4.6
+      }
+    },
+    "deltaMs": -0.7500000000000004,
+    "deltaUs": null,
+    "deltaPct": -34.88372093023258,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Render Duration",
+    "operation": "update",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2.1,
+        "p25": 1.9,
+        "p75": 2.625,
+        "min": 1.7,
+        "max": 3.4
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2,
+        "p25": 1.8,
+        "p75": 2.1,
+        "min": 1.5,
+        "max": 4.8
+      }
+    },
+    "deltaMs": -0.10000000000000009,
+    "deltaUs": null,
+    "deltaPct": -4.761904761904765,
+    "pairedFavor36Count": 6,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Render Duration",
+    "operation": "update",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3.1500000000000004,
+        "p25": 3.1,
+        "p75": 3.275,
+        "min": 2.9,
+        "max": 6.2
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2.9,
+        "p25": 2.8249999999999997,
+        "p75": 3.5749999999999997,
+        "min": 2.7,
+        "max": 7.7
+      }
+    },
+    "deltaMs": -0.25000000000000044,
+    "deltaUs": null,
+    "deltaPct": -7.93650793650795,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Render Duration",
+    "operation": "update",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 26.5,
+        "p25": 16.15,
+        "p75": 28.625,
+        "min": 12,
+        "max": 35.5
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 28.4,
+        "p25": 12.899999999999999,
+        "p75": 30.174999999999997,
+        "min": 9.8,
+        "max": 33.5
+      }
+    },
+    "deltaMs": 1.8999999999999986,
+    "deltaUs": null,
+    "deltaPct": 7.169811320754711,
+    "pairedFavor36Count": 4,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Scripting",
+    "operation": "mount",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4059,
+        "p25": 3518.75,
+        "p75": 4627.25,
+        "min": 2822,
+        "max": 6227
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4141,
+        "p25": 3075,
+        "p75": 5309.75,
+        "min": 2644,
+        "max": 7250
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 82,
+    "deltaPct": 2.0202020202020203,
+    "pairedFavor36Count": 6,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Stable / No Meaningful Difference"
+  },
+  {
+    "metric": "Scripting",
+    "operation": "mount",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 10532.5,
+        "p25": 9935,
+        "p75": 11327.25,
+        "min": 8056,
+        "max": 14018
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 11650,
+        "p25": 10084.75,
+        "p75": 12302.25,
+        "min": 7034,
+        "max": 16451
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 1117.5,
+    "deltaPct": 10.610016615238548,
+    "pairedFavor36Count": 3,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Scripting",
+    "operation": "mount",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 15917,
+        "p25": 13858.75,
+        "p75": 19246,
+        "min": 12477,
+        "max": 41847
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 17313.5,
+        "p25": 15694.5,
+        "p75": 19555.25,
+        "min": 11130,
+        "max": 40357
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 1396.5,
+    "deltaPct": 8.773638248413645,
+    "pairedFavor36Count": 2,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Scripting",
+    "operation": "mount",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 57158.5,
+        "p25": 51644,
+        "p75": 69388,
+        "min": 48127,
+        "max": 73942
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 149704,
+        "p25": 80431.75,
+        "p75": 150272,
+        "min": 47017,
+        "max": 162268
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 92545.5,
+    "deltaPct": 161.9103020548125,
+    "pairedFavor36Count": 2,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Scripting",
+    "operation": "update",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4506.5,
+        "p25": 2827.75,
+        "p75": 5468.25,
+        "min": 1437,
+        "max": 6325
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2574,
+        "p25": 2212.25,
+        "p75": 2717.5,
+        "min": 1488,
+        "max": 7044
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -1932.5,
+    "deltaPct": -42.88250305114834,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Scripting",
+    "operation": "update",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3972,
+        "p25": 3451.25,
+        "p75": 4509.5,
+        "min": 3130,
+        "max": 7091
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3545,
+        "p25": 3400.5,
+        "p75": 4141.5,
+        "min": 3066,
+        "max": 7050
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -427,
+    "deltaPct": -10.750251762336354,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Scripting",
+    "operation": "update",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 5749.5,
+        "p25": 5582.5,
+        "p75": 6217,
+        "min": 5201,
+        "max": 13363
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 5391,
+        "p25": 5248.75,
+        "p75": 6695.25,
+        "min": 5084,
+        "max": 11785
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -358.5,
+    "deltaPct": -6.235324810853117,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Scripting",
+    "operation": "update",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 48871,
+        "p25": 30197.75,
+        "p75": 52862.75,
+        "min": 20079,
+        "max": 66499
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 50033.5,
+        "p25": 22182,
+        "p75": 52862,
+        "min": 18188,
+        "max": 56648
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 1162.5,
+    "deltaPct": 2.378711301180659,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Rendering",
+    "operation": "mount",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 6123.5,
+        "p25": 4912.25,
+        "p75": 7002.25,
+        "min": 4246,
+        "max": 7474
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 5190.5,
+        "p25": 4341.75,
+        "p75": 6577.25,
+        "min": 3814,
+        "max": 7562
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -933,
+    "deltaPct": -15.236384420674451,
+    "pairedFavor36Count": 8,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Rendering",
+    "operation": "mount",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 21773,
+        "p25": 17946,
+        "p75": 22393.75,
+        "min": 16849,
+        "max": 26849
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 18479,
+        "p25": 16625.25,
+        "p75": 20353.75,
+        "min": 13953,
+        "max": 26438
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -3294,
+    "deltaPct": -15.128829283975568,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Rendering",
+    "operation": "mount",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 31612,
+        "p25": 28248.25,
+        "p75": 33056.25,
+        "min": 25918,
+        "max": 76113
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 26065,
+        "p25": 25298.25,
+        "p75": 28650.25,
+        "min": 24676,
+        "max": 74946
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -5547,
+    "deltaPct": -17.54713399974693,
+    "pairedFavor36Count": 9,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Rendering",
+    "operation": "mount",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 132086.5,
+        "p25": 128012.75,
+        "p75": 143319.5,
+        "min": 117006,
+        "max": 153470
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 341578.5,
+        "p25": 189776.75,
+        "p75": 363910,
+        "min": 129340,
+        "max": 376761
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 209492,
+    "deltaPct": 158.6021281508708,
+    "pairedFavor36Count": 2,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Rendering",
+    "operation": "update",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2834,
+        "p25": 1469.25,
+        "p75": 3032.25,
+        "min": 1037,
+        "max": 3146
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1736.5,
+        "p25": 1286,
+        "p75": 1929.5,
+        "min": 837,
+        "max": 2220
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -1097.5,
+    "deltaPct": -38.72618207480593,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Rendering",
+    "operation": "update",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1835,
+        "p25": 1607.25,
+        "p75": 1975,
+        "min": 1467,
+        "max": 2933
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2048,
+        "p25": 1951,
+        "p75": 2382.75,
+        "min": 1226,
+        "max": 2666
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 213,
+    "deltaPct": 11.607629427792915,
+    "pairedFavor36Count": 2,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Rendering",
+    "operation": "update",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2015.5,
+        "p25": 1761.75,
+        "p75": 2441,
+        "min": 1501,
+        "max": 3224
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2202,
+        "p25": 1753.75,
+        "p75": 2724.25,
+        "min": 1559,
+        "max": 3268
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 186.5,
+    "deltaPct": 9.253287025551971,
+    "pairedFavor36Count": 5,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Rendering",
+    "operation": "update",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 7119.5,
+        "p25": 4664.75,
+        "p75": 7619.25,
+        "min": 4196,
+        "max": 7924
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 7099.5,
+        "p25": 4555.5,
+        "p75": 7612,
+        "min": 4252,
+        "max": 8373
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -20,
+    "deltaPct": -0.2809186038345389,
+    "pairedFavor36Count": 4,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Stable / No Meaningful Difference"
+  },
+  {
+    "metric": "Recalculate Style",
+    "operation": "mount",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 996,
+        "p25": 809.5,
+        "p75": 1086.75,
+        "min": 651,
+        "max": 1288
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 759,
+        "p25": 619,
+        "p75": 920.75,
+        "min": 565,
+        "max": 2001
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -237,
+    "deltaPct": -23.795180722891565,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Recalculate Style",
+    "operation": "mount",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2368.5,
+        "p25": 2026.25,
+        "p75": 3142.25,
+        "min": 2003,
+        "max": 3632
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2707.5,
+        "p25": 2285,
+        "p75": 3046.75,
+        "min": 1947,
+        "max": 4128
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 339,
+    "deltaPct": 14.312856238125397,
+    "pairedFavor36Count": 5,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Recalculate Style",
+    "operation": "mount",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4363,
+        "p25": 3709,
+        "p75": 5130.25,
+        "min": 3438,
+        "max": 10552
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3803.5,
+        "p25": 3519.5,
+        "p75": 4548.25,
+        "min": 3370,
+        "max": 8832
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -559.5,
+    "deltaPct": -12.823745129498052,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Recalculate Style",
+    "operation": "mount",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 17290,
+        "p25": 15837.5,
+        "p75": 19957.75,
+        "min": 15424,
+        "max": 25060
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 42410.5,
+        "p25": 23052.25,
+        "p75": 45119.75,
+        "min": 16152,
+        "max": 47617
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 25120.5,
+    "deltaPct": 145.2891844997108,
+    "pairedFavor36Count": 2,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Recalculate Style",
+    "operation": "update",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 568.5,
+        "p25": 283.75,
+        "p75": 621.25,
+        "min": 197,
+        "max": 810
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 308.5,
+        "p25": 271.75,
+        "p75": 368.5,
+        "min": 173,
+        "max": 397
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -260,
+    "deltaPct": -45.73438874230431,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Recalculate Style",
+    "operation": "update",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 275.5,
+        "p25": 250.75,
+        "p75": 337.5,
+        "min": 217,
+        "max": 482
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 319,
+        "p25": 280.25,
+        "p75": 357.75,
+        "min": 249,
+        "max": 587
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 43.5,
+    "deltaPct": 15.789473684210526,
+    "pairedFavor36Count": 4,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Recalculate Style",
+    "operation": "update",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 313.5,
+        "p25": 256.25,
+        "p75": 405.75,
+        "min": 177,
+        "max": 504
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 252.5,
+        "p25": 222,
+        "p75": 410,
+        "min": 205,
+        "max": 448
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -61,
+    "deltaPct": -19.457735247208934,
+    "pairedFavor36Count": 6,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Recalculate Style",
+    "operation": "update",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 184,
+        "p25": 119.25,
+        "p75": 229.75,
+        "min": 100,
+        "max": 263
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 225.5,
+        "p25": 130.5,
+        "p75": 242,
+        "min": 117,
+        "max": 316
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 41.5,
+    "deltaPct": 22.554347826086957,
+    "pairedFavor36Count": 3,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Layout",
+    "operation": "mount",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3867,
+        "p25": 3270,
+        "p75": 4747.75,
+        "min": 2543,
+        "max": 4928
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3522,
+        "p25": 3015.5,
+        "p75": 4016.25,
+        "min": 2466,
+        "max": 5210
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -345,
+    "deltaPct": -8.92164468580295,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Layout",
+    "operation": "mount",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 16408,
+        "p25": 13719.75,
+        "p75": 17772.5,
+        "min": 11214,
+        "max": 20088
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 13571,
+        "p25": 12283.5,
+        "p75": 16384,
+        "min": 9585,
+        "max": 18455
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -2837,
+    "deltaPct": -17.290346172598735,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Layout",
+    "operation": "mount",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 22713,
+        "p25": 21317.75,
+        "p75": 23892,
+        "min": 18667,
+        "max": 57491
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 19065.5,
+        "p25": 18499.5,
+        "p75": 21297.75,
+        "min": 18209,
+        "max": 58335
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -3647.5,
+    "deltaPct": -16.05908510544622,
+    "pairedFavor36Count": 8,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Layout",
+    "operation": "mount",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 100231.5,
+        "p25": 94440.5,
+        "p75": 107382,
+        "min": 89673,
+        "max": 127168
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 264901.5,
+        "p25": 146611.25,
+        "p75": 286332,
+        "min": 101414,
+        "max": 297255
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 164670,
+    "deltaPct": 164.28966941530356,
+    "pairedFavor36Count": 2,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Layout",
+    "operation": "update",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 772.5,
+        "p25": 462.25,
+        "p75": 849.5,
+        "min": 315,
+        "max": 963
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 544.5,
+        "p25": 413.25,
+        "p75": 564.75,
+        "min": 269,
+        "max": 741
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -228,
+    "deltaPct": -29.514563106796114,
+    "pairedFavor36Count": 8,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Layout",
+    "operation": "update",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 553,
+        "p25": 493.5,
+        "p75": 621.25,
+        "min": 372,
+        "max": 1243
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 657.5,
+        "p25": 589,
+        "p75": 708.5,
+        "min": 390,
+        "max": 860
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 104.5,
+    "deltaPct": 18.896925858951175,
+    "pairedFavor36Count": 3,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Layout",
+    "operation": "update",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 699.5,
+        "p25": 617.75,
+        "p75": 848.25,
+        "min": 462,
+        "max": 1141
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 729,
+        "p25": 628.25,
+        "p75": 1002.75,
+        "min": 563,
+        "max": 1044
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 29.5,
+    "deltaPct": 4.2172980700500355,
+    "pairedFavor36Count": 6,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Layout",
+    "operation": "update",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1876,
+        "p25": 1819.5,
+        "p75": 1918.5,
+        "min": 1322,
+        "max": 2165
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1965.5,
+        "p25": 1789.75,
+        "p75": 2006.5,
+        "min": 1694,
+        "max": 2301
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 89.5,
+    "deltaPct": 4.770788912579958,
+    "pairedFavor36Count": 4,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Painting",
+    "operation": "mount",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2016,
+        "p25": 1780,
+        "p75": 2201.75,
+        "min": 1393,
+        "max": 2417
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1721.5,
+        "p25": 1474.75,
+        "p75": 1885.25,
+        "min": 1205,
+        "max": 3242
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -294.5,
+    "deltaPct": -14.608134920634921,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Painting",
+    "operation": "mount",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 5288.5,
+        "p25": 5179.25,
+        "p75": 5762.75,
+        "min": 3263,
+        "max": 7405
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4576,
+        "p25": 4025.25,
+        "p75": 4778,
+        "min": 3541,
+        "max": 6942
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -712.5,
+    "deltaPct": -13.472629289968802,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Painting",
+    "operation": "mount",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 5017,
+        "p25": 4444.75,
+        "p75": 7195.75,
+        "min": 3359,
+        "max": 11583
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4122.5,
+        "p25": 3464.75,
+        "p75": 4617.75,
+        "min": 3139,
+        "max": 9460
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -894.5,
+    "deltaPct": -17.829380107634044,
+    "pairedFavor36Count": 8,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Painting",
+    "operation": "mount",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 5179,
+        "p25": 4984,
+        "p75": 5245.5,
+        "min": 4460,
+        "max": 6418
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 11925,
+        "p25": 6536.5,
+        "p75": 12330.75,
+        "min": 4329,
+        "max": 14136
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 6746,
+    "deltaPct": 130.25680633326897,
+    "pairedFavor36Count": 3,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Painting",
+    "operation": "update",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3179.5,
+        "p25": 1444.75,
+        "p75": 4081,
+        "min": 941,
+        "max": 4956
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1728.5,
+        "p25": 1319.5,
+        "p75": 2068,
+        "min": 769,
+        "max": 2418
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -1451,
+    "deltaPct": -45.63610630602296,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Painting",
+    "operation": "update",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3553,
+        "p25": 2469,
+        "p75": 3808,
+        "min": 1686,
+        "max": 4156
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1934.5,
+        "p25": 1784.5,
+        "p75": 3857.25,
+        "min": 1025,
+        "max": 4554
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -1618.5,
+    "deltaPct": -45.55305375738812,
+    "pairedFavor36Count": 6,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Painting",
+    "operation": "update",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1676,
+        "p25": 1299.75,
+        "p75": 4572,
+        "min": 1129,
+        "max": 6189
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2600,
+        "p25": 1353.25,
+        "p75": 3417.75,
+        "min": 1141,
+        "max": 5230
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 924,
+    "deltaPct": 55.131264916467785,
+    "pairedFavor36Count": 6,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Painting",
+    "operation": "update",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4434,
+        "p25": 3829.5,
+        "p75": 4719.25,
+        "min": 3051,
+        "max": 4953
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4453.5,
+        "p25": 3440.5,
+        "p75": 4589.5,
+        "min": 3149,
+        "max": 5481
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 19.5,
+    "deltaPct": 0.4397834912043302,
+    "pairedFavor36Count": 5,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Stable / No Meaningful Difference"
+  },
+  {
+    "metric": "Paint",
+    "operation": "mount",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1879,
+        "p25": 1657.75,
+        "p75": 2013.75,
+        "min": 1259,
+        "max": 2132
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1549,
+        "p25": 1344.5,
+        "p75": 1638.75,
+        "min": 1097,
+        "max": 2958
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -330,
+    "deltaPct": -17.562533262373602,
+    "pairedFavor36Count": 8,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Paint",
+    "operation": "mount",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 5080.5,
+        "p25": 4904,
+        "p75": 5552,
+        "min": 3136,
+        "max": 7145
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4388.5,
+        "p25": 3859.25,
+        "p75": 4610.75,
+        "min": 3375,
+        "max": 6730
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -692,
+    "deltaPct": -13.620706623363843,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Paint",
+    "operation": "mount",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4873,
+        "p25": 4346.5,
+        "p75": 7199,
+        "min": 3274,
+        "max": 11176
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4009,
+        "p25": 3348.5,
+        "p75": 4472.5,
+        "min": 3021,
+        "max": 9132
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -864,
+    "deltaPct": -17.730350913195156,
+    "pairedFavor36Count": 8,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Paint",
+    "operation": "mount",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 5046,
+        "p25": 4877.75,
+        "p75": 5119.25,
+        "min": 4319,
+        "max": 6258
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 11557.5,
+        "p25": 6335.75,
+        "p75": 11921.5,
+        "min": 4229,
+        "max": 13848
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 6511.5,
+    "deltaPct": 129.04280618311535,
+    "pairedFavor36Count": 3,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Paint",
+    "operation": "update",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3837.5,
+        "p25": 1938.75,
+        "p75": 4668.5,
+        "min": 1237,
+        "max": 6859
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2280,
+        "p25": 1646,
+        "p75": 2633,
+        "min": 1051,
+        "max": 3437
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -1557.5,
+    "deltaPct": -40.58631921824104,
+    "pairedFavor36Count": 7,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Paint",
+    "operation": "update",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 5074,
+        "p25": 3657.75,
+        "p75": 5232.5,
+        "min": 3178,
+        "max": 5498
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3622,
+        "p25": 3256.5,
+        "p75": 5171.25,
+        "min": 1785,
+        "max": 5944
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -1452,
+    "deltaPct": -28.61647615293654,
+    "pairedFavor36Count": 5,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Paint",
+    "operation": "update",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2785,
+        "p25": 2484.75,
+        "p75": 5790.75,
+        "min": 2139,
+        "max": 7886
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3820.5,
+        "p25": 2576.75,
+        "p75": 4402.75,
+        "min": 2028,
+        "max": 7244
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 1035.5,
+    "deltaPct": 37.181328545780964,
+    "pairedFavor36Count": 5,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Paint",
+    "operation": "update",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 7716,
+        "p25": 5483.25,
+        "p75": 8005.75,
+        "min": 4501,
+        "max": 8693
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 7775.5,
+        "p25": 4973.25,
+        "p75": 8257,
+        "min": 4583,
+        "max": 9386
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 59.5,
+    "deltaPct": 0.7711249351995852,
+    "pairedFavor36Count": 4,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Stable / No Meaningful Difference"
+  },
+  {
+    "metric": "Vue Runtime CPU",
+    "operation": "mount",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1962.5,
+        "p25": 1358,
+        "p75": 2265,
+        "min": 878,
+        "max": 5345
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 6019.5,
+        "p25": 5163.5,
+        "p75": 6908.75,
+        "min": 3019,
+        "max": 8205
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 4057,
+    "deltaPct": 206.72611464968153,
+    "pairedFavor36Count": 0,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Consistent Regression"
+  },
+  {
+    "metric": "Vue Runtime CPU",
+    "operation": "mount",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 17589,
+        "p25": 8925.5,
+        "p75": 20333.75,
+        "min": 5552,
+        "max": 28069
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 20963,
+        "p25": 20580,
+        "p75": 23441,
+        "min": 12720,
+        "max": 26879
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 3374,
+    "deltaPct": 19.182443572687475,
+    "pairedFavor36Count": 3,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Vue Runtime CPU",
+    "operation": "mount",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 32853.5,
+        "p25": 30800,
+        "p75": 33806.25,
+        "min": 26382,
+        "max": 35789
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 32063,
+        "p25": 30074.25,
+        "p75": 34016.5,
+        "min": 26092,
+        "max": 37238
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -790.5,
+    "deltaPct": -2.40613633250643,
+    "pairedFavor36Count": 6,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Stable / No Meaningful Difference"
+  },
+  {
+    "metric": "Vue Runtime CPU",
+    "operation": "mount",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 41081.5,
+        "p25": 37398,
+        "p75": 44460,
+        "min": 35882,
+        "max": 49645
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 121028,
+        "p25": 118106.75,
+        "p75": 123422,
+        "min": 111147,
+        "max": 168724
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 79946.5,
+    "deltaPct": 194.60462738702336,
+    "pairedFavor36Count": 0,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Consistent Regression"
+  },
+  {
+    "metric": "Vue Runtime CPU",
+    "operation": "update",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1012,
+        "p25": 68,
+        "p75": 1853.75,
+        "min": 0,
+        "max": 3010
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 795,
+        "p25": 73.75,
+        "p75": 1295.75,
+        "min": 0,
+        "max": 1576
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -217,
+    "deltaPct": -21.442687747035574,
+    "pairedFavor36Count": 5,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Vue Runtime CPU",
+    "operation": "update",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 4427,
+        "p25": 3525.5,
+        "p75": 5364.25,
+        "min": 2015,
+        "max": 6671
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1601,
+        "p25": 1219.75,
+        "p75": 1771,
+        "min": 804,
+        "max": 1958
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -2826,
+    "deltaPct": -63.83555455161509,
+    "pairedFavor36Count": 10,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Consistent Improvement"
+  },
+  {
+    "metric": "Vue Runtime CPU",
+    "operation": "update",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 9023,
+        "p25": 6095.5,
+        "p75": 11238,
+        "min": 5024,
+        "max": 13732
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 5486.5,
+        "p25": 3490.75,
+        "p75": 7869.5,
+        "min": 1389,
+        "max": 10852
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -3536.5,
+    "deltaPct": -39.19428128117034,
+    "pairedFavor36Count": 6,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Vue Runtime CPU",
+    "operation": "update",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 37103.5,
+        "p25": 32721.5,
+        "p75": 42882.25,
+        "min": 28951,
+        "max": 56341
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 37379,
+        "p25": 34856,
+        "p75": 42945.5,
+        "min": 26674,
+        "max": 47583
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 275.5,
+    "deltaPct": 0.742517552252483,
+    "pairedFavor36Count": 4,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Stable / No Meaningful Difference"
+  },
+  {
+    "metric": "Application CPU",
+    "operation": "mount",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 253,
+        "p25": 0,
+        "p75": 365,
+        "min": 0,
+        "max": 545
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 935.5,
+        "p25": 436.25,
+        "p75": 1599,
+        "min": 0,
+        "max": 2200
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 682.5,
+    "deltaPct": 269.7628458498024,
+    "pairedFavor36Count": 0,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Consistent Regression"
+  },
+  {
+    "metric": "Application CPU",
+    "operation": "mount",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2441,
+        "p25": 841,
+        "p75": 4164.25,
+        "min": 0,
+        "max": 6630
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2406.5,
+        "p25": 1062.5,
+        "p75": 3920.75,
+        "min": 0,
+        "max": 15426
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -34.5,
+    "deltaPct": -1.413355182302335,
+    "pairedFavor36Count": 5,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Stable / No Meaningful Difference"
+  },
+  {
+    "metric": "Application CPU",
+    "operation": "mount",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3953.5,
+        "p25": 3037,
+        "p75": 5549,
+        "min": 1933,
+        "max": 8262
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 3669,
+        "p25": 3059.5,
+        "p75": 5736.25,
+        "min": 2066,
+        "max": 8451
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -284.5,
+    "deltaPct": -7.196155305425572,
+    "pairedFavor36Count": 5,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Application CPU",
+    "operation": "mount",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 6613,
+        "p25": 6093.25,
+        "p75": 7221.75,
+        "min": 5696,
+        "max": 15174
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 18315.5,
+        "p25": 15334.75,
+        "p75": 20994.25,
+        "min": 11577,
+        "max": 28105
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 11702.5,
+    "deltaPct": 176.96204445788598,
+    "pairedFavor36Count": 0,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Consistent Regression"
+  },
+  {
+    "metric": "Application CPU",
+    "operation": "update",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 166,
+        "p25": 0,
+        "p75": 437.25,
+        "min": 0,
+        "max": 965
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 0,
+        "p25": 0,
+        "p75": 548.25,
+        "min": 0,
+        "max": 1145
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -166,
+    "deltaPct": -100,
+    "pairedFavor36Count": 3,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Application CPU",
+    "operation": "update",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 622,
+        "p25": 0,
+        "p75": 1026.75,
+        "min": 0,
+        "max": 2782
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 790,
+        "p25": 586.75,
+        "p75": 1060.5,
+        "min": 150,
+        "max": 1303
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 168,
+    "deltaPct": 27.009646302250808,
+    "pairedFavor36Count": 5,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Application CPU",
+    "operation": "update",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 1854.5,
+        "p25": 751,
+        "p75": 2933,
+        "min": 0,
+        "max": 4205
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 2012,
+        "p25": 230.5,
+        "p75": 2784.5,
+        "min": 0,
+        "max": 5127
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 157.5,
+    "deltaPct": 8.492855217039633,
+    "pairedFavor36Count": 4,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "Application CPU",
+    "operation": "update",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 16332,
+        "p25": 12709.25,
+        "p75": 20436.25,
+        "min": 8016,
+        "max": 26975
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 16029,
+        "p25": 12811,
+        "p75": 18918.25,
+        "min": 7022,
+        "max": 21050
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -303,
+    "deltaPct": -1.8552534900808229,
+    "pairedFavor36Count": 8,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "V8/native CPU",
+    "operation": "mount",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 84412,
+        "p25": 78639.25,
+        "p75": 101273.5,
+        "min": 69089,
+        "max": 137100
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 202186.5,
+        "p25": 183157.75,
+        "p75": 222029.25,
+        "min": 176739,
+        "max": 404222
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 117774.5,
+    "deltaPct": 139.5234089939819,
+    "pairedFavor36Count": 0,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Consistent Regression"
+  },
+  {
+    "metric": "V8/native CPU",
+    "operation": "mount",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 227514,
+        "p25": 156727,
+        "p75": 257481,
+        "min": 142937,
+        "max": 429746
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 279147,
+        "p25": 243297.75,
+        "p75": 318137.25,
+        "min": 187467,
+        "max": 400010
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 51633,
+    "deltaPct": 22.694427595664443,
+    "pairedFavor36Count": 4,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "V8/native CPU",
+    "operation": "mount",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 355698,
+        "p25": 325797.5,
+        "p75": 392876.75,
+        "min": 308561,
+        "max": 456153
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 355416.5,
+        "p25": 331015,
+        "p75": 381410.25,
+        "min": 296302,
+        "max": 464798
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -281.5,
+    "deltaPct": -0.07914016946960624,
+    "pairedFavor36Count": 4,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Stable / No Meaningful Difference"
+  },
+  {
+    "metric": "V8/native CPU",
+    "operation": "mount",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 270308,
+        "p25": 231766.75,
+        "p75": 302934,
+        "min": 221274,
+        "max": 405270
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 669466.5,
+        "p25": 592126.25,
+        "p75": 719972.75,
+        "min": 466755,
+        "max": 940053
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 399158.5,
+    "deltaPct": 147.6680305429362,
+    "pairedFavor36Count": 0,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Consistent Regression"
+  },
+  {
+    "metric": "V8/native CPU",
+    "operation": "update",
+    "nodeCount": 100,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 153989,
+        "p25": 127945.75,
+        "p75": 171180,
+        "min": 120719,
+        "max": 268708
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 82367,
+        "p25": 66190.25,
+        "p75": 101323.75,
+        "min": 41142,
+        "max": 127995
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -71622,
+    "deltaPct": -46.51111443025151,
+    "pairedFavor36Count": 10,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Consistent Improvement"
+  },
+  {
+    "metric": "V8/native CPU",
+    "operation": "update",
+    "nodeCount": 500,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 261424.5,
+        "p25": 235244.75,
+        "p75": 290774,
+        "min": 209402,
+        "max": 404000
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 101854,
+        "p25": 87275.5,
+        "p75": 111511.75,
+        "min": 76510,
+        "max": 138837
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -159570.5,
+    "deltaPct": -61.03884677985422,
+    "pairedFavor36Count": 10,
+    "pairedTotal": 10,
+    "iqrOverlap": false,
+    "signal": "Consistent Improvement"
+  },
+  {
+    "metric": "V8/native CPU",
+    "operation": "update",
+    "nodeCount": 1000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 283342,
+        "p25": 267582.5,
+        "p75": 309296.25,
+        "min": 253237,
+        "max": 385921
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 198220,
+        "p25": 112128,
+        "p75": 303665.75,
+        "min": 91520,
+        "max": 375609
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": -85122,
+    "deltaPct": -30.042139887485796,
+    "pairedFavor36Count": 6,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  },
+  {
+    "metric": "V8/native CPU",
+    "operation": "update",
+    "nodeCount": 5000,
+    "v35": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 131279.5,
+        "p25": 101541.75,
+        "p75": 157757,
+        "min": 85555,
+        "max": 389140
+      }
+    },
+    "v36": {
+      "observedCount": 10,
+      "dist": {
+        "n": 10,
+        "median": 144970,
+        "p25": 131922.75,
+        "p75": 170702.25,
+        "min": 115620,
+        "max": 403610
+      }
+    },
+    "deltaMs": null,
+    "deltaUs": 13690.5,
+    "deltaPct": 10.428513210364148,
+    "pairedFavor36Count": 2,
+    "pairedTotal": 10,
+    "iqrOverlap": true,
+    "signal": "Unstable"
+  }
+]
