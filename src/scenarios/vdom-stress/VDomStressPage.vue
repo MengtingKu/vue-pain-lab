@@ -46,8 +46,8 @@ async function triggerRender(): Promise<void> {
   <article>
     <h1>VDOM Stress Test</h1>
     <p>
-      Raw Rendering Benchmark：選擇 Render 數量並觸發 Render，觀察大量 UI Node
-      一次性掛載時的 Vue Runtime 成本。不做任何 Rendering 最佳化。
+      Raw Rendering Benchmark：選擇 Render 數量並觸發 Render，觀察大量 UI Node 一次性掛載時的 Vue
+      Runtime 成本。不做任何 Rendering 最佳化。
     </p>
 
     <section class="params">

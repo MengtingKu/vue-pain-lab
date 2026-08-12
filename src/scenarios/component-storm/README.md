@@ -182,9 +182,9 @@ Average Update Duration median：187.405 ms（range 182.206–210.861 ms）
 
 | Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
 | ----- | ---------- | ----------------------- | -------------- | ------------- | --------- |
-| 1     | 381.800 ms | 6.654 ms                 | 103.75 MB      | 110.36 MB     | +6.63 MB  |
-| 2     | 295.900 ms | 9.711 ms                 | 51.62 MB       | 64.55 MB      | +12.93 MB |
-| 3     | 306.800 ms | 8.770 ms                 | 48.79 MB       | 64.09 MB      | +15.30 MB |
+| 1     | 381.800 ms | 6.654 ms                | 103.75 MB      | 110.36 MB     | +6.63 MB  |
+| 2     | 295.900 ms | 9.711 ms                | 51.62 MB       | 64.55 MB      | +12.93 MB |
+| 3     | 306.800 ms | 8.770 ms                | 48.79 MB       | 64.09 MB      | +15.30 MB |
 
 Mount Time median：306.800 ms（range 295.900–381.800 ms）
 Average Update Duration median：8.770 ms（range 6.654–9.711 ms）
@@ -195,9 +195,9 @@ Average Update Duration median：8.770 ms（range 6.654–9.711 ms）
 
 | Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
 | ----- | ---------- | ----------------------- | -------------- | ------------- | --------- |
-| 1     | 266.600 ms | 10.732 ms                | 49.05 MB       | 64.59 MB      | +15.54 MB |
-| 2     | 299.400 ms | 9.000 ms                 | 51.72 MB       | 63.53 MB      | +11.80 MB |
-| 3     | 309.700 ms | 8.962 ms                 | 51.70 MB       | 63.52 MB      | +11.81 MB |
+| 1     | 266.600 ms | 10.732 ms               | 49.05 MB       | 64.59 MB      | +15.54 MB |
+| 2     | 299.400 ms | 9.000 ms                | 51.72 MB       | 63.53 MB      | +11.80 MB |
+| 3     | 309.700 ms | 8.962 ms                | 51.70 MB       | 63.52 MB      | +11.81 MB |
 
 Mount Time median：299.400 ms（range 266.600–309.700 ms）
 Average Update Duration median：9.000 ms（range 8.962–10.732 ms）
@@ -207,10 +207,10 @@ Average Update Duration median：9.000 ms（range 8.962–10.732 ms）
 ### Update Scope Comparison（Vue 3.5.40，componentCount=500，median）
 
 | Update Scope | Average Update Duration | Updated Component Count | Child Render Count（累計，100 次觸發） | Parent Render Count |
-| ------------- | ------------------------ | ------------------------ | ----------------------------------- | -------------------- |
-| ParentOnly    | 8.770 ms                 | 0                         | 0                                    | 200                   |
-| SingleChild   | 9.000 ms                 | 1                         | 100                                  | 200                   |
-| AllChildren   | 187.405 ms                | 500                       | 50000                                | 200                   |
+| ------------ | ----------------------- | ----------------------- | -------------------------------------- | ------------------- |
+| ParentOnly   | 8.770 ms                | 0                       | 0                                      | 200                 |
+| SingleChild  | 9.000 ms                | 1                       | 100                                    | 200                 |
+| AllChildren  | 187.405 ms              | 500                     | 50000                                  | 200                 |
 
 直接回答 Research Question 2 與 3：
 
@@ -237,10 +237,10 @@ Console 觀察：三種 Scope 全程皆無 error / warning，無 `Maximum recurs
 ### AllChildren
 
 | Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
-| ----- | ---------- | ------------------------ | --------------- | -------------- | --------- |
-| 1     | 320.200 ms | 162.534 ms                | 21.91 MB         | 29.61 MB        | +7.71 MB  |
-| 2     | 342.200 ms | 154.966 ms                | 21.28 MB         | 31.18 MB        | +9.90 MB  |
-| 3     | 314.600 ms | 158.669 ms                | 21.57 MB         | 33.29 MB        | +11.72 MB |
+| ----- | ---------- | ----------------------- | -------------- | ------------- | --------- |
+| 1     | 320.200 ms | 162.534 ms              | 21.91 MB       | 29.61 MB      | +7.71 MB  |
+| 2     | 342.200 ms | 154.966 ms              | 21.28 MB       | 31.18 MB      | +9.90 MB  |
+| 3     | 314.600 ms | 158.669 ms              | 21.57 MB       | 33.29 MB      | +11.72 MB |
 
 Mount Time median：320.200 ms（range 314.600–342.200 ms）
 Average Update Duration median：158.669 ms（range 154.966–162.534 ms）
@@ -250,10 +250,10 @@ Average Update Duration median：158.669 ms（range 154.966–162.534 ms）
 ### ParentOnly
 
 | Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
-| ----- | ---------- | ------------------------ | --------------- | -------------- | --------- |
-| 1     | 360.100 ms | 6.301 ms                  | 21.58 MB         | 32.96 MB        | +11.38 MB |
-| 2     | 279.000 ms | 6.680 ms                  | 21.42 MB         | 32.01 MB        | +10.59 MB |
-| 3     | 298.600 ms | 6.488 ms                  | 28.71 MB         | 39.58 MB        | +10.88 MB |
+| ----- | ---------- | ----------------------- | -------------- | ------------- | --------- |
+| 1     | 360.100 ms | 6.301 ms                | 21.58 MB       | 32.96 MB      | +11.38 MB |
+| 2     | 279.000 ms | 6.680 ms                | 21.42 MB       | 32.01 MB      | +10.59 MB |
+| 3     | 298.600 ms | 6.488 ms                | 28.71 MB       | 39.58 MB      | +10.88 MB |
 
 Mount Time median：298.600 ms（range 279.000–360.100 ms）
 Average Update Duration median：6.488 ms（range 6.301–6.680 ms）
@@ -263,10 +263,10 @@ Average Update Duration median：6.488 ms（range 6.301–6.680 ms）
 ### SingleChild
 
 | Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
-| ----- | ---------- | ------------------------ | --------------- | -------------- | --------- |
-| 1     | 323.100 ms | 6.635 ms                  | 21.77 MB         | 34.81 MB        | +13.04 MB |
-| 2     | 291.600 ms | 5.330 ms                  | 21.49 MB         | 25.27 MB        | +3.78 MB  |
-| 3     | 281.700 ms | 6.873 ms                  | 21.89 MB         | 31.64 MB        | +9.74 MB  |
+| ----- | ---------- | ----------------------- | -------------- | ------------- | --------- |
+| 1     | 323.100 ms | 6.635 ms                | 21.77 MB       | 34.81 MB      | +13.04 MB |
+| 2     | 291.600 ms | 5.330 ms                | 21.49 MB       | 25.27 MB      | +3.78 MB  |
+| 3     | 281.700 ms | 6.873 ms                | 21.89 MB       | 31.64 MB      | +9.74 MB  |
 
 Mount Time median：291.600 ms（range 281.700–323.100 ms）
 Average Update Duration median：6.635 ms（range 5.330–6.873 ms）
@@ -277,14 +277,14 @@ Console 觀察：三種 Scope 全程皆無 error / warning，無 `Maximum recurs
 
 ### Version Comparison（componentCount=500，median，Vue 3.5.40 → Vue 3.6.0-rc.2）
 
-| Update Scope | Metric                   | Vue 3.5.40 | Vue 3.6.0-rc.2 | 差異        |
-| ------------- | ------------------------- | ---------- | -------------- | ----------- |
-| AllChildren   | Average Update Duration   | 187.405 ms | 158.669 ms      | -15.3%      |
-| AllChildren   | Mount Time                | 350.900 ms | 320.200 ms      | -8.7%       |
-| ParentOnly    | Average Update Duration   | 8.770 ms   | 6.488 ms        | -26.0%      |
-| ParentOnly    | Mount Time                | 306.800 ms | 298.600 ms      | -2.7%       |
-| SingleChild   | Average Update Duration   | 9.000 ms   | 6.635 ms        | -26.3%      |
-| SingleChild   | Mount Time                | 299.400 ms | 291.600 ms      | -2.6%       |
+| Update Scope | Metric                  | Vue 3.5.40 | Vue 3.6.0-rc.2 | 差異   |
+| ------------ | ----------------------- | ---------- | -------------- | ------ |
+| AllChildren  | Average Update Duration | 187.405 ms | 158.669 ms     | -15.3% |
+| AllChildren  | Mount Time              | 350.900 ms | 320.200 ms     | -8.7%  |
+| ParentOnly   | Average Update Duration | 8.770 ms   | 6.488 ms       | -26.0% |
+| ParentOnly   | Mount Time              | 306.800 ms | 298.600 ms     | -2.7%  |
+| SingleChild  | Average Update Duration | 9.000 ms   | 6.635 ms       | -26.3% |
+| SingleChild  | Mount Time              | 299.400 ms | 291.600 ms     | -2.6%  |
 
 結構性 counter（Total Update Count / Updated Component Count / Parent Render Count / Child Render Count / Parent Tick）在三種 Scope 下，Vue 3.5.40 與 Vue 3.6.0-rc.2 **完全一致**，符合 Hypothesis 的預期——版本升級不會讓任何 Child 被跳過渲染或改變渲染次數。
 
@@ -301,10 +301,10 @@ Heap Δ 三種 Scope 在 Vue 3.6.0-rc.2 下的範圍（+3.78 MB ~ +13.04 MB）�
 ### ParentOnly
 
 | Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
-| ----- | ---------- | ------------------------ | --------------- | -------------- | --------- |
-| 1     | 71.000 ms  | 2.755 ms                  | 71.20 MB         | 83.57 MB        | +12.37 MB |
-| 2     | 79.900 ms  | 1.466 ms                  | 48.45 MB         | 49.16 MB        | +0.71 MB  |
-| 3     | 78.400 ms  | 1.661 ms                  | 48.32 MB         | 48.77 MB        | +0.45 MB  |
+| ----- | ---------- | ----------------------- | -------------- | ------------- | --------- |
+| 1     | 71.000 ms  | 2.755 ms                | 71.20 MB       | 83.57 MB      | +12.37 MB |
+| 2     | 79.900 ms  | 1.466 ms                | 48.45 MB       | 49.16 MB      | +0.71 MB  |
+| 3     | 78.400 ms  | 1.661 ms                | 48.32 MB       | 48.77 MB      | +0.45 MB  |
 
 Mount Time median：78.400 ms（range 71.000–79.900 ms）
 Average Update Duration median：1.661 ms（range 1.466–2.755 ms）
@@ -314,10 +314,10 @@ Average Update Duration median：1.661 ms（range 1.466–2.755 ms）
 ### SingleChild
 
 | Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ   |
-| ----- | ---------- | ------------------------ | --------------- | -------------- | -------- |
-| 1     | 77.300 ms  | 1.970 ms                  | 44.71 MB         | 46.19 MB        | +1.48 MB |
-| 2     | 76.300 ms  | 2.715 ms                  | 65.11 MB         | 65.99 MB        | +0.89 MB |
-| 3     | 77.000 ms  | 2.313 ms                  | 48.48 MB         | 49.37 MB        | +0.89 MB |
+| ----- | ---------- | ----------------------- | -------------- | ------------- | -------- |
+| 1     | 77.300 ms  | 1.970 ms                | 44.71 MB       | 46.19 MB      | +1.48 MB |
+| 2     | 76.300 ms  | 2.715 ms                | 65.11 MB       | 65.99 MB      | +0.89 MB |
+| 3     | 77.000 ms  | 2.313 ms                | 48.48 MB       | 49.37 MB      | +0.89 MB |
 
 Mount Time median：77.000 ms（range 76.300–77.300 ms）
 Average Update Duration median：2.313 ms（range 1.970–2.715 ms）
@@ -327,10 +327,10 @@ Average Update Duration median：2.313 ms（range 1.970–2.715 ms）
 ### AllChildren
 
 | Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
-| ----- | ---------- | ------------------------ | --------------- | -------------- | --------- |
-| 1     | 84.300 ms  | 35.293 ms                 | 49.18 MB         | 82.82 MB        | +33.64 MB |
-| 2     | 78.100 ms  | 29.364 ms                 | 45.01 MB         | 61.48 MB        | +16.47 MB |
-| 3     | 81.300 ms  | 31.751 ms                 | 48.74 MB         | 63.04 MB        | +14.30 MB |
+| ----- | ---------- | ----------------------- | -------------- | ------------- | --------- |
+| 1     | 84.300 ms  | 35.293 ms               | 49.18 MB       | 82.82 MB      | +33.64 MB |
+| 2     | 78.100 ms  | 29.364 ms               | 45.01 MB       | 61.48 MB      | +16.47 MB |
+| 3     | 81.300 ms  | 31.751 ms               | 48.74 MB       | 63.04 MB      | +14.30 MB |
 
 Mount Time median：81.300 ms（range 78.100–84.300 ms）
 Average Update Duration median：31.751 ms（range 29.364–35.293 ms）
@@ -340,20 +340,20 @@ Average Update Duration median：31.751 ms（range 29.364–35.293 ms）
 ### Update Scope Comparison（componentCount=100，median）
 
 | Update Scope | Average Update Duration | Updated Component Count | Child Render Count |
-| ------------- | ------------------------- | ------------------------- | -------------------- |
-| ParentOnly    | 1.661 ms                   | 0                          | 0                     |
-| SingleChild   | 2.313 ms                   | 1                          | 100                   |
-| AllChildren   | 31.751 ms                  | 100                        | 10000                 |
+| ------------ | ----------------------- | ----------------------- | ------------------ |
+| ParentOnly   | 1.661 ms                | 0                       | 0                  |
+| SingleChild  | 2.313 ms                | 1                       | 100                |
+| AllChildren  | 31.751 ms               | 100                     | 10000              |
 
 ## componentCount=1000
 
 ### ParentOnly
 
 | Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
-| ----- | ---------- | ------------------------ | --------------- | -------------- | --------- |
-| 1     | 623.500 ms | 22.806 ms                 | 54.63 MB         | 70.23 MB        | +15.60 MB |
-| 2     | 713.200 ms | 20.839 ms                 | 57.46 MB         | 73.79 MB        | +16.34 MB |
-| 3     | 587.800 ms | 20.638 ms                 | 57.46 MB         | 73.81 MB        | +16.35 MB |
+| ----- | ---------- | ----------------------- | -------------- | ------------- | --------- |
+| 1     | 623.500 ms | 22.806 ms               | 54.63 MB       | 70.23 MB      | +15.60 MB |
+| 2     | 713.200 ms | 20.839 ms               | 57.46 MB       | 73.79 MB      | +16.34 MB |
+| 3     | 587.800 ms | 20.638 ms               | 57.46 MB       | 73.81 MB      | +16.35 MB |
 
 Mount Time median：623.500 ms（range 587.800–713.200 ms）
 Average Update Duration median：20.839 ms（range 20.638–22.806 ms）
@@ -363,10 +363,10 @@ Average Update Duration median：20.839 ms（range 20.638–22.806 ms）
 ### SingleChild
 
 | Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
-| ----- | ---------- | ------------------------ | --------------- | -------------- | --------- |
-| 1     | 574.600 ms | 19.846 ms                 | 54.70 MB         | 71.56 MB        | +16.85 MB |
-| 2     | 573.200 ms | 23.256 ms                 | 57.55 MB         | 75.93 MB        | +18.38 MB |
-| 3     | 569.300 ms | 19.152 ms                 | 57.55 MB         | 98.98 MB        | +41.44 MB |
+| ----- | ---------- | ----------------------- | -------------- | ------------- | --------- |
+| 1     | 574.600 ms | 19.846 ms               | 54.70 MB       | 71.56 MB      | +16.85 MB |
+| 2     | 573.200 ms | 23.256 ms               | 57.55 MB       | 75.93 MB      | +18.38 MB |
+| 3     | 569.300 ms | 19.152 ms               | 57.55 MB       | 98.98 MB      | +41.44 MB |
 
 Mount Time median：573.200 ms（range 569.300–574.600 ms）
 Average Update Duration median：19.846 ms（range 19.152–23.256 ms）
@@ -376,10 +376,10 @@ Average Update Duration median：19.846 ms（range 19.152–23.256 ms）
 ### AllChildren
 
 | Trial | Mount Time | Average Update Duration | JS Heap Before | JS Heap After | Heap Δ    |
-| ----- | ---------- | ------------------------ | --------------- | -------------- | --------- |
-| 1     | 543.600 ms | 333.598 ms                | 118.61 MB        | 86.86 MB        | -31.74 MB |
-| 2     | 482.500 ms | 327.393 ms                | 108.48 MB        | 85.11 MB        | -23.37 MB |
-| 3     | 458.700 ms | 323.930 ms                | 108.23 MB        | 86.10 MB        | -22.14 MB |
+| ----- | ---------- | ----------------------- | -------------- | ------------- | --------- |
+| 1     | 543.600 ms | 333.598 ms              | 118.61 MB      | 86.86 MB      | -31.74 MB |
+| 2     | 482.500 ms | 327.393 ms              | 108.48 MB      | 85.11 MB      | -23.37 MB |
+| 3     | 458.700 ms | 323.930 ms              | 108.23 MB      | 86.10 MB      | -22.14 MB |
 
 Mount Time median：482.500 ms（range 458.700–543.600 ms）
 Average Update Duration median：327.393 ms（range 323.930–333.598 ms）
@@ -391,18 +391,18 @@ Heap Δ 這三個 trial 全部是負值（heap 反而變小），推斷是 100 �
 ### Update Scope Comparison（componentCount=1000，median）
 
 | Update Scope | Average Update Duration | Updated Component Count | Child Render Count |
-| ------------- | -------------------------- | ------------------------- | -------------------- |
-| ParentOnly    | 20.839 ms                   | 0                          | 0                     |
-| SingleChild   | 19.846 ms                   | 1                          | 100                   |
-| AllChildren   | 327.393 ms                  | 1000                       | 100000                |
+| ------------ | ----------------------- | ----------------------- | ------------------ |
+| ParentOnly   | 20.839 ms               | 0                       | 0                  |
+| SingleChild  | 19.846 ms               | 1                       | 100                |
+| AllChildren  | 327.393 ms              | 1000                    | 100000             |
 
 ## Component Scale Comparison（跨 componentCount=100/500/1000，Average Update Duration median，ms）
 
-| Update Scope | 100        | 500        | 1000       | 100→1000 倍數 |
-| ------------- | ---------- | ---------- | ---------- | -------------- |
-| ParentOnly    | 1.661 ms   | 8.770 ms   | 20.839 ms  | ×12.5           |
-| SingleChild   | 2.313 ms   | 9.000 ms   | 19.846 ms  | ×8.6            |
-| AllChildren   | 31.751 ms  | 187.405 ms | 327.393 ms | ×10.3           |
+| Update Scope | 100       | 500        | 1000       | 100→1000 倍數 |
+| ------------ | --------- | ---------- | ---------- | ------------- |
+| ParentOnly   | 1.661 ms  | 8.770 ms   | 20.839 ms  | ×12.5         |
+| SingleChild  | 2.313 ms  | 9.000 ms   | 19.846 ms  | ×8.6          |
+| AllChildren  | 31.751 ms | 187.405 ms | 327.393 ms | ×10.3         |
 
 這是本輪最意外的發現，直接回答 Research Question 1（Component Scale 增加時 Runtime Cost 是否增加）：
 

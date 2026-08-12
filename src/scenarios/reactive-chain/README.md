@@ -145,10 +145,10 @@ Install: `npm install vue@3.6.0-rc.2`
 
 比較（DEPTH=100，各版本各跑 3 次 trial、每次連續觸發 100 次 Trigger Update，取 median）：
 
-| Metric                          | Vue 3.5.40 | Vue 3.6.0-rc.2 | Performance Change              |
-| -------------------------------- | ---------- | -------------- | --------------------------------- |
-| Render Count                    | 199        | 199            | 持平                             |
-| Computed Execution              | 10100      | 10100          | 持平                             |
+| Metric                            | Vue 3.5.40 | Vue 3.6.0-rc.2 | Performance Change                |
+| --------------------------------- | ---------- | -------------- | --------------------------------- |
+| Render Count                      | 199        | 199            | 持平                              |
+| Computed Execution                | 10100      | 10100          | 持平                              |
 | Average Update Duration（median） | 48.086 ms  | 47.310 ms      | -1.6%（在雜訊範圍內，非顯著差異） |
 
 原始數據（含每次 trial 的完整數字與雜訊分析）見 [`src/benchmarks/validation-log.md`](../../benchmarks/validation-log.md)。
