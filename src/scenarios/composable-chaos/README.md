@@ -221,20 +221,152 @@ Composable abstraction depth 增加時，Vue Reactive Runtime 的 Update Cost
 
 ### Observation
 
-尚未執行驗證。待 `.claude/skills/validate-vue-update` 的 Vue 3.5 Baseline
-與 Vue 3.6 Validation 完成後補上，格式比照 `src/scenarios/reactive-chain/README.md`
-與 `src/scenarios/vdom-stress/README.md` 的 Observation / Validation Result /
-Limitation / Conclusion 段落。
+Vue 3.5.40 Baseline 已完成（Vue 3.6 Validation 尚未執行）。Depth 1 / 5 / 10 / 20
+各跑 3 次 trial，每次 trial 都先點擊 **Build Chain** 重建全新 chain（metrics
+store 隨之重置），再連續觸發 100 次 **Trigger Update**，取 median。完整原始數據
+（每個 trial 的完整數字、Range Overlap 判定、console 觀察）見
+[`src/benchmarks/validation-log.md`](../../benchmarks/validation-log.md) 的
+「Composable Chaos」段落。
+
+摘要（median，3 trial／Depth）：
+
+| Depth | Build Duration | Average Update Duration | Computed Execute Count（100 次觸發累積） | Watch / WatchEffect / Render |
+| ----: | --------------: | -----------------------: | ------------------------------------------: | ------------------------------ |
+|     1 |         0.600 ms |                  0.469 ms |                                            0 |               100 / 101 / 201 |
+|     5 |         1.100 ms |                  0.730 ms |                                          404 |               100 / 101 / 201 |
+|    10 |         1.000 ms |                  0.696 ms |                                          909 |               100 / 101 / 201 |
+|    20 |         1.200 ms |                  1.012 ms |                                         1919 |               100 / 101 / 201 |
+
+重點發現：
+
+- **Watch Trigger Count / WatchEffect Trigger Count / Render Count 在全部 4
+  個 Depth、12 次 trial 完全相同**（100 / 101 / 201），跟 Depth 無關——證實
+  H1 假設中「watcher 只掛在最上層一次、不隨 depth 增加」的設計在實測上成立，
+  也驗證了 Controlled Variables 段落的宣稱。
+- **Computed Execute Count 精確等於 `(Depth-1) × 101`**（0 / 404 / 909 /
+  1919），是零雜訊的整數計數器，唯一「隨 Depth 線性增加」的確定性證據。
+- **Average Update Duration 沒有在每一步都乾淨地隨 Depth 遞增**：用 3 次
+  trial 的 min–max range 檢定，Depth 1 vs 5、Depth 5 vs 10 的 range 重疊，
+  屬於 `No Meaningful Difference`（medians 雖分別差 55.6% 與 -4.7%，但 3
+  trial 的雜訊帶蓋過這個差異，無法排除是雜訊）；只有 Depth 10 vs 20（+45.4%）
+  與頭尾的 Depth 1 vs 20（+115.8%）range 不重疊，是本輪唯一站得住腳的
+  Meaningful Difference。
+- **Build Duration** 全部落在 0.5–2.7 ms 這個對自動化雜訊極敏感的區間
+  （Depth 5 Trial 3 出現 2.700 ms 的單次離群值），沒有觀察到隨 Depth 乾淨遞增
+  的訊號，判定為 Inconclusive（見下方 Limitation）。
+- 支持 **H1 + H3**：Update Duration 的增加來源可歸因於 Computed Evaluation /
+  Reactive Propagation Cost（隨 `(Depth-1)` 增加而增加的計算量），而不是
+  Watch / WatchEffect / Render 頻率的變化（三者全程固定，與 Depth 脫鉤）。
+  H2（Composable 呼叫本身有額外成本）本輪未驗證——需要 `reactive-chain`
+  scenario 在相同 depth 下的對照數字才能判斷，見 Next Step。
+
+### Cost Attribution
+
+- **Reactive propagation cost + Computed evaluation cost**：唯一隨 Depth
+  增加而增加的成本來源，證據是 Computed Execute Count 的精確線性成長
+  （零雜訊）與 Depth 10→20、1→20 的 Average Update Duration Meaningful
+  Difference。但每個 computed 的實際計算內容只是 `+1`，單一 node 的邊際成本
+  極小（Depth 1→20 共增加 19 個 computed，Average Update Duration 只增加約
+  0.54 ms，換算每個 node 邊際成本約 0.03 ms 等級，接近量測解析度邊界）。
+- **Watch / WatchEffect trigger cost**：不是成本來源。觸發次數全程固定
+  （100 / 101），且每次觸發只讀取已快取的 `finalValue.value`（O(1)），不隨
+  Depth 增加。
+- **Component render cost**：不是成本來源。Render Count 全程固定
+  （201 = 1 次 Build render + 100 次 Update × 2 次 render），且每次 render
+  顯示的 DOM 內容（`dl`/`dt`/`dd` 固定結構）不隨 Depth 變化。
+- **Other JavaScript cost（量測 harness 本身）**：外部驅動用的
+  `MutationObserver` + `button.click()` 開銷（`wallClockAvgMs` 與 app 內部
+  `Average Update Duration` 的差值，約 0.3–0.7 ms）與 Depth 無明顯相關，
+  確認不是造成上述 Depth 10→20 訊號的原因。
+
+### No Meaningful Difference 標記
+
+- Depth 1 vs Depth 5（Average Update Duration）
+- Depth 5 vs Depth 10（Average Update Duration，medians 幾乎相同）
+- Build Duration 在全部 4 個 Depth 之間（0.5–2.7 ms 區間雜訊蓋過任何趨勢）
+
+### Limitation
+
+- 只跑 3 次 trial／Depth（比照 `reactive-chain` / `component-storm` 的慣例），
+  對 sub-millisecond 等級的 Build Duration 而言可能不夠——`vdom-stress`
+  Controlled Re-validation 曾用 N=10 trial 才把訊號與雜訊分開，本輪 Depth
+  1 vs 5、5 vs 10 的 Inconclusive 判定有可能在更多 trial 下改變。
+- 分頁全程 `document.visibilityState === 'hidden'`（claude-in-chrome 的固有
+  限制）。本 Scenario 的計時全部基於 `nextTick()`（microtask），理論上不受
+  `setTimeout`／`requestAnimationFrame` 的背景節流影響，但無法完全排除背景
+  分頁對 renderer process 整體 CPU 排程優先權的間接影響。
+- ~~未使用 Chrome DevTools Performance / CDP Trace 取得 Scripting / Layout /
+  Paint 等分類數據~~ 已補上，見下方「CDP Controlled Validation（Day 23）」。
+- Build Duration 判定為 Inconclusive，不代表「Build 成本一定跟 Depth 無關」，
+  只代表本輪 3 trial 的雜訊帶不足以下結論（CDP 輪用 5 trial 對 Build
+  Instrumentation Duration 重新量測後，Depth 1 vs 5、5 vs 10、10 vs 20 皆為
+  Meaningful Difference，見下方——本項 Limitation 已被下一輪證據部分推翻）。
+
+### CDP Controlled Validation（Day 23，Vue 3.5.40，同版本內 cross-depth，非版本比較）
+
+用 `scripts/cdp-trace/` 既有 Infrastructure（`chrome.ts`／`tracer.ts`／
+`sync.ts`／`parser.ts`／`rollup.ts`／`stats.ts`／`evidence.ts` 全部原樣重用）
+加上新建的 `composable-chaos-scenario.ts` adapter（僅描述本 Scenario 的 DOM，
+沒有修改既有 `scenario.ts` 或本 Scenario 原始碼），對 Depth 1/5/10/20 各跑
+3 次 warm-up + 5 次 measurement trial，`build`／`update`（20 次連續 Trigger
+Update 為一組 batch）× `cost-trace`／`runtime-attribution-trace` 雙軌量測。
+完整數字與 Signal 分類見 `src/benchmarks/validation-log.md`。
+
+重點發現：
+
+- **Scripting、Application CPU、Instrumentation Duration 三項獨立指標**
+  在 Depth 1/5/10/20 的每一個相鄰區間都是 Meaningful Difference（IQR 不
+  重疊），比 Day 22 只用頁面內建 3-trial instrumentation 量到的訊號更乾淨。
+- **與 Day 22 的一處不一致，明確記錄而非硬調和**：Day 22 判定 Depth 5 vs 10
+  為 No Meaningful Difference；本輪 CDP（5 trial、batch=20、每 trial 皆重新
+  `Page.navigate`）判定同一組為 Meaningful Difference。兩輪用的是同一份
+  Scenario、同樣的 Depth 值，差異來自量測協定本身（batch 大小、trial 數、
+  是否每次重新整理頁面），不是 Vue 版本或 Scenario 行為的差異。
+- **Vue Runtime CPU 沒有隨 Depth 的一致訊號**（部分 trial 的 min 甚至是 0
+  sample）——明確標記 `Not Attributable`，不可推論成「Vue Runtime 本身的
+  bookkeeping cost 隨 Depth 增加」。
+- **Layout / Paint / Recalculate Style 等 Browser Rendering 指標**只在
+  Depth 1→5 有一次乾淨跳升，5→10、10→20 幾乎全部 No Meaningful Difference
+  ——證實 Rendering Cost 不是主要隨 Depth 成長的成本來源，跟 DOM 節點數全程
+  固定的 Controlled Variables 設計一致。
+- **Application CPU 的成長不能單純解讀成「computed 計算本身變貴」**：
+  這個 bucket 同時包含 computed getter 本體（`upstream.value.value + 1`）
+  與 Scenario 自己在同一個 getter 裡呼叫的 `metrics.increment(...)`，兩者
+  都算進同一個 Application 分類，目前的 pipeline 無法拆分「真實計算成本」
+  與「計數 instrumentation 本身的開銷」。
+
+Proven / Not Proven（本輪 CDP 證據範圍內）：
+
+| 結論 | 狀態 |
+|---|---|
+| 總 JS 成本隨 Depth 增加 | **Proven**（Scripting 每個相鄰區間皆不重疊） |
+| 增加主因是 computed 計算量增加（Application CPU） | **Proven**，但含計數 instrumentation 開銷，無法拆分 |
+| Watch/WatchEffect/Render 頻率與 Depth 脫鉤 | 僅 instrumentation 證明，CDP 本輪未獨立驗證（trace 看不到單次 callback 計數） |
+| Browser Rendering Cost 隨 Depth 增加 | **Not Proven**（只有 1→5 一次跳升，之後打平） |
+| Vue Runtime 自身 bookkeeping cost 隨 Depth 增加 | **Not Proven** / Not Attributable |
+| H2（Composable 呼叫本身有額外 Runtime Cost） | **Not Proven**——本 Scenario 的 Composable 層數與 Computed 鏈長完全 1:1 耦合，沒有任何條件能單獨變動其中一個，需要下方 H2 Control Scenario 才能拆解 |
 
 ### Next Step
 
-1. 用 `.claude/skills/validate-vue-update` 流程，在 Vue 3.5.40 上跑
+1. ~~用 `.claude/skills/validate-vue-update` 流程，在 Vue 3.5.40 上跑
    Depth 1 / 5 / 10 / 20 各數次 trial，記錄 Build Duration、Average Update
-   Duration、Computed Execute Count 作為 Baseline。
-2. 安裝 Vue 3.6，不修改本 Scenario 任何程式碼，重新量測同樣的 Depth 組合。
-3. 把同 depth 下的 `Average Update Duration` / `Computed Execute Count` 拿去
+   Duration、Computed Execute Count 作為 Baseline。~~ 已完成。
+2. ~~用既有 `scripts/cdp-trace/` Infrastructure 對本 Scenario 做 Controlled
+   Validation，取得 Scripting / Rendering / Vue Runtime CPU 等分類證據。~~
+   已完成，見上方「CDP Controlled Validation（Day 23）」。
+3. 安裝 Vue 3.6，不修改本 Scenario 任何程式碼，重新量測同樣的 Depth 組合
+   （instrumentation 與 CDP 雙軌皆重跑一次）。
+4. 把同 depth 下的 `Average Update Duration` / `Computed Execute Count` 拿去
    跟 `reactive-chain` scenario 的對應 depth 數字對照，判斷 H2（Composable
-   呼叫本身是否有額外 Runtime Cost）是否成立。
-4. 若要單獨量測「純 Composable Abstraction Cost（不含任何 reactive 行為）」，
-   需要另開一個新的對照 scenario（例如 `composable-chaos-noop`），而不是修改
-   這份已依 Freeze Boundary 設計好的 scenario。
+   呼叫本身是否有額外 Runtime Cost）是否成立——`reactive-chain` 目前
+   `DEPTH` 寫死 100、非可選 1/5/10/20，直接比對前需先確認是否要另開
+   depth-matched control（見下一項）。
+5. 若要單獨量測「純 Composable Abstraction Cost（不含任何 reactive 行為）」
+   以回答 H2，需要另開一個新的對照 scenario（例如 `composable-chaos-noop`
+   或 depth-matched 版本的 `reactive-chain`）：與本 Scenario 使用完全相同的
+   computed 鏈長、watch/watchEffect 數量、DOM 結構與 metrics instrumentation，
+   但用 flat loop 建鏈、不使用巢狀 composable function call。不修改這份已
+   依 Freeze Boundary 設計好的 scenario。
+6. Day 22 與 Day 23 對 Depth 5 vs 10 的判定不一致（見上方 CDP 段落），
+   之後若要下定論，應該用同一套協定（trial 數、batch 大小、是否重新整理
+   頁面）重跑兩次並比較，而不是直接採信任何一輪的結論。

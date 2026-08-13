@@ -17,6 +17,16 @@
 //   - Application:     .../scenarios/vdom-stress/VDomStressPage.vue
 //   - DevTools Overlay: .../virtual:vue-devtools-path:overlay/...
 //   - everything else (no url, or any other url) -> "native/other"
+//
+// Additive extension for the composable-chaos Controlled Validation: the
+// vdom-stress-only "application" pattern above cannot see composable-chaos's
+// own files, so without this every sample from ComposableChaosPage.vue /
+// createComposableChain.ts / the shared reactive/metrics.ts + logger.ts
+// instrumentation helpers would silently fall into nativeOther — not wrong,
+// but misleading (it would look like "no application code ran" instead of
+// "this scenario's application code isn't recognized yet"). Purely additive:
+// every existing vdom-stress url pattern above is untouched, so prior
+// vdom-stress attribution results are bit-for-bit unaffected.
 
 import type { SlimTraceEvent } from './parser.ts'
 
@@ -36,10 +46,22 @@ interface CpuProfileChunkData {
   timeDeltas?: number[]
 }
 
+// Application-code url fragments across all Scenarios this pipeline has
+// been taught to recognize so far — additive list, one entry per Scenario
+// (or shared benchmark helper) as adapters are built. Never remove an
+// existing entry when adding a new one.
+const APPLICATION_URL_FRAGMENTS = [
+  'scenarios/vdom-stress/VDomStressPage.vue',
+  'scenarios/composable-chaos/ComposableChaosPage.vue',
+  'benchmarks/composable/createComposableChain.ts',
+  'benchmarks/reactive/metrics.ts',
+  'benchmarks/reactive/logger.ts',
+]
+
 function bucketForUrl(url: string | undefined): AttributionBucket {
   if (!url) return 'nativeOther'
   if (url.includes('vue.runtime.esm-bundler')) return 'vueRuntime'
-  if (url.includes('scenarios/vdom-stress/VDomStressPage.vue')) return 'application'
+  if (APPLICATION_URL_FRAGMENTS.some((fragment) => url.includes(fragment))) return 'application'
   if (url.includes('vue-devtools-path:overlay')) return 'devtoolsOverlay'
   return 'nativeOther'
 }
