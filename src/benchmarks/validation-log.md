@@ -400,3 +400,61 @@ DevTools Overlay CPU：全部 depth、全部 trial 皆為 0（無干擾）。
 **與頁面 instrumentation 量測（上方章節）的一處不一致**：instrumentation 判定 Depth 5 vs 10 為 No Meaningful Difference（3 trial，batch=100，同一頁面不重新整理）；CDP 判定同一組為 Meaningful Difference（5 trial，batch=20，每個 trial 皆重新 `Page.navigate`）。同一份 Scenario、同一組 Depth，差異來自量測協定本身，不代表 Vue 行為在兩輪之間改變，兩個結果都保留記錄，不互相覆蓋。
 
 **Vue Runtime CPU 與 V8/native CPU 明確標記 `Not Attributable`**：前者沒有隨 Depth 一致的方向（部分 trial min 為 0 sample），後者依 `scripts/cdp-trace/TRACE_EVIDENCE_SCHEMA.md` 自身文件記載「too heterogeneous to interpret as one thing」，兩者都不可解讀成「Vue Runtime 變慢／變快」。
+
+### Day 24 — Vue 3.6.0-rc.2 Validation（Layer A + Layer B 雙軌，Protocol-matched）
+
+**Baseline Snapshot（Validation）**
+
+- Vue Version：Validation `3.6.0-rc.2`，跑在 `vue-pain-lab-vue36` git worktree（原本停留在 `composable-chaos` 加入前的舊 commit `9bf942d`，本輪先重新同步至 `main`@`695d896`——與本 repo `git diff` 確認除 `package.json`/`package-lock.json` 外完全一致——再改裝 `vue@3.6.0-rc.2`，`npm install --save-exact`）。
+- Node.js：v24.13.0（兩邊一致）。Vite：8.1.5（兩邊一致）。TypeScript：6.0.3（兩邊一致）。
+- Browser：Chrome 151.0.7922.109（兩邊一致，`launchIsolatedChrome()` 各自獨立的 headless 分頁，非 claude-in-chrome）。
+- Dev server：本 repo `http://localhost:5173`（Vue 3.5.40）／worktree `http://localhost:5174`（Vue 3.6.0-rc.2）。
+- Scenario Parameters：`DEPTH_OPTIONS = [1, 5, 10, 20]`，未變更；Update 觸發方式、DOM 結構、Component Tree 全部未變更。
+- 量測分兩層，皆為兩個 Vue 版本各自重跑同一支 script（**協定完全相同，只有 Vue 版本不同**），而非沿用 Day 22 的 claude-in-chrome 手動 baseline 數字（原因見下方「量測方法說明」）。
+
+**量測方法說明**
+
+Day 22 的 Vue 3.5.40 Layer A baseline是用 claude-in-chrome 手動點擊（隱藏分頁）取得的，對兩個 Vue 版本各重複 1,200 次點擊不切實際，且隱藏分頁有計時器節流風險（見 `[[vue36_reactive_chain_validation]]`）。Day 24 改用新建的 `scripts/cdp-trace/run-composable-chaos-instrumentation.ts`——沿用 Layer B 既有的 click+MutationObserver 機制（未修改既有函式），額外新增一個純讀取的 `readMetricGroup()` 到 `composable-chaos-scenario.ts`——對**兩個 Vue 版本都重新量測**，確保比較時只有 Vue 版本是變因。Day 22 的原始數字保留在上方「Vue 3.5.40（Baseline）」章節，不覆蓋、不視為與本輪等價（兩者的絕對數值不可直接比較，只有本輪內部的版本間比較有效）。
+
+**Layer A — 結構性 counter（N=3，兩版本，Depth 1/5/10/20 全部相同）**
+
+| Depth | Composable Instance Count | Computed Count | Watch/WatchEffect Count | Computed Execute Count | Watch/WatchEffect Trigger | Render Count |
+| ----: | -------------------------: | ---------------: | :---: | -----------------------------------: | :---: | ----: |
+| 1 | 1 | 0 | 1/1 | 0 | 100/101 | 201 |
+| 5 | 5 | 4 | 1/1 | 404 | 100/101 | 201 |
+| 10 | 10 | 9 | 1/1 | 909 | 100/101 | 201 |
+| 20 | 20 | 19 | 1/1 | 1919 | 100/101 | 201 |
+
+Vue 3.5.40 與 Vue 3.6.0-rc.2 在全部 4 個 Depth、全部 counter 完全一致——確認 reactive graph 形狀不受 Vue 版本影響。
+
+**Layer A — 計時指標（median [P25,P75] (min-max) ms，N=3）**
+
+| Depth | Metric | Vue 3.5.40 | Vue 3.6.0-rc.2 | Δ% | Signal |
+| ----: | --- | --- | --- | ---: | --- |
+| 1 | Build Duration | 0.500 [0.450,0.550] (0.400-0.600) | 0.700 [0.550,0.850] (0.400-1.000) | +40.0% | No Meaningful Difference |
+| 1 | Average Update Duration | 0.265 [0.256,0.268] (0.246-0.270) | 0.285 [0.283,0.302] (0.281-0.319) | +7.5% | Meaningful Difference |
+| 5 | Build Duration | 0.700 [0.700,1.300] (0.700-1.900) | 0.800 [0.750,1.050] (0.700-1.300) | +14.3% | No Meaningful Difference |
+| 5 | Average Update Duration | 0.458 [0.455,0.506] (0.451-0.554) | 0.444 [0.431,0.486] (0.418-0.527) | −3.1% | No Meaningful Difference |
+| 10 | Build Duration | 4.200 [3.050,4.450] (1.900-4.700) | 3.300 [2.450,4.000] (1.600-4.700) | −21.4% | No Meaningful Difference |
+| 10 | Average Update Duration | 2.299 [1.961,2.353] (1.623-2.406) | 2.007 [1.614,2.144] (1.221-2.281) | −12.7% | No Meaningful Difference |
+| 20 | Build Duration | 10.100 [8.300,10.600] (6.500-11.100) | 8.300 [8.100,8.950] (7.900-9.600) | −17.8% | No Meaningful Difference |
+| 20 | Average Update Duration | 4.986 [4.851,5.040] (4.715-5.095) | 3.930 [3.825,3.980] (3.720-4.030) | −21.2% | **Meaningful Difference** |
+
+**Layer B — CDP trace 版本比較（N=5，`analyze-composable-chaos-version-compare.ts`，重點 cell）**
+
+| Depth | Op | Metric | 3.5.40 median | 3.6.0-rc.2 median | Δ% | Paired(v36<v35) | Signal |
+| ----: | --- | --- | ---: | ---: | ---: | :---: | --- |
+| 20 | update | Instrumentation Duration (ms) | 6.8 | 4.6 | −32.5% | 5/5 | Consistent Improvement |
+| 10 | update | Instrumentation Duration (ms) | 3.4 | 3.1 | −9.5% | 5/5 | Consistent Improvement |
+| 20 | update | Scripting (µs) | 156,171 | 116,145 | −25.6% | 5/5 | Consistent Improvement |
+| 10 | update | Application CPU (µs) | 20,512 | 28,988 | +41.3% | 0/5 | Consistent Regression |
+| 20 | update | Vue Runtime CPU (µs) | 7,037 | 11,758 | +67.1% | 0/5 | Consistent Regression |
+| 20 | build | Rendering (µs) | 3,908 | 6,259 | +60.2% | 0/5 | Consistent Regression |
+| 20 | build | Layout (µs) | 1,228 | 1,739 | +41.6% | 0/5 | Consistent Regression |
+| 1 | update | Painting (µs) | 6,640 | 9,343 | +40.7% | 0/5 | Consistent Regression |
+
+其餘約 70/88 個 (metric × operation × depth) cell 皆為 Unstable（paired 方向不一致或 IQR 重疊與 paired 結果矛盾），完整 88 cell 原始輸出見 `node --experimental-strip-types scripts/cdp-trace/analyze-composable-chaos-version-compare.ts`。DevTools Overlay CPU 全部 cell 兩版本皆為 0（無干擾）。
+
+**Evidence Interpretation**：Depth 20 update 的 Scripting/Instrumentation Duration 改善是本輪唯一同時被兩層量測、5/5 paired trial 一致、IQR 不重疊驗證的訊號。但同一 cell 的 `Vue Runtime CPU` attribution bucket 卻是 Consistent Regression（+67.1%），且該 bucket 被 `evidence.ts` 標記 `confidence: 'low'`（leaf-only sampling，本輪同樣觀察到 0-sample trial）——因此**不能**把這個 Scripting 改善解讀成「Vue Runtime 本身變快」，只能記錄為「JS-level 改善已重現，但無法用本 Lab 的 attribution 方法歸因到 Vue Reactivity Engine」。
+
+**Evidence-based Conclusion**：`No Reproducible Framework-level Runtime Cost Improvement`（整個 Scenario 範圍）。Depth 20 update 存在一個較窄、可重現的 JS-level 改善，但未通過 Vue-Runtime-attributed 的驗證門檻，需要更高信心的 attribution 方法才能進一步判斷。完整報告見 [`results/cdp-trace/composable-chaos/DAY24_VUE36_VALIDATION_REPORT.md`](../../results/cdp-trace/composable-chaos/DAY24_VUE36_VALIDATION_REPORT.md)。

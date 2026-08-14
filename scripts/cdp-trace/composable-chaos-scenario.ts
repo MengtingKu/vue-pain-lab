@@ -261,3 +261,42 @@ export async function readAverageUpdateDuration(client: CDPClient): Promise<stri
   assertNoException(result, 'readAverageUpdateDuration')
   return result.result.value ?? null
 }
+
+// ---------------------------------------------------------------------------
+// ADDITION (Day 24, Vue 3.6.0-rc.2 Validation, Layer A instrumentation) —
+// readMetricGroup() below is a pure, read-only extension of this adapter.
+// It does not change any existing exported function's behavior and never
+// touches `src/scenarios/composable-chaos/*`; it only teaches the adapter to
+// read the counters that the CDP trace matrix (Layer B, above) never needed:
+// Composable Instance Count / Computed Count / Watch Count / WatchEffect
+// Count (Build Phase) and Computed Execute Count / Watch Trigger Count /
+// WatchEffect Trigger Count / Render Count (Update Phase). These are exactly
+// the structural counters the Scenario's README lists under "Metrics" and
+// that the Vue 3.5.40 Baseline recorded manually via claude-in-chrome.
+// Reused here — via the SAME already-frozen fireBuildChain/waitForBuildComplete
+// and fireTriggerUpdate/waitForUpdateComplete click+MutationObserver
+// mechanism — so a script (run-composable-chaos-instrumentation.ts) can
+// drive Layer A deterministically across two Vue versions without manual
+// browser interaction for 2,400 individual clicks (4 depths x 2 versions x
+// 3 trials x 100 updates).
+// ---------------------------------------------------------------------------
+
+/** Reads every <dt>/<dd> pair in the `groupIndex`-th `.metric-group` as a plain label -> text map. */
+export async function readMetricGroup(client: CDPClient, groupIndex: number): Promise<Record<string, string>> {
+  const expression = `
+    (function () {
+      const group = document.querySelectorAll('.metric-group')[${groupIndex}]
+      if (!group) throw new Error('metric-group[${groupIndex}] not found')
+      const dts = [...group.querySelectorAll('dt')]
+      const dds = [...group.querySelectorAll('dd')]
+      const out = {}
+      dts.forEach((dt, i) => {
+        out[dt.childNodes[0].textContent.trim()] = dds[i] ? dds[i].textContent.trim() : null
+      })
+      return out
+    })()
+  `
+  const result = await client.send('Runtime.evaluate', { expression, returnByValue: true })
+  assertNoException(result, `readMetricGroup(${groupIndex})`)
+  return result.result.value as Record<string, string>
+}

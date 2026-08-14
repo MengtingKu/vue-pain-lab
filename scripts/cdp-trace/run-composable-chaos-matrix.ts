@@ -170,12 +170,12 @@ async function runCycleWithRetry(
   )
 }
 
-async function runDepth(client: CDPClient, url: string, depth: number): Promise<void> {
+async function runDepth(client: CDPClient, url: string, depth: number, vueVersion: string): Promise<void> {
   console.log(`\n### Depth=${depth} ###`)
   for (const operation of ['build', 'update'] as Operation[]) {
     for (const source of SOURCES) {
       console.log(`  -- operation=${operation} source=${source.name} --`)
-      const baseDir = join('results', 'cdp-trace', 'composable-chaos', `vue-${VUE_VERSION}`, `${operation}-depth-${depth}`)
+      const baseDir = join('results', 'cdp-trace', 'composable-chaos', `vue-${vueVersion}`, `${operation}-depth-${depth}`)
 
       let measurementIndex = 0
       for (let i = 0; i < WARMUP + MEASUREMENT; i++) {
@@ -203,7 +203,7 @@ async function runDepth(client: CDPClient, url: string, depth: number): Promise<
             mechanism: 'Runtime.addBinding + Runtime.bindingCalled (per-click, repeated for update batches)',
           },
           chromeMode: 'headless',
-          vueVersion: VUE_VERSION,
+          vueVersion,
           nodeVersion: process.version,
           depth,
           operation,
@@ -226,47 +226,79 @@ async function runDepth(client: CDPClient, url: string, depth: number): Promise<
   }
 }
 
-async function main(): Promise<void> {
-  console.log('[1/4] Ensuring dev server…')
-  const dev = await ensureDevServer()
-  console.log(`      dev server: ${dev.url} (spawned by this script: ${dev.spawned})`)
+// ---------------------------------------------------------------------------
+// REFACTOR (Day 24, Vue 3.6.0-rc.2 Validation) — the body of the original
+// `main()` (single Vue 3.5.40 run against a dev server this script itself
+// ensures on port 5173) is extracted into `runVersionMatrix()` below,
+// parameterized by a VersionCondition instead of the module-level
+// VUE_VERSION/CDP_PORT constants. This is a pure extraction: `main()` at the
+// bottom of this file still does EXACTLY what it did before (ensureDevServer
+// -> launchIsolatedChrome(CDP_PORT) -> run all DEPTHS with VUE_VERSION), just
+// by calling the extracted function — no behavior change for the existing
+// Vue 3.5.40 invocation. This lets a new sibling script
+// (run-composable-chaos-matrix-vue36.ts) reuse the identical protocol
+// against the vue-pain-lab-vue36 worktree's dev server (port 5174) without
+// duplicating ~100 lines of retry/trace/meta logic, mirroring the
+// VersionCondition pattern already established for vdom-stress in
+// run-validation-matrix.ts.
+// ---------------------------------------------------------------------------
 
-  console.log('[2/4] Launching isolated Chrome instance…')
-  const chrome = await launchIsolatedChrome(CDP_PORT, 'headless')
-  console.log(`      user-data-dir: ${chrome.userDataDir}, pid: ${chrome.pid}`)
+export interface VersionCondition {
+  vueVersion: string
+  baseUrl: string
+  chromePort: number
+}
 
-  let exitCode = 0
+/** Runs the full DEPTHS x operations x sources matrix for one already-running dev server / Vue version. */
+export async function runVersionMatrix(cond: VersionCondition, depths: readonly number[] = DEPTHS): Promise<void> {
+  console.log(`\n=== CDP trace matrix: ${cond.vueVersion} (${cond.baseUrl}) ===`)
+  const chrome = await launchIsolatedChrome(cond.chromePort, 'headless')
+  console.log(`  user-data-dir: ${chrome.userDataDir}, pid: ${chrome.pid}`)
+
   try {
     const versionInfo = await chrome.browserVersion()
-    console.log(`      browser: ${versionInfo.Browser}`)
+    console.log(`  browser: ${versionInfo.Browser}`)
 
     const targets = await chrome.listTargets()
     const pageTarget = targets.find((t) => t.type === 'page')
-    if (!pageTarget) throw new Error('No page target found')
+    if (!pageTarget) throw new Error(`No page target found (${cond.vueVersion})`)
 
     const client = await CDPClient.connect(pageTarget.webSocketDebuggerUrl)
-    console.log('[3/4] CDP session established. Running matrix…')
     try {
       await client.send('Page.enable')
       await client.send('Runtime.enable')
       await enableCompletionBinding(client)
 
-      const url = `${dev.url}${SCENARIO_PATH}`
-      for (const depth of DEPTHS) {
-        await runDepth(client, url, depth)
+      const url = `${cond.baseUrl}${SCENARIO_PATH}`
+      for (const depth of depths) {
+        await runDepth(client, url, depth, cond.vueVersion)
       }
     } finally {
       await client.close()
     }
+  } finally {
+    await chrome.kill()
+  }
+}
+
+async function main(): Promise<void> {
+  console.log('[1/4] Ensuring dev server…')
+  const dev = await ensureDevServer()
+  console.log(`      dev server: ${dev.url} (spawned by this script: ${dev.spawned})`)
+
+  let exitCode = 0
+  try {
+    console.log('[2-3/4] Launching isolated Chrome instance + running matrix…')
+    await runVersionMatrix({ vueVersion: VUE_VERSION, baseUrl: dev.url, chromePort: CDP_PORT })
     console.log('[4/4] All depths complete.')
   } catch (err) {
     exitCode = 1
     console.error('run-composable-chaos-matrix failed:', err)
   } finally {
-    await chrome.kill()
     await dev.stopIfSpawned()
   }
   process.exitCode = exitCode
 }
 
-main()
+const isMain = process.argv[1] && process.argv[1].replace(/\\/g, '/').endsWith('cdp-trace/run-composable-chaos-matrix.ts')
+if (isMain) main()

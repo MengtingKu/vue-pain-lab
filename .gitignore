@@ -43,3 +43,9 @@ coverage
 # results/cdp-trace/validation/matrix-analysis.json instead.
 results/cdp-trace/**/*.trace.json
 results/cdp-trace/**/*.meta.json
+
+# Layer A (page instrumentation) raw per-trial JSON from
+# run-composable-chaos-instrumentation.ts — same rationale as above,
+# regenerable, not committed. Summarized findings live in
+# src/benchmarks/validation-log.md and the composable-chaos README instead.
+results/cdp-trace/composable-chaos-instrumentation/**/*.json

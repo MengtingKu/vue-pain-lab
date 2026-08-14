@@ -183,8 +183,12 @@ scenario 上。本次任務照 Freeze Boundary 的指示，不修改既有 harne
 
 ## Vue Version Validation
 
-這個 Scenario 之後會用於 Vue 3.5 Baseline vs Vue 3.6 Validation 比較。目前
-尚未執行驗證，流程請依 `.claude/skills/validate-vue-update`。
+Vue 3.5.40 Baseline vs Vue 3.6.0-rc.2 Validation 已於 Day 24 完成（Layer A
+頁面 instrumentation + Layer B CDP trace 雙軌，皆為 Vue 3.5.40／3.6.0-rc.2
+protocol-matched 對照）。完整 Evidence 見
+[`results/cdp-trace/composable-chaos/DAY24_VUE36_VALIDATION_REPORT.md`](../../../results/cdp-trace/composable-chaos/DAY24_VUE36_VALIDATION_REPORT.md)，
+摘要見下方「Day 24：Vue 3.6.0-rc.2 Validation」與
+[`src/benchmarks/validation-log.md`](../../benchmarks/validation-log.md)。
 
 依照 Scenario Freeze Rule，正式開始比較後，只允許改變：
 
@@ -346,6 +350,44 @@ Proven / Not Proven（本輪 CDP 證據範圍內）：
 | Vue Runtime 自身 bookkeeping cost 隨 Depth 增加 | **Not Proven** / Not Attributable |
 | H2（Composable 呼叫本身有額外 Runtime Cost） | **Not Proven**——本 Scenario 的 Composable 層數與 Computed 鏈長完全 1:1 耦合，沒有任何條件能單獨變動其中一個，需要下方 H2 Control Scenario 才能拆解 |
 
+### Day 24：Vue 3.6.0-rc.2 Validation
+
+用 `vue-pain-lab-vue36` worktree（重新同步至 `main`@`695d896` 後改裝
+`vue@3.6.0-rc.2`，環境除 Vue 版本外與本репо一致）跑完整雙軌量測：
+
+- **Layer A**（頁面 instrumentation，新建 `run-composable-chaos-instrumentation.ts`，
+  與 Layer B 共用 `composable-chaos-scenario.ts` 的 click+MutationObserver
+  機制，非 claude-in-chrome 手動操作）：Vue 3.5.40／3.6.0-rc.2 皆用同一支
+  script 重新量測（3 trial／Depth），確保「量測方法」本身不是版本比較的
+  變因。結構性 counter（Composable Instance/Computed/Watch/WatchEffect
+  Count、Computed Execute Count、Watch/WatchEffect Trigger Count、Render
+  Count）在兩個版本、全部 Depth 完全相同——確認 Scenario 的 reactive graph
+  形狀不受 Vue 版本影響。Average Update Duration 只在 Depth 20 出現
+  Meaningful Difference（Vue 3.6 快 21.2%），Depth 1/5/10 皆 No Meaningful
+  Difference（Depth 1 有一個方向相反、量值極小的 Meaningful Difference，
+  判斷為量測解析度雜訊）。
+- **Layer B**（CDP trace，沿用 Day 23 建立的 `run-composable-chaos-matrix.ts`
+  協定，重構出 `runVersionMatrix()` 給新的 `run-composable-chaos-matrix-vue36.ts`
+  重用，未改變既有 Vue 3.5.40 呼叫路徑的行為）：Scripting 與頁面
+  Instrumentation Duration 在 Depth 20 update 出現 5/5 paired trial 一致、
+  IQR 不重疊的 Consistent Improvement（Scripting −25.6%、Instrumentation
+  Duration −32.5%），Depth 10 update 的 Instrumentation Duration 也是
+  Consistent Improvement（−9.5%）。但同一批 trial 的 `Vue Runtime CPU` /
+  `Application CPU` attribution bucket 在相同 cell 卻是 Consistent
+  Regression（+67.1%／+41.3%），且該 bucket 本身被 `evidence.ts` 標記
+  `confidence: 'low'`——因此這個 Scripting 改善**不能**歸因成「Vue Runtime
+  本身變快」。
+
+完整證據、Cost Attribution 與逐 cell 數字見
+[`results/cdp-trace/composable-chaos/DAY24_VUE36_VALIDATION_REPORT.md`](../../../results/cdp-trace/composable-chaos/DAY24_VUE36_VALIDATION_REPORT.md)
+與 `src/benchmarks/validation-log.md`。
+
+**Evidence-based Conclusion**：`No Reproducible Framework-level Runtime
+Cost Improvement`（整個 Scenario 範圍）。存在一個較窄、兩層量測互相驗證的
+JS-level（Scripting）改善，但僅限 Depth 20 update，且無法用本 Lab 的
+Runtime Attribution 方法證實來自 Vue Reactivity Engine 本身——值得用更高
+信心的 attribution 方法重新檢驗，目前不視為已確認的 Vue 3.6 改善。
+
 ### Next Step
 
 1. ~~用 `.claude/skills/validate-vue-update` 流程，在 Vue 3.5.40 上跑
@@ -354,8 +396,9 @@ Proven / Not Proven（本輪 CDP 證據範圍內）：
 2. ~~用既有 `scripts/cdp-trace/` Infrastructure 對本 Scenario 做 Controlled
    Validation，取得 Scripting / Rendering / Vue Runtime CPU 等分類證據。~~
    已完成，見上方「CDP Controlled Validation（Day 23）」。
-3. 安裝 Vue 3.6，不修改本 Scenario 任何程式碼，重新量測同樣的 Depth 組合
-   （instrumentation 與 CDP 雙軌皆重跑一次）。
+3. ~~安裝 Vue 3.6，不修改本 Scenario 任何程式碼，重新量測同樣的 Depth 組合
+   （instrumentation 與 CDP 雙軌皆重跑一次）。~~ 已完成，見上方「Day 24：
+   Vue 3.6.0-rc.2 Validation」。
 4. 把同 depth 下的 `Average Update Duration` / `Computed Execute Count` 拿去
    跟 `reactive-chain` scenario 的對應 depth 數字對照，判斷 H2（Composable
    呼叫本身是否有額外 Runtime Cost）是否成立——`reactive-chain` 目前
@@ -370,3 +413,8 @@ Proven / Not Proven（本輪 CDP 證據範圍內）：
 6. Day 22 與 Day 23 對 Depth 5 vs 10 的判定不一致（見上方 CDP 段落），
    之後若要下定論，應該用同一套協定（trial 數、batch 大小、是否重新整理
    頁面）重跑兩次並比較，而不是直接採信任何一輪的結論。
+7. Day 24 發現的「Scripting 改善但 Vue Runtime CPU attribution 卻是
+   Regression」矛盾，需要更高信心的 attribution 方法（目前
+   `runtime-attribution-trace` 的 leaf-only sampling 被 `evidence.ts` 標記
+   低信心）才能判斷 Depth 20 update 的 Scripting 改善是否真的來自 Vue
+   Reactivity Engine 本身。
