@@ -249,6 +249,24 @@ Vue 3.6 是否可能改善此 Pain Point。
 
 ---
 
+## Vapor 驗證附註：DevTools 面板已知限制
+
+手動用瀏覽器驗證啟用 `features.vapor: true` 的 worktree 時：
+
+- 內嵌 Vue DevTools 面板（`vite-plugin-vue-devtools`，Alt+Shift+D／
+  `/__devtools__/`）目前不完整支援 Vapor —— Components 元件樹只畫得到
+  `<Root>`，且面板閒置輪詢時會固定噴出
+  `TypeError: Cannot read properties of undefined (reading 'el'/'_')`，
+  跟 Vapor 或 scenario 本身無關。
+- 判斷 Vapor 是否正常運作，以「實際操作頁面（例如點擊 Trigger）＋頁面顯示
+  的數字」為準，不要用這個面板的錯誤或元件樹當依據。
+- 真正代表 interop 沒裝好的錯誤是 `app.mount()` 拋出的
+  `Vapor component found in vdom tree but vapor-in-vdom interop was not installed`，
+  跟上述面板噴的 TypeError 是不同的錯誤。
+- 詳見 [`docs/decisions/vapor-worktree-devtools-panel-unreliable.md`](../../../docs/decisions/vapor-worktree-devtools-panel-unreliable.md)。
+
+---
+
 ## Final Conclusion Template
 
 每個 Scenario 最後回答三個問題：

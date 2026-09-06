@@ -56,6 +56,14 @@ const APPLICATION_URL_FRAGMENTS = [
   'benchmarks/composable/createComposableChain.ts',
   'benchmarks/reactive/metrics.ts',
   'benchmarks/reactive/logger.ts',
+  // Component Storm Runtime Attribution Validation (Day 30) — additive, same
+  // rationale as the composable-chaos entries above: without these, every
+  // sample from this Scenario's own files would silently fall into
+  // nativeOther instead of `application`.
+  'scenarios/component-storm/ComponentStormPage.vue',
+  'scenarios/component-storm/ComponentStormChild.vue',
+  'benchmarks/component-storm/metrics.ts',
+  'benchmarks/component-storm/createChildren.ts',
 ]
 
 function bucketForUrl(url: string | undefined): AttributionBucket {

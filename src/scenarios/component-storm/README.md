@@ -482,3 +482,66 @@ Architecture 決定 Runtime 的上限——但這個收益是**乘數性的、�
 3. 若要讓 Memory 證據更可信，改用真人操作 + Chrome DevTools Memory 面板 Heap Snapshot diff，而非目前的 `performance.memory` 自動化讀值。
 4. 若時間允許，可再補測 `componentCount=100/1000` 的 Vue 3.6 Validation（維持三種 `updateScope`），觀察 Component Scale 是否放大或縮小版本間的差異。
 5. 在目前證據下，不建議只因為「升級 Vue 版本」就去改這個 scenario 的 Component Boundary／Architecture——真正該優化的是「一個 Parent 是否真的需要掛上千個結構一致的 Child」，這是工程設計問題，Framework 版本只能緩解、不能解決。
+6. **見下方「Runtime Attribution Validation」——上面 -15.3% 的判定目前只有 wall-clock 總時間證據，尚未有 Framework-layer 拆解證據支持，應視為 pending。**
+
+## Runtime Attribution Validation（Day 30，componentCount=500 / AllChildren）
+
+### Question
+
+上面「Vue 3.6.0-rc.2 −15.3% Update Duration」這個總時間差異，主要來自哪一層——Application
+JavaScript？Vue Runtime？Browser Rendering/Painting？還是無法歸類的 Other Browser cost？
+
+### Hypothesis
+
+參考 vdom-stress／composable-chaos 的 CDP Trace 雙軌量測（Dual-Trace Architecture：
+cost-trace 測 Scripting/Rendering/Painting，runtime-attribution-trace 測 CPU-profiler
+sample attribution），預期可以把總時間拆成幾個獨立成本層，並觀察 Vue Runtime CPU 這一層
+本身是否有可重現的下降。
+
+### Observation
+
+用既有 CDP Trace Infrastructure（沿用 vdom-stress／composable-chaos 已驗證的
+chrome.ts/tracer.ts/sync.ts/parser.ts/rollup.ts/attribution.ts/evidence.ts，新增
+`component-storm-scenario.ts` adapter，Scenario 本身完全未修改）對 `componentCount=500`、
+`updateScope='AllChildren'` 做單次 Trigger Update 的 n=10 trial 拆解，發現：
+
+1. **這套 isolated headless CDP 環境量到的 Update Duration（84.9ms → 92.1ms，+8.5%）跟上面
+   claude-in-chrome 背景分頁量到的（187.405ms → 158.669ms，-15.3%）量級與方向都不一致**——
+   兩者是不同 harness（是否為背景/hidden 分頁），不能直接比較或相減。
+2. 拆解出的每個 metric（Scripting、Rendering、Recalculate Style、Layout、Painting、
+   Vue Runtime CPU、Application CPU）在這個 harness 下 Signal 皆為 `Unstable`（只有
+   Paint 達到 `Stable / No Meaningful Difference`），沒有任何一項達到 `Consistent
+   Improvement`。
+3. **Vue Runtime CPU 本身中位數是變高、不是變低**（70.1ms → 73.4ms，+4.7%，Unstable）——
+   沒有證據支持「Vue Runtime 變快了」。
+
+完整方法論、逐 metric 表格、cost breakdown chart 見
+[`results/cdp-trace/component-storm/RUNTIME_ATTRIBUTION_REPORT.md`](../../../results/cdp-trace/component-storm/RUNTIME_ATTRIBUTION_REPORT.md)。
+
+### Conclusion
+
+**Insufficient Evidence**（不是 Proven，也不是乾淨的 Observed）：上面的 -15.3% 目前只有
+wall-clock 總時間證據，這次的 Framework-layer 拆解既沒有重現同方向的訊號，也沒有找到任何
+一層有可重現的改善——尤其 Vue Runtime CPU 這一層，點估計甚至是變高。上面「Minor
+improvement」的判定應視為 **pending**，需要用相同 harness（背景/hidden 分頁）重新驗證才能
+確認 -15.3% 本身是不是真訊號，而不是被本次結果推翻。
+
+**Follow-up（已找到根因）**：用 CDP 直接控制 `document.hidden` 狀態（開第二個 tab 並
+`Target.activateTarget` 即可把原本的 tab 推到 hidden，不需要靠 claude-in-chrome）重跑同一支
+protocol 發現：**hidden 狀態下幾乎完全重現 README 的量級與方向**（177.3ms → 140.4ms，
+-20.8%，對照 README 187.405ms → 158.669ms，-15.3%），但 **visible 狀態下兩版幾乎沒有差異**
+（35.0ms → 35.9ms，+2.4%，判定 Stable / No Meaningful Difference）。換句話說：**上面的
+-15.3% 很可能主要是背景分頁 CPU 節流的量測假象，不是 Vue Runtime 真的變快**——但也不能反過來
+說「Vue 3.6 變差了」，因為乾淨（無節流）條件下兩版根本測不出有意義的差異。細節見
+[`results/cdp-trace/component-storm/RUNTIME_ATTRIBUTION_REPORT.md`](../../../results/cdp-trace/component-storm/RUNTIME_ATTRIBUTION_REPORT.md) 的 Part 2。
+
+### Next Step（Attribution 專用）
+
+1. 用 claude-in-chrome（或任何能強制 `document.hidden === true` 的方式）重跑這套 CDP Trace
+   矩陣，讓 harness 跟原本 -15.3% 觀察一致，才能真正回答「這個特定數字」的歸因問題。
+2. 若要提高 Vue Runtime CPU attribution 的 confidence（目前 `low`），需要把 leaf-only
+   sample attribution 改成往上找最近有 `url` 的 ancestor frame——這是 `attribution.ts`
+   已知但未修的限制，不在本次範圍。
+3. 若之後有人想知道上面 Mount Time 的 -8.7% 怎麼拆解，需要另外設計「Tracing.start 在
+   Page.navigate 之前」的協定（Component Storm 的 Mount 不像 vdom-stress 能用按鈕觸發），
+   本次未做。

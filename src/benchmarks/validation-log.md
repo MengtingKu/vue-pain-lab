@@ -251,6 +251,28 @@ Average Update Duration median：327.393 ms　Range：323.930–333.598 ms
 
 尚未執行，待下次驗證時補上（沿用完全相同的 3 trial × 100 次 Trigger Update / MutationObserver 手法，涵蓋 `componentCount=100/500/1000` × 三種 updateScope，共 9 組合）。
 
+### Runtime Attribution Validation（Day 30，componentCount=500 / AllChildren 專用）
+
+沿用既有 CDP Trace 雙軌量測 Infrastructure（`scripts/cdp-trace/`，vdom-stress／composable-chaos
+已驗證過的 chrome.ts / tracer.ts / sync.ts / parser.ts / rollup.ts / attribution.ts / evidence.ts /
+stats.ts 全部原樣重用），新增 `component-storm-scenario.ts` adapter + `run-component-storm-matrix.ts`
+/ `run-component-storm-matrix-vue36.ts` / `analyze-component-storm.ts`，對 `componentCount=500`、
+`updateScope='AllChildren'` 做單次 Trigger Update 的 cost-trace／runtime-attribution-trace 雙軌拆解
+（n=10 measurement trial／版本，isolated headless Chrome，非 claude-in-chrome 背景分頁）。
+
+**關鍵發現**：這套 isolated headless 環境量到的 Update Duration（3.5.40 median 84.9ms、
+3.6.0-rc.2 median 92.1ms，方向 **+8.5%**）與本節上方 README／本檔既有的 claude-in-chrome
+背景分頁量測（187.405ms → 158.669ms，-15.3%）**量級與方向都不一致**——兩者是不同 harness，
+不能直接相減比較。拆解出的每一個 metric（Scripting／Rendering／Recalculate Style／Layout／
+Painting／Paint／Vue Runtime CPU／Application CPU）在這個 harness 下，Signal 皆為
+`Unstable`（Paint 例外，達到 `Stable / No Meaningful Difference`），沒有任何一項達到
+`Consistent Improvement`；Vue Runtime CPU 本身中位數甚至是**變高**（70.1ms → 73.4ms，+4.7%，
+Unstable）。結論：**Vue Runtime cost 目前無法歸因為有改善**，README 原本「Minor improvement」
+的判定應視為 pending（有待用相同 harness—即背景分頁—重新驗證），而非被本次結果推翻。
+
+完整方法論、逐 metric 表格、cost breakdown chart、Q&A 見
+`results/cdp-trace/component-storm/RUNTIME_ATTRIBUTION_REPORT.md`。
+
 ## Composable Chaos
 
 ### Baseline Snapshot
@@ -268,10 +290,10 @@ Average Update Duration median：327.393 ms　Range：323.930–333.598 ms
 ### Vue 3.5.40（Baseline）—— Depth 1，3 次 trial，方法：MutationObserver
 
 | Trial | Build Duration | Composable Instance Count | Computed Count | Average Update Duration（100 次累積平均） | Computed Execute Count |
-| ----- | --------------- | -------------------------- | --------------- | ------------------------------------------- | ----------------------- |
-| 1     | 0.900 ms        | 1                           | 0                | 0.843 ms                                     | 0                        |
-| 2     | 0.600 ms        | 1                           | 0                | 0.458 ms                                     | 0                        |
-| 3     | 0.500 ms        | 1                           | 0                | 0.469 ms                                     | 0                        |
+| ----- | -------------- | ------------------------- | -------------- | ----------------------------------------- | ---------------------- |
+| 1     | 0.900 ms       | 1                         | 0              | 0.843 ms                                  | 0                      |
+| 2     | 0.600 ms       | 1                         | 0              | 0.458 ms                                  | 0                      |
+| 3     | 0.500 ms       | 1                         | 0              | 0.469 ms                                  | 0                      |
 
 Build Duration median：0.600 ms　Range：0.500–0.900 ms
 Average Update Duration median：0.469 ms　Range：0.458–0.843 ms（Trial 1 明顯偏高，是本輪整個測試序列的第一次呼叫，判斷為 JIT / 首次 microtask 排程的 warm-up 雜訊，與 `[[vue36_reactive_chain_validation]]` 記錄的「首次 trial 偏高」模式一致）
@@ -283,10 +305,10 @@ Average Update Duration median：0.469 ms　Range：0.458–0.843 ms（Trial 1 �
 ### Vue 3.5.40（Baseline）—— Depth 5，3 次 trial，方法：MutationObserver
 
 | Trial | Build Duration | Composable Instance Count | Computed Count | Average Update Duration（100 次累積平均） | Computed Execute Count |
-| ----- | --------------- | -------------------------- | --------------- | ------------------------------------------- | ----------------------- |
-| 1     | 1.000 ms        | 5                           | 4                | 0.730 ms                                     | 404                      |
-| 2     | 1.100 ms        | 5                           | 4                | 0.760 ms                                     | 404                      |
-| 3     | 2.700 ms        | 5                           | 4                | 0.582 ms                                     | 404                      |
+| ----- | -------------- | ------------------------- | -------------- | ----------------------------------------- | ---------------------- |
+| 1     | 1.000 ms       | 5                         | 4              | 0.730 ms                                  | 404                    |
+| 2     | 1.100 ms       | 5                         | 4              | 0.760 ms                                  | 404                    |
+| 3     | 2.700 ms       | 5                         | 4              | 0.582 ms                                  | 404                    |
 
 Build Duration median：1.100 ms　Range：1.000–2.700 ms（Trial 3 明顯偏高，判斷為單次 GC / 排程雜訊）
 Average Update Duration median：0.730 ms　Range：0.582–0.760 ms
@@ -298,10 +320,10 @@ Average Update Duration median：0.730 ms　Range：0.582–0.760 ms
 ### Vue 3.5.40（Baseline）—— Depth 10，3 次 trial，方法：MutationObserver
 
 | Trial | Build Duration | Composable Instance Count | Computed Count | Average Update Duration（100 次累積平均） | Computed Execute Count |
-| ----- | --------------- | -------------------------- | --------------- | ------------------------------------------- | ----------------------- |
-| 1     | 1.500 ms        | 10                          | 9                | 0.696 ms                                     | 909                      |
-| 2     | 1.000 ms        | 10                          | 9                | 0.759 ms                                     | 909                      |
-| 3     | 0.800 ms        | 10                          | 9                | 0.615 ms                                     | 909                      |
+| ----- | -------------- | ------------------------- | -------------- | ----------------------------------------- | ---------------------- |
+| 1     | 1.500 ms       | 10                        | 9              | 0.696 ms                                  | 909                    |
+| 2     | 1.000 ms       | 10                        | 9              | 0.759 ms                                  | 909                    |
+| 3     | 0.800 ms       | 10                        | 9              | 0.615 ms                                  | 909                    |
 
 Build Duration median：1.000 ms　Range：0.800–1.500 ms
 Average Update Duration median：0.696 ms　Range：0.615–0.759 ms
@@ -313,10 +335,10 @@ Average Update Duration median：0.696 ms　Range：0.615–0.759 ms
 ### Vue 3.5.40（Baseline）—— Depth 20，3 次 trial，方法：MutationObserver
 
 | Trial | Build Duration | Composable Instance Count | Computed Count | Average Update Duration（100 次累積平均） | Computed Execute Count |
-| ----- | --------------- | -------------------------- | --------------- | ------------------------------------------- | ----------------------- |
-| 1     | 1.300 ms        | 20                          | 19               | 1.012 ms                                     | 1919                     |
-| 2     | 1.000 ms        | 20                          | 19               | 0.975 ms                                     | 1919                     |
-| 3     | 1.200 ms        | 20                          | 19               | 1.068 ms                                     | 1919                     |
+| ----- | -------------- | ------------------------- | -------------- | ----------------------------------------- | ---------------------- |
+| 1     | 1.300 ms       | 20                        | 19             | 1.012 ms                                  | 1919                   |
+| 2     | 1.000 ms       | 20                        | 19             | 0.975 ms                                  | 1919                   |
+| 3     | 1.200 ms       | 20                        | 19             | 1.068 ms                                  | 1919                   |
 
 Build Duration median：1.200 ms　Range：1.000–1.300 ms
 Average Update Duration median：1.012 ms　Range：0.975–1.068 ms
@@ -328,18 +350,18 @@ Average Update Duration median：1.012 ms　Range：0.975–1.068 ms
 ### State Flow Depth Comparison（Vue 3.5.40，median，3 trial／Depth）
 
 | Depth | Build Duration median | Average Update Duration median | Computed Execute Count（100 次觸發累積） | Watch / WatchEffect Trigger | Render Count |
-| ----: | ---------------------: | -------------------------------: | ------------------------------------------: | ---------------------------: | ------------: |
-|     1 |               0.600 ms |                          0.469 ms |                                            0 |                    100 / 101 |            201 |
-|     5 |               1.100 ms |                          0.730 ms |                                          404 |                    100 / 101 |            201 |
-|    10 |               1.000 ms |                          0.696 ms |                                          909 |                    100 / 101 |            201 |
-|    20 |               1.200 ms |                          1.012 ms |                                         1919 |                    100 / 101 |            201 |
+| ----: | --------------------: | -----------------------------: | ---------------------------------------: | --------------------------: | -----------: |
+|     1 |              0.600 ms |                       0.469 ms |                                        0 |                   100 / 101 |          201 |
+|     5 |              1.100 ms |                       0.730 ms |                                      404 |                   100 / 101 |          201 |
+|    10 |              1.000 ms |                       0.696 ms |                                      909 |                   100 / 101 |          201 |
+|    20 |              1.200 ms |                       1.012 ms |                                     1919 |                   100 / 101 |          201 |
 
 Range Overlap 檢定（用 3 trial 的 min–max 判斷是否可排除雜訊）：
 
-| 比較 | Depth 1 vs 5 | Depth 5 vs 10 | Depth 10 vs 20 | Depth 1 vs 20 |
-| --- | --- | --- | --- | --- |
-| Average Update Duration Range | [0.458,0.843] vs [0.582,0.760]（重疊） | [0.582,0.760] vs [0.615,0.759]（幾乎完全重疊） | [0.615,0.759] vs [0.975,1.068]（不重疊） | [0.458,0.843] vs [0.975,1.068]（不重疊） |
-| 判定 | No Meaningful Difference（medians 差 55.6%，但 range 重疊，3 trial 不足以排除雜訊） | No Meaningful Difference（medians 幾乎相同，-4.7%） | Meaningful Difference（+45.4%，range 不重疊） | Meaningful Difference（+115.8%，range 不重疊） |
+| 比較                          | Depth 1 vs 5                                                                        | Depth 5 vs 10                                       | Depth 10 vs 20                                | Depth 1 vs 20                                  |
+| ----------------------------- | ----------------------------------------------------------------------------------- | --------------------------------------------------- | --------------------------------------------- | ---------------------------------------------- |
+| Average Update Duration Range | [0.458,0.843] vs [0.582,0.760]（重疊）                                              | [0.582,0.760] vs [0.615,0.759]（幾乎完全重疊）      | [0.615,0.759] vs [0.975,1.068]（不重疊）      | [0.458,0.843] vs [0.975,1.068]（不重疊）       |
+| 判定                          | No Meaningful Difference（medians 差 55.6%，但 range 重疊，3 trial 不足以排除雜訊） | No Meaningful Difference（medians 幾乎相同，-4.7%） | Meaningful Difference（+45.4%，range 不重疊） | Meaningful Difference（+115.8%，range 不重疊） |
 
 Watch Trigger Count / WatchEffect Trigger Count / Render Count 在全部 4 個 Depth、全部 12 次 trial 完全相同（100 / 101 / 201），跟 Depth 無關——證實 Scenario 設計的「Watcher 數量與 Composable 疊層深度脫鉤」在實測上成立。Computed Execute Count 則精確等於 `(Depth-1) × 101`，無任何雜訊（整數計數器，非計時指標），是本輪唯一「隨 Depth 線性增加且零雜訊」的證據。
 
@@ -356,44 +378,44 @@ Console 觀察：每次 Trigger Update 依序輸出 `layer2 ... layerN computed 
 
 #### Instrumentation Duration（ms，page `performance.now()`，median [P25,P75] (min-max), n=5）
 
-| Depth | Build | Update（20-click batch 累積平均） |
-| ----: | ------------------------------: | ------------------------------: |
-|     1 | 1.00 [0.90, 1.00] (0.70-2.00)    | 1.23 [1.22, 1.34] (1.14-1.44)   |
-|     5 | 4.10 [1.90, 4.20] (1.80-4.30)    | 2.12 [2.07, 2.18] (1.99-2.47)   |
-|    10 | 4.60 [4.50, 5.50] (4.40-5.50)    | 3.40 [3.29, 3.44] (3.23-3.94)   |
-|    20 | 9.90 [9.70, 10.00] (8.60-13.10)  | 6.78 [6.61, 6.88] (6.11-6.90)   |
+| Depth |                           Build | Update（20-click batch 累積平均） |
+| ----: | ------------------------------: | --------------------------------: |
+|     1 |   1.00 [0.90, 1.00] (0.70-2.00) |     1.23 [1.22, 1.34] (1.14-1.44) |
+|     5 |   4.10 [1.90, 4.20] (1.80-4.30) |     2.12 [2.07, 2.18] (1.99-2.47) |
+|    10 |   4.60 [4.50, 5.50] (4.40-5.50) |     3.40 [3.29, 3.44] (3.23-3.94) |
+|    20 | 9.90 [9.70, 10.00] (8.60-13.10) |     6.78 [6.61, 6.88] (6.11-6.90) |
 
 #### cost-trace（µs，self-time rollup／raw-sum，median，n=5）
 
 | Depth | Scripting (update) | Scripting (build) | Layout (update) | Recalculate Style (update) | Paint (update) |
-| ----: | ------------------: | ------------------: | ----------------: | ----------------------------: | ---------------: |
-|     1 |               46,009 |                2,138 |              5,203 |                         4,260 |             8,488 |
-|     5 |               62,005 |                6,052 |              6,080 |                         4,137 |            12,084 |
-|    10 |               90,041 |                8,214 |              9,299 |                         4,606 |            15,507 |
-|    20 |              156,171 |               12,199 |              9,032 |                         4,554 |            14,704 |
+| ----: | -----------------: | ----------------: | --------------: | -------------------------: | -------------: |
+|     1 |             46,009 |             2,138 |           5,203 |                      4,260 |          8,488 |
+|     5 |             62,005 |             6,052 |           6,080 |                      4,137 |         12,084 |
+|    10 |             90,041 |             8,214 |           9,299 |                      4,606 |         15,507 |
+|    20 |            156,171 |            12,199 |           9,032 |                      4,554 |         14,704 |
 
 #### runtime-attribution-trace（µs，sample-attribution，median，n=5）
 
 | Depth | Vue Runtime CPU (update) | Application CPU (update) | Application CPU (build) | V8/native CPU (update) |
-| ----: | -------------------------: | --------------------------: | --------------------------: | ------------------------: |
-|     1 |                       6,412 |                        1,536 |                        1,090 |                    337,195 |
-|     5 |                      13,221 |                       10,442 |                          916 |                    560,584 |
-|    10 |                       8,306 |                       20,512 |                        3,561 |                    420,824 |
-|    20 |                       7,037 |                       81,171 |                        7,047 |                    678,084 |
+| ----: | -----------------------: | -----------------------: | ----------------------: | ---------------------: |
+|     1 |                    6,412 |                    1,536 |                   1,090 |                337,195 |
+|     5 |                   13,221 |                   10,442 |                     916 |                560,584 |
+|    10 |                    8,306 |                   20,512 |                   3,561 |                420,824 |
+|    20 |                    7,037 |                   81,171 |                   7,047 |                678,084 |
 
 DevTools Overlay CPU：全部 depth、全部 trial 皆為 0（無干擾）。
 
 #### Depth-Pair Signal（IQR overlap 判定，`scripts/cdp-trace/analyze-composable-chaos.ts`）
 
-| Metric | Op | 1 vs 5 | 5 vs 10 | 10 vs 20 | 1 vs 20 |
-| --- | --- | --- | --- | --- | --- |
-| Instrumentation Duration | update | Meaningful (+72.4%) | Meaningful (+60.6%) | Meaningful (+99.0%) | Meaningful (+450.8%) |
-| Scripting | update | Meaningful (+34.8%) | Meaningful (+45.2%) | Meaningful (+73.4%) | Meaningful (+239.4%) |
-| Application CPU | update | Meaningful (+579.8%) | Meaningful (+96.4%) | Meaningful (+295.7%) | Meaningful (+5184.6%) |
-| Vue Runtime CPU | update | Meaningful (+106.2%) | Meaningful (-37.2%) | No Meaningful Diff | No Meaningful Diff |
-| Layout | update | No Meaningful Diff | Meaningful (+52.9%) | No Meaningful Diff | Meaningful (+73.6%) |
-| Recalculate Style | update | No Meaningful Diff | No Meaningful Diff | No Meaningful Diff | No Meaningful Diff |
-| V8/native CPU | update | Meaningful (+66.2%) | Meaningful (-24.9%) | No Meaningful Diff | No Meaningful Diff |
+| Metric                   | Op     | 1 vs 5               | 5 vs 10             | 10 vs 20             | 1 vs 20               |
+| ------------------------ | ------ | -------------------- | ------------------- | -------------------- | --------------------- |
+| Instrumentation Duration | update | Meaningful (+72.4%)  | Meaningful (+60.6%) | Meaningful (+99.0%)  | Meaningful (+450.8%)  |
+| Scripting                | update | Meaningful (+34.8%)  | Meaningful (+45.2%) | Meaningful (+73.4%)  | Meaningful (+239.4%)  |
+| Application CPU          | update | Meaningful (+579.8%) | Meaningful (+96.4%) | Meaningful (+295.7%) | Meaningful (+5184.6%) |
+| Vue Runtime CPU          | update | Meaningful (+106.2%) | Meaningful (-37.2%) | No Meaningful Diff   | No Meaningful Diff    |
+| Layout                   | update | No Meaningful Diff   | Meaningful (+52.9%) | No Meaningful Diff   | Meaningful (+73.6%)   |
+| Recalculate Style        | update | No Meaningful Diff   | No Meaningful Diff  | No Meaningful Diff   | No Meaningful Diff    |
+| V8/native CPU            | update | Meaningful (+66.2%)  | Meaningful (-24.9%) | No Meaningful Diff   | No Meaningful Diff    |
 
 完整逐 metric／逐 operation 數字（含 build 側全部欄位）見 `scripts/cdp-trace/analyze-composable-chaos.ts` 執行輸出，原始 trace／meta 檔在 `results/cdp-trace/composable-chaos/vue-3.5.40/`。
 
@@ -419,39 +441,39 @@ Day 22 的 Vue 3.5.40 Layer A baseline是用 claude-in-chrome 手動點擊（隱
 **Layer A — 結構性 counter（N=3，兩版本，Depth 1/5/10/20 全部相同）**
 
 | Depth | Composable Instance Count | Computed Count | Watch/WatchEffect Count | Computed Execute Count | Watch/WatchEffect Trigger | Render Count |
-| ----: | -------------------------: | ---------------: | :---: | -----------------------------------: | :---: | ----: |
-| 1 | 1 | 0 | 1/1 | 0 | 100/101 | 201 |
-| 5 | 5 | 4 | 1/1 | 404 | 100/101 | 201 |
-| 10 | 10 | 9 | 1/1 | 909 | 100/101 | 201 |
-| 20 | 20 | 19 | 1/1 | 1919 | 100/101 | 201 |
+| ----: | ------------------------: | -------------: | :---------------------: | ---------------------: | :-----------------------: | -----------: |
+|     1 |                         1 |              0 |           1/1           |                      0 |          100/101          |          201 |
+|     5 |                         5 |              4 |           1/1           |                    404 |          100/101          |          201 |
+|    10 |                        10 |              9 |           1/1           |                    909 |          100/101          |          201 |
+|    20 |                        20 |             19 |           1/1           |                   1919 |          100/101          |          201 |
 
 Vue 3.5.40 與 Vue 3.6.0-rc.2 在全部 4 個 Depth、全部 counter 完全一致——確認 reactive graph 形狀不受 Vue 版本影響。
 
 **Layer A — 計時指標（median [P25,P75] (min-max) ms，N=3）**
 
-| Depth | Metric | Vue 3.5.40 | Vue 3.6.0-rc.2 | Δ% | Signal |
-| ----: | --- | --- | --- | ---: | --- |
-| 1 | Build Duration | 0.500 [0.450,0.550] (0.400-0.600) | 0.700 [0.550,0.850] (0.400-1.000) | +40.0% | No Meaningful Difference |
-| 1 | Average Update Duration | 0.265 [0.256,0.268] (0.246-0.270) | 0.285 [0.283,0.302] (0.281-0.319) | +7.5% | Meaningful Difference |
-| 5 | Build Duration | 0.700 [0.700,1.300] (0.700-1.900) | 0.800 [0.750,1.050] (0.700-1.300) | +14.3% | No Meaningful Difference |
-| 5 | Average Update Duration | 0.458 [0.455,0.506] (0.451-0.554) | 0.444 [0.431,0.486] (0.418-0.527) | −3.1% | No Meaningful Difference |
-| 10 | Build Duration | 4.200 [3.050,4.450] (1.900-4.700) | 3.300 [2.450,4.000] (1.600-4.700) | −21.4% | No Meaningful Difference |
-| 10 | Average Update Duration | 2.299 [1.961,2.353] (1.623-2.406) | 2.007 [1.614,2.144] (1.221-2.281) | −12.7% | No Meaningful Difference |
-| 20 | Build Duration | 10.100 [8.300,10.600] (6.500-11.100) | 8.300 [8.100,8.950] (7.900-9.600) | −17.8% | No Meaningful Difference |
-| 20 | Average Update Duration | 4.986 [4.851,5.040] (4.715-5.095) | 3.930 [3.825,3.980] (3.720-4.030) | −21.2% | **Meaningful Difference** |
+| Depth | Metric                  | Vue 3.5.40                           | Vue 3.6.0-rc.2                    |     Δ% | Signal                    |
+| ----: | ----------------------- | ------------------------------------ | --------------------------------- | -----: | ------------------------- |
+|     1 | Build Duration          | 0.500 [0.450,0.550] (0.400-0.600)    | 0.700 [0.550,0.850] (0.400-1.000) | +40.0% | No Meaningful Difference  |
+|     1 | Average Update Duration | 0.265 [0.256,0.268] (0.246-0.270)    | 0.285 [0.283,0.302] (0.281-0.319) |  +7.5% | Meaningful Difference     |
+|     5 | Build Duration          | 0.700 [0.700,1.300] (0.700-1.900)    | 0.800 [0.750,1.050] (0.700-1.300) | +14.3% | No Meaningful Difference  |
+|     5 | Average Update Duration | 0.458 [0.455,0.506] (0.451-0.554)    | 0.444 [0.431,0.486] (0.418-0.527) |  −3.1% | No Meaningful Difference  |
+|    10 | Build Duration          | 4.200 [3.050,4.450] (1.900-4.700)    | 3.300 [2.450,4.000] (1.600-4.700) | −21.4% | No Meaningful Difference  |
+|    10 | Average Update Duration | 2.299 [1.961,2.353] (1.623-2.406)    | 2.007 [1.614,2.144] (1.221-2.281) | −12.7% | No Meaningful Difference  |
+|    20 | Build Duration          | 10.100 [8.300,10.600] (6.500-11.100) | 8.300 [8.100,8.950] (7.900-9.600) | −17.8% | No Meaningful Difference  |
+|    20 | Average Update Duration | 4.986 [4.851,5.040] (4.715-5.095)    | 3.930 [3.825,3.980] (3.720-4.030) | −21.2% | **Meaningful Difference** |
 
 **Layer B — CDP trace 版本比較（N=5，`analyze-composable-chaos-version-compare.ts`，重點 cell）**
 
-| Depth | Op | Metric | 3.5.40 median | 3.6.0-rc.2 median | Δ% | Paired(v36<v35) | Signal |
-| ----: | --- | --- | ---: | ---: | ---: | :---: | --- |
-| 20 | update | Instrumentation Duration (ms) | 6.8 | 4.6 | −32.5% | 5/5 | Consistent Improvement |
-| 10 | update | Instrumentation Duration (ms) | 3.4 | 3.1 | −9.5% | 5/5 | Consistent Improvement |
-| 20 | update | Scripting (µs) | 156,171 | 116,145 | −25.6% | 5/5 | Consistent Improvement |
-| 10 | update | Application CPU (µs) | 20,512 | 28,988 | +41.3% | 0/5 | Consistent Regression |
-| 20 | update | Vue Runtime CPU (µs) | 7,037 | 11,758 | +67.1% | 0/5 | Consistent Regression |
-| 20 | build | Rendering (µs) | 3,908 | 6,259 | +60.2% | 0/5 | Consistent Regression |
-| 20 | build | Layout (µs) | 1,228 | 1,739 | +41.6% | 0/5 | Consistent Regression |
-| 1 | update | Painting (µs) | 6,640 | 9,343 | +40.7% | 0/5 | Consistent Regression |
+| Depth | Op     | Metric                        | 3.5.40 median | 3.6.0-rc.2 median |     Δ% | Paired(v36<v35) | Signal                 |
+| ----: | ------ | ----------------------------- | ------------: | ----------------: | -----: | :-------------: | ---------------------- |
+|    20 | update | Instrumentation Duration (ms) |           6.8 |               4.6 | −32.5% |       5/5       | Consistent Improvement |
+|    10 | update | Instrumentation Duration (ms) |           3.4 |               3.1 |  −9.5% |       5/5       | Consistent Improvement |
+|    20 | update | Scripting (µs)                |       156,171 |           116,145 | −25.6% |       5/5       | Consistent Improvement |
+|    10 | update | Application CPU (µs)          |        20,512 |            28,988 | +41.3% |       0/5       | Consistent Regression  |
+|    20 | update | Vue Runtime CPU (µs)          |         7,037 |            11,758 | +67.1% |       0/5       | Consistent Regression  |
+|    20 | build  | Rendering (µs)                |         3,908 |             6,259 | +60.2% |       0/5       | Consistent Regression  |
+|    20 | build  | Layout (µs)                   |         1,228 |             1,739 | +41.6% |       0/5       | Consistent Regression  |
+|     1 | update | Painting (µs)                 |         6,640 |             9,343 | +40.7% |       0/5       | Consistent Regression  |
 
 其餘約 70/88 個 (metric × operation × depth) cell 皆為 Unstable（paired 方向不一致或 IQR 重疊與 paired 結果矛盾），完整 88 cell 原始輸出見 `node --experimental-strip-types scripts/cdp-trace/analyze-composable-chaos-version-compare.ts`。DevTools Overlay CPU 全部 cell 兩版本皆為 0（無干擾）。
 
