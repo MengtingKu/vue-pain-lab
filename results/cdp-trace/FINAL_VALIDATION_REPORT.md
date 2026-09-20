@@ -107,7 +107,12 @@ N=500），其餘全部 `Unstable` 或 `Stable / No Meaningful Difference`。**
 
 ## 7. Difference Matrix — Mount
 
-（此表未變動 — Mount 資料在這次重跑中未被觸碰，因為此輪只重跑 Update。）
+（Mount 資料本身在後續的 Update 重跑中未被再次觸碰——但這是因為 Mount
+已在更早一步的修正中，與 Update 一起套用了 §3 所述的 trailing-edge
+frame-sync 修正並全部重跑過。與 Update 側同樣，本表所有 8 個 cell
+背後的 80 筆 Mount cost-trace 中，Layout / Paint / Recalculate Style
+皆為 10/10 觀察到，與 Update 側同一套、修正後的協定狀態一致，不是修正
+前殘留的舊資料。）
 
 | Metric            | N=100              | N=500         | N=1000        | N=5000             |
 | ----------------- | ------------------ | ------------- | ------------- | ------------------ |

@@ -24,6 +24,50 @@ Vue runtime version 是唯一允許變更的實驗變因。
 
 ---
 
+## Final Validation Freeze Rule
+
+D29 Final Validation 不追蹤每一個 Vue 3.6 Release Candidate。
+
+目的：
+
+確保 Final Validation 有明確的 Version Freeze Point，
+避免 RC 持續發布造成重複 benchmark。
+
+規則：
+
+1. D09 / D14 / D19 / D25 的歷史 Validation Version 不得修改。
+2. 歷史 Validation 仍使用原本固定的 Vue 3.6.0-rc.2。
+3. D29 Final Validation 使用 Release Candidate Freeze Point 當天的最新 Vue 3.6 RC。
+4. Freeze Point 之後的新 RC 不自動觸發重新 benchmark。
+5. 新 RC 若在文章發布前出現，只記錄 Version Change，不直接覆蓋既有 Final Validation。
+6. 若新 RC 包含與本次驗證 Scenario / Vapor / Runtime Cost 直接相關的重大變更，才評估是否需要追加 validation。
+7. Final Validation Report 必須記錄：
+   - Validation Date
+   - Vue Version
+   - Vue Git Commit（如果可取得）
+   - Node Version
+   - Browser Version
+   - Scenario Commit / Git Commit
+   - Benchmark Parameters
+   - Freeze Point
+
+Version strategy：
+
+Historical Validation:
+
+Vue 3.6.0-rc.2
+
+Final Validation:
+
+Latest Vue 3.6 RC at the declared Freeze Point
+
+Final Validation 不得使用 floating version。
+必須固定 exact version，例如：
+
+vue@3.6.0-rc.9
+
+---
+
 ## Validation Flow
 
 ```

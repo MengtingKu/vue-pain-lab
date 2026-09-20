@@ -8,11 +8,11 @@ headless, `src/scenarios/vdom-stress/` untouched throughout. Raw data:
 
 ## 1. Dual-Trace Architecture (formalized)
 
-| | `cost-trace` | `runtime-attribution-trace` |
-|---|---|---|
-| Categories | `TRACE_CATEGORIES_NO_CPU_PROFILER` (9) | `TRACE_CATEGORIES` (11, includes `disabled-by-default-v8.cpu_profiler{,.hires}`) |
-| Valid for | Scripting / Rendering / Recalculate Style / Layout / Painting / Paint | Vue Runtime / Application / DevTools Overlay / V8-native CPU attribution |
-| Invalid for | Vue Runtime attribution (no `ProfileChunk` events exist in it at all) | Scripting/cost accounting (`EvaluateScript` polluted by profiler overhead) |
+|             | `cost-trace`                                                          | `runtime-attribution-trace`                                                      |
+| ----------- | --------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Categories  | `TRACE_CATEGORIES_NO_CPU_PROFILER` (9)                                | `TRACE_CATEGORIES` (11, includes `disabled-by-default-v8.cpu_profiler{,.hires}`) |
+| Valid for   | Scripting / Rendering / Recalculate Style / Layout / Painting / Paint | Vue Runtime / Application / DevTools Overlay / V8-native CPU attribution         |
+| Invalid for | Vue Runtime attribution (no `ProfileChunk` events exist in it at all) | Scripting/cost accounting (`EvaluateScript` polluted by profiler overhead)       |
 
 Enforced in code by `scripts/cdp-trace/evidence.ts`: `buildCostTraceEvidence()`
 and `buildRuntimeAttributionEvidence()` each structurally check for the
@@ -74,11 +74,11 @@ Gate: PASS
 
 From `cost-trace`, all 10 trials, via `buildCostTraceEvidence()`:
 
-| Metric | Observed | Median [P25, P75] (min–max), µs |
-|---|---:|---|
-| Layout | 10/10 | 748.0 [674.8, 788.8] (656–1,882) |
-| Recalculate Style (raw: `UpdateLayoutTree`) | 10/10 | 105.0 [101.3, 110.8] (99–237) |
-| Paint | 10/10 | 152.5 [110.0, 244.0] (103–3,104) |
+| Metric                                      | Observed | Median [P25, P75] (min–max), µs  |
+| ------------------------------------------- | -------: | -------------------------------- |
+| Layout                                      |    10/10 | 748.0 [674.8, 788.8] (656–1,882) |
+| Recalculate Style (raw: `UpdateLayoutTree`) |    10/10 | 105.0 [101.3, 110.8] (99–237)    |
+| Paint                                       |    10/10 | 152.5 [110.0, 244.0] (103–3,104) |
 
 `UpdateLayoutTree` correctly read (not the alias `RecalcStyle`, which never
 appears in raw JSON — see `TRACE_ACCOUNTING.md` §3). Paint was observed in
@@ -139,12 +139,12 @@ From `runtime-attribution-trace`, all 10 trials, via
 `buildRuntimeAttributionEvidence()` (`Profile`/`ProfileChunk` →
 `samples`+`timeDeltas` decoded into real elapsed time, not node counts):
 
-| Metric | Observed | Median [P25, P75] (min–max), µs |
-|---|---:|---|
-| Vue Runtime CPU | 10/10 | 6,506.0 [5,611.8, 7,037.0] (3,739–13,606) |
-| Application CPU | 10/10 | 3,034.0 [1,918.0, 4,130.5] (1,141–6,199) |
-| DevTools Overlay CPU | 10/10 | 0.0 (all trials) |
-| V8/native CPU | 10/10 | 45,697.5 [40,893.5, 51,692.0] (36,861–123,691) |
+| Metric               | Observed | Median [P25, P75] (min–max), µs                |
+| -------------------- | -------: | ---------------------------------------------- |
+| Vue Runtime CPU      |    10/10 | 6,506.0 [5,611.8, 7,037.0] (3,739–13,606)      |
+| Application CPU      |    10/10 | 3,034.0 [1,918.0, 4,130.5] (1,141–6,199)       |
+| DevTools Overlay CPU |    10/10 | 0.0 (all trials)                               |
+| V8/native CPU        |    10/10 | 45,697.5 [40,893.5, 51,692.0] (36,861–123,691) |
 
 Decoding succeeded in all 10 trials, no parser failures. Four buckets
 reliably separated via leaf `callFrame.url`. `V8/native CPU` remains the
@@ -197,23 +197,23 @@ Gate F: PASS
 
 ## 4. Measurement Infrastructure Status
 
-| Metric | Status |
-|---|---|
-| Harness Synchronization | **PASS** |
-| Mount Contamination | **PASS** |
-| Cost Trace | **PASS** |
-| Scripting Accounting | **PASS** |
-| Rendering Accounting | **PASS** (Main-thread-only self-time; documented, not a gap discovered this round) |
-| Painting Accounting | **PASS** (Main-thread-only, known undercount vs. Raster/Compositor work — documented `confidence: low`, mechanism itself functions correctly) |
-| Vue Runtime Attribution | **PASS** (mechanism confirmed; per-bucket confidence varies, documented) |
-| Trace Isolation | **PASS** |
-| Repeatability | **PASS** |
+| Metric                  | Status                                                                                                                                        |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Harness Synchronization | **PASS**                                                                                                                                      |
+| Mount Contamination     | **PASS**                                                                                                                                      |
+| Cost Trace              | **PASS**                                                                                                                                      |
+| Scripting Accounting    | **PASS**                                                                                                                                      |
+| Rendering Accounting    | **PASS** (Main-thread-only self-time; documented, not a gap discovered this round)                                                            |
+| Painting Accounting     | **PASS** (Main-thread-only, known undercount vs. Raster/Compositor work — documented `confidence: low`, mechanism itself functions correctly) |
+| Vue Runtime Attribution | **PASS** (mechanism confirmed; per-bucket confidence varies, documented)                                                                      |
+| Trace Isolation         | **PASS**                                                                                                                                      |
+| Repeatability           | **PASS**                                                                                                                                      |
 
 ```
 Overall Measurement Infrastructure: PASS
 ```
 
-**What "PASS" means here, precisely**: every gate's underlying *mechanism*
+**What "PASS" means here, precisely**: every gate's underlying _mechanism_
 is confirmed working, reproducible, and free of the specific contamination
 bugs found during this investigation (Mount bleed-in, CPU-profiler
 Scripting pollution). It does **not** mean every number above is a
@@ -230,15 +230,21 @@ number is beyond dispute.
 **Render Duration instability** (first raised in
 `PHASE_5_1_TRIGGER_OBSERVATION_REPORT.md` Phase 5.5): a 29–37ms cluster was
 observed once, in one calibration round, sitting apart from a 8–17ms
-baseline. It did not reproduce in the Instrumentation Isolation Test or in
-this Final Calibration (11.7–22.7ms range this round, one outlier trial,
-no cluster). This is **not one of the nine gates above** and is not
-treated as blocking this Overall verdict, per the gates as explicitly
-defined for this phase — but it is carried forward, unresolved, as a
-separate open question. Recommend: if a future Vue 3.5 vs 3.6 run shows an
-unexplained subset of trials with substantially different Render Duration
-than the rest, do not attribute it to a Vue version difference without
-first checking whether it matches this known, still-unexplained pattern.
+baseline. This Final Calibration's own 10 measurement trials
+(`cost-trace.meta.json`'s `renderDurationMs`) show the same kind of
+bimodal pattern, not a clean single-cluster range: values span 12.0–35.5ms,
+with trials 1–4 falling within 12.0–18.1ms and trials 5–10 within
+26.5–35.5ms (median 26.5ms). This distribution is retained as observed
+measurement behavior, not smoothed over as one outlier — the two groups
+are close in size (4 vs 6 trials), so neither reading is a lone anomaly
+against an otherwise-uniform baseline. This is **not one of the nine gates
+above** and is not treated as blocking this Overall verdict, per the gates
+as explicitly defined for this phase — but it is carried forward,
+unresolved, as a separate open question. Recommend: if a future Vue 3.5 vs
+3.6 run shows an unexplained subset of trials with substantially different
+Render Duration than the rest, do not attribute it to a Vue version
+difference without first checking whether it matches this known,
+still-unexplained pattern.
 
 ## 6. Answer to This Phase's Only Question
 
