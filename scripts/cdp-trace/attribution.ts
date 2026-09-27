@@ -64,6 +64,11 @@ const APPLICATION_URL_FRAGMENTS = [
   'scenarios/component-storm/ComponentStormChild.vue',
   'benchmarks/component-storm/metrics.ts',
   'benchmarks/component-storm/createChildren.ts',
+  // Reactive Chain Vapor Validation (rc.9) — additive, same rationale as the
+  // entries above: the chain's computed getters live in createReactiveChain.ts.
+  // (benchmarks/reactive/metrics.ts and logger.ts are already listed.)
+  'scenarios/reactive-chain/ReactiveChainPage.vue',
+  'benchmarks/reactive/createReactiveChain.ts',
 ]
 
 function bucketForUrl(url: string | undefined): AttributionBucket {

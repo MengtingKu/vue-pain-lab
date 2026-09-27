@@ -1,0 +1,988 @@
+{
+  "runA": "results/cdp-trace/validation/reactive-chain-vapor-run1-analysis.json",
+  "runB": "results/cdp-trace/validation/reactive-chain-vapor-run2-analysis.json",
+  "comparisons": [
+    {
+      "id": "arch-rc9",
+      "counts": {
+        "direction": 9,
+        "reproduced": 1,
+        "neither": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -19.46902654867256
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.481481481481491
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -17.153284671532848
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -14.085994780663603
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -30.630771638754105
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -19.207729468599034
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -42.27106227106227
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -23.968565815324165
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.400843881856542
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.03095752339813
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -31.415343915343914
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -17.3182173573104
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -32.087475149105366
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -14.122137404580155
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -90.77253218884121
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -59.02215969046781
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -52.12141539493543
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -24.431460674157304
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.7718534316774788
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 10.248369155457455
+          },
+          "agreement": "neither"
+        }
+      ]
+    },
+    {
+      "id": "arch-rc4-chrome153",
+      "counts": {
+        "direction": 8,
+        "neither": 3
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.745098039215694
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 11.363636363636363
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.660577708472562
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 7.731639293461419
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 45.93430263866451
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.046855105678635
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Regression",
+            "deltaPct": 44.558258642765686
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 7.209302325581396
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 29.691032403918616
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -15.443745632424877
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 52.114164904862584
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.472799208704253
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 39.20625375826819
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.928365106874639
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -32.03214695752009
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -71.94690265486726
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.45562562837035
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -32.87028346161066
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 39.438066893424036
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -32.06785408517853
+          },
+          "agreement": "neither"
+        }
+      ]
+    },
+    {
+      "id": "version-trad-rc4-rc9",
+      "counts": {
+        "direction": 9,
+        "neither": 2
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 10.784313725490211
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 22.727272727272727
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 18.0069800252469
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 24.682367524016115
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 72.02477113624126
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 31.779984721161192
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 74.77592829705506
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 18.372093023255815
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 42.87867370007536
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.9350104821802936
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 59.830866807610995
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 26.508407517309596
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 51.232711966325915
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 21.086077411900636
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 60.50516647531573
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 25.796460176991147
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.002833379032996
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.420874788811714
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 19.6109693877551
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -23.184038677835787
+          },
+          "agreement": "neither"
+        }
+      ]
+    },
+    {
+      "id": "version-vapor-rc4-rc9",
+      "counts": {
+        "neither": 5,
+        "direction": 5,
+        "conflicting": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -20.86956521739129
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.061224489795907
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -13.221724228842605
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -0.5681001006759673
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -18.228782287822877
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -1.4612302616073534
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -30.20372010628875
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.052060737527114
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.798373038930854
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.1652892561983471
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -27.936066712995135
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.0752895752895753
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -26.220302375809933
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.238123872519543
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -78.20945945945947
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 83.75394321766562
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -38.27027027027027
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 17.547539149888145
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -16.597001651632574
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 24.666081820765324
+          },
+          "agreement": "neither"
+        }
+      ]
+    },
+    {
+      "id": "version-3540-rc9trad",
+      "counts": {
+        "reproduced": 3,
+        "neither": 6,
+        "direction": 2
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -76.21052631578948
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -78.4
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -68.55311065379136
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -70.50328067152964
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 65.34679089026915
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.309709425939051
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 51.83537263626251
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.557377049180328
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 63.44827586206897
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -17.907801418439718
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 43.11405584477047
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.122938530734633
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 44.457208500861576
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.009760425909494
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.89866156787763
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.907401473886575
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -83.32727526911785
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -84.24890273254991
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 35.491250602022795
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -14.844142551409695
+          },
+          "agreement": "neither"
+        }
+      ]
+    },
+    {
+      "id": "version-3540-rc4trad",
+      "counts": {
+        "reproduced": 3,
+        "direction": 7,
+        "neither": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -78.52631578947367
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -82.4
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -73.35167009656483
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -76.34250943880356
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.881987577639751
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -30.42168674698795
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -13.125695216907676
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -29.508196721311474
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.396551724137932
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -15.425531914893616
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.459062943681968
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -24.212893553223388
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.480183802412407
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -23.203194321206745
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -44.48693435309114
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -27.587311759051588
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -84.70431986579058
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -84.9157581764123
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 13.276609407609568
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 10.856983344189077
+          },
+          "agreement": "direction"
+        }
+      ]
+    }
+  ]
+}
