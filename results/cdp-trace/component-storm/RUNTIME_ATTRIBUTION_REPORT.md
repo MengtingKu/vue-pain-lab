@@ -95,10 +95,10 @@ a **dedicated isolated headless Chrome instance** where the measured tab is
 the only tab — a different harness. The two are **not directly comparable**:
 
 |                       | README (claude-in-chrome, hidden tab, 100-click average of 3 trials) | This validation (isolated CDP, single click, n=10) |
-| --------------------- | ---------------------------------------------------------------------- | --------------------------------------------------- |
-| Vue 3.5.40 median     | 187.405 ms                                                              | 84.9 ms                                              |
-| Vue 3.6.0-rc.2 median | 158.669 ms                                                              | 92.1 ms                                              |
-| Direction             | -15.3%                                                                  | **+8.5%**                                            |
+| --------------------- | -------------------------------------------------------------------- | -------------------------------------------------- |
+| Vue 3.5.40 median     | 187.405 ms                                                           | 84.9 ms                                            |
+| Vue 3.6.0-rc.2 median | 158.669 ms                                                           | 92.1 ms                                            |
+| Direction             | -15.3%                                                               | **+8.5%**                                          |
 
 This ~2x absolute gap is consistent with project memory
 (`vue36_reactive_chain_validation`): a backgrounded/hidden tab can be
@@ -185,19 +185,19 @@ measurement artifact"), reconfirmed on a structurally different Scenario.
 — IQR-overlap gate + paired-trial favor-ratio, unchanged from
 `analyze-composable-chaos-version-compare.ts`)
 
-| Metric                | Source               | Confidence      | Vue 3.5.40              | Vue 3.6.0-rc.2          | Δ%     | paired favor 3.6 | Signal                                 |
-| ---------------------- | -------------------- | --------------- | ------------------------ | ------------------------ | ------ | ----------------- | --------------------------------------- |
-| Update Duration        | page timer           | high            | 84.9 [76.0,88.2] ms       | 92.1 [85.7,98.1] ms       | +8.5%  | 4/10              | Unstable                                |
-| Scripting              | cost-trace           | medium          | 85.2 [81.1,90.0] ms       | 93.3 [89.7,97.0] ms       | +9.5%  | 3/10              | Unstable                                |
-| Rendering              | cost-trace           | medium          | 108.5 [104.6,115.1] ms    | 113.3 [110.2,115.4] ms    | +4.5%  | 5/10              | Unstable                                |
-| Recalculate Style      | cost-trace           | high            | 4.6 [4.2,4.8] ms          | 5.3 [4.9,5.7] ms          | +14.8% | 2/10              | Unstable                                |
-| Layout                 | cost-trace           | high            | 82.0 [78.9,84.3] ms       | 85.1 [81.4,87.3] ms       | +3.8%  | 3/10              | Unstable                                |
-| Painting               | cost-trace           | low             | 12.0 [11.0,13.3] ms       | 11.6 [11.5,12.6] ms       | -3.1%  | 6/10              | Unstable                                |
-| Paint                  | cost-trace           | medium          | 22.8 [20.7,24.9] ms       | 22.1 [21.2,23.5] ms       | -2.9%  | 6/10              | **Stable / No Meaningful Difference**   |
-| Vue Runtime CPU        | runtime-attribution  | low             | 70.1 [63.9,74.9] ms       | 73.4 [65.7,81.0] ms       | +4.7%  | 4/10              | Unstable                                |
-| Application CPU        | runtime-attribution  | low             | 29.0 [26.1,32.6] ms       | 22.2 [17.7,25.2] ms       | -23.3% | 8/10              | Unstable                                |
-| DevTools Overlay CPU    | runtime-attribution  | low             | 0.0 ms                    | 0.0 ms                    | n/a    | 0/10              | Unstable                                |
-| V8/native CPU           | runtime-attribution  | **unavailable** | 258.8 [242.1,301.9] ms    | 414.2 [344.8,424.7] ms    | +60.1% | 0/10              | "Consistent Regression"\*               |
+| Metric               | Source              | Confidence      | Vue 3.5.40             | Vue 3.6.0-rc.2         | Δ%     | paired favor 3.6 | Signal                                |
+| -------------------- | ------------------- | --------------- | ---------------------- | ---------------------- | ------ | ---------------- | ------------------------------------- |
+| Update Duration      | page timer          | high            | 84.9 [76.0,88.2] ms    | 92.1 [85.7,98.1] ms    | +8.5%  | 4/10             | Unstable                              |
+| Scripting            | cost-trace          | medium          | 85.2 [81.1,90.0] ms    | 93.3 [89.7,97.0] ms    | +9.5%  | 3/10             | Unstable                              |
+| Rendering            | cost-trace          | medium          | 108.5 [104.6,115.1] ms | 113.3 [110.2,115.4] ms | +4.5%  | 5/10             | Unstable                              |
+| Recalculate Style    | cost-trace          | high            | 4.6 [4.2,4.8] ms       | 5.3 [4.9,5.7] ms       | +14.8% | 2/10             | Unstable                              |
+| Layout               | cost-trace          | high            | 82.0 [78.9,84.3] ms    | 85.1 [81.4,87.3] ms    | +3.8%  | 3/10             | Unstable                              |
+| Painting             | cost-trace          | low             | 12.0 [11.0,13.3] ms    | 11.6 [11.5,12.6] ms    | -3.1%  | 6/10             | Unstable                              |
+| Paint                | cost-trace          | medium          | 22.8 [20.7,24.9] ms    | 22.1 [21.2,23.5] ms    | -2.9%  | 6/10             | **Stable / No Meaningful Difference** |
+| Vue Runtime CPU      | runtime-attribution | low             | 70.1 [63.9,74.9] ms    | 73.4 [65.7,81.0] ms    | +4.7%  | 4/10             | Unstable                              |
+| Application CPU      | runtime-attribution | low             | 29.0 [26.1,32.6] ms    | 22.2 [17.7,25.2] ms    | -23.3% | 8/10             | Unstable                              |
+| DevTools Overlay CPU | runtime-attribution | low             | 0.0 ms                 | 0.0 ms                 | n/a    | 0/10             | Unstable                              |
+| V8/native CPU        | runtime-attribution | **unavailable** | 258.8 [242.1,301.9] ms | 414.2 [344.8,424.7] ms | +60.1% | 0/10             | "Consistent Regression"\*             |
 
 \* V8/native CPU's "Consistent Regression" label is the frozen classifier's
 literal, mechanical output (v3.6 never beat v3.5 across all 10 paired
@@ -293,10 +293,10 @@ directly, no `Tracing.start`/`stop` overhead in the loop):
 
 ## 2.2 Result
 
-| Condition   | Vue 3.5.40 median | Vue 3.6.0-rc.2 median | Δ%         | IQR overlap | paired favor 3.6 | Signal (frozen classifier)             |
-| ----------- | ----------------- | ---------------------- | ---------- | ----------- | ----------------- | ---------------------------------------- |
-| **visible** | 35.0 ms            | 35.9 ms                 | **+2.4%**  | yes         | 5/10               | **Stable / No Meaningful Difference**    |
-| **hidden**  | 177.3 ms           | 140.4 ms                | **-20.8%** | yes         | 7/10               | **Unstable**                             |
+| Condition   | Vue 3.5.40 median | Vue 3.6.0-rc.2 median | Δ%         | IQR overlap | paired favor 3.6 | Signal (frozen classifier)            |
+| ----------- | ----------------- | --------------------- | ---------- | ----------- | ---------------- | ------------------------------------- |
+| **visible** | 35.0 ms           | 35.9 ms               | **+2.4%**  | yes         | 5/10             | **Stable / No Meaningful Difference** |
+| **hidden**  | 177.3 ms          | 140.4 ms              | **-20.8%** | yes         | 7/10             | **Unstable**                          |
 
 (README, for reference: 187.405 ms → 158.669 ms, **-15.3%**, `claude-in-chrome`.)
 
