@@ -117,6 +117,7 @@ async function runCycleWithRetry(
   isMeasurement: boolean,
   source: { name: TraceSourceName; categories: string[] },
   maxAttempts: number,
+  updateScope: string,
 ): Promise<CycleResult> {
   let lastError: unknown
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
@@ -129,9 +130,9 @@ async function runCycleWithRetry(
       await waitForAppReady(client)
 
       const params = await readParams(client)
-      if (params['COMPONENT_COUNT'] !== EXPECTED_COMPONENT_COUNT || params['UPDATE_SCOPE'] !== EXPECTED_UPDATE_SCOPE) {
+      if (params['COMPONENT_COUNT'] !== EXPECTED_COMPONENT_COUNT || params['UPDATE_SCOPE'] !== updateScope) {
         throw new Error(
-          `config.ts drift detected: expected COMPONENT_COUNT=${EXPECTED_COMPONENT_COUNT} UPDATE_SCOPE=${EXPECTED_UPDATE_SCOPE}, ` +
+          `config.ts drift detected: expected COMPONENT_COUNT=${EXPECTED_COMPONENT_COUNT} UPDATE_SCOPE=${updateScope}, ` +
             `got ${JSON.stringify(params)} — refusing to record a mismatched trial`,
         )
       }
@@ -170,8 +171,14 @@ async function runCycleWithRetry(
   throw new Error(`runCycleWithRetry exhausted ${maxAttempts} attempts (source=${source.name}): ${String(lastError)}`)
 }
 
-/** Runs the full (fixed componentCount=500/AllChildren) condition: 1 operation x 2 trace sources. */
-export async function runVersionMatrix(cond: VersionCondition): Promise<void> {
+/**
+ * Runs one componentCount=500 condition: 1 operation x 2 trace sources.
+ * `updateScope` defaults to the Day 30 condition ('AllChildren'); the Vapor
+ * validation passes the other scopes. It never changes config.ts itself —
+ * the caller builds the page with the matching config.ts, and readParams()
+ * still refuses to record a trial whose page doesn't match.
+ */
+export async function runVersionMatrix(cond: VersionCondition, updateScope: string = EXPECTED_UPDATE_SCOPE): Promise<void> {
   console.log(`\n=== Component Storm CDP trace matrix: ${cond.vueVersion} (${cond.baseUrl}) ===`)
   const chrome = await launchIsolatedChrome(cond.chromePort, 'headless')
   console.log(`  user-data-dir: ${chrome.userDataDir}, pid: ${chrome.pid}`)
@@ -196,7 +203,7 @@ export async function runVersionMatrix(cond: VersionCondition): Promise<void> {
         'cdp-trace',
         'component-storm',
         `vue-${cond.vueVersion}`,
-        `update-${EXPECTED_COMPONENT_COUNT}-${EXPECTED_UPDATE_SCOPE}`,
+        `update-${EXPECTED_COMPONENT_COUNT}-${updateScope}`,
       )
 
       for (const source of SOURCES) {
@@ -204,7 +211,7 @@ export async function runVersionMatrix(cond: VersionCondition): Promise<void> {
         let measurementIndex = 0
         for (let i = 0; i < WARMUP + MEASUREMENT; i++) {
           const isMeasurement = i >= WARMUP
-          const cycle = await runCycleWithRetry(client, url, isMeasurement, source, 3)
+          const cycle = await runCycleWithRetry(client, url, isMeasurement, source, 3, updateScope)
 
           if (!isMeasurement) continue
 
@@ -231,7 +238,7 @@ export async function runVersionMatrix(cond: VersionCondition): Promise<void> {
             nodeVersion: process.version,
             browserVersion: versionInfo.Browser,
             componentCount: EXPECTED_COMPONENT_COUNT,
-            updateScope: EXPECTED_UPDATE_SCOPE,
+            updateScope,
             operation: 'update',
             trial: measurementIndex,
             warmupCount: WARMUP,

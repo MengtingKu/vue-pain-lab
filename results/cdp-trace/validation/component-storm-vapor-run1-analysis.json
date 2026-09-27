@@ -1,0 +1,6716 @@
+{
+  "generatedAt": "2026-09-27T07:06:56.627Z",
+  "browserVersions": {
+    "3.6.0-rc.9-traditional-run1": [
+      "Chrome/153.0.8010.54"
+    ],
+    "3.6.0-rc.9-vapor-run1": [
+      "Chrome/153.0.8010.54"
+    ],
+    "3.6.0-rc.4-traditional-chrome153-run1": [
+      "Chrome/153.0.8010.54"
+    ],
+    "3.6.0-rc.4-vapor-chrome153-run1": [
+      "Chrome/153.0.8010.54"
+    ],
+    "3.5.40-chrome153-run1": [
+      "Chrome/153.0.8010.54"
+    ],
+    "3.5.40": [
+      "Chrome/152.0.7977.82"
+    ]
+  },
+  "comparisons": [
+    {
+      "id": "arch-rc9",
+      "a": "3.6.0-rc.9-traditional-run1",
+      "b": "3.6.0-rc.9-vapor-run1",
+      "signalCounts": {
+        "Consistent Improvement": 15,
+        "Unstable": 19,
+        "Stable / No Meaningful Difference": 2
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1.6,
+            "p25": 1.2,
+            "p75": 1.775,
+            "min": 1.1,
+            "max": 3.8
+          },
+          "b": {
+            "n": 10,
+            "median": 0.4,
+            "p25": 0.3,
+            "p75": 0.575,
+            "min": 0.3,
+            "max": 3.3
+          },
+          "delta": -1.2000000000000002,
+          "deltaPct": -75.00000000000001,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2.1,
+            "p25": 1.75,
+            "p75": 3.025,
+            "min": 1.5,
+            "max": 5.5
+          },
+          "b": {
+            "n": 10,
+            "median": 0.45,
+            "p25": 0.4,
+            "p75": 0.6,
+            "min": 0.4,
+            "max": 3.7
+          },
+          "delta": -1.6500000000000001,
+          "deltaPct": -78.57142857142857,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 25.049999999999997,
+            "p25": 23.549999999999997,
+            "p75": 26.675,
+            "min": 21.4,
+            "max": 42.4
+          },
+          "b": {
+            "n": 10,
+            "median": 18.25,
+            "p25": 17.05,
+            "p75": 21.125,
+            "min": 15.9,
+            "max": 26.2
+          },
+          "delta": -6.799999999999997,
+          "deltaPct": -27.14570858283432,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 39.8,
+            "p25": 38.775000000000006,
+            "p75": 42.525000000000006,
+            "min": 33.4,
+            "max": 45.1
+          },
+          "b": {
+            "n": 10,
+            "median": 31,
+            "p25": 27.474999999999998,
+            "p75": 32.4,
+            "min": 25.6,
+            "max": 49.3
+          },
+          "delta": -8.799999999999997,
+          "deltaPct": -22.11055276381909,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 39,
+            "p25": 35.35,
+            "p75": 45.25,
+            "min": 33.2,
+            "max": 47.4
+          },
+          "b": {
+            "n": 10,
+            "median": 31.049999999999997,
+            "p25": 27.375,
+            "p75": 33.775,
+            "min": 26.1,
+            "max": 37.2
+          },
+          "delta": -7.950000000000003,
+          "deltaPct": -20.384615384615394,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 40.05,
+            "p25": 39.35,
+            "p75": 42.275,
+            "min": 38.3,
+            "max": 50.7
+          },
+          "b": {
+            "n": 10,
+            "median": 34.7,
+            "p25": 32.025,
+            "p75": 35.825,
+            "min": 30.6,
+            "max": 40
+          },
+          "delta": -5.349999999999994,
+          "deltaPct": -13.358302122347052,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 3661,
+            "p25": 2880,
+            "p75": 4054.75,
+            "min": 2771,
+            "max": 6666
+          },
+          "b": {
+            "n": 10,
+            "median": 1680.5,
+            "p25": 1516,
+            "p75": 2287.75,
+            "min": 1375,
+            "max": 4711
+          },
+          "delta": -1980.5,
+          "deltaPct": -54.09724119093144,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 4448.5,
+            "p25": 3609,
+            "p75": 5415,
+            "min": 3111,
+            "max": 8196
+          },
+          "b": {
+            "n": 10,
+            "median": 1632.5,
+            "p25": 1285.75,
+            "p75": 2129.25,
+            "min": 1246,
+            "max": 5002
+          },
+          "delta": -2816,
+          "deltaPct": -63.30223670900303,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 26813,
+            "p25": 25085.25,
+            "p75": 33646,
+            "min": 22790,
+            "max": 44219
+          },
+          "b": {
+            "n": 10,
+            "median": 18786,
+            "p25": 17849.75,
+            "p75": 21572.5,
+            "min": 16318,
+            "max": 26704
+          },
+          "delta": -8027,
+          "deltaPct": -29.936970872338044,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 6648.5,
+            "p25": 6082,
+            "p75": 7040.25,
+            "min": 5736,
+            "max": 8119
+          },
+          "b": {
+            "n": 10,
+            "median": 7769.5,
+            "p25": 7061.25,
+            "p75": 8394.25,
+            "min": 5165,
+            "max": 10719
+          },
+          "delta": 1121,
+          "deltaPct": 16.86094607806272,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 7118,
+            "p25": 6574,
+            "p75": 7443.25,
+            "min": 6273,
+            "max": 9592
+          },
+          "b": {
+            "n": 10,
+            "median": 6010,
+            "p25": 5761.25,
+            "p75": 6938.25,
+            "min": 5206,
+            "max": 9154
+          },
+          "delta": -1108,
+          "deltaPct": -15.566170272548469,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 42095.5,
+            "p25": 37562.25,
+            "p75": 42146.25,
+            "min": 34725,
+            "max": 49865
+          },
+          "b": {
+            "n": 10,
+            "median": 36795,
+            "p25": 35416.5,
+            "p75": 37864,
+            "min": 32452,
+            "max": 44876
+          },
+          "delta": -5300.5,
+          "deltaPct": -12.591607178914611,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 277,
+            "p25": 239.75,
+            "p75": 393.5,
+            "min": 225,
+            "max": 512
+          },
+          "b": {
+            "n": 10,
+            "median": 323,
+            "p25": 278,
+            "p75": 481.75,
+            "min": 216,
+            "max": 2509
+          },
+          "delta": 46,
+          "deltaPct": 16.60649819494585,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 409,
+            "p25": 376.5,
+            "p75": 495,
+            "min": 235,
+            "max": 624
+          },
+          "b": {
+            "n": 10,
+            "median": 218.5,
+            "p25": 202.5,
+            "p75": 247.25,
+            "min": 168,
+            "max": 349
+          },
+          "delta": -190.5,
+          "deltaPct": -46.577017114914426,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2611.5,
+            "p25": 2443,
+            "p75": 2801,
+            "min": 1901,
+            "max": 3310
+          },
+          "b": {
+            "n": 10,
+            "median": 243.5,
+            "p25": 208.5,
+            "p75": 277.5,
+            "min": 198,
+            "max": 410
+          },
+          "delta": -2368,
+          "deltaPct": -90.675856787287,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1585.5,
+            "p25": 1446.25,
+            "p75": 1654.5,
+            "min": 1374,
+            "max": 2597
+          },
+          "b": {
+            "n": 10,
+            "median": 1689.5,
+            "p25": 1521.25,
+            "p75": 1920.25,
+            "min": 1218,
+            "max": 3195
+          },
+          "delta": 104,
+          "deltaPct": 6.559444970040997,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2172,
+            "p25": 1888.75,
+            "p75": 2351.25,
+            "min": 1684,
+            "max": 2495
+          },
+          "b": {
+            "n": 10,
+            "median": 1788,
+            "p25": 1581.5,
+            "p75": 2045,
+            "min": 1521,
+            "max": 3415
+          },
+          "delta": -384,
+          "deltaPct": -17.67955801104972,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 27573.5,
+            "p25": 26421,
+            "p75": 29032.5,
+            "min": 24903,
+            "max": 33840
+          },
+          "b": {
+            "n": 10,
+            "median": 28483,
+            "p25": 26184.5,
+            "p75": 29523.75,
+            "min": 24834,
+            "max": 32340
+          },
+          "delta": 909.5,
+          "deltaPct": 3.2984568516873085,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 10372,
+            "p25": 9465.25,
+            "p75": 10816.75,
+            "min": 7549,
+            "max": 12437
+          },
+          "b": {
+            "n": 10,
+            "median": 10642,
+            "p25": 9493.5,
+            "p75": 11421.25,
+            "min": 6909,
+            "max": 21329
+          },
+          "delta": 270,
+          "deltaPct": 2.6031623602005403,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 9455,
+            "p25": 8639.75,
+            "p75": 10413,
+            "min": 6766,
+            "max": 14742
+          },
+          "b": {
+            "n": 10,
+            "median": 8115,
+            "p25": 7277.75,
+            "p75": 8384.75,
+            "min": 6076,
+            "max": 10396
+          },
+          "delta": -1340,
+          "deltaPct": -14.17239555790587,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 10924.5,
+            "p25": 10263.25,
+            "p75": 12132,
+            "min": 10087,
+            "max": 15320
+          },
+          "b": {
+            "n": 10,
+            "median": 11953.5,
+            "p25": 10893,
+            "p75": 13499.25,
+            "min": 10695,
+            "max": 15677
+          },
+          "delta": 1029,
+          "deltaPct": 9.419195386516545,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 14784,
+            "p25": 12842.25,
+            "p75": 15212.25,
+            "min": 10269,
+            "max": 15552
+          },
+          "b": {
+            "n": 10,
+            "median": 15880,
+            "p25": 14176.75,
+            "p75": 16497,
+            "min": 9768,
+            "max": 31311
+          },
+          "delta": 1096,
+          "deltaPct": 7.413419913419913,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 12836.5,
+            "p25": 11473.25,
+            "p75": 14356.25,
+            "min": 9580,
+            "max": 22192
+          },
+          "b": {
+            "n": 10,
+            "median": 11259.5,
+            "p25": 10700.75,
+            "p75": 11845,
+            "min": 8657,
+            "max": 14598
+          },
+          "delta": -1577,
+          "deltaPct": -12.285280255521364,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 14551,
+            "p25": 13871.5,
+            "p75": 16040.5,
+            "min": 13504,
+            "max": 19333
+          },
+          "b": {
+            "n": 10,
+            "median": 15869,
+            "p25": 14494,
+            "p75": 17678,
+            "min": 14053,
+            "max": 22853
+          },
+          "delta": 1318,
+          "deltaPct": 9.057796715002405,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 499.5,
+            "p25": 317.25,
+            "p75": 628.75,
+            "min": 204,
+            "max": 1066
+          },
+          "b": {
+            "n": 10,
+            "median": 57.5,
+            "p25": 0,
+            "p75": 137.75,
+            "min": 0,
+            "max": 329
+          },
+          "delta": -442,
+          "deltaPct": -88.48848848848849,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2319,
+            "p25": 1689.75,
+            "p75": 2521,
+            "min": 999,
+            "max": 3159
+          },
+          "b": {
+            "n": 10,
+            "median": 399.5,
+            "p25": 279.5,
+            "p75": 589.75,
+            "min": 212,
+            "max": 793
+          },
+          "delta": -1919.5,
+          "deltaPct": -82.77274687365244,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 17447.5,
+            "p25": 16974.25,
+            "p75": 19283.25,
+            "min": 15753,
+            "max": 20518
+          },
+          "b": {
+            "n": 10,
+            "median": 13649,
+            "p25": 11861.75,
+            "p75": 15146.75,
+            "min": 10584,
+            "max": 16174
+          },
+          "delta": -3798.5,
+          "deltaPct": -21.771027367817737,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 952,
+            "p25": 264.25,
+            "p75": 1107.25,
+            "min": 0,
+            "max": 1212
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 128
+          },
+          "delta": -952,
+          "deltaPct": -100,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 452,
+            "p25": 30,
+            "p75": 795.75,
+            "min": 0,
+            "max": 1520
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 26.25,
+            "min": 0,
+            "max": 310
+          },
+          "delta": -452,
+          "deltaPct": -100,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 4423.5,
+            "p25": 4296.5,
+            "p75": 6434.5,
+            "min": 1854,
+            "max": 7417
+          },
+          "b": {
+            "n": 10,
+            "median": 1522,
+            "p25": 820,
+            "p75": 2229,
+            "min": 0,
+            "max": 3078
+          },
+          "delta": -2901.5,
+          "deltaPct": -65.59285633548096,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 63218,
+            "p25": 54865,
+            "p75": 73071.5,
+            "min": 43472,
+            "max": 128832
+          },
+          "b": {
+            "n": 10,
+            "median": 61842.5,
+            "p25": 55387,
+            "p75": 70097.75,
+            "min": 20154,
+            "max": 158123
+          },
+          "delta": -1375.5,
+          "deltaPct": -2.175804359517859,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 66214.5,
+            "p25": 62545.5,
+            "p75": 82653,
+            "min": 50836,
+            "max": 167833
+          },
+          "b": {
+            "n": 10,
+            "median": 66131.5,
+            "p25": 47721,
+            "p75": 74883.75,
+            "min": 20010,
+            "max": 132947
+          },
+          "delta": -83,
+          "deltaPct": -0.12535018764772068,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 116749,
+            "p25": 106036.25,
+            "p75": 145763,
+            "min": 99777,
+            "max": 257181
+          },
+          "b": {
+            "n": 10,
+            "median": 107554.5,
+            "p25": 104843,
+            "p75": 119364.75,
+            "min": 97357,
+            "max": 191392
+          },
+          "delta": -9194.5,
+          "deltaPct": -7.875442187941653,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "arch-rc4-chrome153",
+      "a": "3.6.0-rc.4-traditional-chrome153-run1",
+      "b": "3.6.0-rc.4-vapor-chrome153-run1",
+      "signalCounts": {
+        "Consistent Improvement": 12,
+        "Unstable": 23,
+        "Stable / No Meaningful Difference": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1.6,
+            "p25": 1.35,
+            "p75": 2.9499999999999997,
+            "min": 1.2,
+            "max": 5.3
+          },
+          "b": {
+            "n": 10,
+            "median": 0.45,
+            "p25": 0.325,
+            "p75": 0.575,
+            "min": 0.2,
+            "max": 3.4
+          },
+          "delta": -1.1500000000000001,
+          "deltaPct": -71.875,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2.4,
+            "p25": 1.8,
+            "p75": 3.325,
+            "min": 1.5,
+            "max": 4.7
+          },
+          "b": {
+            "n": 10,
+            "median": 0.55,
+            "p25": 0.5,
+            "p75": 0.6749999999999999,
+            "min": 0.3,
+            "max": 3
+          },
+          "delta": -1.8499999999999999,
+          "deltaPct": -77.08333333333333,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 26.25,
+            "p25": 23.4,
+            "p75": 29.6,
+            "min": 21.3,
+            "max": 44.4
+          },
+          "b": {
+            "n": 10,
+            "median": 25.25,
+            "p25": 20.375,
+            "p75": 28.5,
+            "min": 17.5,
+            "max": 31.5
+          },
+          "delta": -1,
+          "deltaPct": -3.8095238095238098,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 36.95,
+            "p25": 35.625,
+            "p75": 40.275,
+            "min": 32.9,
+            "max": 46.7
+          },
+          "b": {
+            "n": 10,
+            "median": 29.700000000000003,
+            "p25": 26.725,
+            "p75": 33.625,
+            "min": 25.9,
+            "max": 37.2
+          },
+          "delta": -7.25,
+          "deltaPct": -19.621109607577804,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 44.349999999999994,
+            "p25": 37.65,
+            "p75": 46.849999999999994,
+            "min": 35.6,
+            "max": 60.2
+          },
+          "b": {
+            "n": 10,
+            "median": 27.450000000000003,
+            "p25": 26.775000000000002,
+            "p75": 31.525,
+            "min": 25.8,
+            "max": 35.6
+          },
+          "delta": -16.89999999999999,
+          "deltaPct": -38.105975197294235,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 42.8,
+            "p25": 39.525,
+            "p75": 45.125,
+            "min": 38.7,
+            "max": 47.6
+          },
+          "b": {
+            "n": 10,
+            "median": 34.7,
+            "p25": 32.725,
+            "p75": 36.925000000000004,
+            "min": 31,
+            "max": 39.6
+          },
+          "delta": -8.099999999999994,
+          "deltaPct": -18.9252336448598,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 4199.5,
+            "p25": 3670.5,
+            "p75": 5455.5,
+            "min": 2791,
+            "max": 7550
+          },
+          "b": {
+            "n": 10,
+            "median": 1992.5,
+            "p25": 1494.25,
+            "p75": 2416.25,
+            "min": 1047,
+            "max": 5130
+          },
+          "delta": -2207,
+          "deltaPct": -52.553875461364456,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 4617.5,
+            "p25": 4248,
+            "p75": 6023.75,
+            "min": 3268,
+            "max": 7790
+          },
+          "b": {
+            "n": 10,
+            "median": 1655.5,
+            "p25": 1475.5,
+            "p75": 1901,
+            "min": 1181,
+            "max": 4339
+          },
+          "delta": -2962,
+          "deltaPct": -64.14726583649161,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 29019.5,
+            "p25": 24562.75,
+            "p75": 32031.25,
+            "min": 22760,
+            "max": 42240
+          },
+          "b": {
+            "n": 10,
+            "median": 23955,
+            "p25": 21066.75,
+            "p75": 28996.5,
+            "min": 18228,
+            "max": 31993
+          },
+          "delta": -5064.5,
+          "deltaPct": -17.452058098864555,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 5881,
+            "p25": 5633.5,
+            "p75": 6501.25,
+            "min": 4250,
+            "max": 7093
+          },
+          "b": {
+            "n": 10,
+            "median": 6310,
+            "p25": 5731,
+            "p75": 8058.25,
+            "min": 5213,
+            "max": 9569
+          },
+          "delta": 429,
+          "deltaPct": 7.294677775888454,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 6808.5,
+            "p25": 6014,
+            "p75": 7374.5,
+            "min": 4837,
+            "max": 10113
+          },
+          "b": {
+            "n": 10,
+            "median": 7239.5,
+            "p25": 6804.5,
+            "p75": 7657.5,
+            "min": 5572,
+            "max": 9576
+          },
+          "delta": 431,
+          "deltaPct": 6.330322391128735,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 41306.5,
+            "p25": 37838.25,
+            "p75": 44942,
+            "min": 35416,
+            "max": 50627
+          },
+          "b": {
+            "n": 10,
+            "median": 37150,
+            "p25": 35274.5,
+            "p75": 38411,
+            "min": 34620,
+            "max": 45149
+          },
+          "delta": -4156.5,
+          "deltaPct": -10.062580949729462,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 275.5,
+            "p25": 202.5,
+            "p75": 360.5,
+            "min": 155,
+            "max": 515
+          },
+          "b": {
+            "n": 10,
+            "median": 269.5,
+            "p25": 230.75,
+            "p75": 342.5,
+            "min": 171,
+            "max": 406
+          },
+          "delta": -6,
+          "deltaPct": -2.1778584392014517,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 360,
+            "p25": 299,
+            "p75": 443,
+            "min": 250,
+            "max": 616
+          },
+          "b": {
+            "n": 10,
+            "median": 285,
+            "p25": 230.5,
+            "p75": 333.75,
+            "min": 194,
+            "max": 727
+          },
+          "delta": -75,
+          "deltaPct": -20.833333333333336,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2125.5,
+            "p25": 1881.5,
+            "p75": 2721.25,
+            "min": 1789,
+            "max": 4283
+          },
+          "b": {
+            "n": 10,
+            "median": 243.5,
+            "p25": 216.25,
+            "p75": 283.25,
+            "min": 204,
+            "max": 341
+          },
+          "delta": -1882,
+          "deltaPct": -88.54387203011056,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1415,
+            "p25": 1239.75,
+            "p75": 1661.5,
+            "min": 1019,
+            "max": 1977
+          },
+          "b": {
+            "n": 10,
+            "median": 1646.5,
+            "p25": 1443.5,
+            "p75": 1922.75,
+            "min": 1257,
+            "max": 2699
+          },
+          "delta": 231.5,
+          "deltaPct": 16.360424028268554,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1966,
+            "p25": 1783,
+            "p75": 2158.25,
+            "min": 1324,
+            "max": 3947
+          },
+          "b": {
+            "n": 10,
+            "median": 2291,
+            "p25": 1930.75,
+            "p75": 2475.5,
+            "min": 1652,
+            "max": 3269
+          },
+          "delta": 325,
+          "deltaPct": 16.531027466937946,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 29765.5,
+            "p25": 27399.75,
+            "p75": 32934.5,
+            "min": 25295,
+            "max": 37660
+          },
+          "b": {
+            "n": 10,
+            "median": 28093.5,
+            "p25": 27109.25,
+            "p75": 29078.75,
+            "min": 26548,
+            "max": 33710
+          },
+          "delta": -1672,
+          "deltaPct": -5.617241437234382,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 8419,
+            "p25": 6974.25,
+            "p75": 10161,
+            "min": 5925,
+            "max": 11619
+          },
+          "b": {
+            "n": 10,
+            "median": 10200,
+            "p25": 7460.75,
+            "p75": 11098.5,
+            "min": 5687,
+            "max": 12352
+          },
+          "delta": 1781,
+          "deltaPct": 21.154531417032903,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 9038,
+            "p25": 8190.75,
+            "p75": 11722.25,
+            "min": 6618,
+            "max": 14779
+          },
+          "b": {
+            "n": 10,
+            "median": 10307,
+            "p25": 8760.5,
+            "p75": 10546.5,
+            "min": 6827,
+            "max": 11804
+          },
+          "delta": 1269,
+          "deltaPct": 14.040716972781588,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 11563.5,
+            "p25": 11201.25,
+            "p75": 13412.25,
+            "min": 10276,
+            "max": 15147
+          },
+          "b": {
+            "n": 10,
+            "median": 10866,
+            "p25": 10779.75,
+            "p75": 11340.5,
+            "min": 10113,
+            "max": 17666
+          },
+          "delta": -697.5,
+          "deltaPct": -6.031910753664548,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 11616,
+            "p25": 9979,
+            "p75": 13588.25,
+            "min": 8601,
+            "max": 14830
+          },
+          "b": {
+            "n": 10,
+            "median": 13927.5,
+            "p25": 10672.75,
+            "p75": 15025.25,
+            "min": 8309,
+            "max": 18152
+          },
+          "delta": 2311.5,
+          "deltaPct": 19.899276859504134,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 13052.5,
+            "p25": 11990.5,
+            "p75": 16652.75,
+            "min": 9280,
+            "max": 18197
+          },
+          "b": {
+            "n": 10,
+            "median": 13742,
+            "p25": 13101.5,
+            "p75": 15174,
+            "min": 10017,
+            "max": 16618
+          },
+          "delta": 689.5,
+          "deltaPct": 5.282512928557748,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 15360.5,
+            "p25": 14712,
+            "p75": 17744.25,
+            "min": 13904,
+            "max": 21309
+          },
+          "b": {
+            "n": 10,
+            "median": 14661,
+            "p25": 14147.75,
+            "p75": 14812,
+            "min": 13231,
+            "max": 22656
+          },
+          "delta": -699.5,
+          "deltaPct": -4.553888219784512,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1044.5,
+            "p25": 847.75,
+            "p75": 1501,
+            "min": 173,
+            "max": 2030
+          },
+          "b": {
+            "n": 10,
+            "median": 63,
+            "p25": 53.25,
+            "p75": 114,
+            "min": 0,
+            "max": 309
+          },
+          "delta": -981.5,
+          "deltaPct": -93.96840593585448,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1315.5,
+            "p25": 870,
+            "p75": 1958.5,
+            "min": 613,
+            "max": 2583
+          },
+          "b": {
+            "n": 10,
+            "median": 451,
+            "p25": 441.5,
+            "p75": 521.75,
+            "min": 219,
+            "max": 766
+          },
+          "delta": -864.5,
+          "deltaPct": -65.71645762067655,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 16764,
+            "p25": 15974.75,
+            "p75": 18538.75,
+            "min": 13978,
+            "max": 20439
+          },
+          "b": {
+            "n": 10,
+            "median": 13192.5,
+            "p25": 12308,
+            "p75": 14574,
+            "min": 11946,
+            "max": 17582
+          },
+          "delta": -3571.5,
+          "deltaPct": -21.304581245526126,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 529,
+            "p25": 233.25,
+            "p75": 571.75,
+            "min": 0,
+            "max": 1347
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": -529,
+          "deltaPct": -100,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 834.5,
+            "p25": 130,
+            "p75": 973.25,
+            "min": 0,
+            "max": 1357
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 103
+          },
+          "delta": -834.5,
+          "deltaPct": -100,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 6356,
+            "p25": 5750,
+            "p75": 6960,
+            "min": 2666,
+            "max": 7375
+          },
+          "b": {
+            "n": 10,
+            "median": 1189,
+            "p25": 529,
+            "p75": 1673.25,
+            "min": 0,
+            "max": 2760
+          },
+          "delta": -5167,
+          "deltaPct": -81.29326620516048,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 225
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 557
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 1,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 101812,
+            "p25": 63489,
+            "p75": 112701,
+            "min": 48839,
+            "max": 158762
+          },
+          "b": {
+            "n": 10,
+            "median": 60911.5,
+            "p25": 52429,
+            "p75": 67915.5,
+            "min": 51547,
+            "max": 138397
+          },
+          "delta": -40900.5,
+          "deltaPct": -40.172572977645075,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 81564,
+            "p25": 70115.25,
+            "p75": 103885.75,
+            "min": 45614,
+            "max": 146505
+          },
+          "b": {
+            "n": 10,
+            "median": 64097.5,
+            "p25": 50433.25,
+            "p75": 73517.5,
+            "min": 38255,
+            "max": 142838
+          },
+          "delta": -17466.5,
+          "deltaPct": -21.41447207101172,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 110847,
+            "p25": 105112.25,
+            "p75": 118802.75,
+            "min": 101578,
+            "max": 229615
+          },
+          "b": {
+            "n": 10,
+            "median": 115326.5,
+            "p25": 107325.25,
+            "p75": 117724.5,
+            "min": 101115,
+            "max": 174914
+          },
+          "delta": 4479.5,
+          "deltaPct": 4.041155827401734,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "version-trad-rc4-rc9",
+      "a": "3.6.0-rc.4-traditional-chrome153-run1",
+      "b": "3.6.0-rc.9-traditional-run1",
+      "signalCounts": {
+        "Stable / No Meaningful Difference": 4,
+        "Unstable": 32
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1.6,
+            "p25": 1.35,
+            "p75": 2.9499999999999997,
+            "min": 1.2,
+            "max": 5.3
+          },
+          "b": {
+            "n": 10,
+            "median": 1.6,
+            "p25": 1.2,
+            "p75": 1.775,
+            "min": 1.1,
+            "max": 3.8
+          },
+          "delta": 0,
+          "deltaPct": 0,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2.4,
+            "p25": 1.8,
+            "p75": 3.325,
+            "min": 1.5,
+            "max": 4.7
+          },
+          "b": {
+            "n": 10,
+            "median": 2.1,
+            "p25": 1.75,
+            "p75": 3.025,
+            "min": 1.5,
+            "max": 5.5
+          },
+          "delta": -0.2999999999999998,
+          "deltaPct": -12.499999999999993,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 26.25,
+            "p25": 23.4,
+            "p75": 29.6,
+            "min": 21.3,
+            "max": 44.4
+          },
+          "b": {
+            "n": 10,
+            "median": 25.049999999999997,
+            "p25": 23.549999999999997,
+            "p75": 26.675,
+            "min": 21.4,
+            "max": 42.4
+          },
+          "delta": -1.2000000000000028,
+          "deltaPct": -4.571428571428583,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 36.95,
+            "p25": 35.625,
+            "p75": 40.275,
+            "min": 32.9,
+            "max": 46.7
+          },
+          "b": {
+            "n": 10,
+            "median": 39.8,
+            "p25": 38.775000000000006,
+            "p75": 42.525000000000006,
+            "min": 33.4,
+            "max": 45.1
+          },
+          "delta": 2.8499999999999943,
+          "deltaPct": 7.713125845737467,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 44.349999999999994,
+            "p25": 37.65,
+            "p75": 46.849999999999994,
+            "min": 35.6,
+            "max": 60.2
+          },
+          "b": {
+            "n": 10,
+            "median": 39,
+            "p25": 35.35,
+            "p75": 45.25,
+            "min": 33.2,
+            "max": 47.4
+          },
+          "delta": -5.349999999999994,
+          "deltaPct": -12.063134160090181,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 42.8,
+            "p25": 39.525,
+            "p75": 45.125,
+            "min": 38.7,
+            "max": 47.6
+          },
+          "b": {
+            "n": 10,
+            "median": 40.05,
+            "p25": 39.35,
+            "p75": 42.275,
+            "min": 38.3,
+            "max": 50.7
+          },
+          "delta": -2.75,
+          "deltaPct": -6.425233644859814,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 4199.5,
+            "p25": 3670.5,
+            "p75": 5455.5,
+            "min": 2791,
+            "max": 7550
+          },
+          "b": {
+            "n": 10,
+            "median": 3661,
+            "p25": 2880,
+            "p75": 4054.75,
+            "min": 2771,
+            "max": 6666
+          },
+          "delta": -538.5,
+          "deltaPct": -12.822955113704012,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 4617.5,
+            "p25": 4248,
+            "p75": 6023.75,
+            "min": 3268,
+            "max": 7790
+          },
+          "b": {
+            "n": 10,
+            "median": 4448.5,
+            "p25": 3609,
+            "p75": 5415,
+            "min": 3111,
+            "max": 8196
+          },
+          "delta": -169,
+          "deltaPct": -3.65998917162967,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 29019.5,
+            "p25": 24562.75,
+            "p75": 32031.25,
+            "min": 22760,
+            "max": 42240
+          },
+          "b": {
+            "n": 10,
+            "median": 26813,
+            "p25": 25085.25,
+            "p75": 33646,
+            "min": 22790,
+            "max": 44219
+          },
+          "delta": -2206.5,
+          "deltaPct": -7.603507986009407,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 5881,
+            "p25": 5633.5,
+            "p75": 6501.25,
+            "min": 4250,
+            "max": 7093
+          },
+          "b": {
+            "n": 10,
+            "median": 6648.5,
+            "p25": 6082,
+            "p75": 7040.25,
+            "min": 5736,
+            "max": 8119
+          },
+          "delta": 767.5,
+          "deltaPct": 13.050501615371534,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 6808.5,
+            "p25": 6014,
+            "p75": 7374.5,
+            "min": 4837,
+            "max": 10113
+          },
+          "b": {
+            "n": 10,
+            "median": 7118,
+            "p25": 6574,
+            "p75": 7443.25,
+            "min": 6273,
+            "max": 9592
+          },
+          "delta": 309.5,
+          "deltaPct": 4.545788352794301,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 41306.5,
+            "p25": 37838.25,
+            "p75": 44942,
+            "min": 35416,
+            "max": 50627
+          },
+          "b": {
+            "n": 10,
+            "median": 42095.5,
+            "p25": 37562.25,
+            "p75": 42146.25,
+            "min": 34725,
+            "max": 49865
+          },
+          "delta": 789,
+          "deltaPct": 1.910110999479501,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 275.5,
+            "p25": 202.5,
+            "p75": 360.5,
+            "min": 155,
+            "max": 515
+          },
+          "b": {
+            "n": 10,
+            "median": 277,
+            "p25": 239.75,
+            "p75": 393.5,
+            "min": 225,
+            "max": 512
+          },
+          "delta": 1.5,
+          "deltaPct": 0.5444646098003629,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 360,
+            "p25": 299,
+            "p75": 443,
+            "min": 250,
+            "max": 616
+          },
+          "b": {
+            "n": 10,
+            "median": 409,
+            "p25": 376.5,
+            "p75": 495,
+            "min": 235,
+            "max": 624
+          },
+          "delta": 49,
+          "deltaPct": 13.61111111111111,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2125.5,
+            "p25": 1881.5,
+            "p75": 2721.25,
+            "min": 1789,
+            "max": 4283
+          },
+          "b": {
+            "n": 10,
+            "median": 2611.5,
+            "p25": 2443,
+            "p75": 2801,
+            "min": 1901,
+            "max": 3310
+          },
+          "delta": 486,
+          "deltaPct": 22.865208186309104,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1415,
+            "p25": 1239.75,
+            "p75": 1661.5,
+            "min": 1019,
+            "max": 1977
+          },
+          "b": {
+            "n": 10,
+            "median": 1585.5,
+            "p25": 1446.25,
+            "p75": 1654.5,
+            "min": 1374,
+            "max": 2597
+          },
+          "delta": 170.5,
+          "deltaPct": 12.049469964664311,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1966,
+            "p25": 1783,
+            "p75": 2158.25,
+            "min": 1324,
+            "max": 3947
+          },
+          "b": {
+            "n": 10,
+            "median": 2172,
+            "p25": 1888.75,
+            "p75": 2351.25,
+            "min": 1684,
+            "max": 2495
+          },
+          "delta": 206,
+          "deltaPct": 10.478128179043743,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 29765.5,
+            "p25": 27399.75,
+            "p75": 32934.5,
+            "min": 25295,
+            "max": 37660
+          },
+          "b": {
+            "n": 10,
+            "median": 27573.5,
+            "p25": 26421,
+            "p75": 29032.5,
+            "min": 24903,
+            "max": 33840
+          },
+          "delta": -2192,
+          "deltaPct": -7.364230400967562,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 8419,
+            "p25": 6974.25,
+            "p75": 10161,
+            "min": 5925,
+            "max": 11619
+          },
+          "b": {
+            "n": 10,
+            "median": 10372,
+            "p25": 9465.25,
+            "p75": 10816.75,
+            "min": 7549,
+            "max": 12437
+          },
+          "delta": 1953,
+          "deltaPct": 23.19752939779071,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 9038,
+            "p25": 8190.75,
+            "p75": 11722.25,
+            "min": 6618,
+            "max": 14779
+          },
+          "b": {
+            "n": 10,
+            "median": 9455,
+            "p25": 8639.75,
+            "p75": 10413,
+            "min": 6766,
+            "max": 14742
+          },
+          "delta": 417,
+          "deltaPct": 4.613852622261562,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 11563.5,
+            "p25": 11201.25,
+            "p75": 13412.25,
+            "min": 10276,
+            "max": 15147
+          },
+          "b": {
+            "n": 10,
+            "median": 10924.5,
+            "p25": 10263.25,
+            "p75": 12132,
+            "min": 10087,
+            "max": 15320
+          },
+          "delta": -639,
+          "deltaPct": -5.526008561421715,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 11616,
+            "p25": 9979,
+            "p75": 13588.25,
+            "min": 8601,
+            "max": 14830
+          },
+          "b": {
+            "n": 10,
+            "median": 14784,
+            "p25": 12842.25,
+            "p75": 15212.25,
+            "min": 10269,
+            "max": 15552
+          },
+          "delta": 3168,
+          "deltaPct": 27.27272727272727,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 13052.5,
+            "p25": 11990.5,
+            "p75": 16652.75,
+            "min": 9280,
+            "max": 18197
+          },
+          "b": {
+            "n": 10,
+            "median": 12836.5,
+            "p25": 11473.25,
+            "p75": 14356.25,
+            "min": 9580,
+            "max": 22192
+          },
+          "delta": -216,
+          "deltaPct": -1.654855391687416,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 15360.5,
+            "p25": 14712,
+            "p75": 17744.25,
+            "min": 13904,
+            "max": 21309
+          },
+          "b": {
+            "n": 10,
+            "median": 14551,
+            "p25": 13871.5,
+            "p75": 16040.5,
+            "min": 13504,
+            "max": 19333
+          },
+          "delta": -809.5,
+          "deltaPct": -5.27001074183783,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1044.5,
+            "p25": 847.75,
+            "p75": 1501,
+            "min": 173,
+            "max": 2030
+          },
+          "b": {
+            "n": 10,
+            "median": 499.5,
+            "p25": 317.25,
+            "p75": 628.75,
+            "min": 204,
+            "max": 1066
+          },
+          "delta": -545,
+          "deltaPct": -52.17807563427477,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1315.5,
+            "p25": 870,
+            "p75": 1958.5,
+            "min": 613,
+            "max": 2583
+          },
+          "b": {
+            "n": 10,
+            "median": 2319,
+            "p25": 1689.75,
+            "p75": 2521,
+            "min": 999,
+            "max": 3159
+          },
+          "delta": 1003.5,
+          "deltaPct": 76.28278221208666,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 16764,
+            "p25": 15974.75,
+            "p75": 18538.75,
+            "min": 13978,
+            "max": 20439
+          },
+          "b": {
+            "n": 10,
+            "median": 17447.5,
+            "p25": 16974.25,
+            "p75": 19283.25,
+            "min": 15753,
+            "max": 20518
+          },
+          "delta": 683.5,
+          "deltaPct": 4.07718921498449,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 529,
+            "p25": 233.25,
+            "p75": 571.75,
+            "min": 0,
+            "max": 1347
+          },
+          "b": {
+            "n": 10,
+            "median": 952,
+            "p25": 264.25,
+            "p75": 1107.25,
+            "min": 0,
+            "max": 1212
+          },
+          "delta": 423,
+          "deltaPct": 79.96219281663515,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 834.5,
+            "p25": 130,
+            "p75": 973.25,
+            "min": 0,
+            "max": 1357
+          },
+          "b": {
+            "n": 10,
+            "median": 452,
+            "p25": 30,
+            "p75": 795.75,
+            "min": 0,
+            "max": 1520
+          },
+          "delta": -382.5,
+          "deltaPct": -45.83582983822648,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 6356,
+            "p25": 5750,
+            "p75": 6960,
+            "min": 2666,
+            "max": 7375
+          },
+          "b": {
+            "n": 10,
+            "median": 4423.5,
+            "p25": 4296.5,
+            "p75": 6434.5,
+            "min": 1854,
+            "max": 7417
+          },
+          "delta": -1932.5,
+          "deltaPct": -30.404342353681564,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 225
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 1,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 101812,
+            "p25": 63489,
+            "p75": 112701,
+            "min": 48839,
+            "max": 158762
+          },
+          "b": {
+            "n": 10,
+            "median": 63218,
+            "p25": 54865,
+            "p75": 73071.5,
+            "min": 43472,
+            "max": 128832
+          },
+          "delta": -38594,
+          "deltaPct": -37.90712293246376,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 81564,
+            "p25": 70115.25,
+            "p75": 103885.75,
+            "min": 45614,
+            "max": 146505
+          },
+          "b": {
+            "n": 10,
+            "median": 66214.5,
+            "p25": 62545.5,
+            "p75": 82653,
+            "min": 50836,
+            "max": 167833
+          },
+          "delta": -15349.5,
+          "deltaPct": -18.818964248933355,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 110847,
+            "p25": 105112.25,
+            "p75": 118802.75,
+            "min": 101578,
+            "max": 229615
+          },
+          "b": {
+            "n": 10,
+            "median": 116749,
+            "p25": 106036.25,
+            "p75": 145763,
+            "min": 99777,
+            "max": 257181
+          },
+          "delta": 5902,
+          "deltaPct": 5.324456232464568,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "version-vapor-rc4-rc9",
+      "a": "3.6.0-rc.4-vapor-chrome153-run1",
+      "b": "3.6.0-rc.9-vapor-run1",
+      "signalCounts": {
+        "Unstable": 28,
+        "Stable / No Meaningful Difference": 7,
+        "Consistent Improvement": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0.45,
+            "p25": 0.325,
+            "p75": 0.575,
+            "min": 0.2,
+            "max": 3.4
+          },
+          "b": {
+            "n": 10,
+            "median": 0.4,
+            "p25": 0.3,
+            "p75": 0.575,
+            "min": 0.3,
+            "max": 3.3
+          },
+          "delta": -0.04999999999999999,
+          "deltaPct": -11.111111111111107,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0.55,
+            "p25": 0.5,
+            "p75": 0.6749999999999999,
+            "min": 0.3,
+            "max": 3
+          },
+          "b": {
+            "n": 10,
+            "median": 0.45,
+            "p25": 0.4,
+            "p75": 0.6,
+            "min": 0.4,
+            "max": 3.7
+          },
+          "delta": -0.10000000000000003,
+          "deltaPct": -18.181818181818183,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 25.25,
+            "p25": 20.375,
+            "p75": 28.5,
+            "min": 17.5,
+            "max": 31.5
+          },
+          "b": {
+            "n": 10,
+            "median": 18.25,
+            "p25": 17.05,
+            "p75": 21.125,
+            "min": 15.9,
+            "max": 26.2
+          },
+          "delta": -7,
+          "deltaPct": -27.722772277227726,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 29.700000000000003,
+            "p25": 26.725,
+            "p75": 33.625,
+            "min": 25.9,
+            "max": 37.2
+          },
+          "b": {
+            "n": 10,
+            "median": 31,
+            "p25": 27.474999999999998,
+            "p75": 32.4,
+            "min": 25.6,
+            "max": 49.3
+          },
+          "delta": 1.2999999999999972,
+          "deltaPct": 4.3771043771043665,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 27.450000000000003,
+            "p25": 26.775000000000002,
+            "p75": 31.525,
+            "min": 25.8,
+            "max": 35.6
+          },
+          "b": {
+            "n": 10,
+            "median": 31.049999999999997,
+            "p25": 27.375,
+            "p75": 33.775,
+            "min": 26.1,
+            "max": 37.2
+          },
+          "delta": 3.5999999999999943,
+          "deltaPct": 13.114754098360635,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 34.7,
+            "p25": 32.725,
+            "p75": 36.925000000000004,
+            "min": 31,
+            "max": 39.6
+          },
+          "b": {
+            "n": 10,
+            "median": 34.7,
+            "p25": 32.025,
+            "p75": 35.825,
+            "min": 30.6,
+            "max": 40
+          },
+          "delta": 0,
+          "deltaPct": 0,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1992.5,
+            "p25": 1494.25,
+            "p75": 2416.25,
+            "min": 1047,
+            "max": 5130
+          },
+          "b": {
+            "n": 10,
+            "median": 1680.5,
+            "p25": 1516,
+            "p75": 2287.75,
+            "min": 1375,
+            "max": 4711
+          },
+          "delta": -312,
+          "deltaPct": -15.658720200752823,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1655.5,
+            "p25": 1475.5,
+            "p75": 1901,
+            "min": 1181,
+            "max": 4339
+          },
+          "b": {
+            "n": 10,
+            "median": 1632.5,
+            "p25": 1285.75,
+            "p75": 2129.25,
+            "min": 1246,
+            "max": 5002
+          },
+          "delta": -23,
+          "deltaPct": -1.389308366052552,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 23955,
+            "p25": 21066.75,
+            "p75": 28996.5,
+            "min": 18228,
+            "max": 31993
+          },
+          "b": {
+            "n": 10,
+            "median": 18786,
+            "p25": 17849.75,
+            "p75": 21572.5,
+            "min": 16318,
+            "max": 26704
+          },
+          "delta": -5169,
+          "deltaPct": -21.57795867251096,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 6310,
+            "p25": 5731,
+            "p75": 8058.25,
+            "min": 5213,
+            "max": 9569
+          },
+          "b": {
+            "n": 10,
+            "median": 7769.5,
+            "p25": 7061.25,
+            "p75": 8394.25,
+            "min": 5165,
+            "max": 10719
+          },
+          "delta": 1459.5,
+          "deltaPct": 23.129952456418383,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 7239.5,
+            "p25": 6804.5,
+            "p75": 7657.5,
+            "min": 5572,
+            "max": 9576
+          },
+          "b": {
+            "n": 10,
+            "median": 6010,
+            "p25": 5761.25,
+            "p75": 6938.25,
+            "min": 5206,
+            "max": 9154
+          },
+          "delta": -1229.5,
+          "deltaPct": -16.98321707300228,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 37150,
+            "p25": 35274.5,
+            "p75": 38411,
+            "min": 34620,
+            "max": 45149
+          },
+          "b": {
+            "n": 10,
+            "median": 36795,
+            "p25": 35416.5,
+            "p75": 37864,
+            "min": 32452,
+            "max": 44876
+          },
+          "delta": -355,
+          "deltaPct": -0.955585464333782,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 269.5,
+            "p25": 230.75,
+            "p75": 342.5,
+            "min": 171,
+            "max": 406
+          },
+          "b": {
+            "n": 10,
+            "median": 323,
+            "p25": 278,
+            "p75": 481.75,
+            "min": 216,
+            "max": 2509
+          },
+          "delta": 53.5,
+          "deltaPct": 19.851576994434136,
+          "pairedFavorB": 1,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 285,
+            "p25": 230.5,
+            "p75": 333.75,
+            "min": 194,
+            "max": 727
+          },
+          "b": {
+            "n": 10,
+            "median": 218.5,
+            "p25": 202.5,
+            "p75": 247.25,
+            "min": 168,
+            "max": 349
+          },
+          "delta": -66.5,
+          "deltaPct": -23.333333333333332,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 243.5,
+            "p25": 216.25,
+            "p75": 283.25,
+            "min": 204,
+            "max": 341
+          },
+          "b": {
+            "n": 10,
+            "median": 243.5,
+            "p25": 208.5,
+            "p75": 277.5,
+            "min": 198,
+            "max": 410
+          },
+          "delta": 0,
+          "deltaPct": 0,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1646.5,
+            "p25": 1443.5,
+            "p75": 1922.75,
+            "min": 1257,
+            "max": 2699
+          },
+          "b": {
+            "n": 10,
+            "median": 1689.5,
+            "p25": 1521.25,
+            "p75": 1920.25,
+            "min": 1218,
+            "max": 3195
+          },
+          "delta": 43,
+          "deltaPct": 2.611600364409353,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2291,
+            "p25": 1930.75,
+            "p75": 2475.5,
+            "min": 1652,
+            "max": 3269
+          },
+          "b": {
+            "n": 10,
+            "median": 1788,
+            "p25": 1581.5,
+            "p75": 2045,
+            "min": 1521,
+            "max": 3415
+          },
+          "delta": -503,
+          "deltaPct": -21.95547795722392,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 28093.5,
+            "p25": 27109.25,
+            "p75": 29078.75,
+            "min": 26548,
+            "max": 33710
+          },
+          "b": {
+            "n": 10,
+            "median": 28483,
+            "p25": 26184.5,
+            "p75": 29523.75,
+            "min": 24834,
+            "max": 32340
+          },
+          "delta": 389.5,
+          "deltaPct": 1.3864417035969174,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 10200,
+            "p25": 7460.75,
+            "p75": 11098.5,
+            "min": 5687,
+            "max": 12352
+          },
+          "b": {
+            "n": 10,
+            "median": 10642,
+            "p25": 9493.5,
+            "p75": 11421.25,
+            "min": 6909,
+            "max": 21329
+          },
+          "delta": 442,
+          "deltaPct": 4.333333333333334,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 10307,
+            "p25": 8760.5,
+            "p75": 10546.5,
+            "min": 6827,
+            "max": 11804
+          },
+          "b": {
+            "n": 10,
+            "median": 8115,
+            "p25": 7277.75,
+            "p75": 8384.75,
+            "min": 6076,
+            "max": 10396
+          },
+          "delta": -2192,
+          "deltaPct": -21.267100029106434,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 10866,
+            "p25": 10779.75,
+            "p75": 11340.5,
+            "min": 10113,
+            "max": 17666
+          },
+          "b": {
+            "n": 10,
+            "median": 11953.5,
+            "p25": 10893,
+            "p75": 13499.25,
+            "min": 10695,
+            "max": 15677
+          },
+          "delta": 1087.5,
+          "deltaPct": 10.008282716731088,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 13927.5,
+            "p25": 10672.75,
+            "p75": 15025.25,
+            "min": 8309,
+            "max": 18152
+          },
+          "b": {
+            "n": 10,
+            "median": 15880,
+            "p25": 14176.75,
+            "p75": 16497,
+            "min": 9768,
+            "max": 31311
+          },
+          "delta": 1952.5,
+          "deltaPct": 14.019027104649076,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 13742,
+            "p25": 13101.5,
+            "p75": 15174,
+            "min": 10017,
+            "max": 16618
+          },
+          "b": {
+            "n": 10,
+            "median": 11259.5,
+            "p25": 10700.75,
+            "p75": 11845,
+            "min": 8657,
+            "max": 14598
+          },
+          "delta": -2482.5,
+          "deltaPct": -18.065056032600786,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 14661,
+            "p25": 14147.75,
+            "p75": 14812,
+            "min": 13231,
+            "max": 22656
+          },
+          "b": {
+            "n": 10,
+            "median": 15869,
+            "p25": 14494,
+            "p75": 17678,
+            "min": 14053,
+            "max": 22853
+          },
+          "delta": 1208,
+          "deltaPct": 8.23954709774231,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 63,
+            "p25": 53.25,
+            "p75": 114,
+            "min": 0,
+            "max": 309
+          },
+          "b": {
+            "n": 10,
+            "median": 57.5,
+            "p25": 0,
+            "p75": 137.75,
+            "min": 0,
+            "max": 329
+          },
+          "delta": -5.5,
+          "deltaPct": -8.73015873015873,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 451,
+            "p25": 441.5,
+            "p75": 521.75,
+            "min": 219,
+            "max": 766
+          },
+          "b": {
+            "n": 10,
+            "median": 399.5,
+            "p25": 279.5,
+            "p75": 589.75,
+            "min": 212,
+            "max": 793
+          },
+          "delta": -51.5,
+          "deltaPct": -11.419068736141908,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 13192.5,
+            "p25": 12308,
+            "p75": 14574,
+            "min": 11946,
+            "max": 17582
+          },
+          "b": {
+            "n": 10,
+            "median": 13649,
+            "p25": 11861.75,
+            "p75": 15146.75,
+            "min": 10584,
+            "max": 16174
+          },
+          "delta": 456.5,
+          "deltaPct": 3.4602994125450066,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 128
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 103
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 26.25,
+            "min": 0,
+            "max": 310
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 1,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1189,
+            "p25": 529,
+            "p75": 1673.25,
+            "min": 0,
+            "max": 2760
+          },
+          "b": {
+            "n": 10,
+            "median": 1522,
+            "p25": 820,
+            "p75": 2229,
+            "min": 0,
+            "max": 3078
+          },
+          "delta": 333,
+          "deltaPct": 28.006728343145497,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 557
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 1,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 60911.5,
+            "p25": 52429,
+            "p75": 67915.5,
+            "min": 51547,
+            "max": 138397
+          },
+          "b": {
+            "n": 10,
+            "median": 61842.5,
+            "p25": 55387,
+            "p75": 70097.75,
+            "min": 20154,
+            "max": 158123
+          },
+          "delta": 931,
+          "deltaPct": 1.5284470091854576,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 64097.5,
+            "p25": 50433.25,
+            "p75": 73517.5,
+            "min": 38255,
+            "max": 142838
+          },
+          "b": {
+            "n": 10,
+            "median": 66131.5,
+            "p25": 47721,
+            "p75": 74883.75,
+            "min": 20010,
+            "max": 132947
+          },
+          "delta": 2034,
+          "deltaPct": 3.173290689964507,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 115326.5,
+            "p25": 107325.25,
+            "p75": 117724.5,
+            "min": 101115,
+            "max": 174914
+          },
+          "b": {
+            "n": 10,
+            "median": 107554.5,
+            "p25": 104843,
+            "p75": 119364.75,
+            "min": 97357,
+            "max": 191392
+          },
+          "delta": -7772,
+          "deltaPct": -6.739127607271529,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "version-3540-rc9trad",
+      "a": "3.5.40-chrome153-run1",
+      "b": "3.6.0-rc.9-traditional-run1",
+      "signalCounts": {
+        "Unstable": 27,
+        "Stable / No Meaningful Difference": 9
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2.0999999999999996,
+            "p25": 1.4249999999999998,
+            "p75": 2.475,
+            "min": 1.1,
+            "max": 10.9
+          },
+          "b": {
+            "n": 10,
+            "median": 1.6,
+            "p25": 1.2,
+            "p75": 1.775,
+            "min": 1.1,
+            "max": 3.8
+          },
+          "delta": -0.49999999999999956,
+          "deltaPct": -23.809523809523792,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2.05,
+            "p25": 1.8,
+            "p75": 2.85,
+            "min": 1.7,
+            "max": 4.2
+          },
+          "b": {
+            "n": 10,
+            "median": 2.1,
+            "p25": 1.75,
+            "p75": 3.025,
+            "min": 1.5,
+            "max": 5.5
+          },
+          "delta": 0.050000000000000266,
+          "deltaPct": 2.4390243902439157,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 27.25,
+            "p25": 24.700000000000003,
+            "p75": 30.25,
+            "min": 24.2,
+            "max": 31.3
+          },
+          "b": {
+            "n": 10,
+            "median": 25.049999999999997,
+            "p25": 23.549999999999997,
+            "p75": 26.675,
+            "min": 21.4,
+            "max": 42.4
+          },
+          "delta": -2.200000000000003,
+          "deltaPct": -8.073394495412854,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 39.55,
+            "p25": 37.224999999999994,
+            "p75": 41.3,
+            "min": 33.7,
+            "max": 47.5
+          },
+          "b": {
+            "n": 10,
+            "median": 39.8,
+            "p25": 38.775000000000006,
+            "p75": 42.525000000000006,
+            "min": 33.4,
+            "max": 45.1
+          },
+          "delta": 0.25,
+          "deltaPct": 0.6321112515802781,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 38.55,
+            "p25": 37.975,
+            "p75": 43.050000000000004,
+            "min": 32.3,
+            "max": 48.1
+          },
+          "b": {
+            "n": 10,
+            "median": 39,
+            "p25": 35.35,
+            "p75": 45.25,
+            "min": 33.2,
+            "max": 47.4
+          },
+          "delta": 0.45000000000000284,
+          "deltaPct": 1.1673151750972837,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 39.75,
+            "p25": 39.3,
+            "p75": 42,
+            "min": 37.6,
+            "max": 72.5
+          },
+          "b": {
+            "n": 10,
+            "median": 40.05,
+            "p25": 39.35,
+            "p75": 42.275,
+            "min": 38.3,
+            "max": 50.7
+          },
+          "delta": 0.29999999999999716,
+          "deltaPct": 0.7547169811320683,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 5022.5,
+            "p25": 3237.25,
+            "p75": 5985.25,
+            "min": 2877,
+            "max": 12750
+          },
+          "b": {
+            "n": 10,
+            "median": 3661,
+            "p25": 2880,
+            "p75": 4054.75,
+            "min": 2771,
+            "max": 6666
+          },
+          "delta": -1361.5,
+          "deltaPct": -27.108013937282234,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 4089.5,
+            "p25": 3477.25,
+            "p75": 5236.75,
+            "min": 3304,
+            "max": 7038
+          },
+          "b": {
+            "n": 10,
+            "median": 4448.5,
+            "p25": 3609,
+            "p75": 5415,
+            "min": 3111,
+            "max": 8196
+          },
+          "delta": 359,
+          "deltaPct": 8.778579288421568,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 29332,
+            "p25": 26420.75,
+            "p75": 31684.5,
+            "min": 25941,
+            "max": 32638
+          },
+          "b": {
+            "n": 10,
+            "median": 26813,
+            "p25": 25085.25,
+            "p75": 33646,
+            "min": 22790,
+            "max": 44219
+          },
+          "delta": -2519,
+          "deltaPct": -8.587890358652666,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 6843,
+            "p25": 5980.25,
+            "p75": 7526,
+            "min": 4593,
+            "max": 10216
+          },
+          "b": {
+            "n": 10,
+            "median": 6648.5,
+            "p25": 6082,
+            "p75": 7040.25,
+            "min": 5736,
+            "max": 8119
+          },
+          "delta": -194.5,
+          "deltaPct": -2.842320619611282,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 6819,
+            "p25": 5272,
+            "p75": 8286.25,
+            "min": 4444,
+            "max": 8510
+          },
+          "b": {
+            "n": 10,
+            "median": 7118,
+            "p25": 6574,
+            "p75": 7443.25,
+            "min": 6273,
+            "max": 9592
+          },
+          "delta": 299,
+          "deltaPct": 4.384807156474556,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 39165.5,
+            "p25": 37300.5,
+            "p75": 40759.25,
+            "min": 35730,
+            "max": 43329
+          },
+          "b": {
+            "n": 10,
+            "median": 42095.5,
+            "p25": 37562.25,
+            "p75": 42146.25,
+            "min": 34725,
+            "max": 49865
+          },
+          "delta": 2930,
+          "deltaPct": 7.481073904329065,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 249,
+            "p25": 216.75,
+            "p75": 367.25,
+            "min": 201,
+            "max": 474
+          },
+          "b": {
+            "n": 10,
+            "median": 277,
+            "p25": 239.75,
+            "p75": 393.5,
+            "min": 225,
+            "max": 512
+          },
+          "delta": 28,
+          "deltaPct": 11.244979919678714,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 298,
+            "p25": 238.75,
+            "p75": 454.25,
+            "min": 210,
+            "max": 590
+          },
+          "b": {
+            "n": 10,
+            "median": 409,
+            "p25": 376.5,
+            "p75": 495,
+            "min": 235,
+            "max": 624
+          },
+          "delta": 111,
+          "deltaPct": 37.24832214765101,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2295.5,
+            "p25": 2033.25,
+            "p75": 2687.25,
+            "min": 1986,
+            "max": 5864
+          },
+          "b": {
+            "n": 10,
+            "median": 2611.5,
+            "p25": 2443,
+            "p75": 2801,
+            "min": 1901,
+            "max": 3310
+          },
+          "delta": 316,
+          "deltaPct": 13.766064038335873,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1576.5,
+            "p25": 1321.25,
+            "p75": 1783.75,
+            "min": 1147,
+            "max": 2971
+          },
+          "b": {
+            "n": 10,
+            "median": 1585.5,
+            "p25": 1446.25,
+            "p75": 1654.5,
+            "min": 1374,
+            "max": 2597
+          },
+          "delta": 9,
+          "deltaPct": 0.570884871550904,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2132.5,
+            "p25": 1600,
+            "p75": 2486.25,
+            "min": 1277,
+            "max": 2700
+          },
+          "b": {
+            "n": 10,
+            "median": 2172,
+            "p25": 1888.75,
+            "p75": 2351.25,
+            "min": 1684,
+            "max": 2495
+          },
+          "delta": 39.5,
+          "deltaPct": 1.8522860492379838,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 27627,
+            "p25": 26420.75,
+            "p75": 28303.75,
+            "min": 25835,
+            "max": 30388
+          },
+          "b": {
+            "n": 10,
+            "median": 27573.5,
+            "p25": 26421,
+            "p75": 29032.5,
+            "min": 24903,
+            "max": 33840
+          },
+          "delta": -53.5,
+          "deltaPct": -0.19365113837912187,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 9275.5,
+            "p25": 8017,
+            "p75": 10939.5,
+            "min": 6873,
+            "max": 21661
+          },
+          "b": {
+            "n": 10,
+            "median": 10372,
+            "p25": 9465.25,
+            "p75": 10816.75,
+            "min": 7549,
+            "max": 12437
+          },
+          "delta": 1096.5,
+          "deltaPct": 11.821465150126679,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 8158.5,
+            "p25": 6752.5,
+            "p75": 8920.5,
+            "min": 5836,
+            "max": 14476
+          },
+          "b": {
+            "n": 10,
+            "median": 9455,
+            "p25": 8639.75,
+            "p75": 10413,
+            "min": 6766,
+            "max": 14742
+          },
+          "delta": 1296.5,
+          "deltaPct": 15.891401605687319,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 11729,
+            "p25": 10922.25,
+            "p75": 13008.5,
+            "min": 9928,
+            "max": 13501
+          },
+          "b": {
+            "n": 10,
+            "median": 10924.5,
+            "p25": 10263.25,
+            "p75": 12132,
+            "min": 10087,
+            "max": 15320
+          },
+          "delta": -804.5,
+          "deltaPct": -6.859067269161906,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 13084.5,
+            "p25": 11051.25,
+            "p75": 15317.5,
+            "min": 9562,
+            "max": 29761
+          },
+          "b": {
+            "n": 10,
+            "median": 14784,
+            "p25": 12842.25,
+            "p75": 15212.25,
+            "min": 10269,
+            "max": 15552
+          },
+          "delta": 1699.5,
+          "deltaPct": 12.988650693568726,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 11229.5,
+            "p25": 9400.5,
+            "p75": 12177.25,
+            "min": 8400,
+            "max": 17806
+          },
+          "b": {
+            "n": 10,
+            "median": 12836.5,
+            "p25": 11473.25,
+            "p75": 14356.25,
+            "min": 9580,
+            "max": 22192
+          },
+          "delta": 1607,
+          "deltaPct": 14.310521394541166,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 15135,
+            "p25": 14529.25,
+            "p75": 16810.75,
+            "min": 13432,
+            "max": 18312
+          },
+          "b": {
+            "n": 10,
+            "median": 14551,
+            "p25": 13871.5,
+            "p75": 16040.5,
+            "min": 13504,
+            "max": 19333
+          },
+          "delta": -584,
+          "deltaPct": -3.8586058804096464,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1325.5,
+            "p25": 385.25,
+            "p75": 1835.75,
+            "min": 57,
+            "max": 2836
+          },
+          "b": {
+            "n": 10,
+            "median": 499.5,
+            "p25": 317.25,
+            "p75": 628.75,
+            "min": 204,
+            "max": 1066
+          },
+          "delta": -826,
+          "deltaPct": -62.31610712938513,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1755,
+            "p25": 1139.25,
+            "p75": 2075.25,
+            "min": 513,
+            "max": 2323
+          },
+          "b": {
+            "n": 10,
+            "median": 2319,
+            "p25": 1689.75,
+            "p75": 2521,
+            "min": 999,
+            "max": 3159
+          },
+          "delta": 564,
+          "deltaPct": 32.136752136752136,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 18828.5,
+            "p25": 18240.75,
+            "p75": 19674,
+            "min": 17174,
+            "max": 22378
+          },
+          "b": {
+            "n": 10,
+            "median": 17447.5,
+            "p25": 16974.25,
+            "p75": 19283.25,
+            "min": 15753,
+            "max": 20518
+          },
+          "delta": -1381,
+          "deltaPct": -7.334625700400988,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 405.5,
+            "p25": 188,
+            "p75": 571.75,
+            "min": 0,
+            "max": 1287
+          },
+          "b": {
+            "n": 10,
+            "median": 952,
+            "p25": 264.25,
+            "p75": 1107.25,
+            "min": 0,
+            "max": 1212
+          },
+          "delta": 546.5,
+          "deltaPct": 134.7718865598027,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 736.5,
+            "p25": 307.25,
+            "p75": 1017,
+            "min": 0,
+            "max": 1562
+          },
+          "b": {
+            "n": 10,
+            "median": 452,
+            "p25": 30,
+            "p75": 795.75,
+            "min": 0,
+            "max": 1520
+          },
+          "delta": -284.5,
+          "deltaPct": -38.62864901561439,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 5938.5,
+            "p25": 4537.25,
+            "p75": 6931.75,
+            "min": 3235,
+            "max": 7883
+          },
+          "b": {
+            "n": 10,
+            "median": 4423.5,
+            "p25": 4296.5,
+            "p75": 6434.5,
+            "min": 1854,
+            "max": 7417
+          },
+          "delta": -1515,
+          "deltaPct": -25.511492801212427,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 125
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 1,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 60282,
+            "p25": 51471,
+            "p75": 64648.75,
+            "min": 41862,
+            "max": 123607
+          },
+          "b": {
+            "n": 10,
+            "median": 63218,
+            "p25": 54865,
+            "p75": 73071.5,
+            "min": 43472,
+            "max": 128832
+          },
+          "delta": 2936,
+          "deltaPct": 4.870442254736074,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 74971,
+            "p25": 66162.5,
+            "p75": 90213,
+            "min": 49718,
+            "max": 136015
+          },
+          "b": {
+            "n": 10,
+            "median": 66214.5,
+            "p25": 62545.5,
+            "p75": 82653,
+            "min": 50836,
+            "max": 167833
+          },
+          "delta": -8756.5,
+          "deltaPct": -11.679849541822838,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 119006.5,
+            "p25": 106727.75,
+            "p75": 124425.5,
+            "min": 95914,
+            "max": 162519
+          },
+          "b": {
+            "n": 10,
+            "median": 116749,
+            "p25": 106036.25,
+            "p75": 145763,
+            "min": 99777,
+            "max": 257181
+          },
+          "delta": -2257.5,
+          "deltaPct": -1.8969552083289567,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        }
+      ]
+    },
+    {
+      "id": "version-3540-rc4trad",
+      "a": "3.5.40-chrome153-run1",
+      "b": "3.6.0-rc.4-traditional-chrome153-run1",
+      "signalCounts": {
+        "Unstable": 32,
+        "Stable / No Meaningful Difference": 4
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2.0999999999999996,
+            "p25": 1.4249999999999998,
+            "p75": 2.475,
+            "min": 1.1,
+            "max": 10.9
+          },
+          "b": {
+            "n": 10,
+            "median": 1.6,
+            "p25": 1.35,
+            "p75": 2.9499999999999997,
+            "min": 1.2,
+            "max": 5.3
+          },
+          "delta": -0.49999999999999956,
+          "deltaPct": -23.809523809523792,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2.05,
+            "p25": 1.8,
+            "p75": 2.85,
+            "min": 1.7,
+            "max": 4.2
+          },
+          "b": {
+            "n": 10,
+            "median": 2.4,
+            "p25": 1.8,
+            "p75": 3.325,
+            "min": 1.5,
+            "max": 4.7
+          },
+          "delta": 0.3500000000000001,
+          "deltaPct": 17.073170731707325,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 27.25,
+            "p25": 24.700000000000003,
+            "p75": 30.25,
+            "min": 24.2,
+            "max": 31.3
+          },
+          "b": {
+            "n": 10,
+            "median": 26.25,
+            "p25": 23.4,
+            "p75": 29.6,
+            "min": 21.3,
+            "max": 44.4
+          },
+          "delta": -1,
+          "deltaPct": -3.669724770642202,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 39.55,
+            "p25": 37.224999999999994,
+            "p75": 41.3,
+            "min": 33.7,
+            "max": 47.5
+          },
+          "b": {
+            "n": 10,
+            "median": 36.95,
+            "p25": 35.625,
+            "p75": 40.275,
+            "min": 32.9,
+            "max": 46.7
+          },
+          "delta": -2.5999999999999943,
+          "deltaPct": -6.573957016434878,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 38.55,
+            "p25": 37.975,
+            "p75": 43.050000000000004,
+            "min": 32.3,
+            "max": 48.1
+          },
+          "b": {
+            "n": 10,
+            "median": 44.349999999999994,
+            "p25": 37.65,
+            "p75": 46.849999999999994,
+            "min": 35.6,
+            "max": 60.2
+          },
+          "delta": 5.799999999999997,
+          "deltaPct": 15.045395590142666,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 39.75,
+            "p25": 39.3,
+            "p75": 42,
+            "min": 37.6,
+            "max": 72.5
+          },
+          "b": {
+            "n": 10,
+            "median": 42.8,
+            "p25": 39.525,
+            "p75": 45.125,
+            "min": 38.7,
+            "max": 47.6
+          },
+          "delta": 3.049999999999997,
+          "deltaPct": 7.67295597484276,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 5022.5,
+            "p25": 3237.25,
+            "p75": 5985.25,
+            "min": 2877,
+            "max": 12750
+          },
+          "b": {
+            "n": 10,
+            "median": 4199.5,
+            "p25": 3670.5,
+            "p75": 5455.5,
+            "min": 2791,
+            "max": 7550
+          },
+          "delta": -823,
+          "deltaPct": -16.38626182180189,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 4089.5,
+            "p25": 3477.25,
+            "p75": 5236.75,
+            "min": 3304,
+            "max": 7038
+          },
+          "b": {
+            "n": 10,
+            "median": 4617.5,
+            "p25": 4248,
+            "p75": 6023.75,
+            "min": 3268,
+            "max": 7790
+          },
+          "delta": 528,
+          "deltaPct": 12.911113828096344,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 29332,
+            "p25": 26420.75,
+            "p75": 31684.5,
+            "min": 25941,
+            "max": 32638
+          },
+          "b": {
+            "n": 10,
+            "median": 29019.5,
+            "p25": 24562.75,
+            "p75": 32031.25,
+            "min": 22760,
+            "max": 42240
+          },
+          "delta": -312.5,
+          "deltaPct": -1.0653893358789035,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 6843,
+            "p25": 5980.25,
+            "p75": 7526,
+            "min": 4593,
+            "max": 10216
+          },
+          "b": {
+            "n": 10,
+            "median": 5881,
+            "p25": 5633.5,
+            "p75": 6501.25,
+            "min": 4250,
+            "max": 7093
+          },
+          "delta": -962,
+          "deltaPct": -14.058161625018267,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 6819,
+            "p25": 5272,
+            "p75": 8286.25,
+            "min": 4444,
+            "max": 8510
+          },
+          "b": {
+            "n": 10,
+            "median": 6808.5,
+            "p25": 6014,
+            "p75": 7374.5,
+            "min": 4837,
+            "max": 10113
+          },
+          "delta": -10.5,
+          "deltaPct": -0.1539815222173339,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 39165.5,
+            "p25": 37300.5,
+            "p75": 40759.25,
+            "min": 35730,
+            "max": 43329
+          },
+          "b": {
+            "n": 10,
+            "median": 41306.5,
+            "p25": 37838.25,
+            "p75": 44942,
+            "min": 35416,
+            "max": 50627
+          },
+          "delta": 2141,
+          "deltaPct": 5.46654581200291,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 249,
+            "p25": 216.75,
+            "p75": 367.25,
+            "min": 201,
+            "max": 474
+          },
+          "b": {
+            "n": 10,
+            "median": 275.5,
+            "p25": 202.5,
+            "p75": 360.5,
+            "min": 155,
+            "max": 515
+          },
+          "delta": 26.5,
+          "deltaPct": 10.642570281124499,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 298,
+            "p25": 238.75,
+            "p75": 454.25,
+            "min": 210,
+            "max": 590
+          },
+          "b": {
+            "n": 10,
+            "median": 360,
+            "p25": 299,
+            "p75": 443,
+            "min": 250,
+            "max": 616
+          },
+          "delta": 62,
+          "deltaPct": 20.80536912751678,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2295.5,
+            "p25": 2033.25,
+            "p75": 2687.25,
+            "min": 1986,
+            "max": 5864
+          },
+          "b": {
+            "n": 10,
+            "median": 2125.5,
+            "p25": 1881.5,
+            "p75": 2721.25,
+            "min": 1789,
+            "max": 4283
+          },
+          "delta": -170,
+          "deltaPct": -7.405793944674363,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1576.5,
+            "p25": 1321.25,
+            "p75": 1783.75,
+            "min": 1147,
+            "max": 2971
+          },
+          "b": {
+            "n": 10,
+            "median": 1415,
+            "p25": 1239.75,
+            "p75": 1661.5,
+            "min": 1019,
+            "max": 1977
+          },
+          "delta": -161.5,
+          "deltaPct": -10.244211861718998,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 2132.5,
+            "p25": 1600,
+            "p75": 2486.25,
+            "min": 1277,
+            "max": 2700
+          },
+          "b": {
+            "n": 10,
+            "median": 1966,
+            "p25": 1783,
+            "p75": 2158.25,
+            "min": 1324,
+            "max": 3947
+          },
+          "delta": -166.5,
+          "deltaPct": -7.807737397420868,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 27627,
+            "p25": 26420.75,
+            "p75": 28303.75,
+            "min": 25835,
+            "max": 30388
+          },
+          "b": {
+            "n": 10,
+            "median": 29765.5,
+            "p25": 27399.75,
+            "p75": 32934.5,
+            "min": 25295,
+            "max": 37660
+          },
+          "delta": 2138.5,
+          "deltaPct": 7.740616063995367,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 9275.5,
+            "p25": 8017,
+            "p75": 10939.5,
+            "min": 6873,
+            "max": 21661
+          },
+          "b": {
+            "n": 10,
+            "median": 8419,
+            "p25": 6974.25,
+            "p75": 10161,
+            "min": 5925,
+            "max": 11619
+          },
+          "delta": -856.5,
+          "deltaPct": -9.23400355775969,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 8158.5,
+            "p25": 6752.5,
+            "p75": 8920.5,
+            "min": 5836,
+            "max": 14476
+          },
+          "b": {
+            "n": 10,
+            "median": 9038,
+            "p25": 8190.75,
+            "p75": 11722.25,
+            "min": 6618,
+            "max": 14779
+          },
+          "delta": 879.5,
+          "deltaPct": 10.780167923025067,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 11729,
+            "p25": 10922.25,
+            "p75": 13008.5,
+            "min": 9928,
+            "max": 13501
+          },
+          "b": {
+            "n": 10,
+            "median": 11563.5,
+            "p25": 11201.25,
+            "p75": 13412.25,
+            "min": 10276,
+            "max": 15147
+          },
+          "delta": -165.5,
+          "deltaPct": -1.4110324835876886,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 13084.5,
+            "p25": 11051.25,
+            "p75": 15317.5,
+            "min": 9562,
+            "max": 29761
+          },
+          "b": {
+            "n": 10,
+            "median": 11616,
+            "p25": 9979,
+            "p75": 13588.25,
+            "min": 8601,
+            "max": 14830
+          },
+          "delta": -1468.5,
+          "deltaPct": -11.223203026481714,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 11229.5,
+            "p25": 9400.5,
+            "p75": 12177.25,
+            "min": 8400,
+            "max": 17806
+          },
+          "b": {
+            "n": 10,
+            "median": 13052.5,
+            "p25": 11990.5,
+            "p75": 16652.75,
+            "min": 9280,
+            "max": 18197
+          },
+          "delta": 1823,
+          "deltaPct": 16.234026448194488,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 15135,
+            "p25": 14529.25,
+            "p75": 16810.75,
+            "min": 13432,
+            "max": 18312
+          },
+          "b": {
+            "n": 10,
+            "median": 15360.5,
+            "p25": 14712,
+            "p75": 17744.25,
+            "min": 13904,
+            "max": 21309
+          },
+          "delta": 225.5,
+          "deltaPct": 1.489924017178725,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1325.5,
+            "p25": 385.25,
+            "p75": 1835.75,
+            "min": 57,
+            "max": 2836
+          },
+          "b": {
+            "n": 10,
+            "median": 1044.5,
+            "p25": 847.75,
+            "p75": 1501,
+            "min": 173,
+            "max": 2030
+          },
+          "delta": -281,
+          "deltaPct": -21.19954734062618,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 1755,
+            "p25": 1139.25,
+            "p75": 2075.25,
+            "min": 513,
+            "max": 2323
+          },
+          "b": {
+            "n": 10,
+            "median": 1315.5,
+            "p25": 870,
+            "p75": 1958.5,
+            "min": 613,
+            "max": 2583
+          },
+          "delta": -439.5,
+          "deltaPct": -25.042735042735043,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 18828.5,
+            "p25": 18240.75,
+            "p75": 19674,
+            "min": 17174,
+            "max": 22378
+          },
+          "b": {
+            "n": 10,
+            "median": 16764,
+            "p25": 15974.75,
+            "p75": 18538.75,
+            "min": 13978,
+            "max": 20439
+          },
+          "delta": -2064.5,
+          "deltaPct": -10.964760867833338,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 405.5,
+            "p25": 188,
+            "p75": 571.75,
+            "min": 0,
+            "max": 1287
+          },
+          "b": {
+            "n": 10,
+            "median": 529,
+            "p25": 233.25,
+            "p75": 571.75,
+            "min": 0,
+            "max": 1347
+          },
+          "delta": 123.5,
+          "deltaPct": 30.456226880394578,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 736.5,
+            "p25": 307.25,
+            "p75": 1017,
+            "min": 0,
+            "max": 1562
+          },
+          "b": {
+            "n": 10,
+            "median": 834.5,
+            "p25": 130,
+            "p75": 973.25,
+            "min": 0,
+            "max": 1357
+          },
+          "delta": 98,
+          "deltaPct": 13.306177868295995,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 5938.5,
+            "p25": 4537.25,
+            "p75": 6931.75,
+            "min": 3235,
+            "max": 7883
+          },
+          "b": {
+            "n": 10,
+            "median": 6356,
+            "p25": 5750,
+            "p75": 6960,
+            "min": 2666,
+            "max": 7375
+          },
+          "delta": 417.5,
+          "deltaPct": 7.03039488086217,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 125
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 1,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 225
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 60282,
+            "p25": 51471,
+            "p75": 64648.75,
+            "min": 41862,
+            "max": 123607
+          },
+          "b": {
+            "n": 10,
+            "median": 101812,
+            "p25": 63489,
+            "p75": 112701,
+            "min": 48839,
+            "max": 158762
+          },
+          "delta": 41530,
+          "deltaPct": 68.89287017683554,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 74971,
+            "p25": 66162.5,
+            "p75": 90213,
+            "min": 49718,
+            "max": 136015
+          },
+          "b": {
+            "n": 10,
+            "median": 81564,
+            "p25": 70115.25,
+            "p75": 103885.75,
+            "min": 45614,
+            "max": 146505
+          },
+          "delta": 6593,
+          "deltaPct": 8.794067039255179,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 119006.5,
+            "p25": 106727.75,
+            "p75": 124425.5,
+            "min": 95914,
+            "max": 162519
+          },
+          "b": {
+            "n": 10,
+            "median": 110847,
+            "p25": 105112.25,
+            "p75": 118802.75,
+            "min": 101578,
+            "max": 229615
+          },
+          "delta": -8159.5,
+          "deltaPct": -6.856348182662292,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "drift-3540",
+      "a": "3.5.40",
+      "b": "3.5.40-chrome153-run1",
+      "signalCounts": {
+        "Consistent Improvement": 10,
+        "Stable / No Meaningful Difference": 1,
+        "Unstable": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 84.9,
+            "p25": 75.975,
+            "p75": 88.175,
+            "min": 74.1,
+            "max": 98.6
+          },
+          "b": {
+            "n": 10,
+            "median": 27.25,
+            "p25": 24.700000000000003,
+            "p75": 30.25,
+            "min": 24.2,
+            "max": 31.3
+          },
+          "delta": -57.650000000000006,
+          "deltaPct": -67.90341578327444,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 185.45,
+            "p25": 168.4,
+            "p75": 194.775,
+            "min": 158.5,
+            "max": 250.1
+          },
+          "b": {
+            "n": 10,
+            "median": 39.75,
+            "p25": 39.3,
+            "p75": 42,
+            "min": 37.6,
+            "max": 72.5
+          },
+          "delta": -145.7,
+          "deltaPct": -78.56565111889996,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 85204,
+            "p25": 81068.25,
+            "p75": 90047.25,
+            "min": 76812,
+            "max": 94424
+          },
+          "b": {
+            "n": 10,
+            "median": 29332,
+            "p25": 26420.75,
+            "p75": 31684.5,
+            "min": 25941,
+            "max": 32638
+          },
+          "delta": -55872,
+          "deltaPct": -65.57438617905262,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 108485.5,
+            "p25": 104631.5,
+            "p75": 115096.25,
+            "min": 94036,
+            "max": 117072
+          },
+          "b": {
+            "n": 10,
+            "median": 39165.5,
+            "p25": 37300.5,
+            "p75": 40759.25,
+            "min": 35730,
+            "max": 43329
+          },
+          "delta": -69320,
+          "deltaPct": -63.89794027773297,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 4585.5,
+            "p25": 4241.5,
+            "p75": 4765.5,
+            "min": 4173,
+            "max": 5604
+          },
+          "b": {
+            "n": 10,
+            "median": 2295.5,
+            "p25": 2033.25,
+            "p75": 2687.25,
+            "min": 1986,
+            "max": 5864
+          },
+          "delta": -2290,
+          "deltaPct": -49.940028350234435,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 82012,
+            "p25": 78871.25,
+            "p75": 84298.75,
+            "min": 71173,
+            "max": 91260
+          },
+          "b": {
+            "n": 10,
+            "median": 27627,
+            "p25": 26420.75,
+            "p75": 28303.75,
+            "min": 25835,
+            "max": 30388
+          },
+          "delta": -54385,
+          "deltaPct": -66.31346632200166,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 11982,
+            "p25": 10950.5,
+            "p75": 13303.5,
+            "min": 10538,
+            "max": 14006
+          },
+          "b": {
+            "n": 10,
+            "median": 11729,
+            "p25": 10922.25,
+            "p75": 13008.5,
+            "min": 9928,
+            "max": 13501
+          },
+          "delta": -253,
+          "deltaPct": -2.1115005842096477,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 22752,
+            "p25": 20690,
+            "p75": 24932.25,
+            "min": 19661,
+            "max": 26613
+          },
+          "b": {
+            "n": 10,
+            "median": 15135,
+            "p25": 14529.25,
+            "p75": 16810.75,
+            "min": 13432,
+            "max": 18312
+          },
+          "delta": -7617,
+          "deltaPct": -33.47837552742617,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 70087,
+            "p25": 63889,
+            "p75": 74892.25,
+            "min": 49847,
+            "max": 78943
+          },
+          "b": {
+            "n": 10,
+            "median": 18828.5,
+            "p25": 18240.75,
+            "p75": 19674,
+            "min": 17174,
+            "max": 22378
+          },
+          "delta": -51258.5,
+          "deltaPct": -73.13553155364048,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 28965,
+            "p25": 26065,
+            "p75": 32620.5,
+            "min": 18184,
+            "max": 40236
+          },
+          "b": {
+            "n": 10,
+            "median": 5938.5,
+            "p25": 4537.25,
+            "p75": 6931.75,
+            "min": 3235,
+            "max": 7883
+          },
+          "delta": -23026.5,
+          "deltaPct": -79.49766960124288,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "a": {
+            "n": 10,
+            "median": 258755,
+            "p25": 242128,
+            "p75": 301933,
+            "min": 228562,
+            "max": 383989
+          },
+          "b": {
+            "n": 10,
+            "median": 119006.5,
+            "p25": 106727.75,
+            "p75": 124425.5,
+            "min": 95914,
+            "max": 162519
+          },
+          "delta": -139748.5,
+          "deltaPct": -54.00803849200982,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        }
+      ]
+    }
+  ],
+  "costStructures": [
+    {
+      "label": "3.5.40-chrome153-run1",
+      "operation": "update-ParentOnly",
+      "nodeCount": 500,
+      "scriptingUs": 5022.5,
+      "renderingUs": 6843,
+      "paintingUs": 9275.5,
+      "totalUs": 21141,
+      "scriptingPct": 23.75715434463838,
+      "renderingPct": 32.36838370937988,
+      "paintingPct": 43.87446194598174
+    },
+    {
+      "label": "3.5.40-chrome153-run1",
+      "operation": "update-SingleChild",
+      "nodeCount": 500,
+      "scriptingUs": 4089.5,
+      "renderingUs": 6819,
+      "paintingUs": 8158.5,
+      "totalUs": 19067,
+      "scriptingPct": 21.44805160748938,
+      "renderingPct": 35.76336078040594,
+      "paintingPct": 42.788587612104685
+    },
+    {
+      "label": "3.5.40-chrome153-run1",
+      "operation": "update-AllChildren",
+      "nodeCount": 500,
+      "scriptingUs": 29332,
+      "renderingUs": 39165.5,
+      "paintingUs": 11729,
+      "totalUs": 80226.5,
+      "scriptingPct": 36.56148529475921,
+      "renderingPct": 48.818657176867994,
+      "paintingPct": 14.619857528372796
+    },
+    {
+      "label": "3.6.0-rc.4-traditional-chrome153-run1",
+      "operation": "update-ParentOnly",
+      "nodeCount": 500,
+      "scriptingUs": 4199.5,
+      "renderingUs": 5881,
+      "paintingUs": 8419,
+      "totalUs": 18499.5,
+      "scriptingPct": 22.70061353009541,
+      "renderingPct": 31.79004837968594,
+      "paintingPct": 45.509338090218655
+    },
+    {
+      "label": "3.6.0-rc.4-traditional-chrome153-run1",
+      "operation": "update-SingleChild",
+      "nodeCount": 500,
+      "scriptingUs": 4617.5,
+      "renderingUs": 6808.5,
+      "paintingUs": 9038,
+      "totalUs": 20464,
+      "scriptingPct": 22.564014855355747,
+      "renderingPct": 33.270621579358874,
+      "paintingPct": 44.16536356528538
+    },
+    {
+      "label": "3.6.0-rc.4-traditional-chrome153-run1",
+      "operation": "update-AllChildren",
+      "nodeCount": 500,
+      "scriptingUs": 29019.5,
+      "renderingUs": 41306.5,
+      "paintingUs": 11563.5,
+      "totalUs": 81889.5,
+      "scriptingPct": 35.4373881877408,
+      "renderingPct": 50.44175382680319,
+      "paintingPct": 14.120857985456011
+    },
+    {
+      "label": "3.6.0-rc.4-vapor-chrome153-run1",
+      "operation": "update-ParentOnly",
+      "nodeCount": 500,
+      "scriptingUs": 1992.5,
+      "renderingUs": 6310,
+      "paintingUs": 10200,
+      "totalUs": 18502.5,
+      "scriptingPct": 10.768815024996622,
+      "renderingPct": 34.10349952709094,
+      "paintingPct": 55.12768544791244
+    },
+    {
+      "label": "3.6.0-rc.4-vapor-chrome153-run1",
+      "operation": "update-SingleChild",
+      "nodeCount": 500,
+      "scriptingUs": 1655.5,
+      "renderingUs": 7239.5,
+      "paintingUs": 10307,
+      "totalUs": 19202,
+      "scriptingPct": 8.621497760649932,
+      "renderingPct": 37.701801895635874,
+      "paintingPct": 53.6767003437142
+    },
+    {
+      "label": "3.6.0-rc.4-vapor-chrome153-run1",
+      "operation": "update-AllChildren",
+      "nodeCount": 500,
+      "scriptingUs": 23955,
+      "renderingUs": 37150,
+      "paintingUs": 10866,
+      "totalUs": 71971,
+      "scriptingPct": 33.284239485348266,
+      "renderingPct": 51.61801281071543,
+      "paintingPct": 15.097747703936307
+    },
+    {
+      "label": "3.6.0-rc.9-traditional-run1",
+      "operation": "update-ParentOnly",
+      "nodeCount": 500,
+      "scriptingUs": 3661,
+      "renderingUs": 6648.5,
+      "paintingUs": 10372,
+      "totalUs": 20681.5,
+      "scriptingPct": 17.701810797089184,
+      "renderingPct": 32.14708797717767,
+      "paintingPct": 50.15110122573314
+    },
+    {
+      "label": "3.6.0-rc.9-traditional-run1",
+      "operation": "update-SingleChild",
+      "nodeCount": 500,
+      "scriptingUs": 4448.5,
+      "renderingUs": 7118,
+      "paintingUs": 9455,
+      "totalUs": 21021.5,
+      "scriptingPct": 21.161667816283327,
+      "renderingPct": 33.86057131983921,
+      "paintingPct": 44.97776086387746
+    },
+    {
+      "label": "3.6.0-rc.9-traditional-run1",
+      "operation": "update-AllChildren",
+      "nodeCount": 500,
+      "scriptingUs": 26813,
+      "renderingUs": 42095.5,
+      "paintingUs": 10924.5,
+      "totalUs": 79833,
+      "scriptingPct": 33.586361529693235,
+      "renderingPct": 52.72944772211993,
+      "paintingPct": 13.68419074818684
+    },
+    {
+      "label": "3.6.0-rc.9-vapor-run1",
+      "operation": "update-ParentOnly",
+      "nodeCount": 500,
+      "scriptingUs": 1680.5,
+      "renderingUs": 7769.5,
+      "paintingUs": 10642,
+      "totalUs": 20092,
+      "scriptingPct": 8.364025482779216,
+      "renderingPct": 38.669619749153895,
+      "paintingPct": 52.96635476806689
+    },
+    {
+      "label": "3.6.0-rc.9-vapor-run1",
+      "operation": "update-SingleChild",
+      "nodeCount": 500,
+      "scriptingUs": 1632.5,
+      "renderingUs": 6010,
+      "paintingUs": 8115,
+      "totalUs": 15757.5,
+      "scriptingPct": 10.360145962240203,
+      "renderingPct": 38.14056798349992,
+      "paintingPct": 51.499286054259876
+    },
+    {
+      "label": "3.6.0-rc.9-vapor-run1",
+      "operation": "update-AllChildren",
+      "nodeCount": 500,
+      "scriptingUs": 18786,
+      "renderingUs": 36795,
+      "paintingUs": 11953.5,
+      "totalUs": 67534.5,
+      "scriptingPct": 27.81689358772183,
+      "renderingPct": 54.48326410945516,
+      "paintingPct": 17.699842302823
+    }
+  ],
+  "counters": [
+    {
+      "label": "3.5.40-chrome153-run1",
+      "operation": "update-ParentOnly",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "0"
+        ],
+        "Parent Render Count": [
+          "2"
+        ],
+        "Child Render Count（累計）": [
+          "0"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "1"
+        ]
+      }
+    },
+    {
+      "label": "3.5.40-chrome153-run1",
+      "operation": "update-SingleChild",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "1"
+        ],
+        "Parent Render Count": [
+          "2"
+        ],
+        "Child Render Count（累計）": [
+          "1"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "0"
+        ]
+      }
+    },
+    {
+      "label": "3.5.40-chrome153-run1",
+      "operation": "update-AllChildren",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "500"
+        ],
+        "Parent Render Count": [
+          "2"
+        ],
+        "Child Render Count（累計）": [
+          "500"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "0"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.4-traditional-chrome153-run1",
+      "operation": "update-ParentOnly",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "0"
+        ],
+        "Parent Render Count": [
+          "2"
+        ],
+        "Child Render Count（累計）": [
+          "0"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "1"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.4-traditional-chrome153-run1",
+      "operation": "update-SingleChild",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "1"
+        ],
+        "Parent Render Count": [
+          "2"
+        ],
+        "Child Render Count（累計）": [
+          "1"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "0"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.4-traditional-chrome153-run1",
+      "operation": "update-AllChildren",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "500"
+        ],
+        "Parent Render Count": [
+          "2"
+        ],
+        "Child Render Count（累計）": [
+          "500"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "0"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.4-vapor-chrome153-run1",
+      "operation": "update-ParentOnly",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "0"
+        ],
+        "Parent Render Count": [
+          "2"
+        ],
+        "Child Render Count（累計）": [
+          "0"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "1"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.4-vapor-chrome153-run1",
+      "operation": "update-SingleChild",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "1"
+        ],
+        "Parent Render Count": [
+          "1"
+        ],
+        "Child Render Count（累計）": [
+          "1"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "0"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.4-vapor-chrome153-run1",
+      "operation": "update-AllChildren",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "500"
+        ],
+        "Parent Render Count": [
+          "1"
+        ],
+        "Child Render Count（累計）": [
+          "500"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "0"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.9-traditional-run1",
+      "operation": "update-ParentOnly",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "0"
+        ],
+        "Parent Render Count": [
+          "2"
+        ],
+        "Child Render Count（累計）": [
+          "0"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "1"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.9-traditional-run1",
+      "operation": "update-SingleChild",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "1"
+        ],
+        "Parent Render Count": [
+          "2"
+        ],
+        "Child Render Count（累計）": [
+          "1"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "0"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.9-traditional-run1",
+      "operation": "update-AllChildren",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "500"
+        ],
+        "Parent Render Count": [
+          "2"
+        ],
+        "Child Render Count（累計）": [
+          "500"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "0"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.9-vapor-run1",
+      "operation": "update-ParentOnly",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "0"
+        ],
+        "Parent Render Count": [
+          "2"
+        ],
+        "Child Render Count（累計）": [
+          "0"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "1"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.9-vapor-run1",
+      "operation": "update-SingleChild",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "1"
+        ],
+        "Parent Render Count": [
+          "1"
+        ],
+        "Child Render Count（累計）": [
+          "1"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "0"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.9-vapor-run1",
+      "operation": "update-AllChildren",
+      "counters": {
+        "Updated Component Count（上一次 update）": [
+          "500"
+        ],
+        "Parent Render Count": [
+          "1"
+        ],
+        "Child Render Count（累計）": [
+          "500"
+        ],
+        "Parent Tick（ParentOnly 用）": [
+          "0"
+        ]
+      }
+    }
+  ]
+}
