@@ -1,0 +1,6785 @@
+{
+  "runA": "results/cdp-trace/validation/day29-final-rc9-run2-analysis.json",
+  "runB": "results/cdp-trace/validation/day29-final-rc9-run3-analysis.json",
+  "comparisons": [
+    {
+      "id": "arch-rc9",
+      "counts": {
+        "direction": 50,
+        "neither": 19,
+        "reproduced": 11
+      },
+      "cells": [
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -23.809523809523807
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -15.000000000000002
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -29.268292682926838
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.545454545454541
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.000000000000004
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -11.956521739130432
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -27.044854881266488
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -33.33333333333333
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 11.111111111111107
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -17.24137931034483
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.285714285714285
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.0408163265306047
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Consistent Regression",
+            "deltaPct": 41.81818181818181
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 18.51851851851852
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.1459227467811313
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 25.12315270935959
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -29.977186311787072
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -25.78078962875663
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -42.114305348757306
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.526218220338984
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -32.51441464026072
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -32.42097614145573
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -43.71417306117497
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -48.164201353055844
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -18.773534158149545
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -25.742379547689282
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -27.734138972809667
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -17.6544292695151
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -19.989077007099944
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -24.339511041009466
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -41.626321509732236
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -30.63428511221157
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.16133978063451
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.547105810263705
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.4095659944826515
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 31.315098990220243
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.9560484447439905
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.2366614277442303
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 2.5692940579791816
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 1.0298976480743636
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -17.008259406546344
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 13.756177924217464
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.770547057298419
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.555555555555555
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.02734375
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -12.937707335053448
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.865777607214813
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 13.64417922524527
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 11.978361669242659
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 10.36468330134357
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 20.23674026860915
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.044414230682076
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 21.428571428571427
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.4967741935483871
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.8510315815521667
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.5504782146652496
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -26.642984014209592
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -14.01673640167364
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -16.49122807017544
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.6339066339066335
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.6147540983606558
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -36.87150837988827
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -16.089965397923876
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.291595197255575
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.44587123238808635
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.530031612223393
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.292563273497603
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 44.37521633783316
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.69838572642311
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.2847291768004807
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.08518866938434201
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.799665960475726
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.07185628742515
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 12.324929971988796
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.0444444444444447
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.1664766248574687
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 10.547184773988898
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.455469216975493
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 17.172632532850024
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 9.485879797248371
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -0.9059668853483286
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -15.430752453653218
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.211659858893428
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 15.4586005018121
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.133165829145728
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -20.931724845995895
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.2411687745311815
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 17.75829283752377
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -7.293080054274085
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 23.904555314533624
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 18.304588350146435
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.377880184331797
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.344281875186623
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 82.2858658180854
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.291110451893603
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.232216343327455
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.670045438657812
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.84872867718056
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.008317338451695
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 15.343915343915343
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.58265139116203
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -21.373945147679326
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.102946118516859
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 18.73036507420648
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.0515247108307046
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 37.66094420600859
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 17.783476418775784
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 20.757927300850735
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.124971545640792
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 37.48013292876752
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.510937968234941
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.369274422375355
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -67.31965174129353
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -73.4573368762917
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -58.93084429359355
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -62.5418775393827
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -61.20443740095087
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -58.23924539088181
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -64.19266888821569
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -61.10937150525609
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 48.21648216482165
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -37.951219512195124
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 39.14383561643835
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.734966592427617
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.1720631941185672
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 7.656826568265683
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -18.78915952990027
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.26905132192846
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -97.16353111432706
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -78.4243509400179
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -66.60506502395619
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -73.01253659635162
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -100
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -94.11764705882352
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -77.9293006247143
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -84.29545607994059
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -20.627807591837627
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -14.1646929328865
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -23.00953864123029
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -31.979841116774576
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 10.482552474691593
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.505196948358835
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 1.4092813746674462
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.0668413157379835
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.324970575481633
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -32.7380244152012
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.551645856980704
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 11.047075227408538
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -18.563044301400986
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.388790329855368
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -20.006592487779777
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.9423988884525931
+          },
+          "agreement": "direction"
+        }
+      ]
+    },
+    {
+      "id": "arch-rc4-chrome153",
+      "counts": {
+        "direction": 49,
+        "reproduced": 12,
+        "neither": 19
+      },
+      "cells": [
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -23.076923076923084
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.317073170731704
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.724409448818881
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -32.592592592592595
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -14.814814814814808
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -26.794258373205732
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -26.451612903225808
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -29.80030721966205
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -25.00000000000001
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.000000000000004
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.761904761904765
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -11.363636363636372
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Consistent Regression",
+            "deltaPct": 14.285714285714299
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 17.54385964912281
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.946428571428568
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.8658008658008473
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -36.01099572388515
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -24.47844228094576
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -25.092515220245907
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -48.111117116143326
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -34.33204088826225
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -45.95058928632787
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -41.49477767227621
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -45.43188983679525
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -38.180610889774236
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -21.60124772550039
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -37.811340752517225
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -38.298432767022256
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -33.710202604920404
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -29.542042042042045
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -36.21894987356835
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -38.36348370353408
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -27.336726039016114
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.071068317285649
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.188436610541477
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.580988998439225
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.404449776805406
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 6.580689157206467
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.226510568217696
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 2.7261933433896575
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -14.099009900990097
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.614873837981408
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.881650380021716
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.215595145881745
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.209832980475182
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.1119090365050868
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 11.34744555261551
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -1.384083044982699
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.79003961516695
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.03688731682668
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -28.07726864330638
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.064333840469463
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -2.6032315978456015
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.1124048365427677
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.2657066862331467
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.141263940520446
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -25.423728813559322
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -12.832550860719873
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -19.88527724665392
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -17.915904936014627
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 0.847457627118644
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.2890365448505
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.3478260869565215
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.450292397660817
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -26.014287639843648
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.902097902097902
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.919483843446733
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 6.256903026286724
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.366823652537938
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.924795150970928
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.785221958983811
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.849511998442844
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -13.440860215053762
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 6.296992481203008
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.494880546075084
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.70873786407767
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 23.554603854389722
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.4077555816686247
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 2.355032215063319
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.050338818973863
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -25.929411764705883
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 10.22896223609872
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.2719246615656266
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.759934929119218
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -20.03984899328859
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.69654595434445
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.839185460081834
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.12932138284251
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.712494776431257
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -30.56890012642225
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.7595307917888565
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -26.379484224175194
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 51.44469525959367
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 40.00391619345996
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Regression",
+            "deltaPct": 23.632293269903457
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.902351534475887
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -23.054679284963196
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 12.671806905799532
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.423423423423423
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.866160703529696
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -19.880694143167027
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.954128440366972
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.17776909552647
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.030940189563133
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.675074183976261
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -26.85378342499526
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.4332725908457498
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -19.586614173228348
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.36783870174576
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 19.327943405760482
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Regression",
+            "deltaPct": 20.334975369458128
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.601795567193491
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -78.29534192269574
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -53.1987683886418
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -55.36337317199911
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -40.27350117732295
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -56.66591371131692
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -67.48797821183881
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -66.65251200934208
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -62.181468307189924
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 32.75316455696203
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 40.76190476190476
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -31.003937007874015
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.11689070718877849
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 22.35888795282224
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.96415770609319
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.4061406917994566
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -12.300718974679588
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -75.39644401729937
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -88.62876254180601
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -35.196274118429805
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -24.40717177559283
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -75.50558893842476
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -89.05264555533427
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -100
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -91.17964637602915
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -89.47079576636612
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -16.239405187266566
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 18.326112983053775
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.348568431333538
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -11.88128856138927
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 16.353137900402363
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 11.853261232392015
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.066402236241698
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.975304764895652
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -27.629611949298393
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.795570757927436
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 10.539668954133488
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.345223841569988
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.421282676304951
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.059003889670201
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.5877249276980907
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 12.910590725788815
+          },
+          "agreement": "direction"
+        }
+      ]
+    },
+    {
+      "id": "version-trad-rc4-rc9",
+      "counts": {
+        "neither": 35,
+        "direction": 40,
+        "conflicting": 5
+      },
+      "cells": [
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.692307692307687
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.439024390243894
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.1496062992125875
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -18.51851851851852
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -17.695473251028798
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -11.961722488038278
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.193548387096778
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.9216589861751066
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -25.00000000000001
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 44.99999999999999
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -16.66666666666667
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 11.363636363636363
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.7857142857142794
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.263157894736824
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.017857142857153
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -12.121212121212123
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.4123396456933414
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.898779168598362
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.22585651187776
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -18.369994055018104
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -17.979673363882036
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -14.885063395526235
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.08586032041051334
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.0872589020771513
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -17.706949977866312
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 32.18092019755654
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.294647588765235
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.1099697089424465
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.6331403762662807
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.804804804804805
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.36194159353463234
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.4068646159326264
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -28.083121289228156
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.19440623567171
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -11.741709817907479
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.2445468042179
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -13.610459269192088
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.0125556580689157
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.995340939150617
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.632956854990345
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 29.465346534653463
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -35.51128818061089
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.695982627578719
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -24.709527498063515
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.6462008939073156
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.238579692798725
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 6.075717484225525
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 0.6208019539995929
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -26.76853423882286
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -21.020717534108137
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -34.21683138664271
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.086068246033471
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -17.474566128067025
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.2333184057322
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.1617597603106178
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.885997521685254
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 19.279661016949152
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -25.19561815336463
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.98661567877629
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -25.59414990859232
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.389830508474576
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 18.93687707641196
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.3444816053511706
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 13.64522417153996
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -24.42377678932471
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -20.363636363636363
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.3510717713554445
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.274353876739562
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -7.6138147566719
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.9278257941407566
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Consistent Regression",
+            "deltaPct": 8.189101929807698
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.7746850930122626
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.231182795698924
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -32.89473684210527
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.010238907849829
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -22.594880847308033
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.992862241256246
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.7038777908343123
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.932903799155743
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.26621490803484993
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -24.68235294117647
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 9.069283377936365
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.896998234255444
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.639553799674644
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -33.22147651006711
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.872236165889806
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.722428394709299
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.0029876227059327
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 23.192645215211034
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -41.719342604298355
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.882697947214076
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -31.2202852614897
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 51.19638826185101
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -26.160172312512238
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 41.499930040576466
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 12.993224392188123
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -24.78969505783386
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.156889037881328
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.126126126126126
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -15.757137694253704
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -33.73101952277657
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.229357798165139
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.805235397538581
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.5665105131277917
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 41.09792284866469
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -46.97515645742462
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.8589345053060353
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -36.368110236220474
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.015736415047947
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -12.569479535118747
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 31.507389162561577
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 15.355840269335081
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 6.2438057482656095
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 15.874101950051317
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.981070447628238
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 27.051258829922116
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.225886604924328
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.672794587003702
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.630669603758062
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.2319085660971485
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 28.639240506329116
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 95.23809523809523
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -28.1496062992126
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.967855055523086
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.716933445661331
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 16.559139784946236
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.830936649825107
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -12.062363238512035
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -41.08527131782946
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": null
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -36.08841902931283
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 23.841376015289057
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.936793080505655
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 29.207634470792364
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.601860825741422
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -11.564761335723297
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 29.954441913439634
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 51.546391752577314
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 6.27431906614786
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -51.155527795128044
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -11.418545012822243
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 16.119168953351625
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.795492651565084
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 25.58842769158613
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -7.088209227875346
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 60.66991911907111
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.472818797791365
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.4139461913345346
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -14.200134793224983
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.0549576041339535
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -18.882454178862606
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 46.67457810509415
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.719818429136927
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.6359632825509545
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 18.39399288335995
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -15.727190948598071
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.6680196361151163
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.117908972418801
+          },
+          "agreement": "neither"
+        }
+      ]
+    },
+    {
+      "id": "version-vapor-rc4-rc9",
+      "counts": {
+        "neither": 44,
+        "direction": 35,
+        "conflicting": 1
+      },
+      "cells": [
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 6.666666666666672
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.526315789473681
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -28.09917355371902
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 38.46153846153847
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.077294685990339
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.88235294117646
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.9824561403508825
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.157549234135679
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 11.111111111111107
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 26.31578947368421
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 0
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 28.20512820512821
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 21.874999999999993
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.477611940298492
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.881422924901187
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 9.012875536480694
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.880668257756563
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.089830161653366
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -19.45816733067729
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 36.03791271742527
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.709429235999284
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 6.42085187539733
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.876102833267149
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.974339911209295
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.127461510920158
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 25.198938992042443
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.9173412867490414
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 40.27748132337246
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 19.934506753990995
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.224294086307938
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.14676616915423
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.705882352941176
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.05030932648535
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -19.802757898411592
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.87807263480472
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 22.5776524288418
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.913584223618045
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.875571614068763
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.3187096564922633
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -2.273783620366981
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 25.08068234209313
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -18.836320893329415
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.59184740005226
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.15363661127758
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.26086956521739
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.60901528342039
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.522164335983914
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 15.954592363261094
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.970149253731343
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 0.2324230098779779
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.97293358317718
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.065246941549614
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.8878648233486945
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -14.592833876221498
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.3615916432690276
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -1.4537153841533008
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 17.329545454545457
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -26.21184919210054
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 13.60381861575179
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -15.367483296213807
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 1.8907563025210083
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.409961685823754
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.209790209790212
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 17.792792792792792
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 1.6942976862816543
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -20.648808722573698
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -13.19599109131403
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 30.066004885400964
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -11.557416267942584
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.3301596640902895
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.3363911072739048
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -2.7332558625232277
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 34.93788819875777
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -29.089301503094607
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.437559580552907
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -12.41446725317693
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -19.468515309069904
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -11.079545454545455
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.263946168873453
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 16.846986089644513
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.7623888182973316
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.320474777448073
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.623464225487835
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 7.851562500000001
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.6819672131147545
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -11.606886657101866
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.9076517150395779
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.222768726303926
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 35.49826474962816
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.005826656955572
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.522388059701493
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -2.4853228962818004
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.174839767476524
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.86013986013986
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.3847894975101856
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 2.077001013171226
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.3324222753672703
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.66170782505207
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -11.554726368159205
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 9.014731720502771
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.225395965886015
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -12.16674031521579
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.08699434536755112
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.776416378678395
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 32.11653211653211
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.2074150894477573
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 16.062403867281915
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.443084455324358
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.975929978118162
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 0.7304679229303409
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -2.202390699197642
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 1.1866808359900816
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 59.96955859969558
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -34.283625730994146
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.409279893563945
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -20.318423047763456
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.67556296914095
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.738219895287957
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.47791484281735
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.5396654074473827
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 43.62336114421931
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.937753721244924
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 44.900142653352354
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 10.85814360770578
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.117873863949326
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 9.150428682774747
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.000410863223633
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.022455890215648
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -94.96919917864476
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -63.12165263963274
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 28.699551569506728
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 118.01091570648879
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 121.65263963274676
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 73.19434102755025
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.25263332274942363
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.89651503614307
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -26.74637204693418
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 24.023527441704694
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.1511987365174889
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.305022531260258
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.251922651662203
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.145804833871368
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 15.81350136263431
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.4444894323427
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.986519184237816
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 9.245300273034868
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -7.665888540073519
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.95947169706173
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -18.36850223155684
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -23.77746443955499
+          },
+          "agreement": "direction"
+        }
+      ]
+    },
+    {
+      "id": "version-3540-rc9trad",
+      "counts": {
+        "neither": 31,
+        "direction": 42,
+        "conflicting": 7
+      },
+      "cells": [
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -30
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.263157894736848
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.953271028037399
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.910891089108915
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -19.678714859437747
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.6649214659686007
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.797619047619063
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.594936708860768
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -40
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 20.833333333333336
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.40540540540541
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 44.11764705882354
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.7796610169491585
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.999999999999993
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.627450980392155
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.115702479338836
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -28.895858116145778
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.4440719292898505
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.837715435903888
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 10.855045871559634
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.395103623803175
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.411838103407939
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.829519729739143
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.9907524632575546
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -31.9047619047619
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 10.784313725490197
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.113557358053303
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 24.27592650264715
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.328137246364191
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.191216834400732
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.62430876876199
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -12.292942127757883
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -30.958391010504034
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -11.443798449612403
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -1.224286152901443
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.755663430420712
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.2026178317778955
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.66276295814357
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.4565212996097936
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.2210530781959353
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.91930060524546
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.82082905104488
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.23279875840662181
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -25.59326358764991
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.017067145744441
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 30.21358291336693
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.9264619597105417
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.293242346696995
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -37.42746615087041
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 9.607293127629733
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -18.587842846553002
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.112817483756645
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 15.381397294659044
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.83302906895099
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.3544569103686352
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.3891777452598151
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.233644859813085
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -15.097690941385435
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.333931777378815
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -29.34027777777778
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.424610051993067
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 31.61764705882353
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.646616541353383
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.671118530884808
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -33.7468982630273
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.690721649484537
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.5856835428700873
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 2.0007061315758503
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -7.623482628714943
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 0.7989155514536226
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.4877874134776037
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.862897624670093
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.89749430523918
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -19.230769230769234
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.337078651685393
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -29.727564102564102
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -18.958868894601544
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 22.564102564102566
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.920314253647587
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.2739480752014325
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -17.372225090345896
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 13.91304347826087
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 11.5729871564701
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 15.952804267011475
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -16.066956636351655
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.689431851633794
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.308815858111633
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.442543543234051
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.8486627527723414
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -28.792091442693852
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.591397849462366
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -32.570621468926554
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.14952153110047847
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.429752066115702
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.67860469930649
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 7.6309794988610475
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -17.716422203048605
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 10.177304964539006
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 11.499500642031673
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 18.88813328799728
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -16.96113074204947
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 17.21792890262751
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.206459920592338
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.577993389487152
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.182476466328747
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -36.23717217787913
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.435390453365288
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -37.01899659035558
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -2.3777777777777778
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.07229612492770388
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.3983620941795847
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 9.947410642659774
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.1374116200430373
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -12.997688158232727
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 36.79628554846198
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 20.04963203833647
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.9998152595603176
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 1.4499057561258517
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.06742717177416026
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.5382519038895366
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 94.03341288782816
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 20.164126611957798
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -23.17811102341489
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.709240729841083
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 17.195233730522457
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.869396968719768
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.9649979082415285
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -26.406147809025505
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 82.57575757575758
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -53.883495145631066
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 55.302576393049726
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 26.186997808619427
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -12.185534591194969
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.046126287505597
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 11.809635722679202
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.3318385650224216
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 228.65853658536585
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -36.37157833430402
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -20.930232558139537
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 13.940972222222223
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 22.760049730625777
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.116494272749185
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.977739609934687
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 21.618902186393928
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 109.65630114566285
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 6.613963888619898
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.2017676223323992
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.677938808373591
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.125784623771797
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -22.322201905495138
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 68.14244273281984
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 0.9293866620841745
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 16.243709672439877
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 42.867768874463266
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.9531537905924319
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -45.56141541020198
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.085833020586378
+          },
+          "agreement": "direction"
+        }
+      ]
+    },
+    {
+      "id": "version-3540-rc4trad",
+      "counts": {
+        "neither": 39,
+        "direction": 41
+      },
+      "cells": [
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -34.99999999999999
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 7.894736842105258
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 18.691588785046733
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 33.663366336633665
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.409638554216873
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 9.424083769633492
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 15.327380952380972
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.438818565400846
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -19.999999999999986
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.666666666666664
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 13.513513513513512
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 29.411764705882366
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.084745762711876
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.000000000000012
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Render Duration",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.156862745098044
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.545454545454537
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -29.187844706391264
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.386772325510515
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.384325072336143
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 35.80183486238532
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.151133195976245
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 13.479684941121423
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.928197448310291
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.023394066163924
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -17.252747252747252
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.18736383442266
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.3279258400927
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 18.234194954842728
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.7185404511016285
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.5068618481244282
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.953842681412933
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.199491740787803
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.998045761745786
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.6686046511627906
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 11.916641080749155
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 6.266181229773463
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 10.890023673964508
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -1.701464876481142
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.225531226622996
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.41452755738470026
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.097511768661734
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 28.982528263103802
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.70770822555613
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.1737688185761674
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.536267684706939
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 20.302375809935207
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.9115978877371407
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.871386598426689
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -14.555125725338492
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 38.77980364656381
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 23.7583395107487
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.411301437290804
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 39.81313624320178
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 25.431821373402613
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.8167920108494637
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.5012609358946418
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -11.775700934579438
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 13.49911190053286
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.104129263913824
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.034722222222222
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -18.19757365684575
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 10.661764705882353
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.406015037593985
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -14.357262103505844
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.336051045728464
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 13.402061855670103
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 6.2068184392343415
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 6.555254795810287
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -0.010464629552113856
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 2.780341485925242
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.19407537062084
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.08890123628281706
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.261958997722095
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 20.361990950226243
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.737827715355806
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.214743589743591
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.961439588688945
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 24.68864468864469
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.0325476992143658
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.520143240823635
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.705730511099638
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.440993788819876
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 17.318049993094874
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 39.09810893809601
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 25.68867800184526
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 23.152781866352665
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.640062597809077
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.4113160878078945
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -21.950424005218526
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 22.181031819586035
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.761904761904762
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.9632768361581923
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -33.76196172248804
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 17.24058769513315
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -26.022150916054237
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.745634016704632
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.404659188955996
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.780141843971631
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 18.775859609074047
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 41.125467528051686
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 25.30578961674368
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 26.35239567233385
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.861573130164182
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.132423499306962
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -34.92638184890176
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 20.250855188141394
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.840423407229879
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.0228933268387725
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.622222222222222
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.459224985540775
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -25.782392512430537
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.688474908637134
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.947433138641254
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -24.91651682507064
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 30.305668407815826
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.510867704946089
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.230740809163126
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 13.571117877337974
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.697485929738135
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.856227951975049
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 50.83532219570406
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -38.45252051582649
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 6.919231781110234
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 0.7062978222483813
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.799266727772686
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.029022895840052
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.298424208618046
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.31131458469588
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -27.843273231622746
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 25.404433792690234
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.788166544923302
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -32.03616352201258
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 15.517241379310345
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 26.431089474567738
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -21.255605381165918
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 116.869918699187
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -40.128130460104835
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 61.880687563195146
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 28.62847222222222
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.719021964359718
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.369006822397585
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.448778503469006
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 30.89716727630006
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 30.488832194088765
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.081932865581506
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.325716749299418
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "mount",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.105129974695192
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -11.594638183383013
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.240448465017804
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.636390917275182
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.303790580114849
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 12.165416319347967
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 1000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 20.671467694492343
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 16.34458055101048
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 5000,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -47.487581241657004
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.640859703241279
+          },
+          "agreement": "neither"
+        }
+      ]
+    }
+  ]
+}
