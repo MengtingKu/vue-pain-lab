@@ -170,7 +170,7 @@ async function runCycleWithRetry(
   )
 }
 
-async function runDepth(client: CDPClient, url: string, depth: number, vueVersion: string): Promise<void> {
+async function runDepth(client: CDPClient, url: string, depth: number, vueVersion: string, measurement: number): Promise<void> {
   console.log(`\n### Depth=${depth} ###`)
   for (const operation of ['build', 'update'] as Operation[]) {
     for (const source of SOURCES) {
@@ -178,7 +178,7 @@ async function runDepth(client: CDPClient, url: string, depth: number, vueVersio
       const baseDir = join('results', 'cdp-trace', 'composable-chaos', `vue-${vueVersion}`, `${operation}-depth-${depth}`)
 
       let measurementIndex = 0
-      for (let i = 0; i < WARMUP + MEASUREMENT; i++) {
+      for (let i = 0; i < WARMUP + measurement; i++) {
         const isMeasurement = i >= WARMUP
         const cycle = await runCycleWithRetry(client, url, operation, depth, isMeasurement, source, 3)
 
@@ -221,7 +221,7 @@ async function runDepth(client: CDPClient, url: string, depth: number, vueVersio
         }
         writeFileSync(metaPath, JSON.stringify(meta, null, 2), 'utf-8')
       }
-      console.log(`     ${operation}/${source.name}: ${measurementIndex}/${MEASUREMENT} trials saved`)
+      console.log(`     ${operation}/${source.name}: ${measurementIndex}/${measurement} trials saved`)
     }
   }
 }
@@ -249,8 +249,16 @@ export interface VersionCondition {
   chromePort: number
 }
 
-/** Runs the full DEPTHS x operations x sources matrix for one already-running dev server / Vue version. */
-export async function runVersionMatrix(cond: VersionCondition, depths: readonly number[] = DEPTHS): Promise<void> {
+/**
+ * Runs the full DEPTHS x operations x sources matrix for one already-running dev server / Vue version.
+ * `measurement` defaults to the Day 24 protocol (MEASUREMENT = 5); the Vapor validation passes 10 to
+ * match the vdom-stress / component-storm trial count. WARMUP and the per-trial protocol are unchanged.
+ */
+export async function runVersionMatrix(
+  cond: VersionCondition,
+  depths: readonly number[] = DEPTHS,
+  measurement: number = MEASUREMENT,
+): Promise<void> {
   console.log(`\n=== CDP trace matrix: ${cond.vueVersion} (${cond.baseUrl}) ===`)
   const chrome = await launchIsolatedChrome(cond.chromePort, 'headless')
   console.log(`  user-data-dir: ${chrome.userDataDir}, pid: ${chrome.pid}`)
@@ -271,7 +279,7 @@ export async function runVersionMatrix(cond: VersionCondition, depths: readonly 
 
       const url = `${cond.baseUrl}${SCENARIO_PATH}`
       for (const depth of depths) {
-        await runDepth(client, url, depth, cond.vueVersion)
+        await runDepth(client, url, depth, cond.vueVersion, measurement)
       }
     } finally {
       await client.close()
