@@ -6,6 +6,12 @@
 `component-storm/COMPONENT_STORM_VAPOR_VALIDATION_REPORT.md` 相同；本 Scenario 自己的
 Day 24 協定差異見 Part 1。
 
+> **更正（2026-09-27，reactive-chain 驗證後補充）：** 本報告初版把「3.5.40 → 3.6 Traditional 在 Depth 10 / 20
+> Update 的可重現下降」列為本 Scenario 最重要的發現。後續診斷確認，這個差異**大部分來自 computed getter 內的
+> `console.log` 與 CDP `Runtime.enable` console capture 的交互作用**：關閉 `Runtime.enable` 後，Depth 20 Update
+> 的差異從約 −45% 縮小到約 −16% 至 −20%，且各頁數值範圍重疊（Part 4.1）。該版本差異因此**不能**解讀為
+> DevTools 關閉時的使用者可感受改善。Vapor 相關結論不受這個更正影響。
+
 ---
 
 ## Part 0 — 基本資訊
@@ -80,7 +86,7 @@ Update Vue Runtime CPU × 4 Depth。
 
 ---
 
-## Part 4 — Version：3.5.40 → 3.6 Traditional（本 Scenario 最重要的發現）
+## Part 4 — Version：3.5.40 → 3.6 Traditional（CDP 條件下；見 4.1 更正）
 
 | Update Depth                | 3.5.40 → rc.9 Traditional（run1 ‖ run2）                  | 3.5.40 → rc.4 Traditional（run1 ‖ run2） |
 | --------------------------- | --------------------------------------------------------- | ---------------------------------------- |
@@ -105,6 +111,28 @@ computed getter / watch callback frame），而不是 Vue Runtime CPU（Depth 20
 這與 Day 24 的觀察一致。為何 3.6 讓應用程式 frame 的取樣時間下降，而 Vue Runtime frame 沒有：
 **mechanism not established**。每次 update 的 computed / watch 執行次數在兩個版本完全相同（smoke 已確認），
 所以不是「少執行了幾次」。
+
+### 4.1 更正：差異主要來自 CDP console capture
+
+本 Scenario 的 computed getter、watch、watchEffect 每次執行都呼叫 `log()`（= `console.log`）。
+正式 pipeline 需要 CDP `Runtime.enable`（完成判定用 `Runtime.bindingCalled`），此時每次 `console.log`
+都會被序列化並擷取 stack trace。reactive-chain 驗證時發現這個條件會把 3.5.40 放大成慢很多
+（見 `../reactive-chain/REACTIVE_CHAIN_VAPOR_VALIDATION_REPORT.md` Part 4），因此對本 Scenario 做相同診斷：
+
+**方法**（診斷用 script，非正式 pipeline）：每個條件開 5 個全新 headless 頁面，Build Depth 20 後點 20 次
+Trigger Update，讀頁面的 Average Update Duration；只切換是否送出 `Runtime.enable`。
+
+| Depth 20 Update（median of 5 pages） | 3.5.40   | rc.4 Traditional | rc.9 Traditional |
+| ------------------------------------ | -------- | ---------------- | ---------------- |
+| `Runtime.enable` 開啟                | 2.205 ms | 1.215 ms（−45%） | 1.130 ms（−49%） |
+| `Runtime.enable` 關閉                | 0.735 ms | 0.585 ms（−20%） | 0.615 ms（−16%） |
+
+各頁數值（關閉時）：3.5.40 為 0.380–0.790ms、rc.4 T 為 0.500–0.755ms、rc.9 T 為 0.550–1.360ms，範圍重疊。
+（rc.9 Vapor 在關閉條件下的診斷因該診斷 script 自身的 Build 完成判定 timeout 而未取得；與版本比較無關。）
+
+**結論更正**：上表的 CDP 條件差異可重現，但在沒有 console capture 的條件下，差異縮小到約 −16% 至 −20%，
+且只有 5 頁、未經正式分類器，**無法確認仍有可重現的版本差異**。Day 24 的 −25.6% 訊號同樣是在 CDP 條件下量得，
+應以相同方式解讀。
 
 ---
 
@@ -136,15 +164,15 @@ Part 4 的版本比較只使用同 session 資料。
 
 ## Part 7 — Evidence Matrix
 
-| Comparison                           | Result                                                                                                                                  | Evidence strength                                             |
-| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
-| rc.9 Traditional vs rc.4 Traditional | 0 reproduced cells。**Not reproduced**                                                                                                  | 對「無可重現差異」：強                                        |
-| 3.6 Traditional vs 3.5.40            | Update Depth 20 Instrumentation −26% 至 −42%、Scripting −18% 至 −37%、Application CPU −49% 至 −59%（Depth 10 亦然）；Depth 1 / 5 無差異 | 強（2 run × 2 RC，並與 Day 24 同方向）；bucket 歸屬機制未確立 |
-| rc.9 Traditional vs rc.9 Vapor       | 6 reproduced、1 conflicting；rc.4 為 10 reproduced、2 conflicting                                                                       | 中–強                                                         |
-| Update                               | Vue Runtime CPU 4/4 Depth 可重現下降；整體時間與 Scripting 只在淺 Depth 下降（Depth 1 −38% 至 −43%），Depth 20 無差異                   | Vue Runtime CPU：方向強、數值低信心；淺 Depth 時間：中        |
-| Build（rebuild）                     | 無任何 cell 跨 run 重現                                                                                                                 | 無證據（單次 build 僅 2–3ms，取樣密度低）                     |
-| Scripting                            | Vapor 在淺 Depth 下降、Depth 20 無差異；3.6 相對 3.5.40 在 Depth 20 下降                                                                | 強（cost-trace）                                              |
-| Browser Rendering                    | 佔比小（約 15–25%）；Recalculate Style 在 Update Depth 1 可重現下降，其餘 Unstable                                                      | 弱                                                            |
+| Comparison                           | Result                                                                                                                                                                                                                 | Evidence strength                                                        |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| rc.9 Traditional vs rc.4 Traditional | 0 reproduced cells。**Not reproduced**                                                                                                                                                                                 | 對「無可重現差異」：強                                                   |
+| 3.6 Traditional vs 3.5.40            | CDP 條件下：Update Depth 20 Instrumentation −26% 至 −42%、Scripting −18% 至 −37%、Application CPU −49% 至 −59%（Depth 10 亦然）；Depth 1 / 5 無差異。**關閉 console capture 後縮小到約 −16% 至 −20%，範圍重疊**（4.1） | CDP 條件下的觀察：強；一般使用下的版本改善：不足（依賴 console capture） |
+| rc.9 Traditional vs rc.9 Vapor       | 6 reproduced、1 conflicting；rc.4 為 10 reproduced、2 conflicting                                                                                                                                                      | 中–強                                                                    |
+| Update                               | Vue Runtime CPU 4/4 Depth 可重現下降；整體時間與 Scripting 只在淺 Depth 下降（Depth 1 −38% 至 −43%），Depth 20 無差異                                                                                                  | Vue Runtime CPU：方向強、數值低信心；淺 Depth 時間：中                   |
+| Build（rebuild）                     | 無任何 cell 跨 run 重現                                                                                                                                                                                                | 無證據（單次 build 僅 2–3ms，取樣密度低）                                |
+| Scripting                            | Vapor 在淺 Depth 下降、Depth 20 無差異；3.6 相對 3.5.40 在 Depth 20 下降                                                                                                                                               | 強（cost-trace）                                                         |
+| Browser Rendering                    | 佔比小（約 15–25%）；Recalculate Style 在 Update Depth 1 可重現下降，其餘 Unstable                                                                                                                                     | 弱                                                                       |
 
 ---
 
@@ -152,9 +180,9 @@ Part 4 的版本比較只使用同 session 資料。
 
 ### 1. rc.9 Traditional 是否出現可重現的 Framework-level improvement？
 
-**相對 rc.4：否**（0 cells 重現）。**相對 3.5.40：是**，但只在深層 composable chain 的 Update
-（Depth 10 / 20），而且 Lab 的 bucket 把省下的時間歸在 Application CPU，不是 Vue Runtime CPU。
-這個改善在 rc.4 就已存在，rc.4 → rc.9 沒有進一步變化。
+**相對 rc.4：否**（0 cells 重現）。**相對 3.5.40：CDP 條件下是，一般條件下無法確認。**
+CDP 條件下深層 composable chain 的 Update（Depth 10 / 20）可重現下降，但主要來自 `console.log` × CDP console capture
+的交互作用；關閉 console capture 後差異縮小到約 −16% 至 −20% 且範圍重疊（4.1）。
 
 ### 2. rc.9 Vapor 是否降低 Framework / Scripting cost？
 
@@ -173,13 +201,13 @@ render 部分被稀釋：Update 整體時間 Depth 1 −38% 至 −43% → Depth
 ### 5. 結果是否與 vdom-stress / Component Storm 一致？
 
 - **一致**：Vapor 降低 Vue Runtime CPU；rc.4 → rc.9 無可重現差異；歷史資料有約 3 倍 drift。
-- **不同**：這是三個 Scenario 中唯一出現**可重現 3.5 → 3.6 Traditional 版本效應**的 Scenario，
-  而且出現在 reactivity 負擔最重的 Depth 20。vdom-stress 與 Component Storm 的版本比較都是 0 cells 重現。
+- **不同**：CDP 條件下出現可重現的 3.5 → 3.6 Traditional 差異，但它依賴 computed 內的 `console.log`
+  與 CDP console capture（4.1）；vdom-stress 與 Component Storm 的 hot path 沒有 `console.log`，版本比較都是 0 cells 重現。
 
 ### 6. 哪些結果可以歸因？
 
-- **Vue 版本（3.5.40 → 3.6）→ Depth 10 / 20 Update 的 Scripting 與時間下降**：同 session、唯一變因為版本，
-  兩次 run、兩個 RC 重現。
+- **CDP console capture 條件下的 Vue 版本（3.5.40 → 3.6）→ Depth 10 / 20 Update 的 Scripting 與時間下降**：
+  同 session、唯一變因為版本，兩次 run、兩個 RC 重現；但只在 `Runtime.enable` 開啟時成立（4.1）。
 - **架構（Traditional → Vapor）→ Update 的 Vue Runtime CPU 下降**：兩次 run、兩個 RC 重現。
 - **Depth 20 Vapor 無時間差異**：可歸因——兩者共用同一套 reactivity，差異只在 render。
 
@@ -191,35 +219,34 @@ render 部分被稀釋：Update 整體時間 Depth 1 −38% 至 −43% → Depth
 
 ### 8. 哪些結果仍然無法解釋？
 
-- 3.6 為何讓 composable chain 的應用程式 frame 取樣時間下降約一半，而 computed / watch 執行次數不變。
+- 為何在 CDP console capture 下，3.5.40 的應用程式 frame（含 `console.log`）取樣時間約為 3.6 的兩倍，
+  而 computed / watch 執行次數相同（stack 深度等假說未直接量測）。
 - Build 為何在任何比較中都沒有可重現的差異（可能只是 2–3ms 的量測解析度不足，但未驗證）。
 
 ---
 
 ## Part 9 — 跨 Scenario 對照（rc.9 Freeze Point，同一套 5 條件 × 2 次獨立 run）
 
-| 項目（跨 run 重現者）      | vdom-stress                 | Component Storm               | Composable Chaos              |
-| -------------------------- | --------------------------- | ----------------------------- | ----------------------------- |
-| Vapor 降低 Vue Runtime CPU | 是（Mount 4 個 N）          | 是（Update 3 種 updateScope） | 是（Update 4 個 Depth）       |
-| Vapor 降低實際時間         | 只有 Mount N=5000           | 是（Update 3 種 updateScope） | 只有淺 Depth（Depth 1）       |
-| rc.4 → rc.9 Traditional    | 無可重現差異                | 無可重現差異                  | 無可重現差異                  |
-| 3.5.40 → 3.6 Traditional   | 無可重現差異                | 無可重現差異                  | **Depth 10 / 20 Update 下降** |
-| 成本主體                   | Browser Rendering（Layout） | Browser Rendering + Painting  | Scripting（73–85%）           |
+| 項目（跨 run 重現者）      | vdom-stress                 | Component Storm               | Composable Chaos                                               | Reactive Chain                                 |
+| -------------------------- | --------------------------- | ----------------------------- | -------------------------------------------------------------- | ---------------------------------------------- |
+| Vapor 降低 Vue Runtime CPU | 是（Mount 4 個 N）          | 是（Update 3 種 updateScope） | 是（Update 4 個 Depth）                                        | rc.9 是；rc.4 未重現                           |
+| Vapor 降低實際時間         | 只有 Mount N=5000           | 是（Update 3 種 updateScope） | 只有淺 Depth（Depth 1）                                        | 否                                             |
+| rc.4 → rc.9 Traditional    | 無可重現差異                | 無可重現差異                  | 無可重現差異                                                   | 無可重現差異                                   |
+| 3.5.40 → 3.6 Traditional   | 無可重現差異                | 無可重現差異                  | CDP 條件下 Depth 10 / 20 下降；關閉 console capture 後無法確認 | CDP 條件下約 −80%；關閉 console capture 後消失 |
+| hot path 有 `console.log`  | 否                          | 否                            | 是                                                             | 是                                             |
+| 成本主體                   | Browser Rendering（Layout） | Browser Rendering + Painting  | Scripting（73–85%）                                            | Scripting（63–89%）                            |
 
-來源：`../DAY29_FINAL_VALIDATION_REPORT_rc9.md`、`../component-storm/COMPONENT_STORM_VAPOR_VALIDATION_REPORT.md`、本報告。
-
-尚未做 Vapor 驗證的 Scenario：`reactive-chain`。它的歷史版本比較（3.5.40 → rc.2）是頁面內量測，
-沒有 CDP pipeline，需要先規劃量測方式。
+來源：`../DAY29_FINAL_VALIDATION_REPORT_rc9.md`、`../component-storm/COMPONENT_STORM_VAPOR_VALIDATION_REPORT.md`、
+`../reactive-chain/REACTIVE_CHAIN_VAPOR_VALIDATION_REPORT.md`、本報告。
 
 ---
 
 ## Final Conclusion
 
-1. **Vue Runtime 改善了什麼？** 3.6 Traditional（rc.4 / rc.9 皆然）相對 3.5.40，在深層 composable chain
-   的 Update 有可重現的下降，這是 Day 24 單次訊號的首次獨立重現；rc.4 → rc.9 沒有變化。Vapor 可重現地降低
-   Update 的 Vue Runtime CPU。
-2. **改善到什麼程度？** 版本效應：Depth 20 Update 時間 −26% 至 −42%、Scripting −18% 至 −37%；
-   Depth 1 / 5 No measurable improvement。Vapor：Vue Runtime CPU −59% 至 −84%；Update 時間只在
+1. **Vue Runtime 改善了什麼？** 3.6 Traditional 相對 3.5.40 的 Depth 10 / 20 Update 下降只在 CDP console capture
+   條件下可重現，一般條件下無法確認（4.1 更正）；rc.4 → rc.9 沒有變化。Vapor 可重現地降低 Update 的 Vue Runtime CPU。
+2. **改善到什麼程度？** 版本：CDP 條件下 Depth 20 Update 時間 −26% 至 −42%；無 console capture 時約 −16% 至 −20%
+   且範圍重疊 → 一般條件下無法確認有可測量的改善。Vapor：Vue Runtime CPU −59% 至 −84%；Update 時間只在
    Depth 1 −38% 至 −43%，Depth 20 No measurable improvement。
 3. **還需要工程改善嗎？** 是。Depth 20 時成本主體是 composable chain 本身的 reactive 計算，Vapor 對此沒有幫助。
    減少巢狀 composable 的 computed 層數（State Design / Composable 架構）才是直接的手段。
