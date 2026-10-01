@@ -8,14 +8,21 @@
  * benchmark 頁與 CDP runner 依賴的 DOM 結構都不在這個檔案裡，可以放心調整這裡的呈現。
  */
 import { onMounted, onUnmounted, onUpdated, provide, reactive, ref, nextTick } from 'vue'
-import { componentStormConfig } from '@/benchmarks/component-storm/config'
+import {
+  componentStormConfig,
+  UPDATE_SCOPE_OPTIONS,
+  type UpdateScope,
+} from '@/benchmarks/component-storm/config'
 import { createComponentStormMetrics } from '@/benchmarks/component-storm/metrics'
 import { createChildren } from '@/benchmarks/component-storm/createChildren'
 import { REPORT_CHILD_RENDER_KEY } from '@/benchmarks/component-storm/keys'
 import FpsCounter from '@/components/FpsCounter.vue'
 import StageChild from './StageChild.vue'
 
-const { componentCount, updateScope, autoUpdate, updateInterval } = componentStormConfig
+const { componentCount, autoUpdate, updateInterval } = componentStormConfig
+
+// 初始值來自 config.ts，台上用 radio 即時切換
+const updateScope = ref<UpdateScope>(componentStormConfig.updateScope)
 
 const metrics = createComponentStormMetrics()
 const mountStart = performance.now()
@@ -51,7 +58,7 @@ async function triggerUpdate(): Promise<void> {
   updatedIdsThisCycle = new Set<number>()
   const start = performance.now()
 
-  switch (updateScope) {
+  switch (updateScope.value) {
     case 'ParentOnly':
       parentTick.value++
       break
@@ -107,10 +114,6 @@ const FRAME_BUDGET_MS = 1000 / 60
               <dd>{{ componentCount }}</dd>
             </div>
             <div class="params__row">
-              <dt>UPDATE_SCOPE</dt>
-              <dd>{{ updateScope }}</dd>
-            </div>
-            <div class="params__row">
               <dt>UPDATE_INTERVAL</dt>
               <dd>{{ updateInterval }}<span class="unit">ms</span></dd>
             </div>
@@ -119,6 +122,23 @@ const FRAME_BUDGET_MS = 1000 / 60
               <dd>{{ autoUpdate }}</dd>
             </div>
           </dl>
+          <fieldset class="scope">
+            <legend class="scope__legend">UPDATE_SCOPE</legend>
+            <div class="scope__options">
+              <label v-for="scope in UPDATE_SCOPE_OPTIONS" :key="scope" class="scope__option">
+                <input
+                  v-model="updateScope"
+                  class="scope__input"
+                  type="radio"
+                  name="stage-update-scope"
+                  :value="scope"
+                  @change="metrics.resetUpdateMetrics()"
+                />
+                {{ scope }}
+              </label>
+            </div>
+            <p class="scope__hint">切換時 Update 相關指標會歸零</p>
+          </fieldset>
           <button v-if="!autoUpdate" type="button" class="trigger" @click="triggerUpdate">
             Trigger Update
           </button>
@@ -360,7 +380,7 @@ const FRAME_BUDGET_MS = 1000 / 60
 
 .params {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem 1.5rem;
   margin: 0;
 }
@@ -381,6 +401,78 @@ const FRAME_BUDGET_MS = 1000 / 60
   font-variant-numeric: tabular-nums;
   color: var(--lab-signal);
   overflow-wrap: anywhere;
+}
+
+/* UPDATE_SCOPE：原生 radio 保留在 DOM 中負責鍵盤與螢幕閱讀器，外觀由 label 呈現 */
+.scope {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.scope__legend {
+  margin-bottom: 0.5rem;
+  padding: 0;
+  font-family: var(--lab-font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  color: var(--lab-text-muted);
+}
+
+.scope__options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 1px solid #3f3f46;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.scope__option {
+  position: relative;
+  padding: 0.625rem 0.5rem;
+  font-family: var(--lab-font-mono);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--lab-text-muted);
+  cursor: pointer;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.scope__option + .scope__option {
+  border-left: 1px solid #3f3f46;
+}
+
+.scope__option:hover {
+  color: var(--lab-text);
+  background: rgb(63 63 70 / 0.3);
+}
+
+.scope__option:has(.scope__input:checked) {
+  color: var(--lab-signal);
+  background: rgb(16 185 129 / 0.12);
+  box-shadow: inset 0 -2px 0 var(--lab-signal);
+}
+
+.scope__option:has(.scope__input:focus-visible) {
+  outline: 2px solid var(--lab-signal);
+  outline-offset: -2px;
+}
+
+.scope__input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.scope__hint {
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  color: var(--lab-text-muted);
 }
 
 .unit {
@@ -548,8 +640,14 @@ const FRAME_BUDGET_MS = 1000 / 60
     grid-template-columns: minmax(0, 1fr);
   }
 
-  .params {
+  .params,
+  .scope__options {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .scope__option + .scope__option {
+    border-left: 0;
+    border-top: 1px solid #3f3f46;
   }
 
   .metrics__row dd {

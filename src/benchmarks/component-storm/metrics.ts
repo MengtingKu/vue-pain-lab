@@ -52,6 +52,17 @@ export function createComponentStormMetrics() {
     duration.lastUpdatedComponentCount = count
   }
 
+  // 切換 UPDATE_SCOPE 時歸零，避免不同 Scope 的 update 混進同一個平均值。
+  // Mount Time 只在掛載時發生一次，不歸零。
+  function resetUpdateMetrics(): void {
+    counters.parentRenderCount = 0
+    counters.childRenderCount = 0
+    duration.totalUpdateCount = 0
+    duration.totalExecutionTime = 0
+    duration.averageUpdateDuration = 0
+    duration.lastUpdatedComponentCount = 0
+  }
+
   return {
     counters,
     duration,
@@ -59,6 +70,7 @@ export function createComponentStormMetrics() {
     recordMountTime,
     recordUpdateDuration,
     setUpdatedComponentCount,
+    resetUpdateMetrics,
   }
 }
 

@@ -41,44 +41,48 @@ onUpdated(() => {
 </template>
 
 <style scoped>
+/* 暗色 lab 風格：只改 CSS，template / script 維持 benchmark 原樣 */
 .child {
   display: grid;
   grid-template-columns: 100px 120px 1fr;
   align-items: center;
   gap: 0.75rem;
   padding: 0.375rem 0.75rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px dashed rgb(39 39 42 / 0.8);
+  font-family: var(--lab-font-mono);
   font-size: 0.75rem;
 }
 
 .child:hover {
-  background-color: #f8fafc;
+  background-color: rgb(24 24 27 / 0.8);
 }
 
 .child__label {
   font-weight: 600;
-  color: #475569;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: #f4f4f5;
 }
 
 .child__value-box {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.375rem;
+  justify-self: start;
+  padding: 0.0625rem 0.375rem;
+  border: 1px solid rgb(6 182 212 / 0.3);
+  border-radius: 3px;
+  background: rgb(8 51 68 / 0.2);
 }
 
 .child__badge {
-  font-size: 0.65rem;
-  padding: 0.05rem 0.3rem;
-  border-radius: 4px;
-  background-color: #e0f2fe;
-  color: #0369a1;
-  font-weight: 500;
+  font-size: 0.625rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgb(34 211 238 / 0.75);
 }
 
 .child__value {
   font-weight: 700;
-  color: #0f172a;
+  color: var(--lab-probe);
   font-variant-numeric: tabular-nums;
 }
 
@@ -90,33 +94,34 @@ onUpdated(() => {
 }
 
 .child__derived-label {
-  color: #64748b;
-  font-size: 0.7rem;
+  font-size: 0.6875rem;
   white-space: nowrap;
+  color: var(--lab-text-muted);
 }
 
 .child__derived {
   display: flex;
-  gap: 0.4rem;
-  list-style: none;
-  padding: 0;
+  gap: 0.375rem;
   margin: 0;
+  padding: 0;
+  list-style: none;
   font-variant-numeric: tabular-nums;
 }
 
 .child__derived-item {
   display: inline-flex;
   align-items: center;
-  gap: 0.15rem;
-  padding: 0.05rem 0.35rem;
-  background-color: #f1f5f9;
-  border-radius: 4px;
-  color: #475569;
+  gap: 0.125rem;
+  padding: 0.0625rem 0.375rem;
+  border: 1px solid #27272a;
+  border-radius: 2px;
+  background: #0c0c0e;
+  color: var(--lab-signal);
 }
 
 .child__multiplier {
-  color: #94a3b8;
-  font-size: 0.65rem;
+  font-size: 0.625rem;
+  color: #71717a;
 }
 
 .child__derived-value {
