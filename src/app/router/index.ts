@@ -5,6 +5,7 @@ import DashboardPage from '@/app/pages/DashboardPage.vue'
 import HomeLoadingPage from '@/scenarios/home-loading/HomeLoadingPage.vue'
 import HugeTablePage from '@/scenarios/huge-table/HugeTablePage.vue'
 import ComponentStormPage from '@/scenarios/component-storm/ComponentStormPage.vue'
+import ComponentStormStagePage from '@/scenarios/component-storm/stage/ComponentStormStagePage.vue'
 import ComposableChaosPage from '@/scenarios/composable-chaos/ComposableChaosPage.vue'
 import LongRunningSpaPage from '@/scenarios/long-running-spa/LongRunningSpaPage.vue'
 import ReactiveChainPage from '@/scenarios/reactive-chain/ReactiveChainPage.vue'
@@ -13,6 +14,12 @@ import VDomStressPage from '@/scenarios/vdom-stress/VDomStressPage.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    // 大會 Demo 視圖：全螢幕雙欄，不套 DefaultLayout
+    {
+      path: '/scenarios/component-storm/stage',
+      name: 'component-storm-stage',
+      component: ComponentStormStagePage,
+    },
     {
       path: '/',
       component: DefaultLayout,
