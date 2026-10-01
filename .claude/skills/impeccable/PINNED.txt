@@ -1,0 +1,36 @@
+# Impeccable — vendored, instructions only
+source: https://github.com/pbakaus/impeccable
+tag: skill-v4.3.1
+commit: cd12f8660e2dde57b9615c8a6b8ea674101f9cfc
+path: plugin/skills/impeccable (SKILL.md + reference/ only, trimmed)
+excluded: scripts/, agents/, hooks/; plus reference/{live,live-setup,hooks,doctor,visualize,ios,android,adapt.native,audit.native,craft}.md and reference/degraded/ (unusable without binary/agents, or native-only)
+vendored: 2026-10-01
+
+
+## sha256 (verify: cd .claude/skills/impeccable && sha256sum -c PINNED.txt 2>/dev/null | grep -v ': OK')
+3292cdf2945c304f7b2b19c231a3d69a242adbcf0ce11695b6ec607527e41866 *./reference/adapt.md
+0964df17380aaaf3a65befb05cadcc2bcaab8acd289b33d10d1eb0db1897b643 *./reference/animate.md
+6d79ccc7f3aaa372d50d19d45e295332bfd959c333a998d5f18a8819fb9064e1 *./reference/audit.md
+a8d73a725c3e0139d8e7de5ada1496054a22d95c02bd3980a53d0e5ae5badac4 *./reference/bolder.md
+ae344a11a75cb29cf09ad2325bbdf8caa2e7468a61b88f766a01c758b95bbd23 *./reference/clarify.md
+06652c3b1b84177445eb99f97e0be3450c3219d8d704ba0382fb48b13ad5c1d9 *./reference/colorize.md
+89281951d3b4a56ea64c6cfff32d02a6da2c9ea912d117bfa3a11e93224d3496 *./reference/craft-floor.md
+67a45fed340bccfccce3b8ea5c747088a645a34f9372fb60ad68cb739920a57d *./reference/critique.md
+6a6641bde4c9a3b4b260447d4a91d5a3eefa10ec18939a945aa6f27a34343047 *./reference/delight.md
+2b4b805f104c8235afd1d05cfa5a7a1c47e615048fc7c7ed48280d85816127b6 *./reference/distill.md
+94368e5a890e2cd1f6badbf50edb99b5a830cf6367da50d109bf20f75c1576c0 *./reference/document.md
+a1d14b473c7989a61f528923a59de04dc5f9d2cbdfbe141c87e0bb5866ad3bf4 *./reference/extract.md
+a27a7c0a11f15d0ee64c3a4bb8b8cc61053c725f1ecedfaf63c8dffc2efaf0e2 *./reference/harden.md
+8badfba53652ec183a8e3c95399b019682898808f5374f950ba80b3ef5eb4a36 *./reference/init.md
+8b6bc4dbe6dafd8ea14f311e531ad8fbb10e277d973bd84a2875b4cad4a8fe9b *./reference/layout.md
+b4106dae5894e2392f20ac1586eeca1e5f50c26b5e7ff369163f3a4986027e13 *./reference/new-work.md
+774d221e01beabf92924fded53935ee363887c1c46930f0b4ffcb6f8f7024388 *./reference/onboard.md
+c4b169ab7932329c833750971c53bc129d0385e16d0219b31f002792fce939e8 *./reference/operate.md
+2fc27c6af0c80f332a715a6ea431215b9fa7de8fb82b7a9a8e7a20bf4b105b5a *./reference/optimize.md
+5bd1b1f5dfb4650989028eff0d215fc7138017fcfa3e652a68d3df3cd1d98907 *./reference/overdrive.md
+d401c38a58380966ba6af10f75f47dd815d104b8405044b623a321f45a3cef76 *./reference/polish.md
+2ed15426acc4cefe3ce962b4c498beec3c902d6f7da70d7842b4bdddda2b4a9d *./reference/quieter.md
+b05f17e1861a1fc781456c3272d6202d48fdfc6e2b1d778c09ec57c26e8749ea *./reference/routing.md
+51960b514f8437baf12484dd5be824e0c2d0ee8802e29e7f511e431493a6c417 *./reference/shape.md
+a41d8f2291165e9d8871eee5ba81977b4368abe8b836d375f058fbbe0b363f74 *./reference/typeset.md
+14989d14570d714ae45b6dc8cb3a9ee0f029bc53b92160d97be62df5b09a58b0 *./SKILL.md
