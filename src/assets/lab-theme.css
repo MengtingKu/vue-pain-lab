@@ -1,0 +1,39 @@
+/*
+ * Lab theme（暗色實驗室調性）。
+ * 只在畫面上有 .lab-theme 根元素時生效，benchmark scenario 頁面維持原本的 rendering 不受影響。
+ */
+html:has(.lab-theme) {
+  --lab-bg: #09090b;
+  --lab-surface: rgb(24 24 27 / 0.5);
+  --lab-rule: rgb(39 39 42 / 0.6);
+  --lab-rule-strong: #3f3f46;
+  --lab-text: #fafafa;
+  --lab-text-muted: #a1a1aa;
+  --lab-signal: #34d399;
+  --lab-signal-strong: #10b981;
+  --lab-signal-edge: rgb(16 185 129 / 0.4);
+  --lab-probe: #22d3ee;
+  --lab-warn: #fbbf24;
+  --lab-hot: #fb923c;
+  --lab-font-sans:
+    'Inter', 'Segoe UI Variable Display', 'Segoe UI', system-ui, 'Noto Sans TC',
+    'Microsoft JhengHei', sans-serif;
+  --lab-font-mono:
+    ui-monospace, 'JetBrains Mono', 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+  --lab-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  background: var(--lab-bg);
+  color: var(--lab-text);
+  color-scheme: dark;
+  font-family: var(--lab-font-sans);
+  scrollbar-color: var(--lab-rule-strong) var(--lab-bg);
+}
+
+html:has(.lab-theme) body {
+  margin: 0;
+}
+
+html:has(.lab-theme) ::selection {
+  background: rgb(52 211 153 / 0.3);
+  color: var(--lab-text);
+}

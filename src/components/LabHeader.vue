@@ -10,7 +10,7 @@
 <style scoped>
 .lab-header {
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid #e2e8f0;
+  border-bottom: 1px solid var(--lab-rule, #e2e8f0);
 }
 
 .lab-header__title {
@@ -23,6 +23,6 @@
 .lab-header__tagline {
   margin: 0.25rem 0 0;
   font-size: 0.875rem;
-  color: #64748b;
+  color: var(--lab-text-muted, #64748b);
 }
 </style>

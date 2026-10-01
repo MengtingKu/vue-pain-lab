@@ -7,35 +7,61 @@ const props = defineProps<{
   status: ScenarioStatus
 }>()
 
-const labelMap: Record<ScenarioStatus, string> = {
-  drafted: '已描述痛點',
-  empty: '尚未定義',
+const codeMap: Record<ScenarioStatus, string> = {
+  drafted: 'DRAFTED',
+  empty: 'UNDEFINED',
 }
 
-const label = computed(() => labelMap[props.status])
+const code = computed(() => codeMap[props.status])
 </script>
 
 <template>
-  <span class="status-badge" :class="`status-badge--${status}`">{{ label }}</span>
+  <span class="status-badge" :class="`status-badge--${status}`">
+    <span class="status-badge__dot" aria-hidden="true" />
+    {{ code }}
+  </span>
 </template>
 
 <style scoped>
 .status-badge {
-  display: inline-block;
-  padding: 0.125rem 0.625rem;
-  border-radius: 999px;
-  font-size: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  font-family: var(--lab-font-mono);
+  font-size: 0.6875rem;
   font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
   white-space: nowrap;
 }
 
+.status-badge__dot {
+  width: 6px;
+  height: 6px;
+  background: currentColor;
+}
+
 .status-badge--drafted {
-  background: #e0f2fe;
-  color: #0369a1;
+  color: var(--lab-signal);
+  border-color: rgb(52 211 153 / 0.35);
+  background: rgb(52 211 153 / 0.06);
+}
+
+.status-badge--drafted .status-badge__dot {
+  box-shadow: 0 0 6px rgb(52 211 153 / 0.8);
 }
 
 .status-badge--empty {
-  background: #f1f5f9;
-  color: #64748b;
+  color: var(--lab-warn);
+  border-color: rgb(251 191 36 / 0.35);
+  background: rgb(251 191 36 / 0.05);
+}
+
+.status-badge--empty .status-badge__dot {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px currentColor;
 }
 </style>
