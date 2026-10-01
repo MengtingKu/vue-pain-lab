@@ -29,7 +29,8 @@ const scenarios: ScenarioSummary[] = [
     description:
       '後台系統常見一個 Parent 掛大量結構一致的 Child：Component 數量增加、Parent 更新時，Runtime Cost 會怎麼變？',
     status: 'drafted',
-    to: '/scenarios/component-storm',
+    // 大會展示用的 Demo 視圖；benchmark 頁本身仍在 /scenarios/component-storm（Demo 頁 header 有連結）
+    to: '/scenarios/component-storm/stage',
     featured: true,
   },
   {
