@@ -15,7 +15,9 @@
 
 不裝 `scripts/`、`agents/`、`hooks/`，不跑 `npx impeccable`，不做 global install。`SKILL.md` 本身維持與 upstream 一字不差，方便之後升級時 diff。
 
-版本鎖定方式是 vendoring：檔案直接放在 repo 裡，不會自動更新。來源、commit 與每個檔案的 sha256 記在 `.claude/skills/impeccable/PINNED.txt`。
+版本鎖定方式是手動複製檔案：不透過套件管理或安裝程式，所以不會自動更新。來源、commit 與每個檔案的 sha256 記在 `.claude/skills/impeccable/PINNED.txt`。
+
+這份 skill 只保存在本機，不進 git（`.gitignore` 只追蹤 `create-pain-scenario` 與 `validate-vue-update` 兩個 skill）。在其他機器上需要時，依本文件的流程重新取得：clone `https://github.com/pbakaus/impeccable`，checkout tag `skill-v4.3.1`（commit `cd12f86`），只複製 `plugin/skills/impeccable/` 的 `SKILL.md` 與 `reference/`，刪掉下面列出的檔案。
 
 ## 為什麼
 

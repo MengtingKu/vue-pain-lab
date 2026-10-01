@@ -31,4 +31,4 @@ vue-pain-lab
 7. `src/utils/` 內的工具函式不依賴 Vue（保持可獨立測試、可搬移）。
 8. 審查效能相關改動時，站在「每天寫 Vue 的工程師」角度自問：這是不是真的值得升級／值得做？必要時使用 `.claude/agents/vue-user-reviewer`。
 9. 重要但未寫進 code 的決策，記錄到 `docs/decisions/`，避免只存在對話紀錄裡。
-10. Commit message 使用 `.claude/skills/git-commit` 流程產生。
+10. Commit message 使用 `.claude/skills/git-commit` 流程產生（這個 skill 只放在本機、不進 git；repo 只追蹤 `create-pain-scenario` 與 `validate-vue-update` 兩個 skill）。

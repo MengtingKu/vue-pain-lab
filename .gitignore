@@ -49,3 +49,8 @@ results/cdp-trace/**/*.meta.json
 # regenerable, not committed. Summarized findings live in
 # src/benchmarks/validation-log.md and the composable-chaos README instead.
 results/cdp-trace/composable-chaos-instrumentation/**/*.json
+
+# Claude skills：只追蹤 create-pain-scenario 與 validate-vue-update，其他 skill 只留在本機
+.claude/skills/*
+!.claude/skills/create-pain-scenario/
+!.claude/skills/validate-vue-update/
