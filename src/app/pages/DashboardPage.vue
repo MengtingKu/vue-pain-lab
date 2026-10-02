@@ -51,7 +51,7 @@ const scenarios: ScenarioSummary[] = [
     description:
       '大型後台表單的 derived state 常常疊好幾層 computed，這條鏈到底多深才會讓 update cost 有感？',
     status: 'drafted',
-    to: '/scenarios/reactive-chain',
+    to: '/scenarios/reactive-chain/stage',
   },
   {
     title: 'VDOM Stress Test',
