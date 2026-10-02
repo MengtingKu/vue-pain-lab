@@ -21,6 +21,13 @@ Vue Pain Lab 從「每天寫 Vue 的工程師」視角，驗證新版 Vue（3.5 
 - **Initialization Phase（首航依賴建立）**：Dependency Depth、Computed Execute Count、WatchEffect Trigger Count。
 - **Runtime Update Phase（狀態變更更新效能）**：Total Update Count、Average Update Duration、Total Execution Time、Watch Trigger Count、Render Count。
 
+**Composable Chaos Abstraction Prober**（`/scenarios/composable-chaos`）探測 Composable 巢狀封裝層數（`useLayerN()`，Depth 1 / 5 / 10 / 20）是否帶來額外的 Reactive Runtime Cost。受眾是研究 composable 封裝層次與執行期成本的前端架構師。操作是明確的兩階段序列：
+
+- **PHASE 01 // ABSTRACTION LAYER SETUP**：選 Depth → 執行 01（Build Chain）建立該深度的 composable chain。Build Phase 指標混合了 N 層 function call、reactive primitive 建立與首次 render。
+- **PHASE 02 // RUNTIME INTENSITY INJECTION**：使用者親自執行過 01、且所選 Depth 等於已建立的 Depth 後，02（Trigger Update）才解鎖，可連續觸發。Update Phase 指標量測 source 變更沿 N 層 computed 傳遞的成本。
+
+Composable Chaos 另有 Stage 頁（`/scenarios/composable-chaos/stage`）負責降低認知門檻：操作引導條、每層 composable 的方塊圖與傳導光效、以及由計數器即時算出的診斷結論（每次 update 重算 Depth−1 個 computed，成本隨層數線性增加，與 README 實測一致）。
+
 成功的定義：數字可信、可重現、可以和 CDP trace 對帳。
 
 ## Positioning
@@ -30,7 +37,7 @@ Vue Pain Lab 從「每天寫 Vue 的工程師」視角，驗證新版 Vue（3.5 
 ## Operating Context
 
 - 本機 `npm run dev` / `npm run preview`，Chrome DevTools Performance 面板與 console.log 並用。
-- `scripts/cdp-trace/` 的 runner 透過 CDP 自動開頁、點擊、讀值。runner 依賴頁面 DOM：Reactive Chain 依賴 `.params dl`、兩個 `.metric-group dl` 內 `<dt>` 的完整文字，以及文字剛好是 `Trigger Update` 的 `<button>`。任何視覺改版都必須保留這些結構與文字。
+- `scripts/cdp-trace/` 的 runner 透過 CDP 自動開頁、點擊、讀值。runner 依賴頁面 DOM：Reactive Chain 依賴 `.params dl`、兩個 `.metric-group dl` 內 `<dt>` 的完整文字，以及文字剛好是 `Trigger Update` 的 `<button>`。Composable Chaos 依賴 `input[name="composable-depth"][value=N]`、文字剛好是 `Build Chain` / `Trigger Update` 的按鈕、兩個 `.metric-group` 內 `<dt>` 的第一個文字節點，以及 Build Duration 從 `-` 變回數值的轉換（因此頁面 mount 時必須先自動 build 一次）。任何視覺改版都必須保留這些結構與文字。
 - 量測受環境影響大（分頁可見性、電源模式、CDP console capture），驗證流程見 `.claude/skills/validate-vue-update`。
 
 ## Capabilities and Constraints
@@ -44,6 +51,7 @@ Vue Pain Lab 從「每天寫 Vue 的工程師」視角，驗證新版 Vue（3.5 
 
 - `VUE_CONF_EVIDENCE_PACK.md`、`results/`、各 scenario `README.md` 的量測紀錄。
 - 頁面上的數字一律是即時量測值，不得放入任何虛構或示意數據。
+- 頁面上的「結論」文字必須由即時數據算出，且不得與 scenario README 的 Observation / Conclusion 矛盾（例如 Composable Chaos 的成本是線性，不是倍數增長）。
 
 ## Product Principles
 

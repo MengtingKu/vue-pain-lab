@@ -27,3 +27,8 @@
 - 時間戳的微秒位數受瀏覽器 `performance.now()` 精度限制（Chrome 約 5–100µs 粒度），同一毫秒內多個節點常顯示相同時間，這是真實精度，不是 bug。
 - TTY 最多保留 1500 行（約 14 次 update），超過就丟掉最舊的。
 - 用 claude-in-chrome 自動化操作時分頁可能是 hidden，動畫與計時會被節流；要看光效請在實際可見的螢幕上操作。
+
+## 後續：色彩語意與 Composable Chaos 對齊
+
+- TTY 不再用整片青色。時間戳與 `└─` 符號冷灰；首航建立時的 `[DEP_xxx]` computed 節點綠（`#10b981`），update 期間的重算標為琥珀 `[RE-RUN]`（與 Composable Chaos 一致）；WATCH / EFFECT / RENDER 等鏈結終點副作用琥珀；INIT / SETTLED 總結綠。傳導光效與 EXECUTING 狀態也改為琥珀（屬於運行期更新），`STAGE VIEW` 標籤改為綠。全站不再有 `--lab-trace` / `--lab-tty-text` 這組青色 token。
+- 左欄底部的 Final Value 區塊移除，改成 Initialization Phase 面板底部的 `FINAL_VAL` 小字列；左欄改為 flex，兩個相位面板吸收多餘高度，讓左欄底邊與右側 TTY 底邊對齊。
