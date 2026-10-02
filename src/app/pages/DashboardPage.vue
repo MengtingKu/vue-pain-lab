@@ -38,7 +38,7 @@ const scenarios: ScenarioSummary[] = [
     description:
       '中大型專案常見業務邏輯拆分成多層 Nested Composable（層層嵌套呼叫）：當抽象與封裝層數越疊越深，會對 Vue Runtime 帶來有感的效能開銷嗎？',
     status: 'drafted',
-    to: '/scenarios/composable-chaos',
+    to: '/scenarios/composable-chaos/stage',
   },
   {
     title: 'Long Running SPA',
