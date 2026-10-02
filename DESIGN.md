@@ -252,6 +252,14 @@ components:
 - **One-Screen Rule（Stage 頁）：** 寬度 > 1000px 且高度 ≥ 640px 時整頁鎖在 100vh、頁面不捲動：矩陣固定 `clamp(160px, 30vh, 320px)`（高度 ≤ 820px 時收緊間距並改 `clamp(150px, 25vh, 320px)`），上排吃剩餘高度，TTY 吸收差額並在框內捲動。窄或矮的視窗放不下，維持整頁捲動。
 - 自訂細捲軸用 `::-webkit-scrollbar`；因為 lab-theme 在 html 上設了會繼承的 `scrollbar-color`，元素本身要先把 `scrollbar-color` / `scrollbar-width` 重設為 `auto`，Chrome 才會套用 webkit 捲軸；Firefox 以 `@supports not selector(::-webkit-scrollbar)` 改用標準屬性。
 
+### Global Navbar（全站導覽列）
+- `LabNavbar`，DefaultLayout（Dashboard、benchmark 頁）與 StageLayout（Stage 頁）共用。左右二分（flex space-between），兩側與視窗邊緣同為 24px，所有頁面高度一致（56px）。底色與頁面相同（`--lab-bg`），只用一條 `--lab-hairline` 和內頁分隔；全等寬、11px、無圓角。帶 `.lab-tokens`，在沒有 `lab-theme` 的白底頁也能自成一條暗色列。
+- **左：** `[ VUE_PAIN_LAB // PERF_PROBER_v1.0 ]`，連回 Dashboard（Dashboard 卡片是切換 scenario 的唯一入口，導覽列不放 scenario 選單）。前方 7px 方形綠燈只在 Stage 頁以 2.4s 慢速呼吸，benchmark 頁維持靜態。
+- **右：** 只在同時有 benchmark 與 Stage 兩種檢視的 scenario（Reactive Chain、Composable Chaos、VDOM Stress、Component Storm）內渲染 `[ 🛰️ TELEMETRY_BENCHMARK ] [ 🔬 LIVE_STAGE_VIEW ]`，目前的檢視用 Signal Strong（`#10b981`）文字、10% 底色、底部 2px 內陰影；Dashboard 與其他頁面不渲染。
+- 全部是連結（`<a>`），不是 `<button>`：CDP runner 用按鈕文字找 Trigger 按鈕。
+- ≤ 640px：切換鈕換到第二列、兩顆平分整列寬度，字級 10px；更窄時標籤在空白處換行，不撐出水平捲軸。
+- Stage 頁不自帶返回連結；StageLayout 給內頁導覽列以下的可用高度，內頁用 `height` / `min-height: 100%`（不是 100vh）。
+
 ### Readout Bar（唯讀參數）
 - 編譯期常數用唯讀讀數格呈現，不做成假的 input。布林值前方加 8px 方形燈：false 為空心、true 為綠色實心。
 
