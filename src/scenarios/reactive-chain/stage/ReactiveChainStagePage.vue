@@ -28,7 +28,7 @@ const EXECUTING_HOLD_MS = 700
 
 const TOPOLOGY = ['ref', `computed ×${DEPTH}`, 'watch', 'watchEffect', 'render'] as const
 
-type LineTone = 'sys' | 'dep' | 'hook' | 'update' | 'done'
+type LineTone = 'sys' | 'dep' | 'rerun' | 'hook' | 'update' | 'done'
 
 interface TtyLine {
   id: number
@@ -51,6 +51,8 @@ interface RunCounts {
 let pending: TtyLine[] = []
 let lineSeq = 0
 let tracing = false
+// 追蹤中的是不是 update（false = 首航依賴建立）：update 期間的 computed 計算標成 [RE-RUN]
+let inUpdate = false
 let counts: RunCounts = emptyCounts()
 
 const lines = shallowRef<TtyLine[]>([])
@@ -89,13 +91,23 @@ function onTrace(event: TraceEvent): void {
   switch (event.kind) {
     case 'computed':
       counts.computed++
-      emit(
-        'dep',
-        '└─',
-        `DEP_${pad(event.step, 3)}`,
-        `computed${event.step} resolved ➔ ${event.value}`,
-        event.time,
-      )
+      if (inUpdate) {
+        emit(
+          'rerun',
+          '└─',
+          'RE-RUN',
+          `DEP_${pad(event.step, 3)} computed${event.step} resolved ➔ ${event.value}`,
+          event.time,
+        )
+      } else {
+        emit(
+          'dep',
+          '└─',
+          `DEP_${pad(event.step, 3)}`,
+          `computed${event.step} resolved ➔ ${event.value}`,
+          event.time,
+        )
+      }
       break
     case 'watch':
       counts.watch++
@@ -159,6 +171,7 @@ async function triggerUpdate(): Promise<void> {
   const index = runCount.value + 1
   counts = emptyCounts()
   tracing = true
+  inUpdate = true
   emit('update', '⚡', 'UPDATE', `#${pad(index, 3)} triggered by $ TRIGGER UPDATE`)
 
   const start = performance.now()
@@ -168,6 +181,7 @@ async function triggerUpdate(): Promise<void> {
   const duration = performance.now() - start
 
   tracing = false
+  inUpdate = false
   emit(
     'done',
     '✔',
@@ -273,6 +287,13 @@ onUnmounted(() => {
               <dt>WatchEffect Runs</dt>
               <dd>{{ initCounts.watchEffect }}</dd>
             </dl>
+            <!-- chain 最外層的輸出值，隨每次 update 變動，用來確認更新已抵達 computed[DEPTH] -->
+            <p class="phase__foot">
+              <span class="phase__foot-label">computed[DEPTH]</span>
+              <span
+                >FINAL_VAL: <b>{{ finalValue }}</b></span
+              >
+            </p>
           </div>
 
           <div class="phase phase--update">
@@ -303,11 +324,6 @@ onUnmounted(() => {
               </dd>
             </dl>
           </div>
-        </section>
-
-        <section class="output" aria-labelledby="stage-output">
-          <h2 id="stage-output">Final Value</h2>
-          <p>{{ finalValue }}</p>
         </section>
       </div>
 
@@ -385,12 +401,12 @@ onUnmounted(() => {
 
 .chain-stage__tag {
   padding: 0.125rem 0.5rem;
-  border: 1px solid color-mix(in srgb, var(--lab-tty-text) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--lab-signal) 40%, transparent);
   border-radius: 2px;
   font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.1em;
-  color: var(--lab-tty-text);
+  color: var(--lab-signal);
 }
 
 .chain-stage__nav {
@@ -432,8 +448,8 @@ onUnmounted(() => {
 }
 
 .chain-stage__console {
-  display: grid;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
   gap: 1.75rem;
   min-height: 0;
   padding-right: 0.75rem;
@@ -464,7 +480,8 @@ onUnmounted(() => {
 /* ---- 鏈路拓撲 + 傳導光效 ---- */
 
 .topology {
-  --pulse: var(--lab-tty-text);
+  /* 傳導屬於運行期更新：用琥珀，與 Composable Chaos 的 ripple 一致 */
+  --pulse: var(--lab-warn);
 
   position: relative;
   container-type: inline-size;
@@ -653,9 +670,9 @@ onUnmounted(() => {
 
 /* EXECUTING：停用、改用傳導色，外框以 opacity 呼吸 */
 .trigger.is-executing {
-  border-color: color-mix(in srgb, var(--lab-tty-text) 35%, transparent);
-  background: color-mix(in srgb, var(--lab-tty-text) 6%, transparent);
-  color: var(--lab-tty-text);
+  border-color: color-mix(in srgb, var(--lab-warn) 35%, transparent);
+  background: color-mix(in srgb, var(--lab-warn) 6%, transparent);
+  color: var(--lab-warn);
   cursor: progress;
 }
 
@@ -663,9 +680,9 @@ onUnmounted(() => {
   content: '';
   position: absolute;
   inset: -1px;
-  border: 1px solid var(--lab-tty-text);
+  border: 1px solid var(--lab-warn);
   border-radius: inherit;
-  box-shadow: 0 0 12px color-mix(in srgb, var(--lab-tty-text) 35%, transparent);
+  box-shadow: 0 0 12px color-mix(in srgb, var(--lab-warn) 35%, transparent);
   animation: frame-breathe 700ms ease-in-out infinite;
 }
 
@@ -677,9 +694,12 @@ onUnmounted(() => {
 
 /* ---- Runtime Metrics ---- */
 
+/* 吸收左欄多出的高度：兩個相位面板拉長，左欄底邊與右側 TTY 底邊對齊 */
 .phases {
+  flex: 1;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto 1fr;
   gap: 1rem;
 }
 
@@ -692,6 +712,8 @@ onUnmounted(() => {
   --phase: var(--lab-signal);
 
   position: relative;
+  display: flex;
+  flex-direction: column;
   border: 1px solid var(--lab-hairline);
   border-top-color: color-mix(in srgb, var(--phase) 35%, transparent);
   background-color: var(--lab-panel);
@@ -811,28 +833,27 @@ onUnmounted(() => {
   margin-right: 0;
 }
 
-/* ---- Final Value ---- */
-
-.output p {
+.phase__foot {
   display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  margin: 0;
-  padding: 0.875rem 1rem;
-  border: 1px solid var(--lab-hairline);
+  justify-content: space-between;
+  gap: 1rem;
+  margin: auto 0 0;
+  padding: 0.5rem 1rem;
+  border-top: 1px solid var(--lab-hairline);
   background: var(--lab-panel-sunken);
-  font-size: 1.5rem;
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--lab-signal-strong);
+}
+
+.phase__foot-label {
+  color: var(--lab-text-muted);
+}
+
+.phase__foot b {
   font-weight: 700;
   font-variant-numeric: tabular-nums slashed-zero;
   color: var(--lab-signal);
-}
-
-.output p::before {
-  content: 'computed[DEPTH] =';
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  color: var(--lab-text-muted);
 }
 
 /* ---- TTY ---- */
@@ -858,7 +879,7 @@ onUnmounted(() => {
   margin: 0;
   letter-spacing: 0.08em;
   text-transform: none;
-  color: var(--lab-tty-text);
+  color: var(--lab-text-silver);
 }
 
 .tty__count {
@@ -887,7 +908,7 @@ onUnmounted(() => {
 
 .tty__clear:focus-visible,
 .tty__screen:focus-visible {
-  outline: 1px solid var(--lab-tty-text);
+  outline: 1px solid var(--lab-signal);
   outline-offset: -1px;
 }
 
@@ -901,7 +922,7 @@ onUnmounted(() => {
   scrollbar-color: var(--lab-tty-rule) transparent;
   font-size: 11px;
   line-height: 1.65;
-  color: var(--lab-tty-text);
+  color: var(--lab-text-silver);
 }
 
 .tty__screen::-webkit-scrollbar {
@@ -940,32 +961,36 @@ onUnmounted(() => {
   text-overflow: ellipsis;
 }
 
+/*
+ * 行的語意色（時間戳與 └─ 等符號一律保持冷灰，見上方 .tty__time / .tty__glyph）：
+ * - dep：首航建立時的 computed 節點計算 → 綠
+ * - rerun：update 期間的 computed 重算 → 標籤琥珀 [RE-RUN]、內容銀灰（與 Composable Chaos 相同）
+ * - hook：watch / watchEffect / render 這些鏈結終點的副作用 → 琥珀
+ * - update：觸發 → 琥珀；done：INIT / SETTLED 總結 → 綠；sys：其餘 → 銀灰
+ */
+.tty__line--dep {
+  color: var(--lab-signal-strong);
+}
+
 .tty__line--dep .tty__tag {
   font-weight: 500;
+  color: var(--lab-signal);
 }
 
-.tty__line--dep .tty__text {
-  color: color-mix(in srgb, var(--lab-tty-text) 75%, var(--lab-tty-dim));
+.tty__line--rerun .tty__tag {
+  color: var(--lab-warn);
 }
 
-.tty__line--hook .tty__tag {
-  color: var(--lab-text-silver);
+.tty__line--hook,
+.tty__line--update {
+  color: var(--lab-warn);
 }
 
 .tty__line--update {
   margin-top: 0.75rem;
-  color: var(--lab-warn);
-}
-
-.tty__line--update .tty__glyph {
-  color: var(--lab-warn);
 }
 
 .tty__line--done {
-  color: var(--lab-signal);
-}
-
-.tty__line--done .tty__glyph {
   color: var(--lab-signal);
 }
 
@@ -978,7 +1003,7 @@ onUnmounted(() => {
   width: 0.6em;
   height: 1.1em;
   vertical-align: text-bottom;
-  background: var(--lab-tty-text);
+  background: var(--lab-signal);
   animation: caret 1s steps(1) infinite;
 }
 

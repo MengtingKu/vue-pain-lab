@@ -17,7 +17,8 @@ html:has(.lab-theme) {
   --lab-text-silver: #cbd5e1;
   --lab-tty-bg: #05070b;
   --lab-tty-rule: #1f2937;
-  --lab-tty-text: #06b6d4;
+  --lab-lock: #7f1d1d;
+  --lab-lock-text: #f87171;
   --lab-tty-dim: #8b95a5;
   --lab-signal: #34d399;
   --lab-signal-strong: #10b981;
