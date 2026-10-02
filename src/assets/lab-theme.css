@@ -20,6 +20,8 @@ html:has(.lab-theme) {
   --lab-lock: #7f1d1d;
   --lab-lock-text: #f87171;
   --lab-tty-dim: #8b95a5;
+  --lab-cell: #111827;
+  --lab-scroll-thumb: #374151;
   --lab-signal: #34d399;
   --lab-signal-strong: #10b981;
   --lab-signal-edge: rgb(16 185 129 / 0.4);
@@ -33,6 +35,8 @@ html:has(.lab-theme) {
     'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'SFMono-Regular',
     Consolas, 'Noto Sans TC', 'Microsoft JhengHei', monospace;
   --lab-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* 硬朗的機械式緩動：微互動用，避免綿軟的回彈感 */
+  --lab-ease-hard: cubic-bezier(0.4, 0, 0.2, 1);
 
   background: var(--lab-bg);
   color: var(--lab-text);

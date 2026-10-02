@@ -12,6 +12,7 @@ import LongRunningSpaPage from '@/scenarios/long-running-spa/LongRunningSpaPage.
 import ReactiveChainPage from '@/scenarios/reactive-chain/ReactiveChainPage.vue'
 import ReactiveChainStagePage from '@/scenarios/reactive-chain/stage/ReactiveChainStagePage.vue'
 import VDomStressPage from '@/scenarios/vdom-stress/VDomStressPage.vue'
+import VDomStressStagePage from '@/scenarios/vdom-stress/stage/VDomStressStagePage.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,12 @@ const router = createRouter({
       path: '/scenarios/composable-chaos/stage',
       name: 'composable-chaos-stage',
       component: ComposableChaosStagePage,
+    },
+    // 互動探測視圖：Mass Control + 實測判定 + 方格矩陣，不套 DefaultLayout
+    {
+      path: '/scenarios/vdom-stress/stage',
+      name: 'vdom-stress-stage',
+      component: VDomStressStagePage,
     },
     {
       path: '/',
