@@ -7,6 +7,7 @@ import HugeTablePage from '@/scenarios/huge-table/HugeTablePage.vue'
 import ComponentStormPage from '@/scenarios/component-storm/ComponentStormPage.vue'
 import ComponentStormStagePage from '@/scenarios/component-storm/stage/ComponentStormStagePage.vue'
 import ComposableChaosPage from '@/scenarios/composable-chaos/ComposableChaosPage.vue'
+import ComposableChaosStagePage from '@/scenarios/composable-chaos/stage/ComposableChaosStagePage.vue'
 import LongRunningSpaPage from '@/scenarios/long-running-spa/LongRunningSpaPage.vue'
 import ReactiveChainPage from '@/scenarios/reactive-chain/ReactiveChainPage.vue'
 import ReactiveChainStagePage from '@/scenarios/reactive-chain/stage/ReactiveChainStagePage.vue'
@@ -26,6 +27,12 @@ const router = createRouter({
       path: '/scenarios/reactive-chain/stage',
       name: 'reactive-chain-stage',
       component: ReactiveChainStagePage,
+    },
+    // 互動探測視圖：操作引導 + chain 方塊圖 + 即時診斷，不套 DefaultLayout
+    {
+      path: '/scenarios/composable-chaos/stage',
+      name: 'composable-chaos-stage',
+      component: ComposableChaosStagePage,
     },
     {
       path: '/',
