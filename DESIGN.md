@@ -20,6 +20,8 @@ colors:
   lab-tty-bg: "#05070b"
   lab-tty-rule: "#1f2937"
   lab-tty-dim: "#8b95a5"
+  lab-cell: "#111827"
+  lab-scroll-thumb: "#374151"
 typography:
   title:
     fontFamily: "JetBrains Mono Variable, JetBrains Mono, ui-monospace, Consolas, monospace"
@@ -117,7 +119,7 @@ components:
 - **Matrix Signal Green** (`#34d399`)：首航建立、靜態數據、正常狀態燈、執行鍵文字。`#10b981`（Signal Strong）用於執行鍵邊框與按下時的填色。
 
 ### Secondary
-- **Hazard Amber** (`#fbbf24`)：Runtime Update 相位、效能損耗讀數（Average Update Duration）、STANDBY 燈號。`#fb923c`（Hot）保留給更嚴重的警示。
+- **Hazard Amber** (`#fbbf24`)：Runtime Update 相位、效能損耗讀數（Average Update Duration）、STANDBY 燈號。`#fb923c`（Hot）保留給更嚴重的警示：目前只用於 VDOM Stress 的 `VDOM CHOKED`（主執行緒 > 50 ms 長任務）。
 
 ### Tertiary
 - **Probe Cyan** (`#22d3ee`)：探針、提示類 hover（例如資訊圖示）。不和綠色同時當主訊號。
@@ -134,6 +136,7 @@ components:
 ### Named Rules
 **The Two-Signal Rule.** 一個畫面只有兩種「結果」訊號色：綠與琥珀。另有一種「狀態」色：Lock Red 表示鎖定。Stage 頁的追蹤、傳導與終端機也只用綠 / 琥珀 / 冷灰，不另設藍色調。其餘顏色只能是冷灰。
 **The Phase Color Rule.** 全站所有 Scenario 的雙階段語意固定：初始化／依賴建立／Build Phase（Reactive Chain Initialization、Composable Chaos Build 與 PHASE 01、chain 結構圖）一律 Matrix Signal Green；運行期更新成本（Update Phase、PHASE 02、傳導 ripple）一律 Hazard Amber。
+**The Budget Tier Rule.** 需要依效能預算分級時，固定三級：≤ 16.7 ms（1 frame）STABLE = Signal Green；≤ 50 ms FRAME DROP = Hazard Amber；> 50 ms（long task）CHOKED = Hot。分級依據一律是實測時間，不是輸入量。
 **The Derived Glow Rule.** 光暈、半透明框線一律用 `color-mix(in srgb, <token> N%, transparent)` 從 token 推導，不另寫 rgb 值。
 
 ## Typography
@@ -164,6 +167,9 @@ components:
 
 ### Named Rules
 **The Lit-Only Glow Rule.** 光暈只給「真的在發光」的東西：指示燈、相位色的主要讀數、執行鍵 hover。面板與文字不加光暈。
+
+### Named Rules（Motion）
+**The Hard Motion Rule.** 微互動一律用 `--lab-ease-hard`（`cubic-bezier(0.4, 0, 0.2, 1)`）或 `steps()`，不用回彈或綿軟的緩動；閃爍類動畫每秒不超過 3 次，並在 `prefers-reduced-motion` 時停用。
 
 ## Shapes
 
@@ -225,6 +231,7 @@ components:
 - **Propagation Ripple:** 注入時每格依序閃過霓虹琥珀（延遲 `i / n × 360ms`，單格 460ms 退回原色），方向固定 L1（source）→ LN（最外層）。reduced-motion 時整排同時淡淡亮一下框線。
 
 ### Diagnostic Verdict（核心診斷定論，Stage 頁）
+- VDOM Stress 版本：標題 `[ VDOM STATUS: STABLE ]` / `[ VDOM STATUS: FRAME DROP ]` / `[ PERFORMANCE CRASH: VDOM CHOKED ]`，顏色依 Budget Tier Rule；判定為 CHOKED 的瞬間，面板外框以 `steps(1)` 硬閃兩次（0.56s，只閃兩次，不連續閃）；終端機 `[SYS_VDOM_PATCH_STREAM]` 列出 INJECT / ALLOC / PATCH / DOM（MutationObserver 實際插入的節點，頭尾各 3 個加省略數）/ LAYOUT / FRAME / SETTLED；底部狀態列 `[ RENDER_TYPE | NODES | RENDER_DURATION | LAYOUT | BLOCKED ]`，BLOCKED 用等級色。
 - 頁面上最醒目的區塊：Sunken 底、琥珀 35% 框線、左上角琥珀定位框。由上到下三層：**結論 → 終端機證實 → 數據背書**。
   1. **結論：** 巨大琥珀等寬標題（尚無讀數：`[ RUNTIME COST: AWAITING INJECTION ]`，縮小、去光暈；有讀數：`[ CHAOS DETECTED: ×N RE-RUNS ]`，N 為 update 造成的重算累計），下接一句 sans 白話（待操作時為暗黃色提示）。
   2. **終端機：** 固定高度的 `[SYS_STACK_TRACE_STREAM]`（ChaosTty），列出每層 computed 的執行：建立期 `[INIT]` 綠、注入後 `[RE-RUN]` 琥珀、`[UPDATE #N]` 琥珀、`[SETTLED]` 綠，其餘銀灰；不用青色。log 只寫進子元件，不觸發頁面 re-render。
@@ -235,6 +242,15 @@ components:
 ### Structure Telemetry Strip（建立期數據狀態列，Stage 頁）
 - 緊貼在 Chain Detector 下方的細窄狀態列 `[ LINK_STRUCTURE_TELEMETRY ]`：11px 等寬、灰色 `|` 分隔，`LABEL: value` 成對排列。建立期數據，標籤用 Signal Strong（`#10b981`）、數值用 Signal Green（`#34d399`）；BUILD_DURATION 加微光；最後一項 `FINAL_VAL`（chain 最外層輸出值）收在同一列，Stage 頁不另設輸出面板。像硬體偵測軟體的底部狀態列，不做成表格。
 - 桌面版左右兩欄等高（grid `stretch`），左欄由 Chain Detector 的方塊區吸收多餘高度，狀態列與右側診斷面板底邊對齊。
+
+### Mass Control Panel（VDOM Stress Stage）
+- INJECTION_MASS 切換矩陣（同 Segmented Control）、「下一次注入：MOUNT / UPDATE」說明句、主按鈕 `[ ⚡ INJECT MASS UI NODES ]`（綠）與次要 `[ PURGE ]`（灰框）。hover 為低調綠色微光（`0 0 8px rgb(16 185 129 / 0.3)`），按下 `scale(0.98)` 機械式按壓。注入中主按鈕停用、改為 Hot 橘 `[ RENDERING / PATCHING... ]`：外框以 `steps(2)` 每 0.36s 硬切明暗（約每秒 2.8 次，低於 WCAG 2.3.1 每秒 3 次的閃爍上限），加一道暗色半透明光帶流過；兩者只動 opacity / transform，主執行緒被 VDOM 佔住時仍由 compositor 播放。PURGE 按下時硬閃一次暗綠（0.2s），矩陣整體在 0.2s 內淡出後才清空資料。
+- 面板底部固定放三級預算對照（STABLE / FRAME DROP / VDOM CHOKED，各自上緣 2px 等級色）與一行判定依據說明。
+
+### Node Matrix（VDOM Stress Stage）
+- 高密度晶圓排列：每個節點一格 8px 正方形、1px gap，格線由容器底色（TTY Rule `#1f2937`）透出；矩陣是固定高度的視窗（最高 320px），幾千格只在框內捲動，捲軸 4px、滑塊 `--lab-scroll-thumb`（`#374151`）、軌道為頁面底色。未點亮的格子是 `--lab-cell`（`#111827`）。注入後整個矩陣依判定等級染上 22% 等級色，外框等級色微光，並跑一次由左到右的掃描光。點亮由父層 class 控制，方格子元件只接 `cards`，避免判定 / 狀態列更新時重新 patch 幾千格。
+- **One-Screen Rule（Stage 頁）：** 寬度 > 1000px 且高度 ≥ 640px 時整頁鎖在 100vh、頁面不捲動：矩陣固定 `clamp(160px, 30vh, 320px)`（高度 ≤ 820px 時收緊間距並改 `clamp(150px, 25vh, 320px)`），上排吃剩餘高度，TTY 吸收差額並在框內捲動。窄或矮的視窗放不下，維持整頁捲動。
+- 自訂細捲軸用 `::-webkit-scrollbar`；因為 lab-theme 在 html 上設了會繼承的 `scrollbar-color`，元素本身要先把 `scrollbar-color` / `scrollbar-width` 重設為 `auto`，Chrome 才會套用 webkit 捲軸；Firefox 以 `@supports not selector(::-webkit-scrollbar)` 改用標準屬性。
 
 ### Readout Bar（唯讀參數）
 - 編譯期常數用唯讀讀數格呈現，不做成假的 input。布林值前方加 8px 方形燈：false 為空心、true 為綠色實心。

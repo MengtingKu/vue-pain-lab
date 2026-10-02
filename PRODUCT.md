@@ -28,6 +28,8 @@ Vue Pain Lab 從「每天寫 Vue 的工程師」視角，驗證新版 Vue（3.5 
 
 Composable Chaos 另有 Stage 頁（`/scenarios/composable-chaos/stage`）負責降低認知門檻：操作引導條、每層 composable 的方塊圖與傳導光效、以及由計數器即時算出的診斷結論（每次 update 重算 Depth−1 個 computed，成本隨層數線性增加，與 README 實測一致）。
 
+**VDOM Stress Test — Mass Grid Injector**（`/scenarios/vdom-stress`）量測一次性大量 Render（100 / 500 / 1000 / 5000 個 card）時的 Vue Runtime 成本，受眾是研究大量資料渲染、虛擬列表與 VDOM 執行期成本的前端工程師。benchmark 頁的 `renderDuration` 只涵蓋「建立陣列 → Vue nextTick」；README 的實測顯示大量 Mount 時真正的瓶頸是之後的瀏覽器 Layout（5000 Mount Layout ≈ 219 ms，renderDuration ≈ 63 ms），而 Update（資料不變）幾乎沒有 DOM 寫入。Stage 頁（`/scenarios/vdom-stress/stage`）把這件事直接量給使用者看：注入後實測 Vue patch、MutationObserver 實際插入的節點、強制 reflow 的 Layout 與主執行緒連續佔用時間，依 frame（16.7 ms）/ long task（50 ms）預算判定 STABLE / FRAME DROP / VDOM CHOKED。
+
 成功的定義：數字可信、可重現、可以和 CDP trace 對帳。
 
 ## Positioning
@@ -37,7 +39,7 @@ Composable Chaos 另有 Stage 頁（`/scenarios/composable-chaos/stage`）負責
 ## Operating Context
 
 - 本機 `npm run dev` / `npm run preview`，Chrome DevTools Performance 面板與 console.log 並用。
-- `scripts/cdp-trace/` 的 runner 透過 CDP 自動開頁、點擊、讀值。runner 依賴頁面 DOM：Reactive Chain 依賴 `.params dl`、兩個 `.metric-group dl` 內 `<dt>` 的完整文字，以及文字剛好是 `Trigger Update` 的 `<button>`。Composable Chaos 依賴 `input[name="composable-depth"][value=N]`、文字剛好是 `Build Chain` / `Trigger Update` 的按鈕、兩個 `.metric-group` 內 `<dt>` 的第一個文字節點，以及 Build Duration 從 `-` 變回數值的轉換（因此頁面 mount 時必須先自動 build 一次）。任何視覺改版都必須保留這些結構與文字。
+- `scripts/cdp-trace/` 的 runner 透過 CDP 自動開頁、點擊、讀值。runner 依賴頁面 DOM：Reactive Chain 依賴 `.params dl`、兩個 `.metric-group dl` 內 `<dt>` 的完整文字，以及文字剛好是 `Trigger Update` 的 `<button>`。Composable Chaos 依賴 `input[name="composable-depth"][value=N]`、文字剛好是 `Build Chain` / `Trigger Update` 的按鈕、兩個 `.metric-group` 內 `<dt>` 的第一個文字節點，以及 Build Duration 從 `-` 變回數值的轉換（因此頁面 mount 時必須先自動 build 一次）。VDOM Stress 依賴 `input[name="render-count"][value=N]`、文字剛好是 `Trigger Render` 的按鈕、`.metrics` 內所有 `dt` / `dd`（`renderDuration` 的 `dd` 必須剛好是 `-` 或 `X ms`，不可有前後空白）；而且 Rendered Cards 本身就是被量測的對象，它的盒模型、字型與 `.cards__list` 的 `max-height` / `overflow` 都會影響 Layout / Paint 數字（README Limitation）。任何視覺改版都必須保留這些結構與文字。
 - 量測受環境影響大（分頁可見性、電源模式、CDP console capture），驗證流程見 `.claude/skills/validate-vue-update`。
 
 ## Capabilities and Constraints
@@ -51,6 +53,7 @@ Composable Chaos 另有 Stage 頁（`/scenarios/composable-chaos/stage`）負責
 
 - `VUE_CONF_EVIDENCE_PACK.md`、`results/`、各 scenario `README.md` 的量測紀錄。
 - 頁面上的數字一律是即時量測值，不得放入任何虛構或示意數據。
+- 判定門檻用實測時間而不是輸入大小（例如 VDOM Stress 依主執行緒佔用時間判定，而不是「選了 5000 就是 CHOKED」）。
 - 頁面上的「結論」文字必須由即時數據算出，且不得與 scenario README 的 Observation / Conclusion 矛盾（例如 Composable Chaos 的成本是線性，不是倍數增長）。
 
 ## Product Principles
