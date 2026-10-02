@@ -201,10 +201,6 @@ function formatCount(value: number): string {
         <h1>Composable Chaos</h1>
         <span class="chaos-stage__tag">STAGE VIEW</span>
       </div>
-      <nav class="chaos-stage__nav" aria-label="Composable Chaos">
-        <RouterLink to="/">← Pain Scenarios</RouterLink>
-        <RouterLink to="/scenarios/composable-chaos">Benchmark 原始頁</RouterLink>
-      </nav>
       <p class="chaos-stage__note">
         互動探測版本：多了引導、傳導光效與即時診斷，數字不與 benchmark 頁或 README 數據直接比較。
       </p>
@@ -424,7 +420,7 @@ function formatCount(value: number): string {
 
 .chaos-stage {
   box-sizing: border-box;
-  min-height: 100vh;
+  min-height: 100%;
   padding: 1.5rem;
   font-family: var(--lab-font-mono);
   color: var(--lab-text-silver);
@@ -440,7 +436,7 @@ function formatCount(value: number): string {
 
 .chaos-stage__header {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
   align-items: baseline;
   gap: 0.5rem 1.5rem;
   margin-bottom: 1.5rem;
@@ -472,26 +468,6 @@ function formatCount(value: number): string {
   letter-spacing: 0.1em;
   white-space: nowrap;
   color: var(--lab-signal);
-}
-
-.chaos-stage__nav {
-  display: flex;
-  gap: 1.25rem;
-  font-size: 0.75rem;
-}
-
-.chaos-stage__nav a {
-  color: var(--lab-text-muted);
-  text-decoration: none;
-}
-
-.chaos-stage__nav a:hover {
-  color: var(--lab-text);
-}
-
-.chaos-stage__nav a:focus-visible {
-  outline: 1px solid var(--lab-signal);
-  outline-offset: 3px;
 }
 
 .chaos-stage__note {

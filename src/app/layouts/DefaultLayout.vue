@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import LabHeader from '@/components/LabHeader.vue'
+import LabNavbar from '@/components/LabNavbar.vue'
 </script>
 
 <template>
   <div class="default-layout">
-    <LabHeader />
+    <LabNavbar />
     <main class="default-layout__content">
       <RouterView />
     </main>

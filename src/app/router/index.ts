@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import DefaultLayout from '@/app/layouts/DefaultLayout.vue'
+import StageLayout from '@/app/layouts/StageLayout.vue'
 import DashboardPage from '@/app/pages/DashboardPage.vue'
 import HomeLoadingPage from '@/scenarios/home-loading/HomeLoadingPage.vue'
 import HugeTablePage from '@/scenarios/huge-table/HugeTablePage.vue'
@@ -23,23 +24,30 @@ const router = createRouter({
       name: 'component-storm-stage',
       component: ComponentStormStagePage,
     },
-    // 互動探測視圖：全螢幕雙欄（右側 TTY），不套 DefaultLayout
+    // 互動探測視圖：全站導覽列 + 全螢幕內容（StageLayout），不套 DefaultLayout 的 960px 內容欄
     {
-      path: '/scenarios/reactive-chain/stage',
-      name: 'reactive-chain-stage',
-      component: ReactiveChainStagePage,
-    },
-    // 互動探測視圖：操作引導 + chain 方塊圖 + 即時診斷，不套 DefaultLayout
-    {
-      path: '/scenarios/composable-chaos/stage',
-      name: 'composable-chaos-stage',
-      component: ComposableChaosStagePage,
-    },
-    // 互動探測視圖：Mass Control + 實測判定 + 方格矩陣，不套 DefaultLayout
-    {
-      path: '/scenarios/vdom-stress/stage',
-      name: 'vdom-stress-stage',
-      component: VDomStressStagePage,
+      path: '/scenarios',
+      component: StageLayout,
+      children: [
+        // 雙欄：右側 TTY
+        {
+          path: 'reactive-chain/stage',
+          name: 'reactive-chain-stage',
+          component: ReactiveChainStagePage,
+        },
+        // 操作引導 + chain 方塊圖 + 即時診斷
+        {
+          path: 'composable-chaos/stage',
+          name: 'composable-chaos-stage',
+          component: ComposableChaosStagePage,
+        },
+        // Mass Control + 實測判定 + 方格矩陣
+        {
+          path: 'vdom-stress/stage',
+          name: 'vdom-stress-stage',
+          component: VDomStressStagePage,
+        },
+      ],
     },
     {
       path: '/',

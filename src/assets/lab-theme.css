@@ -1,8 +1,10 @@
 /*
  * Lab theme（暗色實驗室調性）。
  * 只在畫面上有 .lab-theme 根元素時生效，benchmark scenario 頁面維持原本的 rendering 不受影響。
+ * .lab-tokens 只把 token 與底色套在該元素本身（例如全站導覽列），不會把整頁切成暗色。
  */
-html:has(.lab-theme) {
+html:has(.lab-theme),
+.lab-tokens {
   --lab-bg: #0d0e12;
   --lab-panel: #12141a;
   --lab-panel-sunken: #0a0b0f;
@@ -45,7 +47,8 @@ html:has(.lab-theme) {
   scrollbar-color: var(--lab-rule-strong) var(--lab-bg);
 }
 
-html:has(.lab-theme) body {
+/* 全站導覽列貼齊視窗邊緣：所有頁面都移除 body 預設的 8px margin（lab-theme 頁原本就是 0） */
+body {
   margin: 0;
 }
 

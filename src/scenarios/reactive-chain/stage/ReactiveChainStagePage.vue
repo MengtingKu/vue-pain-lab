@@ -234,10 +234,6 @@ onUnmounted(() => {
         <h1>Reactive Chain</h1>
         <span class="chain-stage__tag">STAGE VIEW</span>
       </div>
-      <nav class="chain-stage__nav" aria-label="Reactive Chain">
-        <RouterLink to="/">← Pain Scenarios</RouterLink>
-        <RouterLink to="/scenarios/reactive-chain">Benchmark 原始頁</RouterLink>
-      </nav>
       <p class="chain-stage__note">
         互動探測版本：每個節點多了追蹤與 log 輸出，數字不與 benchmark 頁或 README 數據直接比較。
       </p>
@@ -366,7 +362,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   /* 桌面版剛好一個螢幕高，左右兩欄各自捲動，TTY 底部永遠在畫面內 */
-  height: 100vh;
+  height: 100%;
   min-height: 36rem;
   padding: 1.5rem;
   font-family: var(--lab-font-mono);
@@ -377,7 +373,7 @@ onUnmounted(() => {
 
 .chain-stage__header {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
   align-items: baseline;
   gap: 0.5rem 1.5rem;
   margin-bottom: 1.5rem;
@@ -407,26 +403,6 @@ onUnmounted(() => {
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--lab-signal);
-}
-
-.chain-stage__nav {
-  display: flex;
-  gap: 1.25rem;
-  font-size: 0.75rem;
-}
-
-.chain-stage__nav a {
-  color: var(--lab-text-muted);
-  text-decoration: none;
-}
-
-.chain-stage__nav a:hover {
-  color: var(--lab-text);
-}
-
-.chain-stage__nav a:focus-visible {
-  outline: 1px solid var(--lab-signal);
-  outline-offset: 3px;
 }
 
 .chain-stage__note {
@@ -1028,7 +1004,7 @@ onUnmounted(() => {
 @media (max-width: 1080px) {
   .chain-stage {
     height: auto;
-    min-height: 100vh;
+    min-height: 100%;
   }
 
   .chain-stage__main {

@@ -332,10 +332,6 @@ const ledeParts = computed<LedePart[]>(() => {
         <h1>VDOM Stress</h1>
         <span class="vdom-stage__tag">STAGE VIEW</span>
       </div>
-      <nav class="vdom-stage__nav" aria-label="VDOM Stress">
-        <RouterLink to="/">← Pain Scenarios</RouterLink>
-        <RouterLink to="/scenarios/vdom-stress">Benchmark 原始頁</RouterLink>
-      </nav>
       <p class="vdom-stage__note">
         互動探測版本：多量了 Layout 與下一個 frame，方格樣式也不同，數字不與 benchmark 頁或 README
         數據直接比較。
@@ -502,7 +498,7 @@ const ledeParts = computed<LedePart[]>(() => {
   --tier: var(--lab-text-muted);
 
   box-sizing: border-box;
-  min-height: 100vh;
+  min-height: 100%;
   padding: 1.5rem;
   font-family: var(--lab-font-mono);
   color: var(--lab-text-silver);
@@ -518,7 +514,7 @@ const ledeParts = computed<LedePart[]>(() => {
 
 .vdom-stage__header {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
   align-items: baseline;
   gap: 0.5rem 1.5rem;
   margin-bottom: 1.5rem;
@@ -550,26 +546,6 @@ const ledeParts = computed<LedePart[]>(() => {
   letter-spacing: 0.1em;
   white-space: nowrap;
   color: var(--lab-signal);
-}
-
-.vdom-stage__nav {
-  display: flex;
-  gap: 1.25rem;
-  font-size: 0.75rem;
-}
-
-.vdom-stage__nav a {
-  color: var(--lab-text-muted);
-  text-decoration: none;
-}
-
-.vdom-stage__nav a:hover {
-  color: var(--lab-text);
-}
-
-.vdom-stage__nav a:focus-visible {
-  outline: 1px solid var(--lab-signal);
-  outline-offset: 3px;
 }
 
 .vdom-stage__note {
@@ -1077,7 +1053,12 @@ const ledeParts = computed<LedePart[]>(() => {
   opacity: 0;
 }
 
+/* 空矩陣時說明文字填滿整個（固定高度的）視窗，不露出底下的格線底色 */
 .matrix__empty {
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  min-height: 100%;
   margin: 0;
   padding: 2.5rem 1rem;
   background: var(--lab-panel-sunken);
@@ -1166,14 +1147,14 @@ const ledeParts = computed<LedePart[]>(() => {
 
 /*
  * ---- 單一螢幕版面（寬且夠高的視窗）----
- * 整頁鎖在 100vh、頁面本身不捲動：下排矩陣固定高度（160–320px，依視窗高度），
+ * 整頁鎖在 StageLayout 給的可用高度（導覽列以下）、頁面本身不捲動：下排矩陣固定高度（160–320px，依視窗高度），
  * 上排吃剩下的高度，右側 TTY 吸收差額並在框內捲動。窄或矮的視窗放不下，維持整頁捲動。
  */
 @media (min-width: 1001px) and (min-height: 640px) {
   .vdom-stage {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100%;
   }
 
   .vdom-stage__header {
