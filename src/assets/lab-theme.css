@@ -3,12 +3,22 @@
  * 只在畫面上有 .lab-theme 根元素時生效，benchmark scenario 頁面維持原本的 rendering 不受影響。
  */
 html:has(.lab-theme) {
-  --lab-bg: #09090b;
+  --lab-bg: #0d0e12;
+  --lab-panel: #12141a;
+  --lab-panel-sunken: #0a0b0f;
+  --lab-grid-line: rgb(148 163 184 / 0.05);
+  --lab-hairline: #232733;
+  --lab-hairline-strong: #343a48;
   --lab-surface: rgb(24 24 27 / 0.5);
   --lab-rule: rgb(39 39 42 / 0.6);
   --lab-rule-strong: #3f3f46;
   --lab-text: #fafafa;
   --lab-text-muted: #a1a1aa;
+  --lab-text-silver: #cbd5e1;
+  --lab-tty-bg: #05070b;
+  --lab-tty-rule: #1f2937;
+  --lab-tty-text: #06b6d4;
+  --lab-tty-dim: #8b95a5;
   --lab-signal: #34d399;
   --lab-signal-strong: #10b981;
   --lab-signal-edge: rgb(16 185 129 / 0.4);
@@ -19,7 +29,8 @@ html:has(.lab-theme) {
     'Inter', 'Segoe UI Variable Display', 'Segoe UI', system-ui, 'Noto Sans TC',
     'Microsoft JhengHei', sans-serif;
   --lab-font-mono:
-    ui-monospace, 'JetBrains Mono', 'Cascadia Code', 'SFMono-Regular', Consolas, monospace;
+    'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, 'Cascadia Code', 'SFMono-Regular',
+    Consolas, 'Noto Sans TC', 'Microsoft JhengHei', monospace;
   --lab-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 
   background: var(--lab-bg);
