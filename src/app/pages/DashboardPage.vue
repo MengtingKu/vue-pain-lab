@@ -58,7 +58,7 @@ const scenarios: ScenarioSummary[] = [
     description:
       '一次性大量 Render UI（100～5000 張 Card）時，Vue Runtime 的 Rendering 成本會怎麼變？',
     status: 'drafted',
-    to: '/scenarios/vdom-stress',
+    to: '/scenarios/vdom-stress/stage',
   },
 ]
 
