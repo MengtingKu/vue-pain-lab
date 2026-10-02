@@ -1,0 +1,51 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+.DS_Store
+Thumbs.db
+Desktop.ini
+dist
+dist-ssr
+coverage
+*.local
+*:Zone.Identifier
+
+# Claude Code local/personal settings — machine-specific, not shared
+.claude/settings.local.json
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+*.tsbuildinfo
+
+.eslintcache
+
+# Vite
+*.timestamp-*-*.mjs
+
+# CDP trace raw evidence (scripts/cdp-trace/) — regenerable via the scripts,
+# but expensive to re-capture; kept on disk locally, never committed.
+# Committed evidence lives in results/cdp-trace/**/*.md and
+# results/cdp-trace/validation/matrix-analysis.json instead.
+results/cdp-trace/**/*.trace.json
+results/cdp-trace/**/*.meta.json
+
+# Layer A (page instrumentation) raw per-trial JSON from
+# run-composable-chaos-instrumentation.ts — same rationale as above,
+# regenerable, not committed. Summarized findings live in
+# src/benchmarks/validation-log.md and the composable-chaos README instead.
+results/cdp-trace/composable-chaos-instrumentation/**/*.json
