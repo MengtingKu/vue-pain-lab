@@ -78,6 +78,7 @@ const standby = scenarios.filter((scenario) => scenario.status === 'empty')
         <span>{{ scenarios.length }} SCENARIOS</span>
         <span class="dashboard__readout-drafted">{{ drafted.length }} DRAFTED</span>
         <span class="dashboard__readout-standby">{{ standby.length }} UNDEFINED</span>
+        <RouterLink to="/compare" class="dashboard__readout-link">CDP 跨版本對比 →</RouterLink>
       </p>
     </header>
 
@@ -164,6 +165,15 @@ const standby = scenarios.filter((scenario) => scenario.status === 'empty')
 
 .dashboard__readout-standby {
   color: var(--lab-warn);
+}
+
+.dashboard__readout-link {
+  color: var(--lab-probe);
+  text-decoration: none;
+}
+
+.dashboard__readout-link:hover {
+  text-decoration: underline;
 }
 
 .dashboard__group {

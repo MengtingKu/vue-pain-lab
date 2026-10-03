@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 
 import DefaultLayout from '@/app/layouts/DefaultLayout.vue'
 import StageLayout from '@/app/layouts/StageLayout.vue'
+import CdpComparePage from '@/app/pages/CdpComparePage.vue'
 import DashboardPage from '@/app/pages/DashboardPage.vue'
 import HomeLoadingPage from '@/scenarios/home-loading/HomeLoadingPage.vue'
 import HugeTablePage from '@/scenarios/huge-table/HugeTablePage.vue'
@@ -55,6 +56,7 @@ const router = createRouter({
       component: DefaultLayout,
       children: [
         { path: '', name: 'dashboard', component: DashboardPage },
+        { path: 'compare', name: 'cdp-compare', component: CdpComparePage },
         { path: 'scenarios/home-loading', name: 'home-loading', component: HomeLoadingPage },
         { path: 'scenarios/huge-table', name: 'huge-table', component: HugeTablePage },
         {
