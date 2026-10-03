@@ -570,9 +570,10 @@ onUnmounted(() => {
 
 /* ---- 控制列 ---- */
 
+/* 和下方 .phases 同為兩等分 + 1rem gap：DEPTH 與相位 1、執行鍵與相位 2 左右邊切齊 */
 .control__bar {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 

@@ -27,3 +27,8 @@
 
 - 中央的 `[ 01_CHAIN ] [ 02_CHAOS ] [ 03_VDOM ]` 拿掉了：只列三個 scenario 會讓人疑惑其他 scenario 去哪了，在 Dashboard 上也讓版面不對稱。切換 scenario 回到 Dashboard 卡片；導覽列改為左右二分。
 - 右側檢視切換改成依「是否同時有 benchmark 與 Stage」決定是否渲染，Component Storm 也納入（它的 Stage 頁仍是不套 StageLayout 的大會投影視圖，所以從 Stage 回 benchmark 要用該頁自己的連結）。
+
+## 後續：Component Storm Stage 頁也改用 StageLayout
+
+- `/scenarios/component-storm/stage` 移到 `/scenarios` 底下的 StageLayout 子路由，和其他三個 Stage 頁一樣有全站導覽列；頁內的「← Pain Scenarios / Benchmark 原始頁」連結移除，`100vh` 改成 `100%`。
+- 推翻前面「大會投影視圖不套 StageLayout」的取捨：四個 Stage 頁的導覽方式不一致比投影時多一條導覽列更困擾。投影時多出約 56px 的導覽列，寬螢幕下雙欄仍鎖在一個螢幕內（左欄與矩陣各自捲動）。

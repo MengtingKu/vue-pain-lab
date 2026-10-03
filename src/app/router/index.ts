@@ -19,17 +19,17 @@ const router = createRouter({
   // 使用 hash 模式避免 GitHub Pages 直接訪問子路徑時 404
   history: createWebHashHistory(),
   routes: [
-    // 大會 Demo 視圖：全螢幕雙欄，不套 DefaultLayout
-    {
-      path: '/scenarios/component-storm/stage',
-      name: 'component-storm-stage',
-      component: ComponentStormStagePage,
-    },
     // 互動探測視圖：全站導覽列 + 全螢幕內容（StageLayout），不套 DefaultLayout 的 960px 內容欄
     {
       path: '/scenarios',
       component: StageLayout,
       children: [
+        // 大會 Demo 視圖：雙欄，左側操控、右側燈號矩陣
+        {
+          path: 'component-storm/stage',
+          name: 'component-storm-stage',
+          component: ComponentStormStagePage,
+        },
         // 雙欄：右側 TTY
         {
           path: 'reactive-chain/stage',

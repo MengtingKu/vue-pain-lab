@@ -89,12 +89,6 @@ const FRAME_BUDGET_MS = 1000 / 60
         <h1 class="storm-stage__title">Component Storm</h1>
         <span class="storm-stage__tag">STAGE VIEW</span>
       </div>
-      <nav class="storm-stage__nav" aria-label="Component Storm">
-        <RouterLink to="/" class="storm-stage__link">← Pain Scenarios</RouterLink>
-        <RouterLink to="/scenarios/component-storm" class="storm-stage__link">
-          Benchmark 原始頁
-        </RouterLink>
-      </nav>
       <p class="storm-stage__note">
         視覺化 Demo 版本：每個 Child 多了燈號與重繪閃爍，數字不與 benchmark 頁或 README
         數據直接比較。
@@ -223,7 +217,7 @@ const FRAME_BUDGET_MS = 1000 / 60
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 100%;
   padding: 1.5rem;
 }
 
@@ -231,7 +225,7 @@ const FRAME_BUDGET_MS = 1000 / 60
 
 .storm-stage__header {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: minmax(0, 1fr);
   align-items: baseline;
   gap: 0.5rem 1.5rem;
   margin-bottom: 1.5rem;
@@ -264,23 +258,6 @@ const FRAME_BUDGET_MS = 1000 / 60
   color: var(--lab-signal);
 }
 
-.storm-stage__nav {
-  display: flex;
-  gap: 1.25rem;
-  font-family: var(--lab-font-mono);
-  font-size: 0.75rem;
-}
-
-.storm-stage__link {
-  color: var(--lab-text-muted);
-  text-decoration: none;
-}
-
-.storm-stage__link:hover {
-  color: var(--lab-text);
-}
-
-.storm-stage__link:focus-visible,
 .trigger:focus-visible {
   outline: 2px solid var(--lab-signal);
   outline-offset: 3px;
@@ -314,14 +291,15 @@ const FRAME_BUDGET_MS = 1000 / 60
 
 @media (min-width: 1024px) {
   .storm-stage {
-    height: 100vh;
+    height: 100%;
     overflow: hidden;
   }
 
   .storm-stage__main {
     flex: 1;
     min-height: 0;
-    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    /* 與 VDOM Stress Stage 相同的左右比例（左控制、右渲染狀況） */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
   }
 
   .storm-stage__console,
@@ -634,10 +612,6 @@ const FRAME_BUDGET_MS = 1000 / 60
 @media (max-width: 640px) {
   .storm-stage {
     padding: 1rem;
-  }
-
-  .storm-stage__header {
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .params,
