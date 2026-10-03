@@ -24,11 +24,11 @@ vue-pain-lab
 
 1. 每個 pain scenario 都要能獨立執行、獨立閱讀，不依賴其他 scenario。
 2. 新增 scenario 前先用 `.claude/skills/create-pain-scenario` 流程確認這是真實遇到的問題，而非為了寫而寫。
-3. 驗證 Vue 版本差異時使用 `.claude/skills/validate-vue-update` 流程，並在 scenario 的 README 記錄 Question / Hypothesis / Observation / Next Step。
+3. 驗證 Vue 版本差異時使用 `.claude/skills/validate-vue-update` 流程，並在 scenario 的 README 記錄 Question / Hypothesis / Observation / Next Step。量測完要把結果放上 `/compare` 對比頁時，使用 `.claude/skills/load-data` 流程（使用者說「load-data」或「導入新版本數據」時觸發）。
 4. 不在沒有真實問題前先做效能優化或抽象化（見 PAIN_LAB_PRINCIPLES.md）。
 5. 不引入框架化的抽象層；能用最簡單的寫法解決就不要包一層。
 6. Composable 不直接操作 DOM；DOM 相關邏輯留在元件內。
 7. `src/utils/` 內的工具函式不依賴 Vue（保持可獨立測試、可搬移）。
 8. 審查效能相關改動時，站在「每天寫 Vue 的工程師」角度自問：這是不是真的值得升級／值得做？必要時使用 `.claude/agents/vue-user-reviewer`。
 9. 重要但未寫進 code 的決策，記錄到 `docs/decisions/`，避免只存在對話紀錄裡。
-10. Commit message 使用 `.claude/skills/git-commit` 流程產生（這個 skill 只放在本機、不進 git；repo 只追蹤 `create-pain-scenario` 與 `validate-vue-update` 兩個 skill）。
+10. Commit message 使用 `.claude/skills/git-commit` 流程產生（這個 skill 只放在本機、不進 git；repo 只追蹤 `create-pain-scenario`、`validate-vue-update` 與 `load-data` 三個 skill）。
