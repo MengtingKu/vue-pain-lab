@@ -18,7 +18,7 @@
 //
 // Output layout — one folder per trial index, both traces inside it, source
 // unambiguous from the filename AND from meta.json's `source` field:
-//   results/cdp-trace/vue-3.5.40/update-5000/trial-01/
+//   results/cdp-trace/vdom-stress/vue-3.5.40/update-5000/trial-01/
 //     cost-trace.trace.json / cost-trace.meta.json
 //     runtime-attribution-trace.trace.json / runtime-attribution-trace.meta.json
 
@@ -65,7 +65,7 @@ async function runSource(source: TraceSource, categories: string[], port: number
       await enableCompletionBinding(client)
 
       const url = `${devUrl}${SCENARIO_PATH}`
-      const baseDir = join('results', 'cdp-trace', `vue-${VUE_VERSION}`, `${OPERATION}-${NODE_COUNT}`)
+      const baseDir = join('results', 'cdp-trace', 'vdom-stress', `vue-${VUE_VERSION}`, `${OPERATION}-${NODE_COUNT}`)
 
       let measurementIndex = 0
       for (let i = 0; i < WARMUP + MEASUREMENT; i++) {

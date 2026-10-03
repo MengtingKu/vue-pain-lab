@@ -26,7 +26,7 @@ interface TrialMetrics {
 }
 
 function loadTrial(label: string, operation: Operation, nodeCount: number, trial: number): TrialMetrics {
-  const dir = join('results', 'cdp-trace', `vue-${label}`, `${operation}-${nodeCount}`, `trial-${String(trial).padStart(2, '0')}`)
+  const dir = join('results', 'cdp-trace', 'vdom-stress', `vue-${label}`, `${operation}-${nodeCount}`, `trial-${String(trial).padStart(2, '0')}`)
   const costMeta = JSON.parse(readFileSync(join(dir, 'cost-trace.meta.json'), 'utf-8'))
   const cost = parseTraceFile(join(dir, 'cost-trace.trace.json'))
   const attr = parseTraceFile(join(dir, 'runtime-attribution-trace.trace.json'))

@@ -81,7 +81,7 @@ DEPTH=100，兩版本各 3 次 trial × 100 次 Trigger Update：
 ### Source
 
 - `src/scenarios/reactive-chain/README.md`（Validation Environment、Validation Evidence Matrix、Observation、Validation Result、Limitation、Next Step）
-- `results/cdp-trace/DAY29_FINAL_VALIDATION_REPORT.md` Part 1 稽核表第 1–2 列
+- `results/cdp-trace/vdom-stress/DAY29_FINAL_VALIDATION_REPORT.md` Part 1 稽核表第 1–2 列
 
 ---
 
@@ -155,7 +155,7 @@ Vue 3.5.40 vs Vue 3.6.0-rc.2。**完整三 scope 比較僅在 `componentCount=50
 
 - `src/scenarios/component-storm/README.md`（全篇，含 Update Scope Comparison、Component Scale Comparison、Version Comparison 表、Decision、Runtime Attribution Validation 段落）
 - `results/cdp-trace/component-storm/RUNTIME_ATTRIBUTION_REPORT.md`（Part 1 + Part 2，含 harness 比較表、visible/hidden 對照實驗、Final Conclusion）
-- `results/cdp-trace/DAY29_FINAL_VALIDATION_REPORT.md` Part 1 稽核表第 3–5 列
+- `results/cdp-trace/vdom-stress/DAY29_FINAL_VALIDATION_REPORT.md` Part 1 稽核表第 3–5 列
 
 ---
 
@@ -238,7 +238,7 @@ Vue 3.5.40（baseline）vs Vue 3.6.0-rc.2（Day 24 Validation，Layer A 與 Laye
 
 - `src/scenarios/composable-chaos/README.md`（Observation、Cost Attribution、CDP Controlled Validation Day 23、Day 24 段落）
 - `results/cdp-trace/composable-chaos/DAY24_VUE36_VALIDATION_REPORT.md`（全篇）
-- `results/cdp-trace/DAY29_FINAL_VALIDATION_REPORT.md` Part 1 稽核表倒數第 2–3 列
+- `results/cdp-trace/vdom-stress/DAY29_FINAL_VALIDATION_REPORT.md` Part 1 稽核表倒數第 2–3 列
 
 ---
 
@@ -357,8 +357,8 @@ Update：
 
 - `src/scenarios/vdom-stress/README.md`（全篇，含 Baseline Snapshot、Vue 3.6 Validation、Controlled Re-validation、Interpretation Guardrails）
 - `src/scenarios/vdom-stress/VDomStressPage.vue`（Scenario 原始碼，確認 Mount/Update 判斷邏輯與量測時機點）
-- `results/cdp-trace/FINAL_VALIDATION_REPORT.md`（全篇）
-- `results/cdp-trace/DAY29_FINAL_VALIDATION_REPORT.md`（全篇，Part 1 為既有證據稽核，Part 2/3 為 Vapor 架構比較新資料）
+- `results/cdp-trace/vdom-stress/FINAL_VALIDATION_REPORT.md`（全篇）
+- `results/cdp-trace/vdom-stress/DAY29_FINAL_VALIDATION_REPORT.md`（全篇，Part 1 為既有證據稽核，Part 2/3 為 Vapor 架構比較新資料）
 
 ### Method / Decision Sources
 
@@ -368,13 +368,13 @@ Update：
 
 ## Note — AI Coding / Design System（本 repo 沒有對應的 Lab）
 
-`results/cdp-trace/DAY29_FINAL_VALIDATION_REPORT.md` Part 1 稽核表最後一列明確記錄：「Design System / Architecture」這個 Lab **這個 repo 裡沒有**，且該報告特別註明「並非為了這份報告而虛構」。
+`results/cdp-trace/vdom-stress/DAY29_FINAL_VALIDATION_REPORT.md` Part 1 稽核表最後一列明確記錄：「Design System / Architecture」這個 Lab **這個 repo 裡沒有**，且該報告特別註明「並非為了這份報告而虛構」。
 
 本 Pack 據此補上這條 provenance：本 repo 目前**沒有**任何關於 AI-assisted coding、Design System 或 Architecture Lab 的效能實驗、程式碼或原始數據。**若 Conference 場合要談 AI Coding，那是工程上的延伸詮釋（engineering interpretation），不是本 Lab 已執行、有數據支持的 performance experiment 結果**——不應與 Experiment 01–04 的量測數字並列成同等級的證據。
 
 ### Source
 
-- `results/cdp-trace/DAY29_FINAL_VALIDATION_REPORT.md` Part 1 稽核表最後一列
+- `results/cdp-trace/vdom-stress/DAY29_FINAL_VALIDATION_REPORT.md` Part 1 稽核表最後一列
 
 ---
 
@@ -383,7 +383,7 @@ Update：
 以下是四個 Experiment 中重複出現、且有明確 Source 佐證的方法論事實，記錄於此避免在各 Experiment 內重複：
 
 1. **背景分頁（`document.hidden === true`）的量測雜訊可以偽造出與真實版本差異同量級、甚至相反方向的訊號。** 最早見於 Reactive Chain（單次量測差 157.7%，重跑同一份 build 可差到 73ms），在 Component Storm Day 30 用 CDP 直接控制 visibility 重現並定位（hidden 狀態下重現 README 的 -15.3%~-20.8%，visible 狀態下訊號消失）。Source：`src/scenarios/reactive-chain/README.md`、`results/cdp-trace/component-storm/RUNTIME_ATTRIBUTION_REPORT.md`。
-2. **Vue Runtime CPU / Application CPU / V8-native CPU 三個 CPU-profiler attribution bucket，在本 Lab 全部驗證中都被標記 `confidence: low`（或 V8-native 為 `unavailable`）**，原因是 leaf-only sample attribution 低估 Vue 的真實 inclusive cost，且該 trace 本身的 profiler overhead 會污染取樣分佈。這三個 bucket 在 Composable Chaos（Depth 20 update）與 VDOM Stress Vapor 比較中都出現「與 cost-trace 方向相反」或「需要額外檢查」的情況。Source：`scripts/cdp-trace/TRACE_EVIDENCE_SCHEMA.md`（low confidence 定義本身）、`results/cdp-trace/composable-chaos/DAY24_VUE36_VALIDATION_REPORT.md`（Composable Chaos Depth 20 update 的方向相反案例）、`results/cdp-trace/DAY29_FINAL_VALIDATION_REPORT.md`（VDOM Stress Vapor 比較中 attribution bucket 需額外檢查的案例）。
+2. **Vue Runtime CPU / Application CPU / V8-native CPU 三個 CPU-profiler attribution bucket，在本 Lab 全部驗證中都被標記 `confidence: low`（或 V8-native 為 `unavailable`）**，原因是 leaf-only sample attribution 低估 Vue 的真實 inclusive cost，且該 trace 本身的 profiler overhead 會污染取樣分佈。這三個 bucket 在 Composable Chaos（Depth 20 update）與 VDOM Stress Vapor 比較中都出現「與 cost-trace 方向相反」或「需要額外檢查」的情況。Source：`scripts/cdp-trace/TRACE_EVIDENCE_SCHEMA.md`（low confidence 定義本身）、`results/cdp-trace/composable-chaos/DAY24_VUE36_VALIDATION_REPORT.md`（Composable Chaos Depth 20 update 的方向相反案例）、`results/cdp-trace/vdom-stress/DAY29_FINAL_VALIDATION_REPORT.md`（VDOM Stress Vapor 比較中 attribution bucket 需額外檢查的案例）。
 3. **單一 trial（或 single-trial 人工量測）觀察到的「一致方向」訊號，在多 trial 重測後可能不被重現，方向甚至反轉。** VDOM Stress 的方法 1→方法 2 是本 Lab 內最直接的示例。Source：`src/scenarios/vdom-stress/README.md` 的「Reproducibility」段落。
 4. **不同量測 harness（`claude-in-chrome` 瀏覽器擴充套件 vs isolated headless CDP）量到的絕對數字可以相差 2 倍以上，且方向可能相反**——不能跨 harness 直接比較或相減。Component Storm README（187.405ms）與 Day 30 CDP（84.9ms）即為一例。Source：`results/cdp-trace/component-storm/RUNTIME_ATTRIBUTION_REPORT.md` §1.1。
 5. **`performance.memory`（JS Heap `usedJSHeapSize`）在本 Lab 的自動化環境下不可靠**，受 V8 GC 排程時機影響極大，多次驗證中 Heap Δ 落在大範圍雜訊帶內、無法區分版本或 Update Scope 差異，甚至出現「總耗時拉長反而 heap 變小」的反直覺結果（V8 major GC）。Source：`src/scenarios/component-storm/README.md`。

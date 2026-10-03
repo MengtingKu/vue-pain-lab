@@ -62,7 +62,7 @@ just by filename convention).
 ## Metrics catalog (as of Final Calibration — see FINAL_CALIBRATION_REPORT.md)
 
 All duration stats below: median [P25, P75] (min–max), n=10, from the Final
-Calibration run (`results/cdp-trace/vue-3.5.40/update-5000/trial-0{1-10}/`).
+Calibration run (`results/cdp-trace/vdom-stress/vue-3.5.40/update-5000/trial-0{1-10}/`).
 
 ### Render Duration (in-page `performance.now()`)
 

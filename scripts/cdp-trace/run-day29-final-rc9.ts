@@ -78,7 +78,7 @@ async function isResponding(url: string): Promise<boolean> {
 async function main(): Promise<void> {
   assertOnAcPower()
   for (const cond of CONDITIONS) {
-    const outDir = join('results', 'cdp-trace', `vue-${cond.vueVersion}`)
+    const outDir = join('results', 'cdp-trace', 'vdom-stress', `vue-${cond.vueVersion}`)
     if (existsSync(outDir)) {
       throw new Error(
         `Refusing to run: ${outDir} already exists (never overwrite existing evidence)`,

@@ -185,7 +185,7 @@ export async function runVersionNodeCount(
       for (const operation of operations) {
         for (const source of SOURCES) {
           console.log(`  -- operation=${operation} source=${source.name} --`)
-          const baseDir = join('results', 'cdp-trace', `vue-${cond.vueVersion}`, `${operation}-${nodeCount}`)
+          const baseDir = join('results', 'cdp-trace', 'vdom-stress', `vue-${cond.vueVersion}`, `${operation}-${nodeCount}`)
 
           let measurementIndex = 0
           for (let i = 0; i < WARMUP + MEASUREMENT; i++) {

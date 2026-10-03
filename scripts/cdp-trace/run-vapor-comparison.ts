@@ -20,7 +20,7 @@
 //      shell — App.vue / DefaultLayout / RouterView — is not itself vapor;
 //      without this the app throws on mount, it is not an optional workaround)
 //
-// Results land under results/cdp-trace/vue-{label}/... using the SAME saver
+// Results land under results/cdp-trace/vdom-stress/vue-{label}/... using the SAME saver
 // as the existing matrix, just with new version labels so they never collide
 // with or overwrite the frozen Vue 3.5.40 / 3.6.0-rc.2 traditional data.
 

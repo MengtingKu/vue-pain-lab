@@ -92,6 +92,7 @@ function loadTrial(
   const dir = join(
     'results',
     'cdp-trace',
+    'vdom-stress',
     `vue-${label}`,
     `${operation}-${nodeCount}`,
     `trial-${String(trial).padStart(2, '0')}`,

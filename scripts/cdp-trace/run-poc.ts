@@ -55,7 +55,7 @@ async function main(): Promise<void> {
       await client.send('Runtime.enable')
 
       const url = `${dev.url}${SCENARIO_PATH}`
-      const outDir = join('results', 'cdp-trace', 'vdom-stress', `vue-${VUE_VERSION}`, `${OPERATION}-${NODE_COUNT}`)
+      const outDir = join('results', 'cdp-trace', 'vdom-stress', `vue-${VUE_VERSION}-poc`, `${OPERATION}-${NODE_COUNT}`)
       mkdirSync(outDir, { recursive: true })
 
       console.log(`[4/6] Running ${WARMUP} warm-up + ${MEASUREMENT} measurement trials…`)
