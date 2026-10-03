@@ -1,13 +1,13 @@
 ---
 name: validate-vue-update
-description: 執行 Vue Pain Lab Validation Protocol，使用固定 Scenario 與 Evidence Matrix 驗證 Vue Runtime 版本差異。也負責 D29 Final Validation 宣告新 RC Freeze Point（例如 `/validate-vue-update 3.6.0-rc.10`）：先回報 Validation Plan、確認後才量測，產出 analysis 與報告後接 load-data。
+description: 執行 Vue Pain Lab Validation Protocol，使用固定 Scenario 與 Evidence Matrix 驗證 Vue Runtime 版本差異。也負責 D29 Final Validation 宣告新 RC Freeze Point：使用者說「驗證 rc.10」、「驗證最新的 RC」、「用 validate-vue-update 跑新版本」或 `/validate-vue-update 3.6.0-rc.10` 時使用。先回報 Validation Plan、確認後才量測，產出 analysis 與報告後接 load-data。
 user-invocable: true
 ---
 
 ## 使用方式
 
-- `/validate-vue-update 3.6.0-rc.10`：以參數的 exact version 執行 D29 Final Validation（新的 RC Freeze Point），流程見下方「D29 Final Validation：宣告新的 RC Freeze Point」。
-- 不帶參數：一般的 Scenario 版本驗證，依 Scenario Freeze Rule 與 Validation Flow 進行。
+- `/validate-vue-update 3.6.0-rc.10`、`/validate-vue-update rc.10`、`/validate-vue-update latest`，或口語「請用 validate-vue-update 驗證最新的 rc.10」：執行 D29 Final Validation（新的 RC Freeze Point）。版本怎麼解析見下方「版本代入規則」。
+- 不帶版本、也不是要驗證新 RC：一般的 Scenario 版本驗證，依 Scenario Freeze Rule 與 Validation Flow 進行。
 
 ## Scenario Freeze Rule
 
@@ -75,7 +75,29 @@ vue@3.6.0-rc.9
 
 ## D29 Final Validation：宣告新的 RC Freeze Point
 
-以參數 `<ver>`（exact version，例如 `3.6.0-rc.10`）執行。以下 `<rc>` 指短標籤（例如 `rc10`），`<prev>` 指前一個 Freeze Point（目前是 `3.6.0-rc.9`，報告 `results/cdp-trace/DAY29_FINAL_VALIDATION_REPORT_rc9.md`）。
+### 版本代入規則（每次執行都要做，不得沿用範例）
+
+本節所有佔位符在執行時都必須代入**這次**的實際值。文中出現的 `rc.9`、`rc.10`、`run-day29-final-rc9.ts` 等只是範例或撰寫當時的狀態，**不得直接沿用**。
+
+| 佔位符 | 意義 | 怎麼決定 |
+| --- | --- | --- |
+| `<ver>` | 本次驗證的 exact version，例如 `3.6.0-rc.10` | 由使用者輸入解析，見下方 |
+| `<rc>` | `<ver>` 的短標籤，用於檔名與目錄，例如 `rc10` | 由 `<ver>` 推出 |
+| `<prev>` | 前一個 Freeze Point 的 exact version | 從最新的 D29 報告動態判斷，見下方 |
+| `<prev-rc>` | `<prev>` 的短標籤，例如 `rc9` | 由 `<prev>` 推出 |
+
+**解析 `<ver>`：**
+
+- 使用者給簡寫（`rc.10`、`rc10`）→ 補成 `3.6.0-rc.10`。給 `latest`、「最新的 RC」→ 用 `npm view vue dist-tags` 的 `rc` tag。
+- 一律用 `npm view vue versions --json` 確認該 exact version 真的存在；不存在就停下來回報，不要猜最接近的版本。
+- 不得使用 floating version（`^`、`~`、`rc`、`next`）。
+- 解析出的 exact version、解析依據（使用者原話 → npm 查證結果）、npm 發布日期，寫進 Validation Plan 第一項給使用者確認。
+
+**決定 `<prev>`：**
+
+- 找出 `results/cdp-trace/vdom-stress/` 下最新的 `DAY29_FINAL_VALIDATION_REPORT_<rc>.md`（RC 編號最大者；都沒有時是 `DAY29_FINAL_VALIDATION_REPORT.md`）。它的 Part 0 寫了 Final Validation 版本，就是 `<prev>`。
+- 同一份報告的「Commands executed」寫了 `<prev>` 實際用的 worktree、run 腳本、analyze 腳本；Phase 3、4 要複製的就是這些，不要假設檔名。
+- `<ver>` 不比 `<prev>` 新（相同或更舊）時，停下來問使用者，不要重跑既有 Freeze Point。
 
 **前一份報告是最好的範本。** 它的 Part 2「實驗設計與環境控制」與文末「Commands executed」記錄了實際做法；新一輪以它為準，只替換版本。
 
@@ -104,17 +126,18 @@ Freeze 檢查（實際驗證，寫進報告，不是假設）：
 - 編譯結果：Vapor server 送出的 `VDomStressPage.vue` 含 `defineVaporComponent`，Traditional 含 `createElementBlock`。
 - Vite pre-bundle chunk 名稱仍符合 `attribution.ts` 的 `bucketForUrl()`；不符就停下來回報，不要改 attribution 去遷就。
 - 量測 pipeline（`chrome.ts` / `tracer.ts` / `sync.ts` / `scenario.ts` / `parser.ts` / `stats.ts` / `evidence.ts`）未修改。
+- 2026-10-03 VDOM Stress 的 raw trace 從 `results/cdp-trace/vue-*` 搬到 `results/cdp-trace/vdom-stress/vue-*`，`run-validation-matrix.ts`、`run-day29-final-rc9.ts`、`analyze-day29-final-rc9.ts` 等只多了 `'vdom-stress'` 一層路徑（搬移後重算 rc.9 run2 / run3 與 matrix 的 analysis，與原檔逐項相同）。在 rc.9 之後的第一份報告揭露這項「只改路徑」的變更。
 
 ### Phase 3：量測
 
-- 由 `<prev>` 的 run 腳本（目前是 `scripts/cdp-trace/run-day29-final-rc9.ts`）複製出 `run-day29-final-<rc>.ts`，**只改版本標籤、worktree 與 port**。改動先給使用者看 diff。
+- 由 `<prev>` 的 run 腳本（`scripts/cdp-trace/run-day29-final-<prev-rc>.ts`，以 `<prev>` 報告的 Commands executed 為準）複製出 `run-day29-final-<rc>.ts`，**只改版本標籤、worktree 與 port**。改動先給使用者看 diff。
 - Matrix 包含 `<ver>` Traditional / Vapor，加上同 session 的控制組（3.5.40、`<prev>` Traditional / Vapor），每個 N 交錯執行；N、Mount / Update、warm-up / trial 數照舊。
 - **兩次獨立的 AC 量測**，結果目錄以 `-runN` 後綴區分（`RUN_SUFFIX=-runN`）。後綴接續既有編號，不得重用已存在的目錄。兩次之間重啟 dev server。
 - 作廢的量測（電池、中途中斷等）保留，analysis 檔名帶 `INVALID`。
 
 ### Phase 4：分析
 
-- 由 `<prev>` 的 analyze 腳本（目前是 `analyze-day29-final-rc9.ts`）複製出 `analyze-day29-final-<rc>.ts`，**只改 `HISTORICAL_LABELS` 與 `COMPARISONS`**；`classify()` 門檻、paired-trial 定義、metrics 清單不動。要比哪幾組是實驗設計，先給使用者看 diff。
+- 由 `<prev>` 的 analyze 腳本（`analyze-day29-final-<prev-rc>.ts`，以 `<prev>` 報告的 Commands executed 為準）複製出 `analyze-day29-final-<rc>.ts`，**只改 `HISTORICAL_LABELS` 與 `COMPARISONS`**；`classify()` 門檻、paired-trial 定義、metrics 清單不動。要比哪幾組是實驗設計，先給使用者看 diff。
 - **方法論等價檢查：** 用新腳本重算 `<prev>` 的原始資料，數字必須與 `<prev>` 報告逐項一致，才能拿新舊結果並列。
 - 產出 `results/cdp-trace/validation/day29-final-<rc>-runN-analysis.json`，再用 `compare-day29-runs.ts` 產出兩次 run 的重現性比較（`…-runA-vs-runB.json`）。
 

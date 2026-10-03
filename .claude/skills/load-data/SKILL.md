@@ -18,7 +18,7 @@ user-invocable: true
 - **量測時是否插電（AC power）。** 筆電用電池或省電模式跑的數據會出現 2–5 倍的假回歸；沒插電的 run 一律當成無效數據（見步驟 1 的 INVALID 命名）。
 - **這次有沒有新版本**（例如第一次量 rc.10）。有的話，既有 analyze 腳本認不得新版本標籤：停下來，改走 `validate-vue-update`（`/validate-vue-update 3.6.0-rc.10`），由它的 Phase 4 新增 analyze 腳本。
 
-再確認 raw trace 真的存在：每個 analyze 腳本的 `join(...)` 寫了它讀哪個目錄（例如 `results/cdp-trace/vue-<label>/<operation>-<n>/trial-NN/`）。目錄或 trial 數不齊就停下來回報，不要產出殘缺的 analysis。
+再確認 raw trace 真的存在：每個 analyze 腳本的 `join(...)` 寫了它讀哪個目錄（例如 VDOM Stress 是 `results/cdp-trace/vdom-stress/vue-<label>/<operation>-<n>/trial-NN/`，其他 scenario 是 `results/cdp-trace/<scenario>/vue-<label>/…`）。目錄或 trial 數不齊就停下來回報，不要產出殘缺的 analysis。
 
 ## 1. 產出 analysis JSON（不是複製）
 
@@ -26,7 +26,7 @@ analyze 腳本把結果印到 stdout，沒有另外的「輸出目錄」可以�
 
 | Scenario | 腳本 | 指令 |
 | --- | --- | --- |
-| VDOM Stress | 最新 Freeze Point 的 `analyze-day29-final-<rc>.ts`（目前 `rc9`） | `node scripts/cdp-trace/analyze-day29-final-<rc>.ts -runN > results/cdp-trace/validation/day29-final-<rc>-runN-analysis.json` |
+| VDOM Stress | 最新 Freeze Point 的 `analyze-day29-final-<rc>.ts`（`<rc>` 以 `results/cdp-trace/vdom-stress/` 下 RC 編號最大的 `DAY29_FINAL_VALIDATION_REPORT_<rc>.md` 為準） | `node scripts/cdp-trace/analyze-day29-final-<rc>.ts -runN > results/cdp-trace/validation/day29-final-<rc>-runN-analysis.json` |
 | Component Storm | `analyze-component-storm-vapor.ts` | `node scripts/cdp-trace/analyze-component-storm-vapor.ts -runN > results/cdp-trace/validation/component-storm-vapor-runN-analysis.json` |
 | Composable Chaos | `analyze-composable-chaos-vapor.ts` | `node scripts/cdp-trace/analyze-composable-chaos-vapor.ts -runN > results/cdp-trace/validation/composable-chaos-vapor-runN-analysis.json` |
 | Reactive Chain | `analyze-reactive-chain-vapor.ts` | `node scripts/cdp-trace/analyze-reactive-chain-vapor.ts -runN > results/cdp-trace/validation/reactive-chain-vapor-runN-analysis.json` |
