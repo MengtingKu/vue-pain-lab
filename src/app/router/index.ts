@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import DefaultLayout from '@/app/layouts/DefaultLayout.vue'
 import StageLayout from '@/app/layouts/StageLayout.vue'
@@ -16,7 +16,8 @@ import VDomStressPage from '@/scenarios/vdom-stress/VDomStressPage.vue'
 import VDomStressStagePage from '@/scenarios/vdom-stress/stage/VDomStressStagePage.vue'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  // 使用 hash 模式避免 GitHub Pages 直接訪問子路徑時 404
+  history: createWebHashHistory(),
   routes: [
     // 大會 Demo 視圖：全螢幕雙欄，不套 DefaultLayout
     {
