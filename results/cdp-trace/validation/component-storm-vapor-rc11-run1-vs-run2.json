@@ -1,0 +1,4632 @@
+{
+  "runA": "results/cdp-trace/validation/component-storm-vapor-rc11-run1-analysis.json",
+  "runB": "results/cdp-trace/validation/component-storm-vapor-rc11-run2-analysis.json",
+  "comparisons": [
+    {
+      "id": "arch-rc11",
+      "counts": {
+        "reproduced": 9,
+        "direction": 20,
+        "neither": 7
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -80
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -66.66666666666666
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -79.31034482758619
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -78.16091954022988
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -31.4487632508834
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -20.142602495543667
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -24.35020519835841
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -22.911051212938006
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -18.707015130674005
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.590829541477085
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -14.389359129383319
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.2421972534332095
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -61.18866328257191
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -37.41258741258741
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -68.25356198276597
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -62.78556102486432
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -34.19396508893379
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -23.262023105857065
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 10.29089771660932
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 22.563864375290294
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.0660305607412
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.2335847228949
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -11.917884224153873
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.531234128999492
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.208333333333334
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.544933078393881
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -35.507246376811594
+          },
+          "runB": {
+            "signal": "Not Available",
+            "deltaPct": 3.0434782608695654
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -92.14127218934911
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -87.85852922147942
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 15.030564545127653
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 23.090399439383322
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -14.429608807683298
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.260617760617761
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.6154565175217366
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 2.0699825225750073
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 15.138547127420562
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 11.072441350863626
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.7083398043174405
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.370764036513693
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -9.237549204175936
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.954885610434039
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 18.04115968153823
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 16.91169358738756
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.7612054167461375
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.28006589785832
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.998307628444614
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.6678014927327485
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -82.4766355140187
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -75.71776155717762
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -66.28810520023909
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -51.01309864920181
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -13.217771580681962
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -18.96762709978863
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -100
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -85.46220888698386
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -72.80709089388745
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -25.525119099177136
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -31.329887167012373
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -33.35853913603089
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.9430170440091583
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.2309122658804985
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.206848351907443
+          },
+          "agreement": "direction"
+        }
+      ]
+    },
+    {
+      "id": "arch-rc9-original",
+      "counts": {
+        "reproduced": 12,
+        "direction": 16,
+        "neither": 8
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -75.00000000000001
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -83.33333333333333
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -78.57142857142857
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -72.72727272727273
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -27.14570858283432
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -31.5702479338843
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -22.11055276381909
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -27.757125154894663
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -20.384615384615394
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -23.803009575923383
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -13.358302122347052
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -20.521541950113374
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -54.09724119093144
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -67.65656565656566
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -63.30223670900303
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -59.99562075760893
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -29.936970872338044
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -34.75670766436279
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 16.86094607806272
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 6.658398573753972
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.566170272548469
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 11.507161458333332
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.591607178914611
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.019310696134387
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 16.60649819494585
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.666666666666664
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -46.577017114914426
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -33.23216995447648
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -90.675856787287
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -91.68353576248313
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 6.559444970040997
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.884498480243161
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -17.67955801104972
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.6727664155005382
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.2984568516873085
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.304630115424974
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.6031623602005403
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.4577373211963589
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -14.17239555790587
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.750536760865781
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.419195386516545
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.556039874161392
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.413419913419913
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.734041333995492
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.285280255521364
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.481178811872804
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.057796715002405
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.065276304936962
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -88.48848848848849
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -93.02461899179367
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -82.77274687365244
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -70.06960556844548
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -21.771027367817737
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -27.255975136829946
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -65.59285633548096
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -86.64025927259632
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.175804359517859
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -15.861902826083686
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -0.12535018764772068
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -36.00626091144422
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -7.875442187941653
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.979297869489482
+          },
+          "agreement": "direction"
+        }
+      ]
+    },
+    {
+      "id": "arch-rc9-chrome155",
+      "counts": {
+        "reproduced": 11,
+        "direction": 17,
+        "neither": 8
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -82.5
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -70.83333333333334
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -80.70175438596492
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -75
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -20.33195020746887
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -27.463651050080767
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -20.086705202312146
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -33.25917686318132
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -17.385257301808075
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -11.738484398216956
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -7.47422680412369
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -25.29474812433013
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -63.11038607939098
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -53.64052057685543
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -75.7238716793823
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -61.57843848199178
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -22.65491203487467
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -30.13349309491989
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -15.68270844991606
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.24170477765885
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -17.893306150186884
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.937989351706858
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.2018794213916166
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.9843172193270435
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -14.43089430894309
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.6423982869379015
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -35.88907014681892
+          },
+          "runB": {
+            "signal": "Not Available",
+            "deltaPct": -27.09030100334448
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -88.8139281828074
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -90.9162873540471
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.150375939849624
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 17.657722987672226
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -20.76089695137314
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.274424663482414
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 2.4636140338013712
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.219775422174877
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.4399607822901075
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.563263957713908
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -30.125523012552303
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -29.27063759122493
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 4.303651448600204
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.880479851857816
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.234715735505848
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 6.250298885753909
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -29.97114998356645
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.127655727330259
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.026371308016877634
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.604409253221549
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -61.337209302325576
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -85.60945780676722
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -50.68441064638783
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -51.06831464980358
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -24.263551451608613
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -22.87188306104901
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -100
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -77.40733664501337
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -79.77704376548307
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -14.755453840758923
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 5.755039782330874
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.21019429724956
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.088373175978344
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -7.574774681266974
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.430258015673275
+          },
+          "agreement": "direction"
+        }
+      ]
+    },
+    {
+      "id": "arch-rc4-chrome155",
+      "counts": {
+        "reproduced": 6,
+        "direction": 21,
+        "neither": 9
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -80
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -67.74193548387098
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -73.07692307692308
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -75.30864197530865
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -26.728971962616814
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -18.839590443686003
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -23.94557823129252
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -21.885157096424717
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -20.527045769764214
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -30.632235084594832
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -17.139175257731956
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -19.377777777777773
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -62.880246438197915
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -50.77025232403718
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -60.090302316450725
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -64.11338618604915
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -29.854505742267314
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -19.992678624912642
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.983563546569951
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 7.9637841832963785
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.989250414832984
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.377324234645965
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -13.62919548508065
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -2.7461137392665753
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.36779324055666
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.67236467236467
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -21.922428330522767
+          },
+          "runB": {
+            "signal": "Not Available",
+            "deltaPct": 116.7785234899329
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -90.9423076923077
+          },
+          "runB": {
+            "signal": "Not Available",
+            "deltaPct": -93.34397082288581
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.167070217917676
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 24.286483575659666
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 16.513056835637478
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 6.813627254509018
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.362508858965272
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.041614326666022
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -7.10633413336116
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.756381458035532
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.3107250598148341
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -15.970796258270592
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.489083952284492
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.0986557302346776
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.0135390886591935
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.179633551238375
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.999608778999256
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.674562887760858
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -9.915271333467823
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.76164231907776
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -70.79407806191116
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -82.45412844036697
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -23.262243285939967
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -79.73954892894216
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.567164179104477
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -68.9705534064893
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -100
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -85.50542715794137
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -91.52133377207414
+          },
+          "agreement": "reproduced"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -20.787956256213604
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -23.197935872057496
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -32.02917406308919
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -46.69685562620868
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.059658380540969
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -17.47845167036894
+          },
+          "agreement": "neither"
+        }
+      ]
+    },
+    {
+      "id": "version-trad-rc9-rc11",
+      "counts": {
+        "direction": 13,
+        "neither": 21,
+        "conflicting": 2
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 0
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.7543859649122904
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.749999999999991
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 17.427385892116178
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.369951534733447
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.635838150289005
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -17.463848720800893
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 1.1126564673157122
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 6.129271916790489
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Regression",
+            "deltaPct": 6.5721649484536195
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -14.147909967845662
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.838499184339315
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.5979599015124868
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.739681956062137
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.2422044960116025
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 17.511287560330064
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.51805766778807
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -10.548405148293229
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.7484674515909315
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.7125382262996942
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -9.470717193861573
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.043870763382959
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -3.8773691982864884
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -2.4390243902439024
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 11.991434689507495
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.561174551386623
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -23.076923076923077
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 17.693144722524483
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.232733029883239
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.87593984962406
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.4807831762146484
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.558578987150416
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -10.030395136778116
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.935550097151446
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.077676684770271
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.534754115279426
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.5173439048562933
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.030334728033473
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -30.105318358606826
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.6958161409113095
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.8612777263395195
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.4929592302559955
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.1142460905743388
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.265420151188694
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.537504143688034
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.23378164556962
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.1451637944418565
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 107.3643410852713
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.22503057480636
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 27.224334600760457
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.371562709590879
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -16.02756858883951
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 6.608948320336822
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Regression",
+            "deltaPct": 1052.2727272727273
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 95
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -14.955537590945836
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 309.2577813248204
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 33.72181887657623
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.2469033856317093
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.096009744933742
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 51.84565280125325
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 17.62869038607116
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -11.204592764033542
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.6880654592004429
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.8023653141816545
+          },
+          "agreement": "direction"
+        }
+      ]
+    },
+    {
+      "id": "version-vapor-rc9-rc11",
+      "counts": {
+        "direction": 21,
+        "neither": 14,
+        "conflicting": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.285714285714299
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.285714285714299
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.09090909090908
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.000000000000004
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.0416666666666443
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.22271714922050892
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -4.666666666666662
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.5050505050505002
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.2946127946128018
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.3927576601671505
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 7.747489239598288
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.195754716981133
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 35.81183611532625
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 40.893600908746684
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.250707769738912
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.020129330951362503
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.4793210351575383
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 17.006802721088434
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 18.6084142394822
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.671908624399934
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.168608909902111
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -2.59469335442175
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.442307939321542
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 19.95249406175772
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 17.4468085106383
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 13.231552162849871
+          },
+          "runB": {
+            "signal": "Not Available",
+            "deltaPct": 8.715596330275229
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -17.315175097276263
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 22.657952069716774
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 11.541143654114364
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.258859784283514
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 16.15262321144674
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 1.0423905489923557
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -2.2308490464775126
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.949146916284936
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 18.71380508521317
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 7.8675596169493645
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 42.118263473053894
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.1272783441458145
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.766472414819855
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.26065827258670204
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 20.281647022807288
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.808173552975065
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Regression",
+            "deltaPct": 41.84918648310388
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.8148658400577315
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -6.08027946216715
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.347224089259309
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.015037593984962
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 41.359773371104815
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -13.030069390902083
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.265909535931074
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.780612065633674
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 12.005535693691616
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -13.953488372093023
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 32.78889342588812
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.687012852045588
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.4017853662339688
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -13.658282379099498
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 2.6526029366861597
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 5.0539742551927125
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -8.677351534433221
+          },
+          "agreement": "neither"
+        }
+      ]
+    },
+    {
+      "id": "version-trad-rc4-rc9",
+      "counts": {
+        "neither": 13,
+        "direction": 19,
+        "conflicting": 4
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 33.33333333333333
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -22.580645161290327
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.615384615384597
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.2345679012345634
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.90654205607476
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -57.74744027303754
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.8503401360544185
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.600216684723733
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.2773925104022034
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -20.094983674680893
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -72.35555555555555
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 18.020793222949557
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -24.48871181938911
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 6.7824892029839035
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -5.617977528089887
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.490593954766434
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -56.6727678125728
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 10.317154101396712
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -36.70238975117024
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 6.161171632638338
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.05008451762348964
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.916829125948369
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -60.4067708157161
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.1868787276341948
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -33.47578347578348
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.372681281618887
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 100.67114093959732
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -11.634615384615385
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -42.40939138363346
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.389830508474576
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -25.740441572428647
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.6129032258064515
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 15.380761523046091
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -3.3416017009213324
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -63.112055915225305
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 1.111343003234895
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -38.18664488462324
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.5513367315094143
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 4.417065936573123
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.4584740040513167
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 13.19662793347004
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.643179502110933
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -35.82236135408035
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.128046633543289
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.421319796954315
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.997175711115594
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -22.492840124184738
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -30.551816958277257
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.230886850152905
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 3.8704581358609795
+          },
+          "runB": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.5098612814947625
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.176119402985075
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -73.37412173363859
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 37.5
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -74.51146983857264
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.129370629370628
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -63.469387755102034
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -22.705456693494792
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -66.79280465065263
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -23.047862519528476
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -36.652895367725016
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.610119408580218
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.504627824246139
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.31299309345818566
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -33.64010623448711
+          },
+          "agreement": "direction"
+        }
+      ]
+    },
+    {
+      "id": "version-3540-rc11trad",
+      "counts": {
+        "neither": 9,
+        "direction": 21,
+        "conflicting": 6
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.108108108108103
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -44.18604651162792
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 61.11111111111113
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 93.33333333333331
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.509181969949923
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -62.99472295514512
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 0.4120879120879082
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -22.546972860125255
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.322824716267348
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 265.3452685421995
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.8536585365853694
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -74.7716535433071
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 18.63003387278886
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -43.41115947764147
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 62.99541093032958
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 72.37028173610356
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.043325103398386
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -62.30766796417608
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -11.16976938038344
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -34.88780015726123
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 12.386354806123242
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 10.076161462300076
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 2.5127343048902255
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -62.39298282472819
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -14.590747330960854
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -37.13942307692308
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 29.69924812030075
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -39.39393939393939
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 6.582577847851794
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -50.3904996255483
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -11.433121019108281
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -42.10953346855984
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 15.879478827361563
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 3.2129514321295143
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 2.691297654622838
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -65.74471933095934
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -7.624647922122844
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -38.02029240233283
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 16.381491745993493
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -7.995858260469397
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.670228820818208
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 8.013856812933025
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.867517711078408
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -35.86825047297088
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.976087594915468
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 25.897042352843574
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.970414201183432
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -21.058479985528596
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 20.089786756453424
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -46.52615144418423
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 21.012658227848103
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 217.5820604484888
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -16.916352913298756
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -71.83786959075779
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 31.68831168831169
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -46.91470054446461
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -6.984969053934571
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 201.29259694477085
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 23.395627644569817
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -73.27657482514357
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 10.977935985821356
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 31.247149372862033
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 20.759665824752283
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 39.7088976494196
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.4767332504106407
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -52.53836623771081
+          },
+          "agreement": "direction"
+        }
+      ]
+    },
+    {
+      "id": "version-3540-rc9trad",
+      "counts": {
+        "neither": 6,
+        "direction": 26,
+        "conflicting": 4
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 8.108108108108103
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -44.18604651162792
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 58.33333333333333
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 77.77777777777779
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Update Duration",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -19.53255425709516
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -59.168865435356196
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.945054945054937
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -6.158663883089761
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.33165195460278
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 244.24552429667528
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Mount Time",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -5.365853658536592
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -70.61417322834646
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 15.355664283025968
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -43.74752671151563
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 51.28633013489083
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 80.0065267051017
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -19.193571215147273
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -58.79806322984905
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -0.6946373992775771
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -37.83947257001149
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.344548915999688
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 21.591774562071592
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.23297142207111
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -60.876000935878025
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -12.455516014234876
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -43.87019230769231
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 15.225563909774436
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -21.21212121212121
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -9.4402837997635
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -45.93987375628544
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.6560509554140128
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -44.056795131845846
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 7.736156351791531
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 14.719800747198008
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.1971384587521507
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -64.28852066430099
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.239758857538173
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -39.54222257729488
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 15.194601759248103
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 31.63253566497929
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -8.06787127299425
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 14.739030023094687
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -2.5394435127827784
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -35.14561300127159
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 14.87603305785124
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 37.64881569668561
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -7.947200728265817
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -16.77649430188387
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -42.08754208754209
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -36.16965912047879
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -4.882459312839059
+          },
+          "runB": {
+            "signal": "Consistent Regression",
+            "deltaPct": 239.19402014949625
+          },
+          "agreement": "conflicting"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": -1.0584239488165135
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -73.58370863520658
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -88.57142857142857
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -72.77676950998185
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 9.372236958443855
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -26.380728554641596
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": -7.722143864598026
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -72.93915219771625
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": null
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-ParentOnly",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 1.7250183991949415
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": -13.56542189281642
+          },
+          "agreement": "neither"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-SingleChild",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Unstable",
+            "deltaPct": 2.6617447056537786
+          },
+          "runB": {
+            "signal": "Unstable",
+            "deltaPct": 57.337977265147
+          },
+          "agreement": "direction"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update-AllChildren",
+          "nodeCount": 500,
+          "runA": {
+            "signal": "Stable / No Meaningful Difference",
+            "deltaPct": 0.21279638722874963
+          },
+          "runB": {
+            "signal": "Consistent Improvement",
+            "deltaPct": -51.1699704260251
+          },
+          "agreement": "conflicting"
+        }
+      ]
+    }
+  ]
+}

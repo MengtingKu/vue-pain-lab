@@ -1,0 +1,3979 @@
+{
+  "generatedAt": "2026-10-14T06:53:07.847Z",
+  "browserVersions": {
+    "3.6.0-rc.11-traditional-run2": [
+      "Chrome/155.0.8059.41"
+    ],
+    "3.6.0-rc.11-vapor-run2": [
+      "Chrome/155.0.8059.41"
+    ],
+    "3.6.0-rc.9-traditional-run2": [
+      "Chrome/153.0.8010.54"
+    ],
+    "3.6.0-rc.9-vapor-run2": [
+      "Chrome/153.0.8010.54"
+    ],
+    "3.6.0-rc.9-traditional-chrome155-run2": [
+      "Chrome/155.0.8059.41"
+    ],
+    "3.6.0-rc.9-vapor-chrome155-run2": [
+      "Chrome/155.0.8059.41"
+    ],
+    "3.6.0-rc.4-traditional-chrome155-run2": [
+      "Chrome/155.0.8059.41"
+    ],
+    "3.6.0-rc.4-vapor-chrome155-run2": [
+      "Chrome/155.0.8059.41"
+    ],
+    "3.5.40-chrome155-run2": [
+      "Chrome/155.0.8059.41"
+    ],
+    "3.5.40-chrome153-run2": [
+      "Chrome/153.0.8010.54"
+    ]
+  },
+  "comparisons": [
+    {
+      "id": "arch-rc11",
+      "a": "3.6.0-rc.11-traditional-run2",
+      "b": "3.6.0-rc.11-vapor-run2",
+      "signalCounts": {
+        "Stable / No Meaningful Difference": 1,
+        "Unstable": 10
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 3.4000000000000004,
+            "p25": 3.125,
+            "p75": 6.025,
+            "min": 2.7,
+            "max": 6.8
+          },
+          "b": {
+            "n": 10,
+            "median": 3.3,
+            "p25": 2.8249999999999997,
+            "p75": 3.975,
+            "min": 2.6,
+            "max": 4.6
+          },
+          "delta": -0.10000000000000053,
+          "deltaPct": -2.9411764705882506,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 4796,
+            "p25": 4517.5,
+            "p75": 7817,
+            "min": 3530,
+            "max": 9200
+          },
+          "b": {
+            "n": 10,
+            "median": 5182.5,
+            "p25": 3894.25,
+            "p75": 5736.25,
+            "min": 3336,
+            "max": 6308
+          },
+          "delta": 386.5,
+          "deltaPct": 8.05879899916597,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1520.5,
+            "p25": 1194,
+            "p75": 1769.5,
+            "min": 823,
+            "max": 3333
+          },
+          "b": {
+            "n": 10,
+            "median": 1406,
+            "p25": 1031.5,
+            "p75": 1663,
+            "min": 759,
+            "max": 2368
+          },
+          "delta": -114.5,
+          "deltaPct": -7.530417625780992,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 344.5,
+            "p25": 252.75,
+            "p75": 387.5,
+            "min": 151,
+            "max": 578
+          },
+          "b": {
+            "n": 10,
+            "median": 254,
+            "p25": 174.75,
+            "p75": 310,
+            "min": 136,
+            "max": 467
+          },
+          "delta": -90.5,
+          "deltaPct": -26.2699564586357,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 460.5,
+            "p25": 372,
+            "p75": 585.75,
+            "min": 285,
+            "max": 1382
+          },
+          "b": {
+            "n": 10,
+            "median": 475,
+            "p25": 374,
+            "p75": 619.5,
+            "min": 267,
+            "max": 948
+          },
+          "delta": 14.5,
+          "deltaPct": 3.1487513572204127,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 755,
+            "p25": 714.25,
+            "p75": 830.5,
+            "min": 370,
+            "max": 1415
+          },
+          "b": {
+            "n": 10,
+            "median": 608.5,
+            "p25": 417.5,
+            "p75": 846.75,
+            "min": 351,
+            "max": 967
+          },
+          "delta": -146.5,
+          "deltaPct": -19.403973509933774,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 641,
+            "p25": 583.5,
+            "p75": 691.25,
+            "min": 301,
+            "max": 1181
+          },
+          "b": {
+            "n": 10,
+            "median": 508,
+            "p25": 346.75,
+            "p75": 712,
+            "min": 293,
+            "max": 792
+          },
+          "delta": -133,
+          "deltaPct": -20.74882995319813,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 934,
+            "p25": 816,
+            "p75": 1739.75,
+            "min": 429,
+            "max": 2749
+          },
+          "b": {
+            "n": 10,
+            "median": 227,
+            "p25": 0,
+            "p75": 801,
+            "min": 0,
+            "max": 1459
+          },
+          "delta": -707,
+          "deltaPct": -75.69593147751607,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 4362,
+            "p25": 2827,
+            "p75": 5351,
+            "min": 1705,
+            "max": 14174
+          },
+          "b": {
+            "n": 10,
+            "median": 3728.5,
+            "p25": 3291,
+            "p75": 4464,
+            "min": 2149,
+            "max": 5488
+          },
+          "delta": -633.5,
+          "deltaPct": -14.523154516276938,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 45
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 1,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 41381,
+            "p25": 36770.75,
+            "p75": 66157.25,
+            "min": 24513,
+            "max": 108061
+          },
+          "b": {
+            "n": 10,
+            "median": 60276.5,
+            "p25": 50012.75,
+            "p75": 70854.75,
+            "min": 39693,
+            "max": 114104
+          },
+          "delta": 18895.5,
+          "deltaPct": 45.662260457697975,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "arch-rc9-original",
+      "a": "3.6.0-rc.9-traditional-run2",
+      "b": "3.6.0-rc.9-vapor-run2",
+      "signalCounts": {
+        "Unstable": 10,
+        "Consistent Improvement": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 5.4,
+            "p25": 3.925,
+            "p75": 6.074999999999999,
+            "min": 3,
+            "max": 7.1
+          },
+          "b": {
+            "n": 10,
+            "median": 5.05,
+            "p25": 3.6999999999999997,
+            "p75": 5.45,
+            "min": 2.7,
+            "max": 13.8
+          },
+          "delta": -0.35000000000000053,
+          "deltaPct": -6.481481481481491,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 8047,
+            "p25": 6033.5,
+            "p75": 8597.5,
+            "min": 3868,
+            "max": 8851
+          },
+          "b": {
+            "n": 10,
+            "median": 6913.5,
+            "p25": 5550.25,
+            "p75": 7339.5,
+            "min": 5014,
+            "max": 17366
+          },
+          "delta": -1133.5,
+          "deltaPct": -14.085994780663603,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 2587.5,
+            "p25": 1653,
+            "p75": 2861.5,
+            "min": 857,
+            "max": 3036
+          },
+          "b": {
+            "n": 10,
+            "median": 2090.5,
+            "p25": 1650.75,
+            "p75": 2252.75,
+            "min": 1260,
+            "max": 5067
+          },
+          "delta": -497,
+          "deltaPct": -19.207729468599034,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 509,
+            "p25": 338.5,
+            "p75": 576.75,
+            "min": 165,
+            "max": 645
+          },
+          "b": {
+            "n": 10,
+            "median": 387,
+            "p25": 316,
+            "p75": 474.25,
+            "min": 221,
+            "max": 885
+          },
+          "delta": -122,
+          "deltaPct": -23.968565815324165,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 694.5,
+            "p25": 515.25,
+            "p75": 911.5,
+            "min": 298,
+            "max": 1389
+          },
+          "b": {
+            "n": 10,
+            "median": 604,
+            "p25": 534.5,
+            "p75": 910.75,
+            "min": 412,
+            "max": 1643
+          },
+          "delta": -90.5,
+          "deltaPct": -13.03095752339813,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1279,
+            "p25": 808.75,
+            "p75": 1490.75,
+            "min": 424,
+            "max": 1673
+          },
+          "b": {
+            "n": 10,
+            "median": 1057.5,
+            "p25": 867.25,
+            "p75": 1228.5,
+            "min": 553,
+            "max": 2892
+          },
+          "delta": -221.5,
+          "deltaPct": -17.3182173573104,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1048,
+            "p25": 682.75,
+            "p75": 1282.25,
+            "min": 373,
+            "max": 1529
+          },
+          "b": {
+            "n": 10,
+            "median": 900,
+            "p25": 747.5,
+            "p75": 1026.5,
+            "min": 448,
+            "max": 2294
+          },
+          "delta": -148,
+          "deltaPct": -14.122137404580155,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1421.5,
+            "p25": 992.25,
+            "p75": 1846.75,
+            "min": 227,
+            "max": 2901
+          },
+          "b": {
+            "n": 10,
+            "median": 582.5,
+            "p25": 50.25,
+            "p75": 611.5,
+            "min": 0,
+            "max": 1508
+          },
+          "delta": -839,
+          "deltaPct": -59.02215969046781,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 5562.5,
+            "p25": 4659.75,
+            "p75": 5965,
+            "min": 2473,
+            "max": 6415
+          },
+          "b": {
+            "n": 10,
+            "median": 4203.5,
+            "p25": 2954.5,
+            "p75": 4970.75,
+            "min": 2317,
+            "max": 6659
+          },
+          "delta": -1359,
+          "deltaPct": -24.431460674157304,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 45758.5,
+            "p25": 44384,
+            "p75": 63614,
+            "min": 30475,
+            "max": 101550
+          },
+          "b": {
+            "n": 10,
+            "median": 50448,
+            "p25": 43050.25,
+            "p75": 55304.75,
+            "min": 24829,
+            "max": 122541
+          },
+          "delta": 4689.5,
+          "deltaPct": 10.248369155457455,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "arch-rc9-chrome155",
+      "a": "3.6.0-rc.9-traditional-chrome155-run2",
+      "b": "3.6.0-rc.9-vapor-chrome155-run2",
+      "signalCounts": {
+        "Unstable": 11
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 3.95,
+            "p25": 3,
+            "p75": 4.475,
+            "min": 2.8,
+            "max": 5.2
+          },
+          "b": {
+            "n": 10,
+            "median": 3.75,
+            "p25": 3.125,
+            "p75": 5.225,
+            "min": 2.6,
+            "max": 7.1
+          },
+          "delta": -0.20000000000000018,
+          "deltaPct": -5.06329113924051,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 5529.5,
+            "p25": 5067.5,
+            "p75": 6213,
+            "min": 3912,
+            "max": 6876
+          },
+          "b": {
+            "n": 10,
+            "median": 5765,
+            "p25": 4329.5,
+            "p75": 6985.75,
+            "min": 3583,
+            "max": 9388
+          },
+          "delta": 235.5,
+          "deltaPct": 4.258974590830998,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1773,
+            "p25": 1278,
+            "p75": 1873,
+            "min": 882,
+            "max": 2376
+          },
+          "b": {
+            "n": 10,
+            "median": 1385,
+            "p25": 1075.75,
+            "p75": 1644,
+            "min": 925,
+            "max": 2979
+          },
+          "delta": -388,
+          "deltaPct": -21.88381274675691,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 341.5,
+            "p25": 282,
+            "p75": 382.75,
+            "min": 169,
+            "max": 464
+          },
+          "b": {
+            "n": 10,
+            "median": 312.5,
+            "p25": 225,
+            "p75": 323.75,
+            "min": 159,
+            "max": 784
+          },
+          "delta": -29,
+          "deltaPct": -8.49194729136164,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 537,
+            "p25": 416.25,
+            "p75": 654.5,
+            "min": 308,
+            "max": 866
+          },
+          "b": {
+            "n": 10,
+            "median": 452.5,
+            "p25": 395.5,
+            "p75": 522.5,
+            "min": 289,
+            "max": 886
+          },
+          "delta": -84.5,
+          "deltaPct": -15.735567970204842,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 875.5,
+            "p25": 665,
+            "p75": 963,
+            "min": 360,
+            "max": 1091
+          },
+          "b": {
+            "n": 10,
+            "median": 714,
+            "p25": 484.25,
+            "p75": 882,
+            "min": 424,
+            "max": 1458
+          },
+          "delta": -161.5,
+          "deltaPct": -18.446601941747574,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 750,
+            "p25": 561.75,
+            "p75": 809,
+            "min": 302,
+            "max": 962
+          },
+          "b": {
+            "n": 10,
+            "median": 572.5,
+            "p25": 390.25,
+            "p75": 751.5,
+            "min": 341,
+            "max": 1294
+          },
+          "delta": -177.5,
+          "deltaPct": -23.666666666666668,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 809,
+            "p25": 695.5,
+            "p75": 1341.5,
+            "min": 596,
+            "max": 2562
+          },
+          "b": {
+            "n": 10,
+            "median": 222,
+            "p25": 102.25,
+            "p75": 612.25,
+            "min": 0,
+            "max": 1550
+          },
+          "delta": -587,
+          "deltaPct": -72.55871446229914,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 3561,
+            "p25": 2946,
+            "p75": 4336.75,
+            "min": 2559,
+            "max": 7791
+          },
+          "b": {
+            "n": 10,
+            "median": 4223,
+            "p25": 3198.5,
+            "p75": 5716.5,
+            "min": 2629,
+            "max": 9611
+          },
+          "delta": 662,
+          "deltaPct": 18.590283628194328,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 49303.5,
+            "p25": 41837.75,
+            "p75": 56845.5,
+            "min": 23621,
+            "max": 106135
+          },
+          "b": {
+            "n": 10,
+            "median": 55792,
+            "p25": 41321,
+            "p75": 67421.25,
+            "min": 20700,
+            "max": 134991
+          },
+          "delta": 6488.5,
+          "deltaPct": 13.160323303619418,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "arch-rc4-chrome155",
+      "a": "3.6.0-rc.4-traditional-chrome155-run2",
+      "b": "3.6.0-rc.4-vapor-chrome155-run2",
+      "signalCounts": {
+        "Unstable": 9,
+        "Consistent Improvement": 1,
+        "Stable / No Meaningful Difference": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 3.5,
+            "p25": 3,
+            "p75": 5.075,
+            "min": 2.9,
+            "max": 9.3
+          },
+          "b": {
+            "n": 10,
+            "median": 4.449999999999999,
+            "p25": 3.925,
+            "p75": 4.95,
+            "min": 3.2,
+            "max": 5.8
+          },
+          "delta": 0.9499999999999993,
+          "deltaPct": 27.142857142857125,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 4828,
+            "p25": 4168,
+            "p75": 6740.5,
+            "min": 3782,
+            "max": 13461
+          },
+          "b": {
+            "n": 10,
+            "median": 6451.5,
+            "p25": 5938.75,
+            "p75": 6972.75,
+            "min": 4234,
+            "max": 9124
+          },
+          "delta": 1623.5,
+          "deltaPct": 33.62676056338028,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1234,
+            "p25": 1049,
+            "p75": 1783,
+            "min": 878,
+            "max": 3147
+          },
+          "b": {
+            "n": 10,
+            "median": 1848.5,
+            "p25": 1501,
+            "p75": 2351.75,
+            "min": 1030,
+            "max": 4119
+          },
+          "delta": 614.5,
+          "deltaPct": 49.79740680713128,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 266.5,
+            "p25": 227,
+            "p75": 347.75,
+            "min": 173,
+            "max": 693
+          },
+          "b": {
+            "n": 10,
+            "median": 380.5,
+            "p25": 313,
+            "p75": 465.25,
+            "min": 163,
+            "max": 1078
+          },
+          "delta": 114,
+          "deltaPct": 42.77673545966229,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 425.5,
+            "p25": 338.5,
+            "p75": 574.75,
+            "min": 287,
+            "max": 1007
+          },
+          "b": {
+            "n": 10,
+            "median": 569,
+            "p25": 462.5,
+            "p75": 788,
+            "min": 386,
+            "max": 1535
+          },
+          "delta": 143.5,
+          "deltaPct": 33.72502937720329,
+          "pairedFavorB": 1,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 619.5,
+            "p25": 455.5,
+            "p75": 925.5,
+            "min": 378,
+            "max": 1634
+          },
+          "b": {
+            "n": 10,
+            "median": 884.5,
+            "p25": 823.25,
+            "p75": 938.25,
+            "min": 412,
+            "max": 1371
+          },
+          "delta": 265,
+          "deltaPct": 42.776432606941086,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 503,
+            "p25": 379,
+            "p75": 762,
+            "min": 310,
+            "max": 1334
+          },
+          "b": {
+            "n": 10,
+            "median": 731.5,
+            "p25": 688.5,
+            "p75": 775.5,
+            "min": 350,
+            "max": 1077
+          },
+          "delta": 228.5,
+          "deltaPct": 45.42743538767396,
+          "pairedFavorB": 2,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1220,
+            "p25": 818.75,
+            "p75": 1941.25,
+            "min": 527,
+            "max": 2431
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 391.5,
+            "min": 0,
+            "max": 719
+          },
+          "delta": -1220,
+          "deltaPct": -100,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 5353.5,
+            "p25": 4224.5,
+            "p75": 6471.5,
+            "min": 2778,
+            "max": 8911
+          },
+          "b": {
+            "n": 10,
+            "median": 4032,
+            "p25": 3214.5,
+            "p75": 4492,
+            "min": 2707,
+            "max": 6008
+          },
+          "delta": -1321.5,
+          "deltaPct": -24.684785654244887,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 70
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 58039.5,
+            "p25": 47905.5,
+            "p75": 83177.75,
+            "min": 29272,
+            "max": 107344
+          },
+          "b": {
+            "n": 10,
+            "median": 57939.5,
+            "p25": 42206.25,
+            "p75": 78160.5,
+            "min": 38923,
+            "max": 102499
+          },
+          "delta": -100,
+          "deltaPct": -0.17229645327750928,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        }
+      ]
+    },
+    {
+      "id": "version-trad-rc9-rc11",
+      "a": "3.6.0-rc.9-traditional-chrome155-run2",
+      "b": "3.6.0-rc.11-traditional-run2",
+      "signalCounts": {
+        "Unstable": 11
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 3.95,
+            "p25": 3,
+            "p75": 4.475,
+            "min": 2.8,
+            "max": 5.2
+          },
+          "b": {
+            "n": 10,
+            "median": 3.4000000000000004,
+            "p25": 3.125,
+            "p75": 6.025,
+            "min": 2.7,
+            "max": 6.8
+          },
+          "delta": -0.5499999999999998,
+          "deltaPct": -13.924050632911387,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 5529.5,
+            "p25": 5067.5,
+            "p75": 6213,
+            "min": 3912,
+            "max": 6876
+          },
+          "b": {
+            "n": 10,
+            "median": 4796,
+            "p25": 4517.5,
+            "p75": 7817,
+            "min": 3530,
+            "max": 9200
+          },
+          "delta": -733.5,
+          "deltaPct": -13.265213852970431,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1773,
+            "p25": 1278,
+            "p75": 1873,
+            "min": 882,
+            "max": 2376
+          },
+          "b": {
+            "n": 10,
+            "median": 1520.5,
+            "p25": 1194,
+            "p75": 1769.5,
+            "min": 823,
+            "max": 3333
+          },
+          "delta": -252.5,
+          "deltaPct": -14.241398759165257,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 341.5,
+            "p25": 282,
+            "p75": 382.75,
+            "min": 169,
+            "max": 464
+          },
+          "b": {
+            "n": 10,
+            "median": 344.5,
+            "p25": 252.75,
+            "p75": 387.5,
+            "min": 151,
+            "max": 578
+          },
+          "delta": 3,
+          "deltaPct": 0.8784773060029283,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 537,
+            "p25": 416.25,
+            "p75": 654.5,
+            "min": 308,
+            "max": 866
+          },
+          "b": {
+            "n": 10,
+            "median": 460.5,
+            "p25": 372,
+            "p75": 585.75,
+            "min": 285,
+            "max": 1382
+          },
+          "delta": -76.5,
+          "deltaPct": -14.24581005586592,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 875.5,
+            "p25": 665,
+            "p75": 963,
+            "min": 360,
+            "max": 1091
+          },
+          "b": {
+            "n": 10,
+            "median": 755,
+            "p25": 714.25,
+            "p75": 830.5,
+            "min": 370,
+            "max": 1415
+          },
+          "delta": -120.5,
+          "deltaPct": -13.763563677898343,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 750,
+            "p25": 561.75,
+            "p75": 809,
+            "min": 302,
+            "max": 962
+          },
+          "b": {
+            "n": 10,
+            "median": 641,
+            "p25": 583.5,
+            "p75": 691.25,
+            "min": 301,
+            "max": 1181
+          },
+          "delta": -109,
+          "deltaPct": -14.533333333333335,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 809,
+            "p25": 695.5,
+            "p75": 1341.5,
+            "min": 596,
+            "max": 2562
+          },
+          "b": {
+            "n": 10,
+            "median": 934,
+            "p25": 816,
+            "p75": 1739.75,
+            "min": 429,
+            "max": 2749
+          },
+          "delta": 125,
+          "deltaPct": 15.451174289245984,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 3561,
+            "p25": 2946,
+            "p75": 4336.75,
+            "min": 2559,
+            "max": 7791
+          },
+          "b": {
+            "n": 10,
+            "median": 4362,
+            "p25": 2827,
+            "p75": 5351,
+            "min": 1705,
+            "max": 14174
+          },
+          "delta": 801,
+          "deltaPct": 22.493681550126368,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 45
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 49303.5,
+            "p25": 41837.75,
+            "p75": 56845.5,
+            "min": 23621,
+            "max": 106135
+          },
+          "b": {
+            "n": 10,
+            "median": 41381,
+            "p25": 36770.75,
+            "p75": 66157.25,
+            "min": 24513,
+            "max": 108061
+          },
+          "delta": -7922.5,
+          "deltaPct": -16.06883892624256,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "version-vapor-rc9-rc11",
+      "a": "3.6.0-rc.9-vapor-chrome155-run2",
+      "b": "3.6.0-rc.11-vapor-run2",
+      "signalCounts": {
+        "Unstable": 10,
+        "Stable / No Meaningful Difference": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 3.75,
+            "p25": 3.125,
+            "p75": 5.225,
+            "min": 2.6,
+            "max": 7.1
+          },
+          "b": {
+            "n": 10,
+            "median": 3.3,
+            "p25": 2.8249999999999997,
+            "p75": 3.975,
+            "min": 2.6,
+            "max": 4.6
+          },
+          "delta": -0.4500000000000002,
+          "deltaPct": -12.000000000000005,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 5765,
+            "p25": 4329.5,
+            "p75": 6985.75,
+            "min": 3583,
+            "max": 9388
+          },
+          "b": {
+            "n": 10,
+            "median": 5182.5,
+            "p25": 3894.25,
+            "p75": 5736.25,
+            "min": 3336,
+            "max": 6308
+          },
+          "delta": -582.5,
+          "deltaPct": -10.1040763226366,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1385,
+            "p25": 1075.75,
+            "p75": 1644,
+            "min": 925,
+            "max": 2979
+          },
+          "b": {
+            "n": 10,
+            "median": 1406,
+            "p25": 1031.5,
+            "p75": 1663,
+            "min": 759,
+            "max": 2368
+          },
+          "delta": 21,
+          "deltaPct": 1.516245487364621,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 312.5,
+            "p25": 225,
+            "p75": 323.75,
+            "min": 159,
+            "max": 784
+          },
+          "b": {
+            "n": 10,
+            "median": 254,
+            "p25": 174.75,
+            "p75": 310,
+            "min": 136,
+            "max": 467
+          },
+          "delta": -58.5,
+          "deltaPct": -18.72,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 452.5,
+            "p25": 395.5,
+            "p75": 522.5,
+            "min": 289,
+            "max": 886
+          },
+          "b": {
+            "n": 10,
+            "median": 475,
+            "p25": 374,
+            "p75": 619.5,
+            "min": 267,
+            "max": 948
+          },
+          "delta": 22.5,
+          "deltaPct": 4.972375690607735,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 714,
+            "p25": 484.25,
+            "p75": 882,
+            "min": 424,
+            "max": 1458
+          },
+          "b": {
+            "n": 10,
+            "median": 608.5,
+            "p25": 417.5,
+            "p75": 846.75,
+            "min": 351,
+            "max": 967
+          },
+          "delta": -105.5,
+          "deltaPct": -14.775910364145659,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 572.5,
+            "p25": 390.25,
+            "p75": 751.5,
+            "min": 341,
+            "max": 1294
+          },
+          "b": {
+            "n": 10,
+            "median": 508,
+            "p25": 346.75,
+            "p75": 712,
+            "min": 293,
+            "max": 792
+          },
+          "delta": -64.5,
+          "deltaPct": -11.26637554585153,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 222,
+            "p25": 102.25,
+            "p75": 612.25,
+            "min": 0,
+            "max": 1550
+          },
+          "b": {
+            "n": 10,
+            "median": 227,
+            "p25": 0,
+            "p75": 801,
+            "min": 0,
+            "max": 1459
+          },
+          "delta": 5,
+          "deltaPct": 2.2522522522522523,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 4223,
+            "p25": 3198.5,
+            "p75": 5716.5,
+            "min": 2629,
+            "max": 9611
+          },
+          "b": {
+            "n": 10,
+            "median": 3728.5,
+            "p25": 3291,
+            "p75": 4464,
+            "min": 2149,
+            "max": 5488
+          },
+          "delta": -494.5,
+          "deltaPct": -11.709685058015628,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 55792,
+            "p25": 41321,
+            "p75": 67421.25,
+            "min": 20700,
+            "max": 134991
+          },
+          "b": {
+            "n": 10,
+            "median": 60276.5,
+            "p25": 50012.75,
+            "p75": 70854.75,
+            "min": 39693,
+            "max": 114104
+          },
+          "delta": 4484.5,
+          "deltaPct": 8.037890737023229,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "version-trad-rc4-rc9",
+      "a": "3.6.0-rc.4-traditional-chrome155-run2",
+      "b": "3.6.0-rc.9-traditional-chrome155-run2",
+      "signalCounts": {
+        "Unstable": 11
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 3.5,
+            "p25": 3,
+            "p75": 5.075,
+            "min": 2.9,
+            "max": 9.3
+          },
+          "b": {
+            "n": 10,
+            "median": 3.95,
+            "p25": 3,
+            "p75": 4.475,
+            "min": 2.8,
+            "max": 5.2
+          },
+          "delta": 0.4500000000000002,
+          "deltaPct": 12.857142857142861,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 4828,
+            "p25": 4168,
+            "p75": 6740.5,
+            "min": 3782,
+            "max": 13461
+          },
+          "b": {
+            "n": 10,
+            "median": 5529.5,
+            "p25": 5067.5,
+            "p75": 6213,
+            "min": 3912,
+            "max": 6876
+          },
+          "delta": 701.5,
+          "deltaPct": 14.529826014913008,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1234,
+            "p25": 1049,
+            "p75": 1783,
+            "min": 878,
+            "max": 3147
+          },
+          "b": {
+            "n": 10,
+            "median": 1773,
+            "p25": 1278,
+            "p75": 1873,
+            "min": 882,
+            "max": 2376
+          },
+          "delta": 539,
+          "deltaPct": 43.67909238249595,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 266.5,
+            "p25": 227,
+            "p75": 347.75,
+            "min": 173,
+            "max": 693
+          },
+          "b": {
+            "n": 10,
+            "median": 341.5,
+            "p25": 282,
+            "p75": 382.75,
+            "min": 169,
+            "max": 464
+          },
+          "delta": 75,
+          "deltaPct": 28.142589118198874,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 425.5,
+            "p25": 338.5,
+            "p75": 574.75,
+            "min": 287,
+            "max": 1007
+          },
+          "b": {
+            "n": 10,
+            "median": 537,
+            "p25": 416.25,
+            "p75": 654.5,
+            "min": 308,
+            "max": 866
+          },
+          "delta": 111.5,
+          "deltaPct": 26.204465334900117,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 619.5,
+            "p25": 455.5,
+            "p75": 925.5,
+            "min": 378,
+            "max": 1634
+          },
+          "b": {
+            "n": 10,
+            "median": 875.5,
+            "p25": 665,
+            "p75": 963,
+            "min": 360,
+            "max": 1091
+          },
+          "delta": 256,
+          "deltaPct": 41.32364810330912,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 503,
+            "p25": 379,
+            "p75": 762,
+            "min": 310,
+            "max": 1334
+          },
+          "b": {
+            "n": 10,
+            "median": 750,
+            "p25": 561.75,
+            "p75": 809,
+            "min": 302,
+            "max": 962
+          },
+          "delta": 247,
+          "deltaPct": 49.10536779324055,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1220,
+            "p25": 818.75,
+            "p75": 1941.25,
+            "min": 527,
+            "max": 2431
+          },
+          "b": {
+            "n": 10,
+            "median": 809,
+            "p25": 695.5,
+            "p75": 1341.5,
+            "min": 596,
+            "max": 2562
+          },
+          "delta": -411,
+          "deltaPct": -33.68852459016393,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 5353.5,
+            "p25": 4224.5,
+            "p75": 6471.5,
+            "min": 2778,
+            "max": 8911
+          },
+          "b": {
+            "n": 10,
+            "median": 3561,
+            "p25": 2946,
+            "p75": 4336.75,
+            "min": 2559,
+            "max": 7791
+          },
+          "delta": -1792.5,
+          "deltaPct": -33.482768282432055,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 58039.5,
+            "p25": 47905.5,
+            "p75": 83177.75,
+            "min": 29272,
+            "max": 107344
+          },
+          "b": {
+            "n": 10,
+            "median": 49303.5,
+            "p25": 41837.75,
+            "p75": 56845.5,
+            "min": 23621,
+            "max": 106135
+          },
+          "delta": -8736,
+          "deltaPct": -15.05181815832321,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "version-3540-rc11trad",
+      "a": "3.5.40-chrome155-run2",
+      "b": "3.6.0-rc.11-traditional-run2",
+      "signalCounts": {
+        "Consistent Improvement": 7,
+        "Unstable": 4
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 30.85,
+            "p25": 28.45,
+            "p75": 34.725,
+            "min": 18.8,
+            "max": 43.6
+          },
+          "b": {
+            "n": 10,
+            "median": 3.4000000000000004,
+            "p25": 3.125,
+            "p75": 6.025,
+            "min": 2.7,
+            "max": 6.8
+          },
+          "delta": -27.450000000000003,
+          "deltaPct": -88.97893030794167,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 32875,
+            "p25": 30337.5,
+            "p75": 37221.25,
+            "min": 20420,
+            "max": 45852
+          },
+          "b": {
+            "n": 10,
+            "median": 4796,
+            "p25": 4517.5,
+            "p75": 7817,
+            "min": 3530,
+            "max": 9200
+          },
+          "delta": -28079,
+          "deltaPct": -85.41140684410647,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 2212.5,
+            "p25": 2043.25,
+            "p75": 3147,
+            "min": 1621,
+            "max": 4347
+          },
+          "b": {
+            "n": 10,
+            "median": 1520.5,
+            "p25": 1194,
+            "p75": 1769.5,
+            "min": 823,
+            "max": 3333
+          },
+          "delta": -692,
+          "deltaPct": -31.27683615819209,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 505.5,
+            "p25": 402.25,
+            "p75": 622.5,
+            "min": 366,
+            "max": 903
+          },
+          "b": {
+            "n": 10,
+            "median": 344.5,
+            "p25": 252.75,
+            "p75": 387.5,
+            "min": 151,
+            "max": 578
+          },
+          "delta": -161,
+          "deltaPct": -31.849653808110784,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 668,
+            "p25": 599.25,
+            "p75": 931.25,
+            "min": 435,
+            "max": 1484
+          },
+          "b": {
+            "n": 10,
+            "median": 460.5,
+            "p25": 372,
+            "p75": 585.75,
+            "min": 285,
+            "max": 1382
+          },
+          "delta": -207.5,
+          "deltaPct": -31.062874251497007,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1268.5,
+            "p25": 1047.75,
+            "p75": 1602.25,
+            "min": 764,
+            "max": 2126
+          },
+          "b": {
+            "n": 10,
+            "median": 755,
+            "p25": 714.25,
+            "p75": 830.5,
+            "min": 370,
+            "max": 1415
+          },
+          "delta": -513.5,
+          "deltaPct": -40.48088293259756,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 992,
+            "p25": 845,
+            "p75": 1300,
+            "min": 640,
+            "max": 1781
+          },
+          "b": {
+            "n": 10,
+            "median": 641,
+            "p25": 583.5,
+            "p75": 691.25,
+            "min": 301,
+            "max": 1181
+          },
+          "delta": -351,
+          "deltaPct": -35.38306451612903,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1007,
+            "p25": 564.5,
+            "p75": 1535,
+            "min": 198,
+            "max": 2829
+          },
+          "b": {
+            "n": 10,
+            "median": 934,
+            "p25": 816,
+            "p75": 1739.75,
+            "min": 429,
+            "max": 2749
+          },
+          "delta": -73,
+          "deltaPct": -7.249255213505462,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 34618.5,
+            "p25": 22188,
+            "p75": 49825.5,
+            "min": 19865,
+            "max": 64125
+          },
+          "b": {
+            "n": 10,
+            "median": 4362,
+            "p25": 2827,
+            "p75": 5351,
+            "min": 1705,
+            "max": 14174
+          },
+          "delta": -30256.5,
+          "deltaPct": -87.39980068460505,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 110
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 45
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 1,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 57791.5,
+            "p25": 38813,
+            "p75": 59033.5,
+            "min": 31947,
+            "max": 107502
+          },
+          "b": {
+            "n": 10,
+            "median": 41381,
+            "p25": 36770.75,
+            "p75": 66157.25,
+            "min": 24513,
+            "max": 108061
+          },
+          "delta": -16410.5,
+          "deltaPct": -28.396044400993226,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "version-3540-rc9trad",
+      "a": "3.5.40-chrome155-run2",
+      "b": "3.6.0-rc.9-traditional-chrome155-run2",
+      "signalCounts": {
+        "Consistent Improvement": 4,
+        "Unstable": 7
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 30.85,
+            "p25": 28.45,
+            "p75": 34.725,
+            "min": 18.8,
+            "max": 43.6
+          },
+          "b": {
+            "n": 10,
+            "median": 3.95,
+            "p25": 3,
+            "p75": 4.475,
+            "min": 2.8,
+            "max": 5.2
+          },
+          "delta": -26.900000000000002,
+          "deltaPct": -87.19611021069692,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 32875,
+            "p25": 30337.5,
+            "p75": 37221.25,
+            "min": 20420,
+            "max": 45852
+          },
+          "b": {
+            "n": 10,
+            "median": 5529.5,
+            "p25": 5067.5,
+            "p75": 6213,
+            "min": 3912,
+            "max": 6876
+          },
+          "delta": -27345.5,
+          "deltaPct": -83.18022813688214,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 2212.5,
+            "p25": 2043.25,
+            "p75": 3147,
+            "min": 1621,
+            "max": 4347
+          },
+          "b": {
+            "n": 10,
+            "median": 1773,
+            "p25": 1278,
+            "p75": 1873,
+            "min": 882,
+            "max": 2376
+          },
+          "delta": -439.5,
+          "deltaPct": -19.864406779661017,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 505.5,
+            "p25": 402.25,
+            "p75": 622.5,
+            "min": 366,
+            "max": 903
+          },
+          "b": {
+            "n": 10,
+            "median": 341.5,
+            "p25": 282,
+            "p75": 382.75,
+            "min": 169,
+            "max": 464
+          },
+          "delta": -164,
+          "deltaPct": -32.4431256181998,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 668,
+            "p25": 599.25,
+            "p75": 931.25,
+            "min": 435,
+            "max": 1484
+          },
+          "b": {
+            "n": 10,
+            "median": 537,
+            "p25": 416.25,
+            "p75": 654.5,
+            "min": 308,
+            "max": 866
+          },
+          "delta": -131,
+          "deltaPct": -19.610778443113773,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1268.5,
+            "p25": 1047.75,
+            "p75": 1602.25,
+            "min": 764,
+            "max": 2126
+          },
+          "b": {
+            "n": 10,
+            "median": 875.5,
+            "p25": 665,
+            "p75": 963,
+            "min": 360,
+            "max": 1091
+          },
+          "delta": -393,
+          "deltaPct": -30.981474182104847,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 992,
+            "p25": 845,
+            "p75": 1300,
+            "min": 640,
+            "max": 1781
+          },
+          "b": {
+            "n": 10,
+            "median": 750,
+            "p25": 561.75,
+            "p75": 809,
+            "min": 302,
+            "max": 962
+          },
+          "delta": -242,
+          "deltaPct": -24.39516129032258,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1007,
+            "p25": 564.5,
+            "p75": 1535,
+            "min": 198,
+            "max": 2829
+          },
+          "b": {
+            "n": 10,
+            "median": 809,
+            "p25": 695.5,
+            "p75": 1341.5,
+            "min": 596,
+            "max": 2562
+          },
+          "delta": -198,
+          "deltaPct": -19.662363455809334,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 34618.5,
+            "p25": 22188,
+            "p75": 49825.5,
+            "min": 19865,
+            "max": 64125
+          },
+          "b": {
+            "n": 10,
+            "median": 3561,
+            "p25": 2946,
+            "p75": 4336.75,
+            "min": 2559,
+            "max": 7791
+          },
+          "delta": -31057.5,
+          "deltaPct": -89.71359244334677,
+          "pairedFavorB": 10,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Consistent Improvement"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 110
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 1,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 57791.5,
+            "p25": 38813,
+            "p75": 59033.5,
+            "min": 31947,
+            "max": 107502
+          },
+          "b": {
+            "n": 10,
+            "median": 49303.5,
+            "p25": 41837.75,
+            "p75": 56845.5,
+            "min": 23621,
+            "max": 106135
+          },
+          "delta": -8488,
+          "deltaPct": -14.687281001531366,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "drift-3540",
+      "a": "3.5.40-chrome153-run2",
+      "b": "3.5.40-chrome155-run2",
+      "signalCounts": {
+        "Unstable": 10,
+        "Stable / No Meaningful Difference": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 25,
+            "p25": 22.95,
+            "p75": 35.925,
+            "min": 18.5,
+            "max": 46.8
+          },
+          "b": {
+            "n": 10,
+            "median": 30.85,
+            "p25": 28.45,
+            "p75": 34.725,
+            "min": 18.8,
+            "max": 43.6
+          },
+          "delta": 5.850000000000001,
+          "deltaPct": 23.400000000000006,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 27281,
+            "p25": 24711.25,
+            "p75": 37818,
+            "min": 19890,
+            "max": 48470
+          },
+          "b": {
+            "n": 10,
+            "median": 32875,
+            "p25": 30337.5,
+            "p75": 37221.25,
+            "min": 20420,
+            "max": 45852
+          },
+          "delta": 5594,
+          "deltaPct": 20.505113448920493,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 2822,
+            "p25": 2184.25,
+            "p75": 3270.5,
+            "min": 1744,
+            "max": 3961
+          },
+          "b": {
+            "n": 10,
+            "median": 2212.5,
+            "p25": 2043.25,
+            "p75": 3147,
+            "min": 1621,
+            "max": 4347
+          },
+          "delta": -609.5,
+          "deltaPct": -21.598157335223245,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 610,
+            "p25": 495.75,
+            "p75": 752.75,
+            "min": 279,
+            "max": 839
+          },
+          "b": {
+            "n": 10,
+            "median": 505.5,
+            "p25": 402.25,
+            "p75": 622.5,
+            "min": 366,
+            "max": 903
+          },
+          "delta": -104.5,
+          "deltaPct": -17.13114754098361,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 846,
+            "p25": 728.75,
+            "p75": 1051.5,
+            "min": 557,
+            "max": 1262
+          },
+          "b": {
+            "n": 10,
+            "median": 668,
+            "p25": 599.25,
+            "p75": 931.25,
+            "min": 435,
+            "max": 1484
+          },
+          "delta": -178,
+          "deltaPct": -21.04018912529551,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1334,
+            "p25": 1012.5,
+            "p75": 1594,
+            "min": 761,
+            "max": 2053
+          },
+          "b": {
+            "n": 10,
+            "median": 1268.5,
+            "p25": 1047.75,
+            "p75": 1602.25,
+            "min": 764,
+            "max": 2126
+          },
+          "delta": -65.5,
+          "deltaPct": -4.9100449775112445,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1127,
+            "p25": 859.5,
+            "p75": 1328.25,
+            "min": 567,
+            "max": 1644
+          },
+          "b": {
+            "n": 10,
+            "median": 992,
+            "p25": 845,
+            "p75": 1300,
+            "min": 640,
+            "max": 1781
+          },
+          "delta": -135,
+          "deltaPct": -11.978704525288377,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1560.5,
+            "p25": 1151.5,
+            "p75": 2968.25,
+            "min": 933,
+            "max": 4473
+          },
+          "b": {
+            "n": 10,
+            "median": 1007,
+            "p25": 564.5,
+            "p75": 1535,
+            "min": 198,
+            "max": 2829
+          },
+          "delta": -553.5,
+          "deltaPct": -35.469400833066324,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 35315,
+            "p25": 28625,
+            "p75": 57431.5,
+            "min": 19773,
+            "max": 63179
+          },
+          "b": {
+            "n": 10,
+            "median": 34618.5,
+            "p25": 22188,
+            "p75": 49825.5,
+            "min": 19865,
+            "max": 64125
+          },
+          "delta": -696.5,
+          "deltaPct": -1.9722497522299307,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 110
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 53735,
+            "p25": 43658,
+            "p75": 64305,
+            "min": 30124,
+            "max": 87639
+          },
+          "b": {
+            "n": 10,
+            "median": 57791.5,
+            "p25": 38813,
+            "p75": 59033.5,
+            "min": 31947,
+            "max": 107502
+          },
+          "delta": 4056.5,
+          "deltaPct": 7.549083465153066,
+          "pairedFavorB": 4,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "drift-rc9-trad",
+      "a": "3.6.0-rc.9-traditional-run2",
+      "b": "3.6.0-rc.9-traditional-chrome155-run2",
+      "signalCounts": {
+        "Unstable": 11
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 5.4,
+            "p25": 3.925,
+            "p75": 6.074999999999999,
+            "min": 3,
+            "max": 7.1
+          },
+          "b": {
+            "n": 10,
+            "median": 3.95,
+            "p25": 3,
+            "p75": 4.475,
+            "min": 2.8,
+            "max": 5.2
+          },
+          "delta": -1.4500000000000002,
+          "deltaPct": -26.851851851851855,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 8047,
+            "p25": 6033.5,
+            "p75": 8597.5,
+            "min": 3868,
+            "max": 8851
+          },
+          "b": {
+            "n": 10,
+            "median": 5529.5,
+            "p25": 5067.5,
+            "p75": 6213,
+            "min": 3912,
+            "max": 6876
+          },
+          "delta": -2517.5,
+          "deltaPct": -31.28495091338387,
+          "pairedFavorB": 9,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 2587.5,
+            "p25": 1653,
+            "p75": 2861.5,
+            "min": 857,
+            "max": 3036
+          },
+          "b": {
+            "n": 10,
+            "median": 1773,
+            "p25": 1278,
+            "p75": 1873,
+            "min": 882,
+            "max": 2376
+          },
+          "delta": -814.5,
+          "deltaPct": -31.478260869565215,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 509,
+            "p25": 338.5,
+            "p75": 576.75,
+            "min": 165,
+            "max": 645
+          },
+          "b": {
+            "n": 10,
+            "median": 341.5,
+            "p25": 282,
+            "p75": 382.75,
+            "min": 169,
+            "max": 464
+          },
+          "delta": -167.5,
+          "deltaPct": -32.90766208251473,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 694.5,
+            "p25": 515.25,
+            "p75": 911.5,
+            "min": 298,
+            "max": 1389
+          },
+          "b": {
+            "n": 10,
+            "median": 537,
+            "p25": 416.25,
+            "p75": 654.5,
+            "min": 308,
+            "max": 866
+          },
+          "delta": -157.5,
+          "deltaPct": -22.67818574514039,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1279,
+            "p25": 808.75,
+            "p75": 1490.75,
+            "min": 424,
+            "max": 1673
+          },
+          "b": {
+            "n": 10,
+            "median": 875.5,
+            "p25": 665,
+            "p75": 963,
+            "min": 360,
+            "max": 1091
+          },
+          "delta": -403.5,
+          "deltaPct": -31.54808444096951,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1048,
+            "p25": 682.75,
+            "p75": 1282.25,
+            "min": 373,
+            "max": 1529
+          },
+          "b": {
+            "n": 10,
+            "median": 750,
+            "p25": 561.75,
+            "p75": 809,
+            "min": 302,
+            "max": 962
+          },
+          "delta": -298,
+          "deltaPct": -28.435114503816795,
+          "pairedFavorB": 6,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1421.5,
+            "p25": 992.25,
+            "p75": 1846.75,
+            "min": 227,
+            "max": 2901
+          },
+          "b": {
+            "n": 10,
+            "median": 809,
+            "p25": 695.5,
+            "p75": 1341.5,
+            "min": 596,
+            "max": 2562
+          },
+          "delta": -612.5,
+          "deltaPct": -43.08828702075272,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 5562.5,
+            "p25": 4659.75,
+            "p75": 5965,
+            "min": 2473,
+            "max": 6415
+          },
+          "b": {
+            "n": 10,
+            "median": 3561,
+            "p25": 2946,
+            "p75": 4336.75,
+            "min": 2559,
+            "max": 7791
+          },
+          "delta": -2001.5,
+          "deltaPct": -35.98202247191011,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 45758.5,
+            "p25": 44384,
+            "p75": 63614,
+            "min": 30475,
+            "max": 101550
+          },
+          "b": {
+            "n": 10,
+            "median": 49303.5,
+            "p25": 41837.75,
+            "p75": 56845.5,
+            "min": 23621,
+            "max": 106135
+          },
+          "delta": 3545,
+          "deltaPct": 7.74719451030956,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    },
+    {
+      "id": "drift-rc9-vapor",
+      "a": "3.6.0-rc.9-vapor-run2",
+      "b": "3.6.0-rc.9-vapor-chrome155-run2",
+      "signalCounts": {
+        "Unstable": 10,
+        "Stable / No Meaningful Difference": 1
+      },
+      "cells": [
+        {
+          "metric": "Update Duration",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 5.05,
+            "p25": 3.6999999999999997,
+            "p75": 5.45,
+            "min": 2.7,
+            "max": 13.8
+          },
+          "b": {
+            "n": 10,
+            "median": 3.75,
+            "p25": 3.125,
+            "p75": 5.225,
+            "min": 2.6,
+            "max": 7.1
+          },
+          "delta": -1.2999999999999998,
+          "deltaPct": -25.742574257425737,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Scripting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 6913.5,
+            "p25": 5550.25,
+            "p75": 7339.5,
+            "min": 5014,
+            "max": 17366
+          },
+          "b": {
+            "n": 10,
+            "median": 5765,
+            "p25": 4329.5,
+            "p75": 6985.75,
+            "min": 3583,
+            "max": 9388
+          },
+          "delta": -1148.5,
+          "deltaPct": -16.612424965646923,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Rendering",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 2090.5,
+            "p25": 1650.75,
+            "p75": 2252.75,
+            "min": 1260,
+            "max": 5067
+          },
+          "b": {
+            "n": 10,
+            "median": 1385,
+            "p25": 1075.75,
+            "p75": 1644,
+            "min": 925,
+            "max": 2979
+          },
+          "delta": -705.5,
+          "deltaPct": -33.74790719923463,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Recalculate Style",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 387,
+            "p25": 316,
+            "p75": 474.25,
+            "min": 221,
+            "max": 885
+          },
+          "b": {
+            "n": 10,
+            "median": 312.5,
+            "p25": 225,
+            "p75": 323.75,
+            "min": 159,
+            "max": 784
+          },
+          "delta": -74.5,
+          "deltaPct": -19.25064599483204,
+          "pairedFavorB": 7,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Layout",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 604,
+            "p25": 534.5,
+            "p75": 910.75,
+            "min": 412,
+            "max": 1643
+          },
+          "b": {
+            "n": 10,
+            "median": 452.5,
+            "p25": 395.5,
+            "p75": 522.5,
+            "min": 289,
+            "max": 886
+          },
+          "delta": -151.5,
+          "deltaPct": -25.08278145695364,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": false,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Painting",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 1057.5,
+            "p25": 867.25,
+            "p75": 1228.5,
+            "min": 553,
+            "max": 2892
+          },
+          "b": {
+            "n": 10,
+            "median": 714,
+            "p25": 484.25,
+            "p75": 882,
+            "min": 424,
+            "max": 1458
+          },
+          "delta": -343.5,
+          "deltaPct": -32.4822695035461,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Paint",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 900,
+            "p25": 747.5,
+            "p75": 1026.5,
+            "min": 448,
+            "max": 2294
+          },
+          "b": {
+            "n": 10,
+            "median": 572.5,
+            "p25": 390.25,
+            "p75": 751.5,
+            "min": 341,
+            "max": 1294
+          },
+          "delta": -327.5,
+          "deltaPct": -36.388888888888886,
+          "pairedFavorB": 8,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Vue Runtime CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 582.5,
+            "p25": 50.25,
+            "p75": 611.5,
+            "min": 0,
+            "max": 1508
+          },
+          "b": {
+            "n": 10,
+            "median": 222,
+            "p25": 102.25,
+            "p75": 612.25,
+            "min": 0,
+            "max": 1550
+          },
+          "delta": -360.5,
+          "deltaPct": -61.88841201716738,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "Application CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 4203.5,
+            "p25": 2954.5,
+            "p75": 4970.75,
+            "min": 2317,
+            "max": 6659
+          },
+          "b": {
+            "n": 10,
+            "median": 4223,
+            "p25": 3198.5,
+            "p75": 5716.5,
+            "min": 2629,
+            "max": 9611
+          },
+          "delta": 19.5,
+          "deltaPct": 0.4638991316759843,
+          "pairedFavorB": 5,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Stable / No Meaningful Difference"
+        },
+        {
+          "metric": "DevTools Overlay CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "b": {
+            "n": 10,
+            "median": 0,
+            "p25": 0,
+            "p75": 0,
+            "min": 0,
+            "max": 0
+          },
+          "delta": 0,
+          "deltaPct": null,
+          "pairedFavorB": 0,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        },
+        {
+          "metric": "V8/native CPU",
+          "operation": "update",
+          "nodeCount": 100,
+          "a": {
+            "n": 10,
+            "median": 50448,
+            "p25": 43050.25,
+            "p75": 55304.75,
+            "min": 24829,
+            "max": 122541
+          },
+          "b": {
+            "n": 10,
+            "median": 55792,
+            "p25": 41321,
+            "p75": 67421.25,
+            "min": 20700,
+            "max": 134991
+          },
+          "delta": 5344,
+          "deltaPct": 10.593085949888994,
+          "pairedFavorB": 3,
+          "pairedTotal": 10,
+          "iqrOverlap": true,
+          "signal": "Unstable"
+        }
+      ]
+    }
+  ],
+  "costStructures": [
+    {
+      "label": "3.5.40-chrome155-run2",
+      "operation": "update",
+      "nodeCount": 100,
+      "scriptingUs": 32875,
+      "renderingUs": 2212.5,
+      "paintingUs": 1268.5,
+      "totalUs": 36356,
+      "scriptingPct": 90.42523930025305,
+      "renderingPct": 6.085652987127297,
+      "paintingPct": 3.4891077126196506
+    },
+    {
+      "label": "3.6.0-rc.4-traditional-chrome155-run2",
+      "operation": "update",
+      "nodeCount": 100,
+      "scriptingUs": 4828,
+      "renderingUs": 1234,
+      "paintingUs": 619.5,
+      "totalUs": 6681.5,
+      "scriptingPct": 72.259223228317,
+      "renderingPct": 18.468906682631143,
+      "paintingPct": 9.271870089051859
+    },
+    {
+      "label": "3.6.0-rc.4-vapor-chrome155-run2",
+      "operation": "update",
+      "nodeCount": 100,
+      "scriptingUs": 6451.5,
+      "renderingUs": 1848.5,
+      "paintingUs": 884.5,
+      "totalUs": 9184.5,
+      "scriptingPct": 70.24334476563776,
+      "renderingPct": 20.126299744134137,
+      "paintingPct": 9.630355490228101
+    },
+    {
+      "label": "3.6.0-rc.9-traditional-chrome155-run2",
+      "operation": "update",
+      "nodeCount": 100,
+      "scriptingUs": 5529.5,
+      "renderingUs": 1773,
+      "paintingUs": 875.5,
+      "totalUs": 8178,
+      "scriptingPct": 67.61433113230618,
+      "renderingPct": 21.680117388114454,
+      "paintingPct": 10.70555147957936
+    },
+    {
+      "label": "3.6.0-rc.9-vapor-chrome155-run2",
+      "operation": "update",
+      "nodeCount": 100,
+      "scriptingUs": 5765,
+      "renderingUs": 1385,
+      "paintingUs": 714,
+      "totalUs": 7864,
+      "scriptingPct": 73.3087487283825,
+      "renderingPct": 17.611902339776194,
+      "paintingPct": 9.079348931841302
+    },
+    {
+      "label": "3.6.0-rc.11-traditional-run2",
+      "operation": "update",
+      "nodeCount": 100,
+      "scriptingUs": 4796,
+      "renderingUs": 1520.5,
+      "paintingUs": 755,
+      "totalUs": 7071.5,
+      "scriptingPct": 67.82153715619033,
+      "renderingPct": 21.501803012090786,
+      "paintingPct": 10.67665983171887
+    },
+    {
+      "label": "3.6.0-rc.11-vapor-run2",
+      "operation": "update",
+      "nodeCount": 100,
+      "scriptingUs": 5182.5,
+      "renderingUs": 1406,
+      "paintingUs": 608.5,
+      "totalUs": 7197,
+      "scriptingPct": 72.00917048770322,
+      "renderingPct": 19.53591774350424,
+      "paintingPct": 8.454911768792552
+    }
+  ],
+  "counters": [
+    {
+      "label": "3.5.40-chrome155-run2",
+      "counters": {
+        "G1 Dependency Depth": [
+          "100"
+        ],
+        "G1 Computed Execute Count": [
+          "200"
+        ],
+        "G1 WatchEffect Trigger Count": [
+          "2"
+        ],
+        "G2 Total Update Count": [
+          "1"
+        ],
+        "G2 Watch Trigger Count": [
+          "1"
+        ],
+        "G2 Render Count": [
+          "1"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.4-traditional-chrome155-run2",
+      "counters": {
+        "G1 Dependency Depth": [
+          "100"
+        ],
+        "G1 Computed Execute Count": [
+          "200"
+        ],
+        "G1 WatchEffect Trigger Count": [
+          "2"
+        ],
+        "G2 Total Update Count": [
+          "1"
+        ],
+        "G2 Watch Trigger Count": [
+          "1"
+        ],
+        "G2 Render Count": [
+          "1"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.4-vapor-chrome155-run2",
+      "counters": {
+        "G1 Dependency Depth": [
+          "100"
+        ],
+        "G1 Computed Execute Count": [
+          "100"
+        ],
+        "G1 WatchEffect Trigger Count": [
+          "1"
+        ],
+        "G2 Total Update Count": [
+          "1"
+        ],
+        "G2 Watch Trigger Count": [
+          "1"
+        ],
+        "G2 Render Count": [
+          "1"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.9-traditional-chrome155-run2",
+      "counters": {
+        "G1 Dependency Depth": [
+          "100"
+        ],
+        "G1 Computed Execute Count": [
+          "200"
+        ],
+        "G1 WatchEffect Trigger Count": [
+          "2"
+        ],
+        "G2 Total Update Count": [
+          "1"
+        ],
+        "G2 Watch Trigger Count": [
+          "1"
+        ],
+        "G2 Render Count": [
+          "1"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.9-vapor-chrome155-run2",
+      "counters": {
+        "G1 Dependency Depth": [
+          "100"
+        ],
+        "G1 Computed Execute Count": [
+          "100"
+        ],
+        "G1 WatchEffect Trigger Count": [
+          "1"
+        ],
+        "G2 Total Update Count": [
+          "1"
+        ],
+        "G2 Watch Trigger Count": [
+          "1"
+        ],
+        "G2 Render Count": [
+          "1"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.11-traditional-run2",
+      "counters": {
+        "G1 Dependency Depth": [
+          "100"
+        ],
+        "G1 Computed Execute Count": [
+          "200"
+        ],
+        "G1 WatchEffect Trigger Count": [
+          "2"
+        ],
+        "G2 Total Update Count": [
+          "1"
+        ],
+        "G2 Watch Trigger Count": [
+          "1"
+        ],
+        "G2 Render Count": [
+          "1"
+        ]
+      }
+    },
+    {
+      "label": "3.6.0-rc.11-vapor-run2",
+      "counters": {
+        "G1 Dependency Depth": [
+          "100"
+        ],
+        "G1 Computed Execute Count": [
+          "100"
+        ],
+        "G1 WatchEffect Trigger Count": [
+          "1"
+        ],
+        "G2 Total Update Count": [
+          "1"
+        ],
+        "G2 Watch Trigger Count": [
+          "1"
+        ],
+        "G2 Render Count": [
+          "1"
+        ]
+      }
+    }
+  ]
+}
