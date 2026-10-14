@@ -1,16 +1,18 @@
 <script setup lang="ts">
 /**
- * CDP 跨版本對比：選一份 analysis（一個 scenario 的一次驗證），再選 A / B 兩個版本，
+ * CDP 跨版本對比：選一個 dataset（一個 scenario 的同一個 Run），再選 A / B 兩個版本，
  * 對比主要耗時指標的 median 與 IQR。數字全部來自 results/cdp-trace/validation，見 src/data/telemetry.ts。
  */
 import { computed, ref, shallowRef, watch } from 'vue'
 import {
   compareVersions,
+  groupVersions,
   listDatasets,
   loadDataset,
   type Dataset,
   type Distribution,
   type Signal,
+  type VersionInfo,
 } from '@/data/telemetry'
 
 const datasets = ref(listDatasets())
@@ -39,10 +41,9 @@ watch(
         return
       }
       dataset.value = loaded
-      // 預設帶入第一組原始 comparison，保證是同一批次
-      const first = loaded?.comparisons[0]
-      versionA.value = first?.a ?? ''
-      versionB.value = first?.b ?? ''
+      // 預設帶入最新 Freeze Point 的第一組原始 comparison，保證是同一批次
+      versionA.value = loaded.defaultPair?.a ?? ''
+      versionB.value = loaded.defaultPair?.b ?? ''
     } catch (error) {
       if (id !== datasetId.value) return
       dataset.value = null
@@ -61,13 +62,16 @@ const result = computed(() => {
   return compareVersions(dataset.value, versionA.value, versionB.value)
 })
 
+const versionGroups = computed(() => (dataset.value ? groupVersions(dataset.value.versions) : []))
+
 const infoA = computed(() => dataset.value?.versions.find((v) => v.label === versionA.value))
 const infoB = computed(() => dataset.value?.versions.find((v) => v.label === versionB.value))
 
 const hasUnjudgedRows = computed(() => result.value?.rows.some((row) => row.signal === null))
 
-function describeBatch(run: string | null, browsers: string[]): string {
-  return `${run ?? 'baseline'} · ${browsers.join(', ') || 'Chrome 版本未記錄'}`
+/** 選單只顯示短名稱，完整標籤（含 Chrome / run 標記）放在下方小字 */
+function describeVersion(version: VersionInfo): string {
+  return `${version.label} · ${version.browsers.join(', ') || 'Chrome 版本未記錄'}`
 }
 
 function ms(value: number): string {
@@ -152,24 +156,24 @@ const SIGNAL_TONE: Record<Signal, string> = {
         <label class="compare__field">
           <span class="compare__label">版本 A（基準）</span>
           <select v-model="versionA" class="compare__select" :disabled="!dataset">
-            <option v-for="v in dataset?.versions" :key="v.label" :value="v.label">
-              {{ v.label }}
-            </option>
+            <optgroup v-for="g in versionGroups" :key="g.batch" :label="g.title">
+              <option v-for="v in g.versions" :key="v.label" :value="v.label" :title="v.label">
+                {{ v.name }}
+              </option>
+            </optgroup>
           </select>
-          <span v-if="infoA" class="compare__batch">{{
-            describeBatch(infoA.run, infoA.browsers)
-          }}</span>
+          <span v-if="infoA" class="compare__batch">{{ describeVersion(infoA) }}</span>
         </label>
         <label class="compare__field">
           <span class="compare__label">版本 B</span>
           <select v-model="versionB" class="compare__select" :disabled="!dataset">
-            <option v-for="v in dataset?.versions" :key="v.label" :value="v.label">
-              {{ v.label }}
-            </option>
+            <optgroup v-for="g in versionGroups" :key="g.batch" :label="g.title">
+              <option v-for="v in g.versions" :key="v.label" :value="v.label" :title="v.label">
+                {{ v.name }}
+              </option>
+            </optgroup>
           </select>
-          <span v-if="infoB" class="compare__batch">{{
-            describeBatch(infoB.run, infoB.browsers)
-          }}</span>
+          <span v-if="infoB" class="compare__batch">{{ describeVersion(infoB) }}</span>
         </label>
       </div>
 

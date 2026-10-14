@@ -99,6 +99,8 @@ vue@3.6.0-rc.9
 - 同一份報告的「Commands executed」寫了 `<prev>` 實際用的 worktree、run 腳本、analyze 腳本；Phase 3、4 要複製的就是這些，不要假設檔名。
 - `<ver>` 不比 `<prev>` 新（相同或更舊）時，停下來問使用者，不要重跑既有 Freeze Point。
 
+**中間被跳過的 RC**（例如 `<prev>` = rc.9、`<ver>` = rc.11，中間有 rc.10）：依 Final Validation Freeze Rule 第 4、5 條**不量測**，只在 Validation Plan 與新報告 Part 0 加一列「Version Change（未量測）」，寫 exact version、npm 發布日期、tag commit（`git ls-remote https://github.com/vuejs/core refs/tags/v<x>`）。用 `npm view vue versions --json` 列出 `<prev>` 與 `<ver>` 之間的所有版本。
+
 **前一份報告是最好的範本。** 它的 Part 2「實驗設計與環境控制」與文末「Commands executed」記錄了實際做法；新一輪以它為準，只替換版本。
 
 ### Phase 1：檢查並回報 Validation Plan（不改程式、不跑 benchmark）
@@ -107,11 +109,14 @@ vue@3.6.0-rc.9
 
 1. D29 `vdom-stress` Scenario 的位置、Scenario code、Node Count / benchmark parameters、warmup / trial count。
 2. Chrome / CDP pipeline（`scripts/cdp-trace/`）、profile isolation、Traditional / Vapor 的啟用方式。
-3. `<prev>` 的 worktree、run / analyze 腳本、raw 結果目錄與報告位置。
+3. `<prev>` 的 run / analyze 腳本、raw 結果目錄與報告位置；run 腳本裡**每個條件**的 worktree 仍存在、`package.json` 的 `vue` 版本正確、對 Scenario commit clean，port 沒有被占用（`netstat -ano | grep -E ':51[0-9]{2} .*LISTENING'`）。
 4. `<ver>` 是否存在於 npm（`npm view vue@<ver> version`）、它的 Vue Git commit、是否仍匯出 `vaporInteropPlugin`。
 5. **電源：** 必須插電（`Win32_Battery.BatteryStatus=2`），並記錄 Windows 電源模式的實際生效值。電池量測會產生 2–5 倍的假回歸，rc.9 的第一次 matrix 就因此作廢。
+   - `powercfg /getactivescheme` 只看得到基礎方案（常是「平衡」），實際生效的是 overlay；`Win32_PowerPlan`（WMI `root/cimv2/power`）在這台機器沒有權限。改讀 registry：`MSYS_NO_PATHCONV=1 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Power\User\PowerSchemes" | grep ActiveOverlayAc`。`ded574b5-45a0-4f42-8737-46345c09c238` = 最佳效能、`961cc777-2547-4f9d-8174-7d86181b8a7a` = 最佳電源效率。
+6. **Chrome 版本：** `chrome.ts` 用的是 `%LOCALAPPDATA%/Google/Chrome/Application/chrome.exe`（使用者層級，會自動更新）。查 `(Get-Item "$env:LOCALAPPDATA/Google/Chrome/Application/chrome.exe").VersionInfo.ProductVersion`，與 `<prev>` 報告 Part 0 的 Browser 比對。**主版本不同時**，所有控制組都要在新 Chrome 下重跑，label 加 `-chrome<major>`（rc.9 時是 `-chrome153`、rc.11 時是 `-chrome155`），不得拿新版本對舊 session 的數字比版本效應。
+7. **預估時間：** 一次 run 約每個條件 1.5 分鐘（rc.11 時 7 個條件約 10–12 分鐘），條件數會隨 Freeze Point 增加。
 
-Validation Plan 至少回報：預計建立的 worktree 與 port、如何安全切換到 `<ver>`、預計執行的 command、預計產生的結果目錄與檔案、**如何避免覆蓋 `<prev>` 與更早的結果**。目錄結構若會混淆，提出建議即可，不自行搬移或刪除既有資料。
+Validation Plan 至少回報：預計建立的 worktree 與 port、Matrix 條件清單、如何安全切換到 `<ver>`、預計執行的 command、預計產生的結果目錄與檔案、**如何避免覆蓋 `<prev>` 與更早的結果**、中間被跳過的 RC。目錄結構若會混淆，提出建議即可，不自行搬移或刪除既有資料。
 
 ### Phase 2：環境（每個版本一個 worktree，主 repo 不切版本）
 
@@ -124,26 +129,42 @@ Freeze 檢查（實際驗證，寫進報告，不是假設）：
 
 - 每個 worktree 對 Scenario commit 做 `git diff --quiet -- src/scenarios src/benchmarks`，全部 clean。
 - 編譯結果：Vapor server 送出的 `VDomStressPage.vue` 含 `defineVaporComponent`，Traditional 含 `createElementBlock`。
+  檢查方式：`curl -s http://localhost:<port>/src/scenarios/vdom-stress/VDomStressPage.vue | grep -c defineVaporComponent`（Traditional 改 grep `createElementBlock`）。每次 run 重啟 dev server 後都再查一次。
 - Vite pre-bundle chunk 名稱仍符合 `attribution.ts` 的 `bucketForUrl()`；不符就停下來回報，不要改 attribution 去遷就。
-- 量測 pipeline（`chrome.ts` / `tracer.ts` / `sync.ts` / `scenario.ts` / `parser.ts` / `stats.ts` / `evidence.ts`）未修改。
-- 2026-10-03 VDOM Stress 的 raw trace 從 `results/cdp-trace/vue-*` 搬到 `results/cdp-trace/vdom-stress/vue-*`，`run-validation-matrix.ts`、`run-day29-final-rc9.ts`、`analyze-day29-final-rc9.ts` 等只多了 `'vdom-stress'` 一層路徑（搬移後重算 rc.9 run2 / run3 與 matrix 的 analysis，與原檔逐項相同）。在 rc.9 之後的第一份報告揭露這項「只改路徑」的變更。
+  檢查方式：`curl -s http://localhost:<port>/node_modules/.vite/deps/vue.js | grep -oE 'vue\.runtime\.esm-bundler-[^"?]+'`，必須有輸出。
+- 量測 pipeline（`chrome.ts` / `tracer.ts` / `sync.ts` / `scenario.ts` / `parser.ts` / `stats.ts` / `evidence.ts`）未修改：`git diff --stat <prev 報告的 Repo HEAD> -- scripts/cdp-trace/<上述檔案> scripts/cdp-trace/attribution.ts scripts/cdp-trace/run-validation-matrix.ts`，有差異就逐一說明是否影響 vdom-stress。
+- 2026-10-03 VDOM Stress raw trace 搬到 `results/cdp-trace/vdom-stress/vue-*`（只改路徑）的揭露**已在 rc.11 報告完成**，之後的報告不需重複。
 
 ### Phase 3：量測
 
 - 由 `<prev>` 的 run 腳本（`scripts/cdp-trace/run-day29-final-<prev-rc>.ts`，以 `<prev>` 報告的 Commands executed 為準）複製出 `run-day29-final-<rc>.ts`，**只改版本標籤、worktree 與 port**。改動先給使用者看 diff。
-- Matrix 包含 `<ver>` Traditional / Vapor，加上同 session 的控制組（3.5.40、`<prev>` Traditional / Vapor），每個 N 交錯執行；N、Mount / Update、warm-up / trial 數照舊。
-- **兩次獨立的 AC 量測**，結果目錄以 `-runN` 後綴區分（`RUN_SUFFIX=-runN`）。後綴接續既有編號，不得重用已存在的目錄。兩次之間重啟 dev server。
+- Matrix **保留 `<prev>` run 腳本的全部條件，再新增 `<ver>` Traditional / Vapor**（使用者要求：原本的資料都要能在同一 session 對照）。例：rc.9 的 5 個條件（3.5.40、rc.4 T/V、rc.9 T/V）＋ rc.11 T/V = 7 個。既有條件沿用原本的 worktree 與 port，新條件用下一個沒被占用的 port（dev server 從 5174 起、Chrome debug port 從 9351 起）。每個 N 交錯執行，順序為版本由舊到新；N、Mount / Update、warm-up / trial 數照舊。
+- run 腳本的預設 `RUN_SUFFIX` 設成第一個要跑的編號（與 `<prev>` 對齊，見下一點），註解寫清楚兩次的指令。
+- **兩次獨立的 AC 量測**，結果目錄以 `-runN` 後綴區分（`RUN_SUFFIX=-runN`）。**後綴沿用 `<prev>` 兩次有效 run 的編號**（rc.9 為 `-run2` / `-run3`，則 `<ver>` 也用 `-run2` / `-run3`）：`/compare` 依「場景 + Run N」把各 Freeze Point 的 analysis 檔合成同一個 dataset，編號一致才能在同一個 Run 下用 A / B 選單比較不同版本。label 本身帶新版本或新 Chrome 標記（例如 `-chrome155`），目錄不會與既有的重名；執行前仍確認目標目錄不存在（run 腳本會拒絕覆蓋）。作廢的 run 不佔用這兩個編號。兩次之間重啟 dev server。
+- **不要事後改名 raw 目錄。** rc.11 第一次用了 `-run1` / `-run2`，想改成 `-run2` / `-run3` 時，搬移量測證據被 auto mode 拒絕，而且 `meta.json` 內的 `vueVersion` 也會和目錄名不一致。編號錯了就**追加一次新的 run** 補上缺的編號（rc.11 追加 `-run3`），既有目錄保留為額外的重複，在報告說明。
+- **使用者要求再確認再現性時**，用同一 script 追加一次獨立 run（下一個沒用過的編號）。量測前重新確認電源、Chrome 版本、worktree clean、編譯結果，並重啟所有 dev server。
+- 量測期間不要做其他吃 CPU 的事（分析、build、lint 等到量測結束再跑）；run 腳本用背景執行，等完成通知。
+- 每次 run 結束後確認：每個條件 320 個檔、`[retry]` 的分布（`awk '/^### /{h=$0} /\[retry\]/{print h}' <log> | sort | uniq -c`，應集中在小 N Update，且不限於新版本）。全部 run 結束後依 Process Management Rule 以 PID 停掉所有 dev server，worktree 保留。
 - 作廢的量測（電池、中途中斷等）保留，analysis 檔名帶 `INVALID`。
 
 ### Phase 4：分析
 
-- 由 `<prev>` 的 analyze 腳本（`analyze-day29-final-<prev-rc>.ts`，以 `<prev>` 報告的 Commands executed 為準）複製出 `analyze-day29-final-<rc>.ts`，**只改 `HISTORICAL_LABELS` 與 `COMPARISONS`**；`classify()` 門檻、paired-trial 定義、metrics 清單不動。要比哪幾組是實驗設計，先給使用者看 diff。
-- **方法論等價檢查：** 用新腳本重算 `<prev>` 的原始資料，數字必須與 `<prev>` 報告逐項一致，才能拿新舊結果並列。
-- 產出 `results/cdp-trace/validation/day29-final-<rc>-runN-analysis.json`，再用 `compare-day29-runs.ts` 產出兩次 run 的重現性比較（`…-runA-vs-runB.json`）。
+- 由 `<prev>` 的 analyze 腳本（`analyze-day29-final-<prev-rc>.ts`，以 `<prev>` 報告的 Commands executed 為準）複製出 `analyze-day29-final-<rc>.ts`，**只改 `HISTORICAL_LABELS`、`COMPARISONS` 與對應的 `COST_STRUCTURE_LABELS`**（後者只是要列 cost structure 的 label 清單，必須跟著換成新 session 的 label）；`classify()` 門檻、paired-trial 定義、metrics 清單不動。要比哪幾組是實驗設計，先給使用者看 diff。
+  - `HISTORICAL_LABELS` = `<prev>` 報告「重複 1」實際的 label（含它的 `-runN`，例如 rc.11 時是 `3.6.0-rc.9-traditional-run2`、`3.6.0-rc.9-vapor-run2`、`3.5.40-chrome153-run2`），這些不會被加上本次的後綴。
+  - `COMPARISONS` 至少包含：`arch-<rc>`（`<ver>` T → V）、`arch-<prev-rc>-original`（`<prev>` 原始資料的 T → V，用來做等價檢查）、每個控制組版本在新 Chrome 下的 T → V、`version-trad-<prev-rc>-<rc>` / `version-vapor-<prev-rc>-<rc>`、`version-3540-<rc>trad`，以及 `drift-*`（`<prev>` 原始 label → 新 Chrome label）。
+- **方法論等價檢查：** 用新腳本跑任一個 run 後，`arch-<prev-rc>-original` 的每個 cell 必須與 `day29-final-<prev-rc>-<該 run>-analysis.json` 裡 `<prev>` 的架構比較**逐項相同**（`JSON.stringify` 比對 80 個 cell 與 signalCounts），`<prev>` T/V 的 costStructures 也要相同；不同就停下來，不能並列新舊結果。
+- 產出 `results/cdp-trace/validation/day29-final-<rc>-runN-analysis.json`，再用 `compare-day29-runs.ts` 兩兩產出重現性比較（`…-runA-vs-runB.json`）。
+- **三次以上 run 時**另外統計每個 cell 在幾次 run 中同方向 Consistent（`3/3`、`2/3`、同時出現 CI 與 CR 記為 `±`），報告以這個為主，兩兩比較為輔。
+- **區塊偏移掃描（每次都做）：** 一個區塊 = 一個條件、一個 N、一個 operation 的 10 個 trial（同一個 Chrome instance）。逐一比較每個區塊的 Render Duration 中位數（讀 `cost-trace.meta.json` 的 `renderDurationMs`）與「同條件各次 run 中位數的中位數」，偏離 ×1.6 以上就列出，連同 10 個 trial 的值。rc.11 時 168 個區塊中只有 2 個偏移，且都在 rc.11 N=100 Update——單一區塊偏移會讓整列 Browser 指標同時變成 CR / CI，必須先找出來，才不會把它當成版本或架構效應。
+- 某個訊號只在部分 run 出現時，同時看 runtime-attribution-trace 的同一格（例如 Vue Runtime CPU 的絕對值），寫成 `observed, partially reproduced (k/n), mechanism not established`，並估算「隨機落在這幾個區塊」的機率。要釐清就提議針對性追加量測（例如只跑該 N、更多 Chrome instance），由使用者決定，不自行擴大 protocol。
 
 ### Phase 5：報告 `DAY29_FINAL_VALIDATION_REPORT_<rc>.md`
 
-章節沿用 `<prev>` 報告（Part 0 Freeze Point 宣告 → Part 8 必答問題 → Final Conclusion / Limitations / Files generated / Commands executed），並清楚區分 Historical Validation（3.5.40 → 3.6.0-rc.2，不重跑、不修改）與本次 Final Validation。
+章節沿用 `<prev>` 報告（Part 0 Freeze Point 宣告 → Part 8 必答問題 → Final Conclusion / Limitations / Files generated / Commands executed），並清楚區分 Historical Validation（3.5.40 → 3.6.0-rc.2，不重跑、不修改）與本次 Final Validation。`DAY29_FINAL_VALIDATION_REPORT_rc11.md` 是第一份三次 run 的報告，可當範本（Part 9 為區塊偏移分析）。
+
+- **表格數字用腳本從 analysis JSON 產生**，不要手抄；寫完後抽查幾個 cell 與 JSON 是否一致（signal 標記、正負號）。
+- **追加 run 之後要整份改寫**：Part 0（Validation Date、Browser）、Part 2（Matrix、retry 分布）、Part 3–8 的表格與結論、Final Conclusion、Limitations、Files、Commands 都要反映所有 run，不要只在文末附加一節。
+- Part 0 列出中間被跳過的 RC（「Version Change（未量測）」）。
 
 - **Evidence：** Application timing（Mount / Update × N=100/500/1000/5000）、Chrome Performance cost（Scripting / Rendering / Layout / Painting / Recalculate Style）、Runtime Attribution（Vue Runtime CPU / Application CPU，沿用相同 methodology，不因結果不好看而換方法）、Cost Structure（Update N=5000 的 Traditional vs Vapor：Scripting 絕對值與佔比、Rendering、Painting、Total main-thread cost）。
 - **兩種比較：** Version effect（`<prev>` → `<ver>`，Traditional）與 Architecture effect（Traditional → Vapor，`<ver>`）。
@@ -162,7 +183,7 @@ Freeze 檢查（實際驗證，寫進報告，不是假設）：
 
 ### Phase 6：放上對比頁
 
-執行 `load-data` skill，把 Phase 4 的 analysis 檔放上 `/compare` 對比頁並跑 build 校驗。
+執行 `load-data` skill，把 Phase 4 的 analysis 檔放上 `/compare` 對比頁並跑 build 校驗。追加 run 之後也要再跑一次（使用者會要求「跑完後再跑 load-data」）。
 
 ---
 
