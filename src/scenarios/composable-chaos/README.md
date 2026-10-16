@@ -235,11 +235,11 @@ store 隨之重置），再連續觸發 100 次 **Trigger Update**，取 median�
 摘要（median，3 trial／Depth）：
 
 | Depth | Build Duration | Average Update Duration | Computed Execute Count（100 次觸發累積） | Watch / WatchEffect / Render |
-| ----: | --------------: | -----------------------: | ------------------------------------------: | ------------------------------ |
-|     1 |         0.600 ms |                  0.469 ms |                                            0 |               100 / 101 / 201 |
-|     5 |         1.100 ms |                  0.730 ms |                                          404 |               100 / 101 / 201 |
-|    10 |         1.000 ms |                  0.696 ms |                                          909 |               100 / 101 / 201 |
-|    20 |         1.200 ms |                  1.012 ms |                                         1919 |               100 / 101 / 201 |
+| ----: | -------------: | ----------------------: | ---------------------------------------: | ---------------------------- |
+|     1 |       0.600 ms |                0.469 ms |                                        0 | 100 / 101 / 201              |
+|     5 |       1.100 ms |                0.730 ms |                                      404 | 100 / 101 / 201              |
+|    10 |       1.000 ms |                0.696 ms |                                      909 | 100 / 101 / 201              |
+|    20 |       1.200 ms |                1.012 ms |                                     1919 | 100 / 101 / 201              |
 
 重點發現：
 
@@ -341,14 +341,14 @@ Update 為一組 batch）× `cost-trace`／`runtime-attribution-trace` 雙軌量
 
 Proven / Not Proven（本輪 CDP 證據範圍內）：
 
-| 結論 | 狀態 |
-|---|---|
-| 總 JS 成本隨 Depth 增加 | **Proven**（Scripting 每個相鄰區間皆不重疊） |
-| 增加主因是 computed 計算量增加（Application CPU） | **Proven**，但含計數 instrumentation 開銷，無法拆分 |
-| Watch/WatchEffect/Render 頻率與 Depth 脫鉤 | 僅 instrumentation 證明，CDP 本輪未獨立驗證（trace 看不到單次 callback 計數） |
-| Browser Rendering Cost 隨 Depth 增加 | **Not Proven**（只有 1→5 一次跳升，之後打平） |
-| Vue Runtime 自身 bookkeeping cost 隨 Depth 增加 | **Not Proven** / Not Attributable |
-| H2（Composable 呼叫本身有額外 Runtime Cost） | **Not Proven**——本 Scenario 的 Composable 層數與 Computed 鏈長完全 1:1 耦合，沒有任何條件能單獨變動其中一個，需要下方 H2 Control Scenario 才能拆解 |
+| 結論                                              | 狀態                                                                                                                                               |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 總 JS 成本隨 Depth 增加                           | **Proven**（Scripting 每個相鄰區間皆不重疊）                                                                                                       |
+| 增加主因是 computed 計算量增加（Application CPU） | **Proven**，但含計數 instrumentation 開銷，無法拆分                                                                                                |
+| Watch/WatchEffect/Render 頻率與 Depth 脫鉤        | 僅 instrumentation 證明，CDP 本輪未獨立驗證（trace 看不到單次 callback 計數）                                                                      |
+| Browser Rendering Cost 隨 Depth 增加              | **Not Proven**（只有 1→5 一次跳升，之後打平）                                                                                                      |
+| Vue Runtime 自身 bookkeeping cost 隨 Depth 增加   | **Not Proven** / Not Attributable                                                                                                                  |
+| H2（Composable 呼叫本身有額外 Runtime Cost）      | **Not Proven**——本 Scenario 的 Composable 層數與 Computed 鏈長完全 1:1 耦合，沒有任何條件能單獨變動其中一個，需要下方 H2 Control Scenario 才能拆解 |
 
 ### Day 24：Vue 3.6.0-rc.2 Validation
 

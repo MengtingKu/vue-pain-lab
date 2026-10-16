@@ -511,7 +511,7 @@ chrome.ts/tracer.ts/sync.ts/parser.ts/rollup.ts/attribution.ts/evidence.ts，新
 2. 拆解出的每個 metric（Scripting、Rendering、Recalculate Style、Layout、Painting、
    Vue Runtime CPU、Application CPU）在這個 harness 下 Signal 皆為 `Unstable`（只有
    Paint 達到 `Stable / No Meaningful Difference`），沒有任何一項達到 `Consistent
-   Improvement`。
+Improvement`。
 3. **Vue Runtime CPU 本身中位數是變高、不是變低**（70.1ms → 73.4ms，+4.7%，Unstable）——
    沒有證據支持「Vue Runtime 變快了」。
 
