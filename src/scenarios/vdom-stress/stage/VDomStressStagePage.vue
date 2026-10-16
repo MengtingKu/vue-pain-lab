@@ -49,7 +49,62 @@ const pulseKey = ref(0)
 const matrixEl = useTemplateRef<HTMLElement>('matrix')
 const tty = useTemplateRef<InstanceType<typeof VdomTty>>('tty')
 
-const nextType = computed(() => (cards.value.length === 0 ? 'mount' : 'update'))
+// ---- 各數量的 Mount 成本（只記 mount；update 是對照組，不進比較表）----
+
+interface MountSample {
+  patchMs: number
+  layoutMs: number
+  blockedMs: number
+}
+
+const mountResults = shallowRef<Partial<Record<Mass, MountSample[]>>>({})
+
+function median(values: number[]): number {
+  const sorted = [...values].sort((a, b) => a - b)
+  const mid = Math.floor(sorted.length / 2)
+  return sorted.length % 2 ? sorted[mid]! : (sorted[mid - 1]! + sorted[mid]!) / 2
+}
+
+const mountRows = computed(() =>
+  MASS_OPTIONS.map((nodes) => {
+    const samples = mountResults.value[nodes]
+    if (!samples?.length) return { nodes, data: null }
+    const patchMs = median(samples.map((sample) => sample.patchMs))
+    const blockedMs = median(samples.map((sample) => sample.blockedMs))
+    return {
+      nodes,
+      data: {
+        runs: samples.length,
+        patchMs,
+        layoutMs: median(samples.map((sample) => sample.layoutMs)),
+        blockedMs,
+        // 每個節點的 Vue 成本（µs）：數量變大時大致持平 = 線性成長
+        patchPerNodeUs: (patchMs / nodes) * 1000,
+        tier: tierOf(blockedMs),
+      },
+    }
+  }),
+)
+
+function clearResults(): void {
+  mountResults.value = {}
+}
+
+// ---- 操作引導：依目前進度標出該做哪一步 ----
+
+const measuredMasses = computed(() => MASS_OPTIONS.filter((nodes) => mountResults.value[nodes]))
+
+const currentStep = computed<2 | 3 | 4>(() => {
+  if (!mountResults.value[selectedMass.value]) return 2
+  if (measuredMasses.value.length < 2) return 3
+  return 4
+})
+
+function stepState(step: number): 'done' | 'current' | 'todo' {
+  if (step < currentStep.value) return 'done'
+  if (step === currentStep.value) return 'current'
+  return 'todo'
+}
 
 function tierOf(blockedMs: number): Tier {
   if (blockedMs <= FRAME_BUDGET_MS) return 'stable'
@@ -109,17 +164,27 @@ function sleep(duration: number): Promise<void> {
 
 // ---- 注入 ----
 
-async function inject(): Promise<void> {
+/**
+ * mode = 'mount'：先清空矩陣（不計時），再一次掛載 N 個全新節點——這頁的主要量測。
+ * mode = 'update'：保留現有節點、用新陣列再 render 一次，走 keyed diff，當對照組。
+ */
+async function inject(mode: 'mount' | 'update'): Promise<void> {
   const matrix = matrixEl.value
   if (executing.value || purging.value || !matrix) return
+  if (mode === 'update' && cards.value.length === 0) return
 
   executing.value = true
   // 先讓 RENDERING / PATCHING 狀態畫出來，量測從下一個 task 開始
   await nextTick()
+  if (mode === 'mount' && cards.value.length > 0) {
+    // 卸載舊節點不算進這次的 Mount 成本
+    cards.value = []
+    await nextTick()
+  }
   await nextFrame()
 
   const nodes = selectedMass.value
-  const type = cards.value.length === 0 ? 'mount' : 'update'
+  const type = mode
   // MutationObserver 的 callback 可能在 nextTick 之前就以 microtask 跑掉並帶走紀錄，所以 callback 也要收
   const records: MutationRecord[] = []
   const observer = new MutationObserver((batch) => {
@@ -171,6 +236,19 @@ async function inject(): Promise<void> {
   const frameMs = frameEnd - layoutEnd
   const blockedMs = layoutEnd - start
   const tier = tierOf(blockedMs)
+
+  // Performance 面板的 Timings 軌道會出現這三段，方便在 Flame Chart 找到 Vue patch 與 Layout 的邊界
+  const runLabel = `vdom-stress ${type} ${nodes} nodes`
+  performance.measure(runLabel, { start, end: layoutEnd })
+  performance.measure(`${runLabel} · vue patch`, { start: allocEnd, end: patchEnd })
+  performance.measure(`${runLabel} · layout`, { start: patchEnd, end: layoutEnd })
+
+  if (type === 'mount') {
+    mountResults.value = {
+      ...mountResults.value,
+      [nodes]: [...(mountResults.value[nodes] ?? []), { patchMs, layoutMs, blockedMs }],
+    }
+  }
 
   const log: TtyLine[] = [
     line('sys', 'INJECT', `${type.toUpperCase()} · ${nodes} nodes requested`, start),
@@ -281,9 +359,9 @@ const ledeParts = computed<LedePart[]>(() => {
   const r = result.value
   if (!r) {
     return [
-      { text: '選擇 INJECTION_MASS，按下 ' },
-      { text: 'INJECT', strong: true },
-      { text: '：這裡會依實測的主執行緒佔用時間下判定。' },
+      { text: '選擇 Render 數量，按下 ' },
+      { text: 'TRIGGER RENDER', strong: true },
+      { text: '：這裡會依實測的主執行緒佔用時間下判定，並指出瓶頸在 Vue 還是瀏覽器 Layout。' },
     ]
   }
   const nodes = r.nodes.toLocaleString()
@@ -295,7 +373,7 @@ const ledeParts = computed<LedePart[]>(() => {
       { text: `診斷：${nodes} 個節點的資料內容沒變，keyed diff 沒有寫入任何 DOM；主執行緒被佔用 ` },
       blocked,
       {
-        text: '，幾乎全是 Vue 重建陣列與比對的成本。按 PURGE 清空後再注入，才會看到真正的 Mount 成本。',
+        text: '，幾乎全是 Vue 重建陣列與比對的成本。按 TRIGGER RENDER 才會量到一次性 Mount 的成本。',
       },
     ]
   }
@@ -332,9 +410,15 @@ const ledeParts = computed<LedePart[]>(() => {
         <h1>VDOM Stress</h1>
         <span class="vdom-stage__tag">STAGE VIEW</span>
       </div>
+      <p class="vdom-stage__question">
+        <span class="vdom-stage__question-tag">QUESTION</span>
+        一次掛載大量 UI Node（長列表、大表格）時，Vue Runtime
+        要花多少成本？節點數變多，成本怎麼成長？瓶頸在 Vue 的 render / patch，還是瀏覽器的 Layout？
+      </p>
       <p class="vdom-stage__note">
-        互動探測版本：多量了 Layout 與下一個 frame，方格樣式也不同，數字不與 benchmark 頁或 README
-        數據直接比較。
+        不做任何 Rendering 最佳化（沒有 virtual scrolling、v-memo、lazy
+        rendering）：選多少就真的建多少個 DOM 節點。互動探測版本多量了 Layout 與下一個
+        frame，方格樣式也不同，數字只在本頁內互相比較，不與 benchmark 頁或 README 數據直接比較。
       </p>
     </header>
 
@@ -344,7 +428,7 @@ const ledeParts = computed<LedePart[]>(() => {
         <h2 id="stage-control">Mass Control Panel</h2>
         <div class="control__panel">
           <fieldset class="mass">
-            <legend>INJECTION_MASS</legend>
+            <legend>RENDER COUNT · 一次掛載的節點數</legend>
             <div class="mass__options">
               <label v-for="option in MASS_OPTIONS" :key="option" class="mass__option">
                 <input
@@ -359,23 +443,19 @@ const ledeParts = computed<LedePart[]>(() => {
             </div>
           </fieldset>
 
-          <p class="control__next">
-            下一次注入：<strong>{{ nextType.toUpperCase() }}</strong>
-            <template v-if="nextType === 'mount'">（矩陣是空的，所有節點都要新建）</template>
-            <template v-else
-              >（已有 {{ cards.length.toLocaleString() }} 個節點，走 keyed diff）</template
-            >
-          </p>
-
           <div class="control__actions">
             <button
               type="button"
               class="inject"
               :class="{ 'is-executing': executing }"
               :disabled="executing"
-              @click="inject"
+              @click="inject('mount')"
             >
-              {{ executing ? '[ RENDERING / PATCHING... ]' : '[ ⚡ INJECT MASS UI NODES ]' }}
+              {{
+                executing
+                  ? '[ RENDERING / PATCHING... ]'
+                  : `[ ⚡ TRIGGER RENDER · MOUNT ${selectedMass.toLocaleString()} ]`
+              }}
             </button>
             <button
               type="button"
@@ -386,6 +466,65 @@ const ledeParts = computed<LedePart[]>(() => {
             >
               [ PURGE ]
             </button>
+            <p class="control__hint">
+              <b>Trigger Render</b> 先清空現有節點（不計時），再一次掛載
+              {{ selectedMass.toLocaleString() }} 個節點並計時。<b>PURGE</b> 只清空矩陣，不量測。
+            </p>
+          </div>
+
+          <!-- ---- 操作引導：做什麼、為什麼 ---- -->
+          <ol class="guide" aria-label="How To Run">
+            <li class="is-done">
+              <span class="guide__no">01</span>
+              <div>
+                <p class="guide__do">
+                  選 <strong>Render 數量</strong>：這次要一次掛載幾個 &lt;li&gt; 節點。
+                </p>
+                <p class="guide__why">
+                  <b>WHY</b> 節點數是這個實驗唯一的變因，每個節點結構完全相同。
+                </p>
+              </div>
+            </li>
+            <li :class="`is-${stepState(2)}`">
+              <span class="guide__no">02</span>
+              <div>
+                <p class="guide__do">
+                  按 <strong>Trigger Render</strong>：清空矩陣（不計時）→ 建立 N 筆資料 → Vue 建立
+                  vnode 並掛載 DOM → 瀏覽器 Layout。
+                </p>
+                <p class="guide__why">
+                  <b>WHY</b> 每次都從空矩陣開始，量到的永遠是「一次性 Mount」，不會混進 keyed diff
+                  的 Update 路徑。
+                </p>
+              </div>
+            </li>
+            <li :class="`is-${stepState(3)}`">
+              <span class="guide__no">03</span>
+              <div>
+                <p class="guide__do">
+                  同一個數量多按幾次，再換其他數量，到下方 <strong>Mount Cost</strong> 表比較。
+                </p>
+                <p class="guide__why">
+                  <b>WHY</b> 單次雜訊大；跨數量比較才看得出成本是否隨節點數線性成長、瓶頸何時從 Vue
+                  移到 Layout。
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <div class="control__compare">
+            <button
+              type="button"
+              class="update"
+              :disabled="executing || purging || cards.length === 0"
+              @click="inject('update')"
+            >
+              對照組：保留現有 {{ cards.length.toLocaleString() }} 個節點，再 render 一次（Update）
+            </button>
+            <p class="control__hint">
+              資料結構沒變時 Vue 走 keyed diff、幾乎不寫 DOM，可以對照出 Mount
+              的成本主要花在「建立節點」。Update 的結果不進下方比較表。
+            </p>
           </div>
 
           <dl class="budget" aria-label="判定門檻">
@@ -406,6 +545,101 @@ const ledeParts = computed<LedePart[]>(() => {
             判定依據：主執行緒連續被佔用的時間（資料準備 ＋ Vue patch ＋ 瀏覽器
             Layout），不看節點數。
           </p>
+
+          <!-- ---- 各數量的 Mount 成本 ---- -->
+          <section class="cost" aria-labelledby="stage-cost">
+            <h3 id="stage-cost">Mount Cost · 各數量的中位數</h3>
+            <table class="cost__table">
+              <thead>
+                <tr>
+                  <th scope="col">Nodes</th>
+                  <th scope="col">Runs</th>
+                  <th scope="col">Vue Patch</th>
+                  <th scope="col">Layout</th>
+                  <th scope="col">Blocked</th>
+                  <th scope="col">Vue / Node</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  v-for="row in mountRows"
+                  :key="row.nodes"
+                  :class="{ 'is-current': row.nodes === selectedMass }"
+                >
+                  <th scope="row">{{ row.nodes.toLocaleString() }}</th>
+                  <template v-if="row.data">
+                    <td :class="{ 'is-thin': row.data.runs < 3 }">{{ row.data.runs }}</td>
+                    <td :class="{ 'is-lead': row.data.patchMs >= row.data.layoutMs }">
+                      {{ row.data.patchMs.toFixed(2) }}<span class="unit">ms</span>
+                    </td>
+                    <td :class="{ 'is-lead': row.data.layoutMs > row.data.patchMs }">
+                      {{ row.data.layoutMs.toFixed(2) }}<span class="unit">ms</span>
+                    </td>
+                    <td :class="`is-${row.data.tier}`">
+                      {{ row.data.blockedMs.toFixed(2) }}<span class="unit">ms</span>
+                    </td>
+                    <td>{{ row.data.patchPerNodeUs.toFixed(1) }}<span class="unit">µs</span></td>
+                  </template>
+                  <td v-else colspan="5" class="cost__empty">尚未量測</td>
+                </tr>
+              </tbody>
+            </table>
+            <ul class="cost__read">
+              <li>
+                <b>Vue Patch</b>：Vue 建立 vnode、建立並插入 DOM 的時間（＝ benchmark 頁的
+                renderDuration）。
+              </li>
+              <li>
+                <b>Layout</b>：瀏覽器替新節點算 style 與版面的時間，Vue
+                管不到這段。兩者中較大的一段以粗體標出 = 瓶頸。
+              </li>
+              <li><b>Blocked</b>：這段期間使用者點擊、捲動都沒反應；顏色對應上方的判定門檻。</li>
+              <li>
+                <b>Vue / Node</b>：每個節點的 Vue 成本。數量變大時大致持平 = Vue 的 Mount
+                成本隨節點數線性成長。Runs 少於 3 的列（灰字）先別下結論。
+              </li>
+            </ul>
+            <button
+              v-if="measuredMasses.length"
+              type="button"
+              class="cost__clear"
+              :disabled="executing"
+              @click="clearResults"
+            >
+              clear results
+            </button>
+          </section>
+
+          <!-- ---- DevTools 對照 ---- -->
+          <details class="devtools">
+            <summary>搭配 Chrome DevTools 觀察 Flame Chart</summary>
+            <ol>
+              <li>
+                選好 Render 數量，F12 → <b>Performance</b> 面板 → 按 ● Record（可勾選 Memory 看
+                Nodes 曲線）。
+              </li>
+              <li>回到這頁按一次 <b>Trigger Render</b>，等矩陣亮起後按 Stop。</li>
+              <li>
+                在 <b>Timings</b> 軌道找
+                <code>vdom-stress mount {{ selectedMass }} nodes</code>，下面還有
+                <code>· vue patch</code> 與 <code>· layout</code> 兩段，分別對應 Main 軌道上的：
+                <ul>
+                  <li>
+                    <b>vue patch</b>：黃色的 Scripting，Vue 的 <code>mountChildren</code> →
+                    <code>patch</code> → <code>mountElement</code> 重複 N 次，數量越大越寬。
+                  </li>
+                  <li>
+                    <b>layout</b>：紫色的 Recalculate Style 與 Layout，瀏覽器替新節點排版的成本。
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Main 軌道上方帶紅色斜線的區塊 = Long Task（&gt; 50 ms），對應這頁的 VDOM
+                CHOKED。比較 1,000 與 5,000 時兩段的寬度，看哪一段先變成瓶頸。
+              </li>
+            </ol>
+            <p>函式名稱以 dev server 為準；production build 會被壓縮成短名稱。</p>
+          </details>
         </div>
       </section>
 
@@ -548,6 +782,27 @@ const ledeParts = computed<LedePart[]>(() => {
   color: var(--lab-signal);
 }
 
+.vdom-stage__question {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-family: var(--lab-font-sans);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--lab-text-silver);
+}
+
+.vdom-stage__question-tag {
+  margin-right: 0.5rem;
+  padding: 0.0625rem 0.375rem;
+  border: 1px solid color-mix(in srgb, var(--lab-warn) 45%, transparent);
+  font-family: var(--lab-font-mono);
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  vertical-align: 0.15em;
+  color: var(--lab-warn);
+}
+
 .vdom-stage__note {
   grid-column: 1 / -1;
   margin: 0;
@@ -670,18 +925,299 @@ const ledeParts = computed<LedePart[]>(() => {
   cursor: inherit;
 }
 
-.control__next {
+/* ---- 操作引導 ---- */
+
+.guide {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.guide li {
+  --tone: var(--lab-hairline-strong);
+
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--lab-hairline);
+  border-left: 2px solid var(--tone);
+  background: var(--lab-panel-sunken);
+  transition:
+    border-color 200ms var(--lab-ease-out),
+    opacity 200ms var(--lab-ease-out);
+}
+
+.guide li.is-current {
+  --tone: var(--lab-warn);
+
+  border-color: color-mix(in srgb, var(--lab-warn) 35%, var(--lab-hairline));
+  border-left-color: var(--tone);
+}
+
+.guide li.is-done {
+  --tone: var(--lab-signal-strong);
+}
+
+.guide li.is-todo {
+  opacity: 0.6;
+}
+
+.guide__no {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--tone);
+}
+
+.guide__do,
+.guide__why {
   margin: 0;
   font-family: var(--lab-font-sans);
-  font-size: 0.8125rem;
   line-height: 1.6;
+}
+
+.guide__do {
+  font-size: 0.8125rem;
+}
+
+.guide__why {
+  margin-top: 0.125rem;
+  font-size: 0.75rem;
   color: var(--lab-text-muted);
+}
+
+.guide__why b {
+  margin-right: 0.375rem;
+  font-family: var(--lab-font-mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  color: var(--tone);
 }
 
 .control__actions {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 0.75rem;
+}
+
+/* 按鈕下方的說明：跨兩欄 */
+.control__hint {
+  grid-column: 1 / -1;
+  margin: -0.25rem 0 0;
+  font-family: var(--lab-font-sans);
+  font-size: 0.75rem;
+  line-height: 1.6;
+  color: var(--lab-text-muted);
+}
+
+.control__hint b {
+  font-family: var(--lab-font-mono);
+  color: var(--lab-text-silver);
+}
+
+/* Update 對照組：次要按鈕，避免和主要的 Mount 量測搶視線 */
+.control__compare {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.control__compare .control__hint {
+  margin-top: 0;
+}
+
+.update {
+  justify-self: start;
+  padding: 0.5rem 0.75rem;
+  border: 1px dashed var(--lab-hairline-strong);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--lab-text-silver);
+  font: inherit;
+  font-family: var(--lab-font-sans);
+  font-size: 0.8125rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.update:hover:not(:disabled) {
+  border-color: var(--lab-probe);
+  color: var(--lab-text);
+}
+
+.update:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.update:focus-visible {
+  outline: 1px solid var(--lab-signal);
+  outline-offset: 2px;
+}
+
+/* ---- Mount Cost 表 ---- */
+
+.cost {
+  display: grid;
+  gap: 0.625rem;
+}
+
+.cost h3 {
+  margin: 0;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lab-text-muted);
+}
+
+.cost__table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--lab-hairline);
+  background: var(--lab-panel-sunken);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.cost__table th,
+.cost__table td {
+  padding: 0.4375rem 0.625rem;
+  border-bottom: 1px solid var(--lab-hairline);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.cost__table thead th {
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lab-text-muted);
+}
+
+.cost__table tbody th {
+  text-align: left;
+  font-weight: 700;
+  color: var(--lab-text);
+}
+
+.cost__table td {
+  color: var(--lab-text-silver);
+}
+
+.cost__table tr.is-current {
+  background: color-mix(in srgb, var(--lab-signal-strong) 10%, transparent);
+}
+
+.cost__table tr.is-current th {
+  color: var(--lab-signal);
+}
+
+.cost__table td.is-thin {
+  color: var(--lab-text-muted);
+}
+
+.cost__table td.is-lead {
+  font-weight: 800;
+  color: var(--lab-text);
+}
+
+.cost__table td.is-stable {
+  color: var(--lab-signal);
+}
+
+.cost__table td.is-drop {
+  color: var(--lab-warn);
+}
+
+.cost__table td.is-choke {
+  color: var(--lab-lock-text);
+}
+
+.cost__table td.cost__empty {
+  text-align: left;
+  font-family: var(--lab-font-sans);
+  color: var(--lab-text-muted);
+}
+
+.cost__read {
+  margin: 0;
+  padding-left: 1.125rem;
+  font-family: var(--lab-font-sans);
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: var(--lab-text-muted);
+}
+
+.cost__clear {
+  justify-self: start;
+  padding: 0.25rem 0.625rem;
+  border: 1px solid var(--lab-hairline-strong);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--lab-text-muted);
+  font: inherit;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.cost__clear:hover:not(:disabled) {
+  color: var(--lab-text);
+}
+
+/* ---- DevTools 對照 ---- */
+
+.devtools {
+  border: 1px solid var(--lab-hairline);
+  background: var(--lab-panel-sunken);
+  font-family: var(--lab-font-sans);
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+.devtools summary {
+  padding: 0.625rem 1rem;
+  font-family: var(--lab-font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--lab-probe);
+  cursor: pointer;
+}
+
+.devtools summary:focus-visible {
+  outline: 1px solid var(--lab-signal);
+  outline-offset: -1px;
+}
+
+.devtools ol {
+  margin: 0 0 0.75rem;
+  padding: 0 1rem 0 2.25rem;
+}
+
+.devtools ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.125rem;
+}
+
+.devtools li + li {
+  margin-top: 0.375rem;
+}
+
+.devtools code {
+  font-family: var(--lab-font-mono);
+  font-size: 0.9em;
+  color: var(--lab-signal);
+}
+
+.devtools p {
+  margin: 0 1rem 1rem;
+  font-size: 0.75rem;
+  color: var(--lab-text-muted);
 }
 
 .inject,
