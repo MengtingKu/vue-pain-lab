@@ -34,10 +34,14 @@ const FLICKER: Keyframe[] = [
 onUpdated(() => {
   reportRender?.(props.id)
   if (reduceMotion) return
-  litEl.value?.animate(FLICKER, { duration: 650, easing: 'linear' })
-  flashEl.value?.animate([{ opacity: 1 }, { opacity: 0 }], {
-    duration: 700,
-    easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+  // 動畫延到下一個 frame 才啟動：onUpdated 在 Parent 量測的 update 區間內執行，
+  // 直接 animate() 會把 N 個動畫的建立成本算進 Update Duration，讓 AllChildren 看起來比實際更貴
+  requestAnimationFrame(() => {
+    litEl.value?.animate(FLICKER, { duration: 650, easing: 'linear' })
+    flashEl.value?.animate([{ opacity: 1 }, { opacity: 0 }], {
+      duration: 700,
+      easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+    })
   })
 })
 </script>
