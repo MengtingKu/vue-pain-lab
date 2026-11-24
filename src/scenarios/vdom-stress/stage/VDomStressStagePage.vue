@@ -549,41 +549,44 @@ const ledeParts = computed<LedePart[]>(() => {
           <!-- ---- 各數量的 Mount 成本 ---- -->
           <section class="cost" aria-labelledby="stage-cost">
             <h3 id="stage-cost">Mount Cost · 各數量的中位數</h3>
-            <table class="cost__table">
-              <thead>
-                <tr>
-                  <th scope="col">Nodes</th>
-                  <th scope="col">Runs</th>
-                  <th scope="col">Vue Patch</th>
-                  <th scope="col">Layout</th>
-                  <th scope="col">Blocked</th>
-                  <th scope="col">Vue / Node</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  v-for="row in mountRows"
-                  :key="row.nodes"
-                  :class="{ 'is-current': row.nodes === selectedMass }"
-                >
-                  <th scope="row">{{ row.nodes.toLocaleString() }}</th>
-                  <template v-if="row.data">
-                    <td :class="{ 'is-thin': row.data.runs < 3 }">{{ row.data.runs }}</td>
-                    <td :class="{ 'is-lead': row.data.patchMs >= row.data.layoutMs }">
-                      {{ row.data.patchMs.toFixed(2) }}<span class="unit">ms</span>
-                    </td>
-                    <td :class="{ 'is-lead': row.data.layoutMs > row.data.patchMs }">
-                      {{ row.data.layoutMs.toFixed(2) }}<span class="unit">ms</span>
-                    </td>
-                    <td :class="`is-${row.data.tier}`">
-                      {{ row.data.blockedMs.toFixed(2) }}<span class="unit">ms</span>
-                    </td>
-                    <td>{{ row.data.patchPerNodeUs.toFixed(1) }}<span class="unit">µs</span></td>
-                  </template>
-                  <td v-else colspan="5" class="cost__empty">尚未量測</td>
-                </tr>
-              </tbody>
-            </table>
+            <!-- 6 欄數字放不進手機寬度：表格在自己的框內橫向捲動，不撐開整頁 -->
+            <div class="cost__scroll" tabindex="0" aria-labelledby="stage-cost">
+              <table class="cost__table">
+                <thead>
+                  <tr>
+                    <th scope="col">Nodes</th>
+                    <th scope="col">Runs</th>
+                    <th scope="col">Vue Patch</th>
+                    <th scope="col">Layout</th>
+                    <th scope="col">Blocked</th>
+                    <th scope="col">Vue / Node</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    v-for="row in mountRows"
+                    :key="row.nodes"
+                    :class="{ 'is-current': row.nodes === selectedMass }"
+                  >
+                    <th scope="row">{{ row.nodes.toLocaleString() }}</th>
+                    <template v-if="row.data">
+                      <td :class="{ 'is-thin': row.data.runs < 3 }">{{ row.data.runs }}</td>
+                      <td :class="{ 'is-lead': row.data.patchMs >= row.data.layoutMs }">
+                        {{ row.data.patchMs.toFixed(2) }}<span class="unit">ms</span>
+                      </td>
+                      <td :class="{ 'is-lead': row.data.layoutMs > row.data.patchMs }">
+                        {{ row.data.layoutMs.toFixed(2) }}<span class="unit">ms</span>
+                      </td>
+                      <td :class="`is-${row.data.tier}`">
+                        {{ row.data.blockedMs.toFixed(2) }}<span class="unit">ms</span>
+                      </td>
+                      <td>{{ row.data.patchPerNodeUs.toFixed(1) }}<span class="unit">µs</span></td>
+                    </template>
+                    <td v-else colspan="5" class="cost__empty">尚未量測</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <ul class="cost__read">
               <li>
                 <b>Vue Patch</b>：Vue 建立 vnode、建立並插入 DOM 的時間（＝ benchmark 頁的
@@ -1060,7 +1063,18 @@ const ledeParts = computed<LedePart[]>(() => {
 
 .cost {
   display: grid;
+  /* 預設的 auto 欄會被表格的 min-content 撐寬，連帶整個控制面板溢出畫面 */
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.625rem;
+}
+
+.cost__scroll {
+  overflow-x: auto;
+}
+
+.cost__scroll:focus-visible {
+  outline: 1px solid var(--lab-signal);
+  outline-offset: 2px;
 }
 
 .cost h3 {
@@ -1795,6 +1809,11 @@ const ledeParts = computed<LedePart[]>(() => {
   .inject {
     font-size: 0.75rem;
     letter-spacing: 0.04em;
+  }
+
+  .cost__table th,
+  .cost__table td {
+    padding-inline: 0.5rem;
   }
 }
 
